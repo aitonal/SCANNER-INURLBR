@@ -47,4 +47,4 @@ endforeach;
 #OPEN FILE TOKENS IPINFO.IO###############################################################
 ##########################################################################################
 $_SESSION['config']['token_ipinfo'] = explode("\n",file_get_contents("resources/token.ipinfo.inurl"));
-shuffle(shuffle($_SESSION['config']['token_ipinfo']));
+shuffle($_SESSION['config']['token_ipinfo']);

