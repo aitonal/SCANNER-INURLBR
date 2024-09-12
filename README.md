@@ -32,7 +32,6 @@ Version:  3.0.0
 
 ## Lib & Permission
 ```properties
- ----------------------------------------------------------
 PHP Version         7.4.16
 php5 curl           LIB
 php5 cli            LIB   
@@ -43,13 +42,11 @@ permission          Reading & Writing
 User                root privilege, or is in the sudoers group
 Operating system    LINUX
 Proxy random        TOR 
- ----------------------------------------------------------
-[+] PERMISSION EXECUTION: chmod +x inurlbr.php
-[+] INSTALLING LIB CURL: sudo apt-get install php7-curl
-[+] INSTALLING LIB CLI: sudo apt-get install php7-cli
-[+] INSTALLING PROXY TOR https://www.torproject.org/docs/debian.html.en
- ----------------------------------------------------------
-resume: apt-get install curl libcurl3 libcurl3-dev php7 php7-cli php7-curl
+```
+
+## install Dependencies 
+```properties
+sudo apt-get install curl libcurl3 libcurl3-dev php7 php7-cli php7-curl xterm tor
 ```
 
 ## Download
@@ -72,8 +69,12 @@ php inurlbr.php -h
 ```
 To get a list of all options and switches use:
 ```properties
-php inurlbr.php --help
-php inurlbr.php --info
+php inurlbr.php --help 
+```
+
+command examples:
+```properties
+inurlbr.php --info
 ```
 
 ## Setting your token ipinfo
@@ -654,5 +655,16 @@ php inurlbr.php --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp '([0-9]{2}[
 ![Screenshot](https://1.bp.blogspot.com/-9YocowQy_-A/YG_Jodfsz6I/AAAAAAAAAug/D03Wz6GsFQsne0uozgA-Z_Kz8xNBrjB7gCLcBGAsYHQ/s1184/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-24-45.png)
 
 
-* Demos: [http://youtube.com/c/INURLBrasil](https://www.youtube.com/playlist?list=PLV1376pVwcCmcoCmq_Z4O0ra4BqjmhIaR)
-* Tutoriais: [http://blog.inurl.com.br/search/label/INURLBR](http://blog.inurl.com.br/search/label/INURLBR)
+## References
+- TOR
+  - https://support.torproject.org/apt/
+  - https://support.torproject.org/apt/tor-deb-repo/
+  - https://help.ubuntu.com/community/Tor?action=show&redirect=TOR
+- PHP
+  - https://www.digitalocean.com/community/tutorials/how-to-install-php-7-4-and-set-up-a-local-development-environment-on-ubuntu-20-04 
+- XTERM
+  - https://installati.one/install-xterm-ubuntu-22-04/
+  - https://manpages.ubuntu.com/manpages/xenial/en/man1/xterm.1.html 
+- DEMOS INURLBR
+  - [http://youtube.com/c/INURLBrasil](https://www.youtube.com/playlist?list=PLV1376pVwcCmcoCmq_Z4O0ra4BqjmhIaR)
+  - [http://blog.inurl.com.br/search/label/INURLBR](http://blog.inurl.com.br/search/label/INURLBR)
