@@ -459,8 +459,7 @@ You can register more filter values that dirty your results
               --command-all 'php miniexploit.php -t _TARGET_ -s output.txt'
     [!] Observation:
    
-    _TARGET_ will be replaced by the URL/target found, although if the user  
-    doesn't input the get, only the domain will be executed.
+    _TARGET_ will be replaced by the URL/target found, although if the user. only the domain will be executed.
    
     _TARGETFULL_ will be replaced by the original URL / target found.
        
