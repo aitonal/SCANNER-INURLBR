@@ -10,7 +10,7 @@ function __get_color(){
     $_SESSION["c4"] = "\033[32m";     // GREEN 
     $_SESSION["c5"] = "\033[1;32m";   // GREEN LIGHT
     $_SESSION["c6"] = "\033[0;35m";   // PURPLE
-    $_SESSION["c7"] = "\033[1;30m";   // DARK GREY
+    $_SESSION["c7"] = "\033[0;37m";   // LIGHT GREY
     $_SESSION["c8"] = "\033[0;34m";   // BLUE
     $_SESSION["c9"] = "\033[0;37m";   // LIGHT GREY
     $_SESSION["c10"] = "\033[0;33m";  // BROWN
