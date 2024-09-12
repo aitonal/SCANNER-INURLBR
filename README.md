@@ -1,13 +1,21 @@
 
 
 <p style="text-align:center" align="center">
-<img src="https://lh3.googleusercontent.com/-uB97QnHQ-VY/YGYWDRmUK0I/AAAAAAAAAsI/f3BH8Kv8kvMvlrulgsbtkRsAbgHpB3mKACLcBGAsYHQ/logo2.png" width="70%" />
+<img src="https://lh3.googleusercontent.com/-uB97QnHQ-VY/YGYWDRmUK0I/AAAAAAAAAsI/f3BH8Kv8kvMvlrulgsbtkRsAbgHpB3mKACLcBGAsYHQ/logo2.png" width="80%" />
 <p>
 
 
-> **This is a fork of the original [project](https://github.com/googleinurl/SCANNER-INURLBR).**
+<p align="center">
+<a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/blob/main/LICENSE"><img src="https://img.shields.io/github/license/MrCl0wnLab/SCANNER-INURLBR?color=blue"></a>
+<a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/MrCl0wnLab/SCANNER-INURLBR"></a>
+<a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/issues"><img src="https://img.shields.io/github/issues-raw/MrCl0wnLab/SCANNER-INURLBR"></a>
+<a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/network/members"><img src="https://img.shields.io/github/forks/MrCl0wnLab/SCANNER-INURLBR"></a>
+<img src="https://img.shields.io/github/stars/MrCl0wnLab/SCANNER-INURLBR.svg?style=social" title="Stars" /> 
+</p>
+
+> **This is a fork of the original [old project](https://github.com/googleinurl/SCANNER-INURLBR).**
 >
->Advanced search in search engines, enables analysis provided to exploit GET / POST capturing emails & urls, with an internal custom validation junction for each target / url found.
+
 ## Disclaimer
 ```
 This or previous program is for Educational purpose ONLY. Do not use it without permission. 
@@ -654,6 +662,15 @@ php inurlbr.php --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp '([0-9]{2}[
 ```
 ![Screenshot](https://1.bp.blogspot.com/-9YocowQy_-A/YG_Jodfsz6I/AAAAAAAAAug/D03Wz6GsFQsne0uozgA-Z_Kz8xNBrjB7gCLcBGAsYHQ/s1184/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-24-45.png)
 
+
+
+## Contributions ✨ <a name="contribuicoes"></a>
+Contributions of any kind are welcome!
+
+<a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=MrCl0wnLab/SCANNER-INURLBR&max=500" alt="List of contributors" width="100%"/>
+</a>
+    
 
 ## References
 - TOR
