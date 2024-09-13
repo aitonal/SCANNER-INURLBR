@@ -8,7 +8,7 @@ function __process($resultadoURL) {
     $resultadoURL[0] = (__not_empty($_SESSION['config']['ifurl']) ? __filterURLif($resultadoURL[0]) : $resultadoURL[0]);
     $_SESSION['config']['total_url'] = count($resultadoURL[0]);
 
-    echo "\n{$_SESSION["c1"]}[ INFO ]{$_SESSION["c12"]}[ TOTAL FOUND VALUES ]::{$_SESSION["c1"]} [ {$_SESSION['config']['total_url']} ]{$_SESSION["c0"]}\n";
+    echo "\n{$_SESSION["c1"]}[ INF ]{$_SESSION["c12"]}[ TOTAL FOUND VALUES ]::{$_SESSION["c1"]} [ {$_SESSION['config']['total_url']} ]{$_SESSION["c0"]}\n";
     __debug(array('debug' => $resultadoURL[0], 'function' => __FUNCTION__), 3);
 
     if (count($resultadoURL[0]) > 0):
@@ -20,7 +20,7 @@ function __process($resultadoURL) {
             (__not_empty($_SESSION['config']['irc']['irc_connection']) ? __ircPong($_SESSION['config']['irc']) : NULL);
             exit(0);
         elseif($_SESSION['config']['irc']['my_fork'] == -1):
-            __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}{$_SESSION["c2"]}ERROR Fork failed{$_SESSION["c0"]}\n");
+            __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]}ERROR Fork failed{$_SESSION["c0"]}\n");
         endif;
 
         $_SESSION['config']['user-agent'] = ($_SESSION['config']['shellshock']) ? $_SESSION['config']['user_agent_xpl'] : $_SESSION['config']['user-agent'];
@@ -35,6 +35,6 @@ function __process($resultadoURL) {
             endif;
         endforeach;
     else:
-        print_r("{$_SESSION["c1"]}[ INFO ]{$_SESSION["c2"]} Not a satisfactory result was found!{$_SESSION["c0"]}\n");
+        print_r("{$_SESSION["c1"]}[ INF ]{$_SESSION["c2"]} Not a satisfactory result was found!{$_SESSION["c0"]}\n");
     endif;
 }

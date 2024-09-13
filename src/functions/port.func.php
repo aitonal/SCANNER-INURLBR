@@ -7,34 +7,35 @@
 #http://php.net/manual/en/function.fsockopen.php
 
 function __portScan($_) {
-    
-    $ports = explode(',', $_[1]);
-    echo "\n{$_SESSION["c1"]}|_[ * ]__\n";
-    echo "         |[ PROCESS PORT-SCAN ]::\n";
-    foreach ($ports as $value):
+    if($_SESSION['config']['server_ip']):
+        $ports = explode(',', $_[1]);
+        echo "\n{$_SESSION["c1"]}[  *  ]__\n";
+        echo "         |[ PROCESS PORT-SCAN ]::\n";
+        foreach ($ports as $value):
 
-        $conc = fsockopen($_SESSION['config']['server_ip'], $value, $_[2], $_[3], 30);
-
-        __plus();
-
-        if ($conc):
-
-            echo "{$_SESSION["c1"]}|_[ + ]__|[ {$value}=\033[1m\033[32mOPEN{$_SESSION["c0"]}";
-            (__not_empty($_SESSION['config']['port-write']) ? __portWrite($conc, $_SESSION['config']['port-write']) : NULL);
-            __saveValue($_SESSION['config']['arquivo_output'], "{$value}=OPEN", 2);
+            $conc = fsockopen($_SESSION['config']['server_ip'], $value, $_[2], $_[3], 30);
 
             __plus();
-            $_[0]['url_port'] = $value;
-            (__not_empty($_SESSION['config']['port-cmd']) ? __command($_SESSION['config']['port-cmd'], $_[0]) : NULL);
-            __plus();
-        else:
 
-            echo "{$_SESSION["c1"]}|_[ x ]__|[ {$value}={$_SESSION["c9"]}CLOSED{$_SESSION["c0"]}\n";
-            __plus();
-        endif;
-    endforeach;
-    echo $_SESSION["c0"];
-    fclose($conc);
+            if ($conc):
+
+                echo "{$_SESSION["c1"]}         |[ {$value}=\033[1m\033[32mOPEN{$_SESSION["c0"]}";
+                (__not_empty($_SESSION['config']['port-write']) ? __portWrite($conc, $_SESSION['config']['port-write']) : NULL);
+                __saveValue($_SESSION['config']['arquivo_output'], "{$value}=OPEN", 2);
+
+                __plus();
+                $_[0]['url_port'] = $value;
+                (__not_empty($_SESSION['config']['port-cmd']) ? __command($_SESSION['config']['port-cmd'], $_[0]) : NULL);
+                __plus();
+            else:
+
+                echo "{$_SESSION["c1"]}         |[ {$value}={$_SESSION["c9"]}CLOSED{$_SESSION["c0"]}\n";
+                __plus();
+            endif;
+        endforeach;
+        echo $_SESSION["c0"];
+        fclose($conc);
+    endif;
 }
 
 ################################################################################

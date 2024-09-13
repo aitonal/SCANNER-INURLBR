@@ -393,7 +393,7 @@ You can register more filter values that dirty your results
      
  --alexa-rank Show alexa positioning in the results.
      
- --robots Show values file robots.
+ --robots Show values file robots and extract urls
       
  --range Set range IP.
       Example: --range {range_start,rage_end}
@@ -646,9 +646,16 @@ php inurlbr.php --target 'https://YOUR_TARGET' -o fuzz.txt -s popup_result.txt -
 
 ### Extract urls using archive.org
 ```bash
-php inurlbr.php  -o 'defense.gov.txt' --au -s 'defense.gov.out'
+php inurlbr.php  -o 'defense.gov.txt' --ua -s 'defense.gov.out'
 ```
 ![Screenshot](https://1.bp.blogspot.com/-4RwLa0MyUqI/YG_KIpr1eII/AAAAAAAAAuo/iNwH0MMY-7I9AGDc9Z9OkmBMZ5ZNAEWwgCLcBGAsYHQ/s1104/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-15-33.png)
+
+### Extract urls using Robots.txt file
+```bash
+php inurlbr.php --dork 'jus.br' -s 'urls-extracted-robots.txt' -q 1 --robots
+```
+![Screenshot](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqzMUV1UC3G6Rojs3F9D0JvV70XWSQDT71f0iv8kB21ywKdSbAd9dtFksvda5nqv6sSJQZ2ca8Yw32ivzcOpL2ziqloeel2gkWoLArSQ6eCNtY5WvuT8RctCtwtzHKqW5I69vRoUgWPo80N_16zyTb-8IImxIfUHeGMUSKjxGYprtrfSJuv1Uo3z34wGo/s1452/Captura%20de%20tela%20de%202024-09-13%2007-33-01.png)
+
 
 ### Extract values using regex
 ```bash

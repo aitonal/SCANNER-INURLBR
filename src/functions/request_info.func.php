@@ -15,7 +15,7 @@ function __request_info($url_, $proxy = NULL, $postDados = NULL) {
 
         //FORMATANDO POST & EXECUTANDO urlencode EM CADA VALOR DO POST.
         if (__not_empty($postDados) && is_array($postDados)):
-
+            $postDados_format = "";
             foreach ($postDados as $campo => $valor):
                 $postDados_format .= "{$campo}=" . urlencode($valor) . '&';
             endforeach;

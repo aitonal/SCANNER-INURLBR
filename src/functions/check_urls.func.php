@@ -5,9 +5,9 @@ function __checkURLs($resultado, $url_) {
     $code = !is_null($_SESSION["config"]["ifcode"]) ? $_SESSION["config"]["ifcode"] : 200;
     $valor = ($resultado['server']['http_code'] == $code) ? "{$_SESSION["c4"]}" : NULL;
 
-    echo "\n{$_SESSION["c1"]}  |_[ INFO ]{$_SESSION["c0"]}[{$_SESSION["c1"]} {$_SESSION['config']['cont_valores']} {$_SESSION["c0"]}]\n";
-    echo "{$_SESSION["c1"]}  |_[ INFO ][URL] {$_SESSION["c0"]}::{$_SESSION["c9"]}{$valor} {$url_} {$_SESSION["c0"]}\n";
-    echo "{$_SESSION["c1"]}  |_[ INFO ][STATUS]::{$valor} {$resultado['server']['http_code']} {$_SESSION["c0"]}\n";
+    echo "\n{$_SESSION["c1"]}  |_[ INF ]{$_SESSION["c0"]}[{$_SESSION["c1"]} {$_SESSION['config']['cont_valores']} {$_SESSION["c0"]}]\n";
+    echo "{$_SESSION["c1"]}  |_[ INF ][URL] {$_SESSION["c0"]}::{$_SESSION["c9"]}{$valor} {$url_} {$_SESSION["c0"]}\n";
+    echo "{$_SESSION["c1"]}  |_[ INF ][STATUS]::{$valor} {$resultado['server']['http_code']} {$_SESSION["c0"]}\n";
 
     __timeSec('delay');
     echo "{$_SESSION["c1"]}{$_SESSION['config']['line']}{$_SESSION["c0"]}";

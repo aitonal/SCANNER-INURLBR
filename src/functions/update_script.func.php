@@ -4,13 +4,13 @@ function __update() {
 
     echo __bannerLogo();
 
-    echo "{$_SESSION["c1"]}__[ ! ] {$_SESSION["c16"]}WANT TO MAKE UPDATE SCRIPT\n{$_SESSION["c0"]}";
-    echo "{$_SESSION["c1"]}__[ ! ] {$_SESSION["c16"]}This can modify the current script\n{$_SESSION["c0"]}";
-    echo "{$_SESSION["c1"]}__[ ! ] {$_SESSION["c16"]}ARE YOU SURE ? (y \ n): {$_SESSION["c0"]}";
+    echo "{$_SESSION["c1"]}__[  !  ] {$_SESSION["c16"]}WANT TO MAKE UPDATE SCRIPT\n{$_SESSION["c0"]}";
+    echo "{$_SESSION["c1"]}__[  !  ] {$_SESSION["c16"]}This can modify the current script\n{$_SESSION["c0"]}";
+    echo "{$_SESSION["c1"]}__[  !  ] {$_SESSION["c16"]}ARE YOU SURE ? (y \ n): {$_SESSION["c0"]}";
 
     if (trim(fgets(STDIN)) == 'y'):
 
-        $resultado = __request_info("https://raw.githubusercontent.com/googleinurl/SCANNER-INURLBR/master/inurlbr.php", $_SESSION["config"]["proxy"], NULL);
+        $resultado = __request_info("https://raw.githubusercontent.com/MrCl0wnLab/SCANNER-INURLBR/master/inurlbr.php", $_SESSION["config"]["proxy"], NULL);
 
         if (__not_empty($resultado['corpo'])):
 

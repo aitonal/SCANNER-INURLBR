@@ -19,11 +19,11 @@ function __sendMail($email, $value) {
     $body.=__not_empty($_SESSION['config']['user-agent']) ? "USER AGENT: {$_SESSION['config']['user-agent']}\n" : NULL;
     $body.= "------------------------------------------------------\n";
 
-    if (mail($email, "[ INFO ][ OUTPUT INURLBR ]:: {$value}", $body, $headers)):
+    if (mail($email, "[ INF ][ OUTPUT INURLBR ]:: {$value}", $body, $headers)):
         __plus();
-        return "[ INFO ][ SUBMITTED SUCCESSFULLY ]\n";
+        return "[ INF ][ SUBMITTED SUCCESSFULLY ]\n";
     else:
         __plus();
-        return "[ INFO ][ NOT SENT ]\n";
+        return "[ INF ][ NOT SENT ]\n";
     endif;
 }

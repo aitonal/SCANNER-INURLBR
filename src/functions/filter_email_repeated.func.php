@@ -2,7 +2,7 @@
 
 function __filterEmailsRepeated() {
 
-    echo "\n\n{$_SESSION["c1"]}|[ INFO ][ Filtering the repeated emails  the file {$_SESSION['config']['arquivo_output']} ]{$_SESSION["c0"]}\n";
+    echo "\n\n{$_SESSION["c1"]}|[ INF ][ Filtering the repeated emails  the file {$_SESSION['config']['arquivo_output']} ]{$_SESSION["c0"]}\n";
     $array = __openFile($_SESSION['config']['out_put_paste'] . $_SESSION['config']['arquivo_output'], 1);
     if (is_array($array)):
 

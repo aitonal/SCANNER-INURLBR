@@ -12,7 +12,7 @@ function __command($commando, $alvo) {
                 strstr($commando, '_URI_')          ||
                 strstr($commando, '_PORT_')         ||
                 strstr($commando, '_RANDOM_') ? NULL :
-                        __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INFO ]{$_SESSION["c2"]}SET PARAMETER - command correctly{$_SESSION["c0"]}\n"));
+                        __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INF ]{$_SESSION["c2"]}SET PARAMETER - command correctly{$_SESSION["c0"]}\n"));
 
         $uri = parse_url($alvo['url_xpl']);
 
@@ -39,8 +39,8 @@ function __command($commando, $alvo) {
 
         $command[1] = __crypt($command[1]);
 
-        echo "\n{$_SESSION["c1"]}[ * ]__\n";
-        echo "       |[ EXTERNAL COMMAND ]:: {$command[0]}{$_SESSION["c11"]}\n";
+        echo "\n{$_SESSION["c1"]}[  *  ]__\n";
+        echo "         |[ EXTERNAL COMMAND ]:: {$command[0]}{$_SESSION["c11"]}\n";
         $_ = array(0 => ($_SESSION['config']['popup']) ? 'sudo xterm -geometry 134x50+1900+0 -title "Auxiliary Window - INURLBR / COMMAND" -e ' : NULL, 1 => ($_SESSION['config']['popup']) ? ' > /dev/null &' : NULL);
         echo ($_SESSION['config']['popup'] ? "\t[!] opening auxiliary window...\n" : NULL);
         $dados = system($_[0] . $command[1] . $_[1], $dados);

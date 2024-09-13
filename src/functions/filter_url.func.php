@@ -11,7 +11,7 @@ function __filterURL($html, $op = NULL) {
 
     if (strstr($html, '.google.com/sorry/IndexRedirect?continue=https://www.google.com.') && $_SESSION['config']['persist'] <= $_SESSION["config"]['google_attempt'][1]):
 
-        print_r("{$_SESSION["c1"]}[ INFO ][ ERROR ]{$_SESSION["c2"]} GOOGLE LOCKED!{$_SESSION["c0"]}\n");
+        print_r("{$_SESSION["c1"]}[ INF ][ ERROR ]{$_SESSION["c2"]} GOOGLE LOCKED!{$_SESSION["c0"]}\n");
         $randHost = __dominioGoogleRandom();
         $_SESSION["config"]['google_attempt'][1] ++;
         __pageEngine($_SESSION["config"]["conf_array_tmp"], "GOOGLE - {$randHost}", "https://{$randHost}/search?q=[DORK]&num=1500&btnG=Search&pws=1", $_SESSION["config"]["dork_tmp"], NULL, 0, 0, 1);

@@ -6,7 +6,7 @@
 function __filterEmailif($resultados) {
 
     if (is_array($resultados)) {
-        echo "{$_SESSION["c1"]}|_[ ! ][ INFO ]{$_SESSION["c16"]}[ FILTERING VALUE ]::{$_SESSION["c1"]}[ {$_SESSION["config"]['ifemail']} ]{$_SESSION["c0"]}\n";
+        echo "{$_SESSION["c1"]}|_[  !  ][ INF ]{$_SESSION["c16"]}[ FILTERING VALUE ]::{$_SESSION["c1"]}[ {$_SESSION["config"]['ifemail']} ]{$_SESSION["c0"]}\n";
         foreach ($resultados as $value) {
 
             $temp[] = (strstr($value, $_SESSION['config']['ifemail']) ? $value : NULL);

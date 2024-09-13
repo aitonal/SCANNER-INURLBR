@@ -27,37 +27,37 @@ function __info() {
 {$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
     
 
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}Current PHP version=>{$_SESSION["c1"]}[ " . phpversion() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}Current script owner=>{$_SESSION["c1"]}[ " . get_current_user() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}Current uname=>{$_SESSION["c1"]}[ " . php_uname() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}Current pwd=>{$_SESSION["c1"]}[ " . getcwd() . "{$_SESSION["c0"]} ]
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}Current PHP version=>{$_SESSION["c1"]}[ " . phpversion() . "{$_SESSION["c0"]} ]
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}Current script owner=>{$_SESSION["c1"]}[ " . get_current_user() . "{$_SESSION["c0"]} ]
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}Current uname=>{$_SESSION["c1"]}[ " . php_uname() . "{$_SESSION["c0"]} ]
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}Current pwd=>{$_SESSION["c1"]}[ " . getcwd() . "{$_SESSION["c0"]} ]
 {$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
  
 
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c16"]} NECESSARY FOR THE PROPER FUNCTIONING OF THE SCRIPT{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c16"]} LIB & CONFIG{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} NECESSARY FOR THE PROPER FUNCTIONING OF THE SCRIPT{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} LIB & CONFIG{$_SESSION["c0"]}
 
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} PHP Version         7
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} php7-curl           LIB
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} php7-cli            LIB   
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} cURL support        enabled
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} URL Information     7.24.0
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} allow_url_fopen     On
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} permission          Reading & Writing
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} User                root privilege, or is in the sudoers group
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} Operating system    LINUX
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]} Proxy random        TOR 
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} PHP Version         7
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} php7-curl           LIB
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} php7-cli            LIB   
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} cURL support        enabled
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} URL Information     7.24.0
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} allow_url_fopen     On
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} permission          Reading & Writing
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} User                root privilege, or is in the sudoers group
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} Operating system    LINUX
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} Proxy random        TOR 
                 
 {$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
  
-{$_SESSION["c1"]}[ INFO ] {$_SESSION["c0"]} {$_SESSION["c16"]}PERMISSION EXECUTION: chmod +x inurlbr.php{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INFO ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CURL: sudo apt-get install php5-curl{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INFO ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CLI: sudo apt-get install php5-cli{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INFO ] {$_SESSION["c0"]} {$_SESSION["c16"]}sudo apt-get install curl libcurl3 libcurl3-dev php5 php7-cli php7-curl{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INFO ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING PROXY TOR https://www.torproject.org/docs/debian.html.en{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}PERMISSION EXECUTION: chmod +x inurlbr.php{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CURL: sudo apt-get install php5-curl{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CLI: sudo apt-get install php5-cli{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}sudo apt-get install curl libcurl3 libcurl3-dev php5 php7-cli php7-curl{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING PROXY TOR https://www.torproject.org/docs/debian.html.en{$_SESSION["c0"]}
 {$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
 
-{$_SESSION["c1"]}[ INFO ] {$_SESSION["c16"]} COMMANDS SIMPLE SCRIPT{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ] {$_SESSION["c16"]} COMMANDS SIMPLE SCRIPT{$_SESSION["c0"]}
 
 ./inurlbr.php {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'inurl:php?id=' {$_SESSION["c1"]}-s {$_SESSION["c2"]}save.txt {$_SESSION["c1"]}-q 1,6 {$_SESSION["c1"]}-t {$_SESSION["c2"]}1 {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}\"?´'%270x27;\" {$_SESSION["c0"]} 
    
@@ -124,14 +124,14 @@ function __info() {
 
 {$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
   
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c16"]} It it also useful to know the full path to the PHP binary on your computer. {$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c16"]} There are several ways of finding out. For Ubuntu and Mac OS X the path is '/usr/bin/php'.{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} It it also useful to know the full path to the PHP binary on your computer. {$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} There are several ways of finding out. For Ubuntu and Mac OS X the path is '/usr/bin/php'.{$_SESSION["c0"]}
 
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c16"]} googleinurl@inurlbr:~$ which php 
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} googleinurl@inurlbr:~$ which php 
          /usr/bin/php{$_SESSION["c0"]} 
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c16"]} googleinurl@inurlbr:~/cli$ whereis php
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} googleinurl@inurlbr:~/cli$ whereis php
          php: /usr/bin/php /usr/share/php /usr/share/man/man1/php.1.gz{$_SESSION["c0"]} 
-{$_SESSION["c1"]}[ INFO ]{$_SESSION["c16"]} googleinurl@inurlbr:~/cli$ type -a php 
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} googleinurl@inurlbr:~/cli$ type -a php 
          php is /usr/bin/php{$_SESSION["c0"]}
 {$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
 

@@ -7,26 +7,31 @@ function __infoServer($url_, $postDados = NULL) {
     $resultado = __request_info($url_, $_SESSION["config"]["proxy"], $postDados);
     
     if (isset($resultado['corpo'])):
-        if (!is_null($_SESSION['config']['extrai-email']))
+        if (!is_null($_SESSION['config']['extrai-email'])):
             return __extractEmail($resultado['corpo'], $url_);
+        endif;
 
-        if (!is_null($_SESSION['config']['extrai-url']) &&  !is_null($_SESSION['config']['extrai-url-archive'])){
+        if (!is_null($_SESSION['config']['extrai-url']) &&  !is_null($_SESSION['config']['extrai-url-archive'])):
             __extractURLs($resultado['corpo'], $url_);
             __extractURLDomainsArchive($resultado['parser_url']['host']);
             return;
-        }
+        endif;
         
-        if (!is_null($_SESSION['config']['extrai-url-archive']))
+        if (!is_null($_SESSION['config']['extrai-url-archive'])):
             return __extractURLDomainsArchive($resultado['parser_url']['host']);
+        endif;
 
-        if (!is_null($_SESSION['config']['extrai-url']))
+        if (!is_null($_SESSION['config']['extrai-url'])):
             return __extractURLs($resultado['corpo'], $url_);
+        endif;
 
-        if (__not_empty($_SESSION['config']['regexp-filter']))
+        if (__not_empty($_SESSION['config']['regexp-filter'])):
             return __extractRegCustom($resultado['corpo'], $url_);
+        endif;
 
-        if (__not_empty($_SESSION['config']['target']) && $_SESSION['config']['tipoerro'] == 5)
+        if (__not_empty($_SESSION['config']['target']) && $_SESSION['config']['tipoerro'] == 5):
             return __checkURLs($resultado, $url_);
+        endif;
         
         $ifcode = __not_empty($_SESSION['config']['ifcode']) &&
                 strstr($resultado['server']['http_code'], $_SESSION['config']['ifcode']) ?

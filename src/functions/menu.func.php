@@ -234,7 +234,7 @@ function __menu() {
      
  {$_SESSION["c1"]}--alexa-rank{$_SESSION["c0"]} Show alexa positioning in the results.
      
- {$_SESSION["c1"]}--robots{$_SESSION["c0"]} Show values file robots.
+ {$_SESSION["c1"]}--robots{$_SESSION["c0"]} Show values file robots and extract urls.
       
  {$_SESSION["c1"]}--range{$_SESSION["c0"]} Set range IP.
       Example: {$_SESSION["c1"]}--range {$_SESSION["c2"]}{range_start,rage_end}{$_SESSION["c0"]}

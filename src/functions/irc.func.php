@@ -16,7 +16,7 @@ if (is_array($_SESSION['config']['irc']['conf'])):
     $_SESSION['config']['irc']['irc_quiet'] = "Session Ended";
     global $conf;
 elseif (!is_array($_SESSION['config']['irc']['conf']) && __not_empty($opcoes['irc'])):
-    __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}{$_SESSION["c2"]}IRC WRONG FORMAT! ex: --irc 'irc.rizon.net#inurlbrasil' {$_SESSION["c0"]}\n");
+    __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]}IRC WRONG FORMAT! ex: --irc 'irc.rizon.net#inurlbrasil' {$_SESSION["c0"]}\n");
 endif;
 
 ################################################################################

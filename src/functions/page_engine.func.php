@@ -4,11 +4,11 @@ function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pag
 
     __plus();
 
-    echo ("\n{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ ENGINE ]::{$_SESSION["c1"]}[ {$motorNome} ]{$_SESSION["c0"]}\n");
-    echo (!is_null($_SESSION['config']['max_pag']) ? ("{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ LIMIT PAG ]::{$_SESSION["c1"]}[ {$_SESSION['config']['max_pag']} ]{$_SESSION["c0"]}\n") : NULL);
+    echo ("\n{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ ENGINE ]::{$_SESSION["c1"]}[ {$motorNome} ]{$_SESSION["c0"]}\n");
+    echo (!is_null($_SESSION['config']['max_pag']) ? ("{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ LIMIT PAG ]::{$_SESSION["c1"]}[ {$_SESSION['config']['max_pag']} ]{$_SESSION["c0"]}\n") : NULL);
     $http_proxy = __not_empty($_SESSION['config']['proxy-http-file']) || __not_empty($_SESSION['config']['proxy-http']) ? __proxyHttpRandom() : NULL;
-    echo __not_empty($http_proxy) ? "\n{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ HTTP_PROXY ]:: {$http_proxy}{$_SESSION["c0"]}\n" : NULL;
-    echo "\n{$_SESSION["c1"]}[ INFO ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ SEARCHING ]:: {$_SESSION["c0"]}\n";
+    echo __not_empty($http_proxy) ? "\n{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ HTTP_PROXY ]:: {$http_proxy}{$_SESSION["c0"]}\n" : NULL;
+    echo "\n{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ SEARCHING ]:: {$_SESSION["c0"]}\n";
 
     $count_max_label = 0;
     $contMaxpg = 0;
