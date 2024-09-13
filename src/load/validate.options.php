@@ -105,7 +105,7 @@ $opcoes['save-as'] : null;
 $_SESSION['config']['arquivo_output'] = __not_empty($_SESSION['config']['s']) ?
 $_SESSION['config']['s'] : $opcoes['save-as'];
 # output/
-$_SESSION['config']['arquivo_output'] = $_SESSION['config']['out_put_paste'].$_SESSION['config']['arquivo_output'];
+# $_SESSION['config']['arquivo_output'] = $_SESSION['config']['out_put_paste'].$_SESSION['config']['arquivo_output'];
 
 # [+]VALIDATION SAVE FILE ALL VALORES
 $_SESSION['config']['arquivo_output_all'] = __not_empty($opcoes['sall']) ?
