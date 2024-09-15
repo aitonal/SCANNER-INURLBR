@@ -6,6 +6,7 @@
 
 
 <p align="center">
+<a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-7.4-yellow.svg"></a>
 <a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/blob/main/LICENSE"><img src="https://img.shields.io/github/license/MrCl0wnLab/SCANNER-INURLBR?color=blue"></a>
 <a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/MrCl0wnLab/SCANNER-INURLBR"></a>
 <a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/issues"><img src="https://img.shields.io/github/issues-raw/MrCl0wnLab/SCANNER-INURLBR"></a>
@@ -13,8 +14,19 @@
 <img src="https://img.shields.io/github/stars/MrCl0wnLab/SCANNER-INURLBR.svg?style=social" title="Stars" /> 
 </p>
 
-> **This is a fork of the original [old project](https://github.com/googleinurl/SCANNER-INURLBR).**
->
+<br>
+<br>
+
+# Desription
+
+Advanced search in search engines, enables analysis provided to exploit GET / POST capturing emails & urls, with an internal custom validation junction for each target / url found. 
+
+A tool developed in PHP that is capable of running on diverse Linux distributions aids hackers and security professionals in their specific search engines.
+There are several methods of automated exploration, including Scanner.
+
+The INURLBR (Codename: Facada) tool was created to assist the hacking community. To identify potential vulnerabilities in the web,
+perform advanced searches. Using Google Hacking (dorking) techniques to find targets on the internet. 
+This tool has the incredible power of search engines.
 
 ## Disclaimer
 ```
@@ -27,15 +39,14 @@ that any damage (dataloss, system crash, system compromise, etc.) caused by the 
 programs is not MrCl0wnLab's responsibility.
 ```
 
+## Contact
 ```properties
-Autor:    MrCl0wn
+Autor:    MrCl0wn (a.k.a GoogleINURL)
 Blog:     https://blog.mrcl0wn.com
+Blog:     https://blog.inurl.com.br (old)
 GitHub:   https://github.com/MrCl0wnLab
 Twitter:  https://twitter.com/MrCl0wnLab
 Email:    mrcl0wnlab\@\gmail.com
-Script:   INURLBR
-Codename: Facada
-Version:  3.0.0
 ```
 
 ## Lib & Permission
