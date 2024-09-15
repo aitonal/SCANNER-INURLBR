@@ -65,7 +65,7 @@ Proxy random        TOR
 
 ## install Dependencies 
 ```properties
-sudo apt-get install curl libcurl3 libcurl3-dev php7 php7-cli php7-curl xterm tor
+sudo apt-get install curl libcurl3 libcurl3-dev php7.4-fpm php7.4 php7.4-cli php7.4-curl xterm tor
 ```
 
 ## Download
@@ -73,7 +73,7 @@ Preferably, you can download inurlbr by cloning the [Git](https://github.com/MrC
 ```properties
 git clone https://github.com/MrCl0wnLab/SCANNER-INURLBR.git
 ```
-The inurlbr works with [php](http://php.net/downloads.php) version **7.x**  linux platforms.
+The inurlbr works with [php](http://php.net/downloads.php) version **7.4**  linux platforms.
 
 ## Giving permission to script execution
 ```properties
