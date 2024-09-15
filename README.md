@@ -689,7 +689,7 @@ inurlbr --dork 'contato telefone' -s 'reg.txt' -q 1 --regexp '([0-9]{2}[6789][0-
 Contributions of any kind are welcome!
 
 <a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=MrCl0wnLab/SCANNER-INURLBR&max=500" alt="List of contributors" width="100%"/>
+  <img src="https://contributors-img.web.app/image?repo=MrCl0wnLab/SCANNER-INURLBR&max=500" alt="List of contributors" width="50%"/>
 </a>
     
 
