@@ -26,8 +26,9 @@ function __getValuesRobots($url) {
                 echo "         |[ URL FROM ROBOTS ]::\n";
                 foreach ($url_list as $value_robot):
                     echo "         |{$value_robot}\n";
-                    __saveValue($_SESSION['config']['arquivo_output'], $value_robot, 2);
+                    __saveValue($_SESSION['config']['arquivo_output'], $value_robot, 3);
                 endforeach;
+                echo "\n{$_SESSION["c1"]}[  !  ]{$_SESSION["c7"]} EXTRACTED URLS SAVED IN::{$_SESSION["c9"]} {$_SESSION['config']['arquivo_output']}{$_SESSION["c0"]}";
             endif;
         else:
             echo "         |[ ERR ] LOAD FILE ROBOTS.TXT [ COD_HTTP ]:: {$result['server']['http_code']}\n{$_SESSION["c0"]}";

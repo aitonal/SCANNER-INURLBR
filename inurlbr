@@ -77,15 +77,13 @@
   +--------------------------------------------------------------------------------------+
   |  |  |                            G R 3 3 T S                                   |  |  |
   +--------------------------------------------------------------------------------------+
- * r00t-3xp10t, Jh00n, chk_,  Unknownantisec,  sl4y3r 0wn3r, hc0d3r, arplhmd, 0x4h4x
- * Clandestine, KoubackTr, SnakeTomahawk, SkyRedFild, Lorenzo Faletra, Eclipse, shaxer   
- * dd3str0y3r, Johnny Deep, Lenon Leite, pSico_b0y, Bakunim_Malvadão, IceKiller, c00z  
- * Oystex, rH, Warflop, se4b3ar, ResenhaCyber, OFJAAAH, aCCESS, Sub-Solo
- */
-
-/*
-    MODIFICAR MOTOR DE BUSCA 17
+  * r00t-3xp10t, Jh00n, chk_,  Unknownantisec,  sl4y3r 0wn3r, hc0d3r, arplhmd, 0x4h4x
+  * Clandestine, KoubackTr, SnakeTomahawk, SkyRedFild, Lorenzo Faletra, Eclipse, shaxer   
+  * dd3str0y3r, Johnny Deep, Lenon Leite, pSico_b0y, Bakunim_Malvadão, IceKiller, c00z  
+  * Oystex, rH, Warflop, se4b3ar, ResenhaCyber, OFJAAAH, aCCESS, Sub-Solo, OSINT Brazuca Team
+  
 */
+
 
 $set_error=1;
 error_reporting($set_error);
@@ -119,9 +117,10 @@ $opcoes = getopt('u::a:d:o:p:s:q:t:m::h::', $command_list);
 #########################################################################################
 #INCLUDE FILES CONFIGURATION ############################################################
 #########################################################################################
-require_once("src/load/session.config.php");
-require_once("src/load/require.files.php");
-require_once("src/load/validate.options.php");
+$pwd = realpath(dirname(__FILE__));
+require_once("{$pwd}/src/load/session.config.php");
+require_once("{$pwd}/src/load/require.files.php");
+require_once("{$pwd}/src/load/validate.options.php");
 #########################################################################################
 #RUN VALIDATION / PROCESSES SCAN RANG IP#################################################
 #########################################################################################
@@ -144,7 +143,7 @@ if (__not_empty($_SESSION['config']['abrir-arquivo'])):
     __plus();
     __exitProcess();
 endif;
-################################################################################
-#RUN WITH SEARCH ENGINES########################################################
-################################################################################
+#########################################################################################
+#RUN WITH SEARCH ENGINES#################################################################
+#########################################################################################
 __main($_SESSION['config']['dork'], $_SESSION['config']['motor'], $_SESSION['config']['cod']);
