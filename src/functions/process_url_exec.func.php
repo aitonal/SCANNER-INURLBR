@@ -2,14 +2,11 @@
 
 function __processUrlExec($url, $contUrl) {
 
-    
-    
     if (!__not_empty($url))
         return FALSE;
     
-
     $host = (!is_null($_SESSION['config']['replace'])) ?
-    __replace_url_value($_SESSION['config']['replace'], urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : ($url))) :
+    __replace_url_value(urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : $url)) :
             urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : ($url));
 
     $target_['url_xpl'] = __remove($_SESSION['config']['remove'], __mountURLExploit(!is_null($_SESSION['config']['url']) ? 
@@ -32,56 +29,68 @@ function __processUrlExec($url, $contUrl) {
         $info = ($valid_return) ? "{$_SESSION["c4"]}{$info}" : $info;
         $target_ip = ($valid_return) ? "{$_SESSION["c4"]}{$_SESSION['config']['info_ip']}" : $_SESSION['config']['info_ip'];
         $title = ($valid_return) ? "{$_SESSION["c4"]}{$_SESSION['config']['title']}" : $_SESSION['config']['title'];
-
-        $anime = ($valid_return) ? '[  !  ]' : '[  -  ]';
-        echo __plus() . "\n";
+        $save_ocultar = isset($_SESSION['config']['arquivo_output_all']) ? 3 : 1;
+        $anime = $valid_return ? '[  !  ]' : '[  -  ]';
+        echo __plus() . PHP_EOL;
 
         echo "{$_SESSION["c1"]}{$_SESSION['config']['line']}{$_SESSION["c0"]}\n";
         echo "{$_SESSION["c1"]}[  +  ] [{$_SESSION["c2"]} {$contUrl} / {$_SESSION['config']['total_url']} {$_SESSION["c1"]}]{$_SESSION["c9"]}-[ " . date("H:i:s") . " ]{$_SESSION["c1"]} {$_SESSION["c0"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}Target:: {$_SESSION["c1"]}{$_SESSION["c9"]} {$_SESSION['config']['vull_style']}{$target_['url_clean']}{$_SESSION["c1"]} {$_SESSION["c0"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}Exploit:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$exget}{$expost}{$_SESSION["c0"]}\n";
-        echo (__not_empty($_SESSION['config']['replace'])) ? ("{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}Replace:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['replace']}{$_SESSION["c0"]}\n") : NULL;
-        echo (__not_empty($_SESSION['config']['remove'])) ? ("{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}Remove:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['remove']}{$_SESSION["c0"]}\n") : NULL;
-        echo (isset($_SESSION['config']['cms-check-resultado'])) ? ("{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}CMS check:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['cms-check-resultado']}{$_SESSION["c0"]}\n") : NULL;
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}Title:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$title}{$_SESSION["c1"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}Information Server:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$info}{$_SESSION["c1"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}More details:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$target_ip}{$_SESSION["c1"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}Found:: {$_SESSION["c9"]}" . ($valid_return ? "{$_SESSION["c4"]}{$_SESSION['config']['erroReturn']}" : "UNIDENTIFIED") . "{$_SESSION["c0"]}";
-        echo (__not_empty($ifredirect) ? "\n{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}URL REDIRECT:: {$_SESSION["c9"]}{$ifredirect}{$_SESSION["c0"]}" : NULL);
-        echo (__not_empty($_SESSION['config']['error_conection']) ? "\n{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}ERROR CONECTION:: {$_SESSION["c2"]}{$_SESSION['config']['error_conection']}{$_SESSION["c0"]}" : NULL);
-        ($valid_return ? __saveValue($_SESSION['config']['arquivo_output'], $target_['url_xpl'], 1) : NULL);
-        echo ($_SESSION['config']['sendmail'] ? "\n{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c7"]}SEND MAIL:: {$_SESSION["c9"]}" . (($valid_return) ? "{$_SESSION["c4"]}" : NULL) . __sendMail($_SESSION['config']['sendmail'], $target_['url_xpl']) . "{$_SESSION["c0"]}" : NULL);
-        (__not_empty($_SESSION['config']['arquivo_output_all']) ? __saveValue($_SESSION['config']['arquivo_output_all'], $target_['url_xpl'], NULL) : NULL);
+        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Target:: {$_SESSION["c1"]}{$_SESSION["c9"]} {$_SESSION['config']['vull_style']}{$target_['url_clean']}{$_SESSION["c1"]} {$_SESSION["c0"]}\n";
+        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Exploit:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$exget}{$expost}{$_SESSION["c0"]}\n";
+        echo (__not_empty($_SESSION['config']['replace'])) ? ("{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Replace:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['replace']}{$_SESSION["c0"]}\n") : NULL;
+        echo (__not_empty($_SESSION['config']['remove'])) ? ("{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Remove:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['remove']}{$_SESSION["c0"]}\n") : NULL;
+        echo (isset($_SESSION['config']['cms-check-resultado'])) ? ("{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}CMS check:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['cms-check-resultado']}{$_SESSION["c0"]}\n") : NULL;
+        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Title:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$title}{$_SESSION["c1"]}\n";
+        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Information Server:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$info}{$_SESSION["c1"]}\n";
+        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}More details:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$target_ip}{$_SESSION["c1"]}\n";
+        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Found:: {$_SESSION["c9"]}" . ($valid_return ? "{$_SESSION["c4"]}{$_SESSION['config']['erroReturn']}" : "UNIDENTIFIED") . "{$_SESSION["c0"]}";
+        echo (__not_empty($ifredirect) ? "\n{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}URL REDIRECT:: {$_SESSION["c9"]}{$ifredirect}{$_SESSION["c0"]}" : NULL);
+        echo (__not_empty(valor: $_SESSION['config']['error_conection']) ? "\n{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}ERROR CONECTION:: {$_SESSION["c2"]}{$_SESSION['config']['error_conection']}{$_SESSION["c0"]}" : NULL);
+        
+        
+        if($valid_return):
+                __saveValue($_SESSION['config']['arquivo_output'], $target_['url_xpl'], $save_ocultar);
+        endif;
+
+        if (__not_empty($_SESSION['config']['arquivo_output_all'])):
+                __saveValue($_SESSION['config']['arquivo_output_all'], $target_['url_xpl'], 1);
+        endif;
         
 
+        echo ($_SESSION['config']['sendmail'] ? "\n{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}SEND MAIL:: {$_SESSION["c9"]}" . (($valid_return) ? "{$_SESSION["c4"]}" : NULL) . __sendMail($_SESSION['config']['sendmail'], $target_['url_xpl']) . "{$_SESSION["c0"]}" : NULL);
+        
+        
         if ($valid_return):
             __plus();
             (__not_empty($_SESSION['config']['irc']['irc_connection']) ?
-                            __ircMsg($_SESSION['config']['irc'], "{$_SESSION['config']['erroReturn']}::: {$target_['url_xpl']}") : NULL);
-            
+                                __ircMsg($_SESSION['config']['irc'], "{$_SESSION['config']['erroReturn']}::: {$target_['url_xpl']}") : NULL);
             __plus();
-            (__not_empty($_SESSION['config']['command-vul']) ? __command($_SESSION['config']['command-vul'], $target_) : NULL);
-            
+            (__not_empty($_SESSION['config']['command-vul']) ? 
+                                __command($_SESSION['config']['command-vul'], $target_) : NULL);
             __plus();
             (!is_null($_SESSION['config']['exploit-vul-id'])?
-                            __configExploitsExec($_SESSION['config']['exploit-vul-id'], $target_) : NULL);
-            
+                                __configExploitsExec($_SESSION['config']['exploit-vul-id'], $target_) : NULL);
         endif;
         __plus();
-        (__not_empty($_SESSION['config']['command-all']) ? __command($_SESSION['config']['command-all'], $target_) : NULL);
+        (__not_empty($_SESSION['config']['command-all']) ? 
+                                __command($_SESSION['config']['command-all'], $target_) : NULL);
         
         __plus();
         (__not_empty($_SESSION['config']['sub-file']) &&
-                is_array($_SESSION['config']['sub-file']) ? __subExecExploits($target_['url_xpl'], $_SESSION['config']['sub-file']) : NULL);
+                is_array($_SESSION['config']['sub-file']) ? 
+                                __subExecExploits($target_['url_xpl'], $_SESSION['config']['sub-file']) : NULL);
         
         __plus();
-        (__not_empty($_SESSION['config']['exploit-all-id']) ? __configExploitsExec($_SESSION['config']['exploit-all-id'], $target_) : NULL);
+        (__not_empty($_SESSION['config']['exploit-all-id']) ? 
+                                __configExploitsExec($_SESSION['config']['exploit-all-id'], $target_) : NULL);
         
 
-        ($_SESSION['config']['robots'] ? __getValuesRobots($host) : NULL);
+        ($_SESSION['config']['robots'] ? 
+                                __getValuesRobots($host) : NULL);
         
         __plus();
-        (__not_empty($_SESSION['config']['port-scan']) ? __portScan(array(0 => $target_, 1 => $_SESSION['config']['port-scan'])) : NULL);
+        (__not_empty($_SESSION['config']['port-scan']) ? 
+                                __portScan(array(0 => $target_, 1 => $_SESSION['config']['port-scan'])) : NULL);
         
 
         __timeSec('delay', "\n");

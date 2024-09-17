@@ -5,6 +5,8 @@
 ################################################################################
 
 function __filterURLTAG($valor = NULL) {
-
-    return(!is_null($valor)) ? str_replace('"', '', str_replace('href="', '', str_replace('src="', '', str_replace('value="', '', $valor)))) : NULL;
+    if (__not_empty($valor)):
+        return str_replace('"', '', str_replace('href="', '', str_replace('src="', '', str_replace('value="', '', $valor))));
+    endif;
+    return NULL;
 }

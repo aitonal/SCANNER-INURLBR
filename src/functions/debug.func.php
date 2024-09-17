@@ -1,8 +1,8 @@
 <?php
 
 function __debug($valor, $op = NULL) {
-
-    return isset($_SESSION["config"]["debug"]) && 
-    __validateOptions($_SESSION["config"]["debug"], $op) ? 
-    "\n[ INF ][ FUNCTION ]=>{$valor['function']}[ DEBUG ] => \n" . print_r($valor['debug']) . "\n" : NULL;
+    if (isset($_SESSION["config"]["debug"]) && __validateOptions($_SESSION["config"]["debug"], $op)): 
+        return PHP_EOL."[ INF ][ FUNCTION ]=>{$valor['function']}[ DEBUG ] => \n" . print_r($valor['debug']).PHP_EOL;
+    endif;
+    return NULL;
 }

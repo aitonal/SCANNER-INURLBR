@@ -2,10 +2,13 @@
 
 function __validateOptions($opArray, $validar, $op = NULL) {
 
-    if (empty($validar) || empty($opArray))
+    if (empty($validar) || empty($opArray)):
         return FALSE;
+    endif;
+   
 
     $array = explode(',', $opArray);
+
     if (is_null($op)):
         $busca = explode(',', $validar);
         for ($i = 0; $i <= count($busca); $i++):
@@ -14,10 +17,14 @@ function __validateOptions($opArray, $validar, $op = NULL) {
         endfor;
     else:
         for ($i = 0; $i <= count($array); $i++):
-            if (strstr($validar, $array[$i]))
-                return TRUE;
+            if (__not_empty($array[$i])):
+                if (strstr($validar, $array[$i])):
+                    return TRUE;
+                endif;
+            endif;
         endfor;
     endif;
+   
     
     return FALSE;
 }

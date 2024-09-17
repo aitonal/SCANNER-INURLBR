@@ -5,5 +5,5 @@
 #################################################################################
 function __not_empty($valor = NULL) {
 
-    RETURN !is_null($valor) && !empty($valor) ? TRUE : FALSE;
+    return !is_null($valor) && !empty($valor) ? TRUE : FALSE;
 }

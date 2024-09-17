@@ -40,7 +40,7 @@ function __engines($dork, $list_proxy) {
     # SEARCH ENGINE :::  ask
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 4) || __validateOptions($_SESSION["config"]["motor"], "all"))
-        __pageEngine($confArray, "ASK", "https://www.ask.com/web?q=[DORK]&page=[PAG]&qid=[RANDOM&qo=pagination&qsrc=[RANDOM]", $dork_exec, NULL, 0, 6, 1);
+        __pageEngine($confArray, "ASK", "https://www.ask.com/web?q=[DORK]&page=[PAG]&qid=[RANDOM]&qo=pagination&qsrc=[RANDOM]", $dork_exec, NULL, 0, 6, 1);
 
     ################################################################################
     # SEARCH ENGINE :::  googleapis 
@@ -199,53 +199,53 @@ function __engines($dork, $list_proxy) {
     # SEARCH ENGINE :::  ndj6p3asftxboa7j.tor2web.org / Tor find ===================
     #===============================================================================
     if (__validateOptions($_SESSION["config"]["motor"], "e1"))
-        __pageEngine("TOR FIND", "https://ndj6p3asftxboa7j.tor2web.org/search.php?search_query=[DORK]&page_num=[PAG]&domainchoice=onion", $dork_exec, NULL, 1, 5, 1);
+        __pageEngine($confArray,"TOR FIND", "https://ndj6p3asftxboa7j.tor2web.org/search.php?search_query=[DORK]&page_num=[PAG]&domainchoice=onion", $dork_exec, NULL, 1, 5, 1);
     
 
     #===============================================================================
     # SEARCH ENGINE :::  elephantjmjqepsw.tor2web.org ==============================
     #===============================================================================
     if (__validateOptions($_SESSION["config"]["motor"], "e2"))
-        __pageEngine("ELEPHANT", "https://elephantjmjqepsw.tor2web.orgsearch?q=[DORK]&page=[PAG]", $dork_exec, NULL, 0, 29, 1);
+        __pageEngine($confArray, "ELEPHANT", "https://elephantjmjqepsw.tor2web.orgsearch?q=[DORK]&page=[PAG]", $dork_exec, NULL, 0, 29, 1);
     
 
     #===============================================================================
     # SEARCH ENGINE :::  kbhpodhnfxl3clb4.tor2web.org ==============================
     #===============================================================================
     if (__validateOptions($_SESSION["config"]["motor"], "e3"))
-        __pageEngine("TORSEARCH", "https://kbhpodhnfxl3clb4.tor2web.org/en/search?j=f&page=[PAG]&q=[DORK]&utf8=%E2%9C%93", $dork_exec, NULL, 0, 10, 1);
+        __pageEngine($confArray, "TORSEARCH", "https://kbhpodhnfxl3clb4.tor2web.org/en/search?j=f&page=[PAG]&q=[DORK]&utf8=%E2%9C%93", $dork_exec, NULL, 0, 10, 1);
 
 
     #===============================================================================
     # SEARCH ENGINE :::  xmh57jrzrnw6insl.onion.ws =================================
     #===============================================================================
     if (__validateOptions($_SESSION["config"]["motor"], "e4"))
-        __pageEngine("GORCH", "https://xmh57jrzrnw6insl.onion.ws/4a1f6b371c/search.cgi?cmd=Search!&np=[PAG]&q=[DORK]&s=DRP", $dork_exec, NULL, 0, 10, 1);
+        __pageEngine($confArray, "GORCH", "https://xmh57jrzrnw6insl.onion.ws/4a1f6b371c/search.cgi?cmd=Search!&np=[PAG]&q=[DORK]&s=DRP", $dork_exec, NULL, 0, 10, 1);
 
     #===============================================================================
     # SEARCH ENGINE :::  search.wikileaks.org ======================================
     #===============================================================================
     if (__validateOptions($_SESSION["config"]["motor"], "e5"))
-        __pageEngine("WIKILEAKS", "https://search.wikileaks.org/?page=[PAG]&q=[DORK]&sort=0#results", $dork_exec, NULL, 1, 60, 1);
+        __pageEngine($confArray, "WIKILEAKS", "https://search.wikileaks.org/?page=[PAG]&q=[DORK]&sort=0#results", $dork_exec, NULL, 1, 60, 1);
 
     #===============================================================================
     # SEARCH ENGINE :::  ahmia.fi ==================================================
     #===============================================================================
     if (__validateOptions($_SESSION["config"]["motor"], "e6"))
-        __pageEngine("AHMIA", "https://ahmia.fi/search/?q=[DORK]", $dork_exec, NULL, 0, 0, 1);
+        __pageEngine($confArray, "AHMIA", "https://ahmia.fi/search/?q=[DORK]", $dork_exec, NULL, 0, 0, 1);
     
     #===============================================================================
     # SEARCH ENGINE ::: oth.net ====================================================
     #===============================================================================
     if (__validateOptions($_SESSION["config"]["motor"], "e7"))
-        __pageEngine("OTN", "http://oth.net/s/s?q=[DORK]&cl=1&skip=[PAG]", $dork_exec, NULL, 1, 211, 20);
+        __pageEngine($confArray, "OTN", "http://oth.net/s/s?q=[DORK]&cl=1&skip=[PAG]", $dork_exec, NULL, 1, 211, 20);
 
     #===============================================================================
     # SEARCH ENGINE ::: exploits.shodan.io =========================================
     #===============================================================================
     
     if (__validateOptions($_SESSION["config"]["motor"], "e8"))
-        __pageEngine("EXPLOITS SHODAN", "https://exploits.shodan.io/?q=[DORK]&p=[PAG]", $dork_exec, NULL, 1, 25, 1);
+        __pageEngine($confArray, "EXPLOITS SHODAN", "https://exploits.shodan.io/?q=[DORK]&p=[PAG]", $dork_exec, NULL, 1, 25, 1);
     
 
     __plus();

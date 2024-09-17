@@ -44,9 +44,14 @@ function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pag
         
         $request__ = __request_info($http_proxy . $murl[0], $proxy, $postDados_);
 
+        
         __plus();
 
         $tmp_url = ($motorNome == 'GOOGLE API') ? __filterURLJson($request__["corpo"]) : __filterURL($request__["corpo"], $motorNome);
+
+
+        __debug(array('debug' => "[ URLS FROM ENGINE ]".implode("\n",$tmp_url), 'function' => __FUNCTION__), 6);
+
         __subProcess($tmp_url);
         __plus();
 

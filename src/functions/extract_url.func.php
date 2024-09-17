@@ -10,7 +10,7 @@ function __extractURLs($html, $url_) {
         echo "{$_SESSION["c1"]}[ INF ][URL EXTRACT] {$_SESSION["c0"]}=>{$_SESSION["c9"]} {$url_} {$_SESSION["c0"]}\n";
         $matches_ = array_unique(array_filter($matches[0]));
         $trash_list = $_SESSION["config"]['trash_list'];
-        $trash_list_ = (isset($_SESSION["config"]["webcache"])) ? str_replace('webcache.,', '', $trash_list) : $trash_list;
+        $trash_list_ = isset($_SESSION["config"]["webcache"]) ? str_replace('webcache.,', '', $trash_list) : $trash_list;
 
         foreach ($matches_ as $valor):
             $valor = __filterURLTAG($valor);

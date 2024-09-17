@@ -16,60 +16,67 @@ if (is_array($_SESSION['config']['irc']['conf'])):
     $_SESSION['config']['irc']['irc_quiet'] = "Session Ended";
     global $conf;
 elseif (!is_array($_SESSION['config']['irc']['conf']) && __not_empty($opcoes['irc'])):
-    __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]}IRC WRONG FORMAT! ex: --irc 'irc.rizon.net#inurlbrasil' {$_SESSION["c0"]}\n");
+    __getOut("{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]}IRC WRONG FORMAT! ex: --irc 'irc.rizon.net#inurlbrasil' {$_SESSION["c0"]}\n");
 endif;
 
 ################################################################################
 #IRC CONECTION##################################################################
 ################################################################################
 function __ircConect($conf) {
-
-    $fp = fsockopen($conf['irc_server'], $conf['irc_port'], $conf['errno'], $conf['errstr'], 30);
-    if (!$fp):
-        echo "Error: {$conf['errstr']}({$conf['errno']})\n";
-        return NULL;
+    if(__not_empty($$conf['irc_connection']) and __not_empty($conf['irc_port'])):
+        $u = php_uname();
+        $fp = fsockopen($conf['irc_server'], $conf['irc_port'], $conf['errno'], $conf['errstr'], 30);
+        if (!$fp):
+            echo "Error: {$conf['errstr']}({$conf['errno']})\n";
+            return NULL;
+        endif;
+        
+        if($fp):
+            fwrite($fp, "NICK {$conf['irc_nick']}\r\n");
+            fwrite($fp, "USER {$conf['irc_nick']} 8 * :{$conf['irc_realname']}\r\n");
+            fwrite($fp, "JOIN {$conf['irc_channel']}\r\n");
+            fwrite($fp, "PRIVMSG {$conf['irc_channel']} :[ SERVER ] {$u}\r\n");
+            return $fp;
+        endif;
     endif;
-    $u = php_uname();
-    fwrite($fp, "NICK {$conf['irc_nick']}\r\n");
-    fwrite($fp, "USER {$conf['irc_nick']} 8 * :{$conf['irc_realname']}\r\n");
-    fwrite($fp, "JOIN {$conf['irc_channel']}\r\n");
-    fwrite($fp, "PRIVMSG {$conf['irc_channel']} :[ SERVER ] {$u}\r\n");
-    return $fp;
 }
 
 ################################################################################
 #IRC SEND MSG###################################################################
 ################################################################################
 function __ircMsg($conf, $msg) {
-
-    fwrite($conf['irc_connection'], "PRIVMSG ${conf['irc_channel']} :${msg}\r\n") . sleep(2);
-    __plus();
+    if(__not_empty($$conf['irc_connection']) and __not_empty($msg)):
+        fwrite($conf['irc_connection'], "PRIVMSG {$conf['irc_channel']} :{$msg}\r\n") . sleep(2);
+        __plus();
+    endif;
 }
 
 ################################################################################
 #IRC PING PONG##################################################################
 ################################################################################
 function __ircPong($conf) {
-
-    while (!feof($conf['irc_connection'])):
-        $conf['READ_BUFFER'] = fgets($conf['irc_connection']);
-        __plus();
-        if (preg_match("/^PING(.+)/", $conf['READ_BUFFER'], $conf['ret'])):
-            __debug(array('debug' => "[ PING-PONG ]{$conf['ret'][1]}", 'function' => __FUNCTION__), 6) . __plus();
-            fwrite($conf['READ_BUFFER'], "PONG {$conf['ret'][1]}\r\n");
-            ($_SESSION['config']['debug'] == 6) ?
-                            fwrite($conf['irc_connection'], "PRIVMSG ${conf['irc_channel']} :[ PING-PONG ]-> {$conf['ret'][1]}->function:__ircPong\r\n") : NULL;
-        endif;
-    endwhile;
+    if(__not_empty($$conf['irc_connection'])):
+        while (!feof($conf['irc_connection'])):
+            $conf['READ_BUFFER'] = fgets($conf['irc_connection']);
+            __plus();
+            if (preg_match("/^PING(.+)/", $conf['READ_BUFFER'], $conf['ret'])):
+                __debug(array('debug' => "[ PING-PONG ]{$conf['ret'][1]}", 'function' => __FUNCTION__), 6) . __plus();
+                fwrite($conf['READ_BUFFER'], "PONG {$conf['ret'][1]}\r\n");
+                ($_SESSION['config']['debug'] == 6) ?
+                                fwrite($conf['irc_connection'], "PRIVMSG {$conf['irc_channel']} :[ PING-PONG ]-> {$conf['ret'][1]}->function:__ircPong\r\n") : NULL;
+            endif;
+        endwhile;
+    endif;
 }
 
 ################################################################################
 #IRC QUIT#######################################################################
 ################################################################################
 function __ircQuit($conf) {
-
-    fwrite($conf['irc_connection'], "QUIT {$conf['irc_quiet']}\r\n") . sleep(2);
-    __plus();
-    fclose($conf['irc_connection']);
+    if(__not_empty($$conf['irc_connection'])):
+        fwrite($conf['irc_connection'], "QUIT {$conf['irc_quiet']}\r\n") . sleep(2);
+        __plus();
+        fclose($conf['irc_connection']);
+    endif;
 }
 

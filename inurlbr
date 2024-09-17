@@ -94,6 +94,7 @@ ini_set('allow_url_fopen', 1);
 set_time_limit(0);
 (!isset($_SESSION) ? session_start() : NULL);
 
+
 #########################################################################################
 #Capturing TERMINAL VALUES.##############################################################
 #(PHP 4 >= 4.3.0, PHP 5) Gets options from the command line argument list################
@@ -115,18 +116,33 @@ $command_list = [
 ];
 $opcoes = getopt('u::a:d:o:p:s:q:t:m::h::', $command_list);
 #########################################################################################
+#REMOVING DUPLICATE PARAMETERS ##########################################################
+#########################################################################################
+foreach ($opcoes as $key => $value):
+    if(is_array($value)):
+        $opcoes[$key] = $value[0];
+    endif;
+endforeach;
+#########################################################################################
 #INCLUDE FILES CONFIGURATION ############################################################
 #########################################################################################
 $pwd = realpath(dirname(__FILE__));
 require_once("{$pwd}/src/load/session.config.php");
 require_once("{$pwd}/src/load/require.files.php");
+#########################################################################################
+#BANNER AND COLORS ######################################################################
+#########################################################################################
+__get_color();
+__bannerLogo();
+#########################################################################################
+#PARAMETER VALIDATION ###################################################################
+#########################################################################################
 require_once("{$pwd}/src/load/validate.options.php");
+__startingBanner();
 #########################################################################################
 #RUN VALIDATION / PROCESSES SCAN RANG IP#################################################
 #########################################################################################
 if (__not_empty($_SESSION['config']['range']) || __not_empty($_SESSION['config']['range-rand'])):
-    print __bannerLogo();
-    __startingBanner();
     __not_empty($_SESSION['config']['range']) ? 
     __process(__generatorRangeIP($_SESSION['config']['range'])) : NULL;
     __not_empty($_SESSION['config']['range-rand']) ?
@@ -137,8 +153,6 @@ endif;
 #RUN VALIDATION / PROCESSES WITH FILE####################################################
 #########################################################################################
 if (__not_empty($_SESSION['config']['abrir-arquivo'])):
-    print __bannerLogo();
-    __startingBanner();
     __openFile($_SESSION['config']['abrir-arquivo']);
     __plus();
     __exitProcess();

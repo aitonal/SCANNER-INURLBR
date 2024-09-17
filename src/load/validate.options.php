@@ -7,17 +7,13 @@
 # Execute the given cURL session.This function should be called after initializing a cURL session and all the
 # options for the session are set.
 # http://php.net/manual/en/function.curl-exec.php
-(!function_exists('curl_exec') ? __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]} INSTALLING THE LIBRARY php5-curl ex: php5-curl apt-get install{$_SESSION["c0"]}\n") : NULL );
-
+(!function_exists('curl_exec') ? __getOut("{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]} INSTALLING THE LIBRARY php5-curl ex: php5-curl apt-get install{$_SESSION["c0"]}\n") : NULL );
 
 # [+]VERIFYING use Input PHP CLI.
 # (PHP 4, PHP 5) defined — Checks whether a given named constant exists
 # http://php.net/manual/pt_BR/function.defined.php */
-(!defined('STDIN') ? __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]} Please run it through command-line!{$_SESSION["c0"]}\n") : NULL);
+(!defined('STDIN') ? __getOut("{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]} Please run it through command-line!{$_SESSION["c0"]}\n") : NULL);
   
-
-__get_color();
-
 
 # [+]PRINTING HELP / INFO
 (isset($opcoes['h']) || isset($opcoes['help']) || isset($opcoes['ajuda']) ? 
@@ -27,7 +23,7 @@ __info() : NULL);
 
 # [+]PRINTING EXPLOITS LIST.
 (isset($opcoes['exploit-list']) ?
-print(__bannerLogo()) . __configExploitsList(1)  : NULL);
+__configExploitsList(1)  : NULL);
 
 # [+]CREATING DEFAULT SETTINGS EXIT RESULTS.
 (!is_dir($_SESSION['config']['out_put_paste']) ?
@@ -66,7 +62,7 @@ if (__not_empty($opcoes['o'])) {
 
     $_SESSION['config']['dork'] = __not_empty($opcoes['dork']) && is_null($_SESSION['config']['abrir-arquivo']) ? $opcoes['dork'] : NULL;
     $_SESSION['config']['dork-file'] = __not_empty($opcoes['dork-file']) && is_null($_SESSION['config']['abrir-arquivo']) ? $opcoes['dork-file'] : NULL;
-    (!__not_empty($_SESSION['config']['dork']) && !__not_empty($_SESSION['config']['dork-file']) ? print(__bannerLogo() . "{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]}DEFINE DORK ex: --dork '.asp?CategoryID=' OR --dork-file 'dorks.txt'{$_SESSION["c0"]}\n") : NULL);
+    (!__not_empty($_SESSION['config']['dork']) && !__not_empty($_SESSION['config']['dork-file']) ? print("{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]}{$_SESSION["c2"]}DEFINE DORK ex: --dork '.asp?CategoryID=' OR --dork-file 'dorks.txt'{$_SESSION["c0"]}\n") : NULL);
 }
 
 # [+]VALIDATION GENERATE DORKS RANDOM
@@ -94,7 +90,7 @@ $opcoes['q'] : 1;
 
 # [+]VALIDATION SAVE FILE VULNERABLE
 !__not_empty($opcoes['s']) && !__not_empty($opcoes['save-as']) &&
-empty($opcoes['sall']) ? __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]}DEFINE FILE SAVE OUTPUT ex: -s , --save-as , --sall filevull.txt{$_SESSION["c0"]}\n") : NULL;
+empty($opcoes['sall']) ? __getOut( "{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]}{$_SESSION["c2"]}DEFINE FILE SAVE OUTPUT ex: -s , --save-as , --sall filevull.txt{$_SESSION["c0"]}\n") : NULL;
 
 $_SESSION['config']['s'] = __not_empty($opcoes['s']) ?
 $opcoes['s'] : null;

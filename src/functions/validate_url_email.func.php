@@ -6,9 +6,10 @@
 ################################################################################
 
 function __validateEmail($email) {
-
-    preg_match_all('/([\w\d\.\-\_]+)@([\w\d\.\_\-]+)/', $email, $matches);
-    return $matches;
+    if(__not_empty($email)):
+        preg_match_all('/([\w\d\.\-\_]+)@([\w\d\.\_\-]+)/', $email, $matches);
+        return $matches;
+    endif;
 }
 
 ################################################################################
@@ -16,10 +17,11 @@ function __validateEmail($email) {
 ################################################################################
 
 function __validateURL($url) {
-
-    if (preg_match("#\b(http[s]?://|ftp[s]?://){1,}?([-a-zA-Z0-9\.]+)([-a-zA-Z0-9\.]){1,}([-a-zA-Z0-9_\.\#\@\:%_/\?\=\~\-\//\!\'\(\)\s\^\:blank:\:punct:\:xdigit:\:space:\$]+)#si", $url)) {
-        return TRUE;
-    } else {
-        return FALSE;
-    }
+    if(__not_empty($url)):
+        if (preg_match("#\b(http[s]?://|ftp[s]?://){1,}?([-a-zA-Z0-9\.]+)([-a-zA-Z0-9\.]){1,}([-a-zA-Z0-9_\.\#\@\:%_/\?\=\~\-\//\!\'\(\)\s\^\:blank:\:punct:\:xdigit:\:space:\$]+)#si", $url)):
+            return TRUE;
+        else:
+            return FALSE;
+        endif;
+    endif;
 }

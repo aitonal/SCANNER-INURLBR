@@ -12,7 +12,7 @@ function __command($commando, $alvo) {
                 strstr($commando, '_URI_')          ||
                 strstr($commando, '_PORT_')         ||
                 strstr($commando, '_RANDOM_') ? NULL :
-                        __getOut(__bannerLogo() . "{$_SESSION["c1"]}[ INF ]{$_SESSION["c2"]}SET PARAMETER - command correctly{$_SESSION["c0"]}\n"));
+                        __getOut("{$_SESSION["c1"]}[ INF ]{$_SESSION["c2"]}SET PARAMETER - command correctly{$_SESSION["c0"]}\n"));
 
         $uri = parse_url($alvo['url_xpl']);
 

@@ -9,12 +9,12 @@ function __exitProcess() {
     echo "\n\n{$_SESSION["c1"]}[ INF ] [ Shutting down ]{$_SESSION["c0"]}";
     echo "\n{$_SESSION["c1"]}[ INF ] [ End of process INURLBR at [ " . date("d-m-Y H:i:s") . " ]{$_SESSION["c0"]}";
     echo "\n{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]}{$_SESSION["c16"]}[ TOTAL FILTERED VALUES ]::{$_SESSION["c0"]}{$_SESSION["c1"]} [ {$cont} ]{$_SESSION["c0"]}";
-    echo!is_null($file) ? "\n{$_SESSION["c1"]}[ INF ] {$_SESSION["c16"]}[ OUTPUT FILE ]::{$_SESSION["c1"]} [ " . getcwd() . "/{$_SESSION['config']['out_put_paste']}{$file}  ]{$_SESSION["c0"]}" : NULL;
-    echo!is_null($file_all) ? "\n{$_SESSION["c1"]}[ INF ] {$_SESSION["c16"]}[ OUTPUT FILE ALL ]::{$_SESSION["c1"]} [ " . getcwd() . "/{$_SESSION['config']['out_put_paste']}{$file_all}  ]{$_SESSION["c0"]}" : NULL;
-    echo "\n{$_SESSION["c1"]}|_________________________________________________________________________________________{$_SESSION["c0"]}\n";
+    echo!is_null($file) ? "\n{$_SESSION["c1"]}[ INF ] {$_SESSION["c16"]}[ OUTPUT FILE ]::{$_SESSION["c1"]} [ {$_SESSION['config']['out_put_paste']}{$file}  ]{$_SESSION["c0"]}" : NULL;
+    echo!is_null($file_all) ? "\n{$_SESSION["c1"]}[ INF ] {$_SESSION["c16"]}[ OUTPUT FILE ALL ]:: {$_SESSION["c1"]} [ {$_SESSION['config']['out_put_paste']}{$file_all}  ]{$_SESSION["c0"]}" : NULL;
+    echo "\n{$_SESSION["c1"]}|--------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}\n";
 
     print_r(!$_SESSION['config']['extrai-email'] ? $_SESSION['config']['resultado_valores'] : NULL);
 
-    echo "\n{$_SESSION["c1"]}\_________________________________________________________________________________________/{$_SESSION["c0"]}\n";
+    echo "\n{$_SESSION["c1"]}\--------------------------------------------------------------------------------------------------------------/{$_SESSION["c0"]}\n";
     __getOut("\n");
 }
