@@ -6,7 +6,7 @@
 
 
 <p align="center">
-<a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-7.4-yellow.svg"></a>
+<a href="https://www.php.net/"><img src="https://img.shields.io/badge/PHP-8.4-yellow.svg"></a>
 <a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/blob/main/LICENSE"><img src="https://img.shields.io/github/license/MrCl0wnLab/SCANNER-INURLBR?color=blue"></a>
 <a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/graphs/contributors"><img src="https://img.shields.io/github/contributors-anon/MrCl0wnLab/SCANNER-INURLBR"></a>
 <a href="https://github.com/MrCl0wnLab/SCANNER-INURLBR/issues"><img src="https://img.shields.io/github/issues-raw/MrCl0wnLab/SCANNER-INURLBR"></a>
@@ -51,11 +51,10 @@ Email:    mrcl0wnlab\@\gmail.com
 
 ## Lib & Permission
 ```properties
-PHP Version         7.4.16
+PHP Version         8.3.11
 php5 curl           LIB
 php5 cli            LIB   
 cURL support        enabled
-cURL Information    7.24.0
 allow_url_fopen     On
 permission          Reading & Writing
 User                root privilege, or is in the sudoers group
@@ -65,7 +64,7 @@ Proxy random        TOR
 
 ## install Dependencies 
 ```properties
-sudo apt-get install curl libcurl3 libcurl3-dev php7.4-fpm php7.4 php7.4-cli php7.4-curl xterm tor
+sudo apt-get install curl libcurl3 libcurl3-dev php8.3-fpm php8.3 php8.3-cli php8.3-curl xterm tor
 ```
 
 ## Download
@@ -73,7 +72,7 @@ Preferably, you can download inurlbr by cloning the [Git](https://github.com/MrC
 ```properties
 git clone https://github.com/MrCl0wnLab/SCANNER-INURLBR.git
 ```
-The inurlbr works with [php](http://php.net/downloads.php) version **7.4**  linux platforms.
+The inurlbr works with [php](http://php.net/downloads.php) version **8.3**  linux platforms.
 
 ## Giving permission to script execution
 ```properties
@@ -119,6 +118,8 @@ You can register more filter values that dirty your results
 
 ## Commands
 ```properties
+inurlbr --dork 'site:sp.gov.br' --save-as '/tmp/sp.gov.br.txt' -q 1 -u
+
 inurlbr --dork 'inurl:php?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;"  
    
 inurlbr --dork 'inurl:aspx?id=' -s save.txt -q 1,6 -t 1 --exploit-get "?´'%270x27;" 
@@ -257,7 +258,7 @@ inurlbr --dork-file 'dorks_Wordpress_revslider.txt' -s output.txt -q 1,2,6,4,5,9
      Usage:   --time-proxy 10
 
  --proxy-http-file Set file with urls http proxy, 
-     are used to bular capch search engines
+     are used to bypass capch search engines
      Example: --proxy-http-file {youfilehttp}
      Usage:   --proxy-http-file http_proxys.txt
          
@@ -603,22 +604,22 @@ inurlbr --dork-file 'dorks_Wordpress_revslider.txt' -s output.txt -q 1,2,6,4,5,9
 
     [!] Modifying values used within script parameters:
     
- md5 Encrypt values in md5.
+ md5: Encrypt values in md5.
      Example: md5({value})
      Usage:   md5(102030)
      Usage:   --exploit-get 'user?id=md5(102030)'
 
- base64 Encrypt values in base64.
+ base64: Encrypt values in base64.
      Example: base64({value})
      Usage:   base64(102030)
      Usage:   --exploit-get 'user?id=base64(102030)'
          
- hex Encrypt values in hex.
+ hex: Encrypt values in hex.
      Example: hex({value})
      Usage:   hex(102030)
      Usage:   --exploit-get 'user?id=hex(102030)'
 
- hex Generate random values.
+ random: Generate random values.
      Example: random({character_counter})
      Usage:   random(8)
      Usage:   --exploit-get 'user?id=random(8)'
@@ -699,7 +700,9 @@ Contributions of any kind are welcome!
   - https://support.torproject.org/apt/tor-deb-repo/
   - https://help.ubuntu.com/community/Tor?action=show&redirect=TOR
 - PHP
-  - https://www.digitalocean.com/community/tutorials/how-to-install-php-7-4-and-set-up-a-local-development-environment-on-ubuntu-20-04 
+  - https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04
+  - https://pbcmedia.medium.com/how-to-install-the-latest-version-of-php-8-x-on-ubuntu-a-step-by-step-guide-5c5204db03f8
+  - https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04/
 - XTERM
   - https://installati.one/install-xterm-ubuntu-22-04/
   - https://manpages.ubuntu.com/manpages/xenial/en/man1/xterm.1.html 

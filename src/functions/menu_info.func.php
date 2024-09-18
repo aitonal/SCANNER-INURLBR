@@ -37,11 +37,10 @@ function __info() {
 {$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} NECESSARY FOR THE PROPER FUNCTIONING OF THE SCRIPT{$_SESSION["c0"]}
 {$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} LIB & CONFIG{$_SESSION["c0"]}
 
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} PHP Version         7
+{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} PHP Version         8.3.11
 {$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} php7-curl           LIB
 {$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} php7-cli            LIB   
 {$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} cURL support        enabled
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} URL Information     7.24.0
 {$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} allow_url_fopen     On
 {$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} permission          Reading & Writing
 {$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} User                root privilege, or is in the sudoers group
@@ -51,9 +50,9 @@ function __info() {
 {$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
  
 {$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}PERMISSION EXECUTION: chmod +x inurlbr{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CURL: sudo apt-get install php5-curl{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CLI: sudo apt-get install php5-cli{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}sudo apt-get install curl libcurl3 libcurl3-dev php5 php7-cli php7-curl{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CURL: sudo apt-get install php8-curl{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CLI: sudo apt-get install php8-cli{$_SESSION["c0"]}
+{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}sudo apt-get install curl libcurl3 libcurl3-dev php8 php8-cli php8-curl{$_SESSION["c0"]}
 {$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING PROXY TOR https://www.torproject.org/docs/debian.html.en{$_SESSION["c0"]}
 {$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
 
