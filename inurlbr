@@ -66,8 +66,8 @@
   [*]ERROR ORACLE,    [*]ERROR DB2,            [*]JDBC CFM,              [*]ERROS LUA,
   [*]ERROR INDEFINITE
 
-  [+] Dependencies - (PHP 7.*):
-  sudo apt-get install curl libcurl3 libcurl3-dev php7 php7-cli php7-curl
+  [+] Dependencies - (PHP 8.*):
+  sudo apt-get install curl libcurl3 libcurl3-dev php8 php8-cli php8-curl
 
 
   [+] Play LIST TUTORIAL:
@@ -133,7 +133,7 @@ require_once("{$pwd}/src/load/require.files.php");
 #BANNER AND COLORS ######################################################################
 #########################################################################################
 __get_color();
-__bannerLogo();
+echo __bannerLogo();
 #########################################################################################
 #PARAMETER VALIDATION ###################################################################
 #########################################################################################
