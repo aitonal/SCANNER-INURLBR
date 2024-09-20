@@ -1,5 +1,5 @@
 <?php
-function __request_info($url_, $proxy = NULL, $postDados = NULL) {
+function __request_info_simples($url_, $proxy = NULL, $postDados = NULL) {
 
     $url_ = __crypt($url_);
     $parser_url = parse_url($url_);
@@ -93,4 +93,155 @@ function __request_info($url_, $proxy = NULL, $postDados = NULL) {
     __plus();
     unset($curl_array);
     return isset($ret[0]) ? ['corpo' => $ret[0], 'server' => $ret[1], 'error' => $ret[2], 'info' => $ret[3],'parser_url'=>$parser_url] : FALSE;
+}
+
+function __get_info_curlcontent(string $return_http): string|null{
+    if(__not_empty($return_http)):
+        $status = NULL;
+        preg_match_all('(HTTP.*)', $return_http, $status['http']);
+        preg_match_all('(Server:.*)', $return_http, $status['server']);
+        preg_match_all('(X-Powered-By:.*)', $return_http, $status['X-Powered-By']);
+        $info_str = str_replace("\r", '', str_replace("\n", '', "{$status['http'][0][0]}, {$status['server'][0][0]}  {$status['X-Powered-By'][0][0]}"));
+        return $info_str ?? null;
+    endif;
+    return null;
+}
+
+function __create_post($postDados): string{
+    $postDados_format = "";
+    foreach ($postDados as $campo => $valor):
+        $postDados_format .= "{$campo}=" . urlencode($valor) . '&';
+    endforeach;
+    $postDados_format = rtrim($postDados_format, '&');
+    return $postDados_format;
+}
+
+function __request_Fiber($target, $proxy = NULL, $postDados = NULL){
+
+    $curl_array = [];
+    $is_running = NULL;
+    $return_http = [];
+    $curl_mult = curl_multi_init();
+
+    $url_array = is_array($target) ? $target : [$target];
+    $cookie_file = "{$_SESSION['config']['pwd']}/../../cookie.txt";
+    $header_local = ["Cookie: disclaimer_accepted=true","Cache-Control: max-age=0"];
+
+    foreach ($url_array as $id => $url):
+        
+        $url = trim(str_replace("\n","",$url));
+        $url = __crypt($target);
+        $curl_array[$id] = curl_init($url);
+
+        # FORMATANDO POST & EXECUTANDO urlencode EM CADA VALOR DO POST.
+        if (__not_empty($postDados) && is_array($postDados)):
+            $postDados_format = __create_post($postDados);
+            curl_setopt($curl_array[$id], CURLOPT_POST, count($postDados));
+            curl_setopt($curl_array[$id], CURLOPT_POSTFIELDS, __crypt($postDados_format));
+        endif;
+
+        # SET VALORES HEADER
+        $http_header = array_merge(__not_empty($_SESSION['config']['http-header']) ?
+        explode(',', __crypt($_SESSION['config']['http-header'])) : [], $header_local);
+        curl_setopt($curl_array[$id], CURLOPT_HTTPHEADER, $http_header);
+
+        # SET USER-AGENT
+        $user_agent = $_SESSION['config']['user-agent'] ?? __setUserAgentRandom();
+        curl_setopt($curl_array[$id], CURLOPT_USERAGENT, $user_agent);
+
+        # SET URL REFERENCE
+        $url_refer = $_SESSION['config']['url-reference'] ?? __setURLReferenceRandom();
+        curl_setopt($curl_array[$id], CURLOPT_REFERER, $url_refer);
+
+        # SET PROXY
+        if(__not_empty($proxy)):
+            curl_setopt($curl_array[$id], CURLOPT_PROXY, $proxy);
+        endif;
+
+        # SET OUTPUT HEADER
+        if(__not_empty($_SESSION['config']['verifica_info'])):
+            curl_setopt($curl_array[$id], CURLOPT_HEADER, 1);
+            if(__validateOptions('3,6', $_SESSION['config']['debug'])):
+                curl_setopt($curl_array[$id], CURLOPT_VERBOSE, 1);
+            endif;
+        endif;
+
+       
+        $time_out = $_SESSION['config']['time-out'] ?? 5;
+        curl_setopt($curl_array[$id], CURLOPT_CONNECTTIMEOUT, $time_out);
+        curl_setopt($curl_array[$id], CURLOPT_TIMEOUT, $time_out);
+
+        $$cookie_file = $_SESSION['config']['file-cookie'] ?? $cookie_file;
+        curl_setopt($curl_array[$id], CURLOPT_COOKIEFILE, $cookie_file);
+        curl_setopt($curl_array[$id], CURLOPT_COOKIEJAR, $cookie_file);
+
+        curl_setopt($curl_array[$id], CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curl_array[$id], CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl_array[$id], CURLOPT_FRESH_CONNECT, 1);
+        curl_setopt($curl_array[$id], CURLOPT_RETURNTRANSFER, 1);
+        # curl_setopt($curl_array[$i], CURLOPT_FOLLOWLOCATION, 1);
+
+        curl_multi_add_handle($curl_mult, $curl_array[$id]);
+
+    endforeach;
+
+    do {
+        usleep(100);
+        curl_multi_exec($curl_mult, $is_running);
+        Fiber::suspend();
+    } while ($is_running > 0);
+    
+    foreach ($url_array as $id => $url):
+        $curl_content = curl_multi_getcontent($curl_array[$id]);
+        $return_http =  [ 
+                $curl_content,
+                curl_getinfo($curl_array[$id]),
+                curl_error(handle: $curl_array[$id]),
+                __get_info_curlcontent($curl_content),
+                parse_url( $url)
+        ];
+        __debug(['debug' => "[ BODY ]{$curl_content}", 'function' => __FUNCTION__], 4);
+        __debug(['debug' => "[ URL ]{$url}", 'function' => __FUNCTION__], 2);
+    endforeach;
+
+    foreach ($url_array as $id => $url):
+        curl_multi_remove_handle($curl_mult, $curl_array[$id]);
+    endforeach;
+
+    curl_multi_close($curl_mult);
+    unlink($cookie_file);
+    unset($curl_array);
+    __plus();
+    return  $return_http;
+}
+
+
+function __request_info($target, $proxy = NULL, $postDados = NULL){
+    if (__not_empty($target)):
+        $concurrency = $_SESSION['config']['concorracy'] ?? 1;
+        $concurrency = 1;
+        $fiberList = [];
+        $url_nodes = is_array($target) ? $target : [$target];
+        
+        foreach ($url_nodes as $url):
+            if (__not_empty($url)):
+                $fiber = new Fiber(__request_Fiber(...));
+                $fiber->start($url, $proxy, $postDados);
+                $fiberList[] = $fiber;
+                if (count($fiberList) >= $concurrency):
+                    foreach (__waitForFibers(fiberList: $fiberList, completionCount: 1) as $fiber):
+                        [ $curl_content, $curl_getinfo, $curl_error, $curl_content_info, $parser_url ] = $fiber->getReturn();
+                        __plus();
+                        return  [
+                            'corpo' => $curl_content, 
+                            'server' => $curl_getinfo, 
+                            'error' => $curl_error, 
+                            'info' => $curl_content_info,
+                            'parser_url' => $parser_url
+                        ];
+                    endforeach;
+                endif;
+            endif;
+        endforeach;
+    endif;
 }

@@ -1,10 +1,10 @@
 <?php
 
-function __processUrlExec($url, $contUrl) {
+function __processUrlExec_Fiber($url, $contUrl) {
 
     if (!__not_empty($url))
         return FALSE;
-    
+
     $host = (!is_null($_SESSION['config']['replace'])) ?
     __replace_url_value(urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : $url)) :
             urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : ($url));
@@ -16,7 +16,6 @@ function __processUrlExec($url, $contUrl) {
             $_SESSION['config']['url'] . $host : urldecode($url);
     
     $info = __infoServer($target_['url_xpl'], $_SESSION['config']['exploit-post']);
-
     
     if ($_SESSION['config']['tipoerro'] != 5 && is_null($_SESSION['config']['extrai-email']) &&
             is_null($_SESSION['config']['extrai-url']) && is_null($_SESSION['config']['regexp-filter'])):
@@ -30,23 +29,23 @@ function __processUrlExec($url, $contUrl) {
         $target_ip = ($valid_return) ? "{$_SESSION["c4"]}{$_SESSION['config']['info_ip']}" : $_SESSION['config']['info_ip'];
         $title = ($valid_return) ? "{$_SESSION["c4"]}{$_SESSION['config']['title']}" : $_SESSION['config']['title'];
         $save_ocultar = isset($_SESSION['config']['arquivo_output_all']) ? 3 : 1;
-        $anime = $valid_return ? '[  !  ]' : '[  -  ]';
+        $anime = $valid_return ? '[  !  ] ' : '[  +  ] ';
         echo __plus() . PHP_EOL;
 
         echo "{$_SESSION["c1"]}{$_SESSION['config']['line']}{$_SESSION["c0"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] [{$_SESSION["c2"]} {$contUrl} / {$_SESSION['config']['total_url']} {$_SESSION["c1"]}]{$_SESSION["c9"]}-[ " . date("H:i:s") . " ]{$_SESSION["c1"]} {$_SESSION["c0"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Target:: {$_SESSION["c1"]}{$_SESSION["c9"]} {$_SESSION['config']['vull_style']}{$target_['url_clean']}{$_SESSION["c1"]} {$_SESSION["c0"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Exploit:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$exget}{$expost}{$_SESSION["c0"]}\n";
-        echo (__not_empty($_SESSION['config']['replace'])) ? ("{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Replace:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['replace']}{$_SESSION["c0"]}\n") : NULL;
-        echo (__not_empty($_SESSION['config']['remove'])) ? ("{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Remove:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['remove']}{$_SESSION["c0"]}\n") : NULL;
-        echo (isset($_SESSION['config']['cms-check-resultado'])) ? ("{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}CMS check:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['cms-check-resultado']}{$_SESSION["c0"]}\n") : NULL;
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Title:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$title}{$_SESSION["c1"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Information Server:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$info}{$_SESSION["c1"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}More details:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$target_ip}{$_SESSION["c1"]}\n";
-        echo "{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}Found:: {$_SESSION["c9"]}" . ($valid_return ? "{$_SESSION["c4"]}{$_SESSION['config']['erroReturn']}" : "UNIDENTIFIED") . "{$_SESSION["c0"]}";
-        echo (__not_empty($ifredirect) ? "\n{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}URL REDIRECT:: {$_SESSION["c9"]}{$ifredirect}{$_SESSION["c0"]}" : NULL);
-        echo (__not_empty(valor: $_SESSION['config']['error_conection']) ? "\n{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}{$_SESSION["c1"]}ERROR CONECTION:: {$_SESSION["c2"]}{$_SESSION['config']['error_conection']}{$_SESSION["c0"]}" : NULL);
-        
+        echo "{$_SESSION["c1"]}{$anime} [{$_SESSION["c2"]} {$contUrl} / {$_SESSION['config']['total_url']} {$_SESSION["c1"]}]{$_SESSION["c9"]}-[ " . date("H:i:s") . " ]{$_SESSION["c1"]} {$_SESSION["c0"]}\n";
+        echo "{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}Target:: {$_SESSION["c1"]}{$_SESSION["c9"]} {$_SESSION['config']['vull_style']}{$target_['url_clean']}{$_SESSION["c1"]} {$_SESSION["c0"]}\n";
+        echo "{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}Exploit:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$exget}{$expost}{$_SESSION["c0"]}\n";
+        echo (__not_empty($_SESSION['config']['replace'])) ? ("{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}Replace:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['replace']}{$_SESSION["c0"]}\n") : NULL;
+        echo (__not_empty($_SESSION['config']['remove'])) ? ("{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}Remove:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['remove']}{$_SESSION["c0"]}\n") : NULL;
+        echo (isset($_SESSION['config']['cms-check-resultado'])) ? ("{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}CMS check:: {$_SESSION["c0"]}{$_SESSION["c3"]}{$_SESSION['config']['cms-check-resultado']}{$_SESSION["c0"]}\n") : NULL;
+        echo "{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}Title:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$title}{$_SESSION["c1"]}\n";
+        echo "{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}Information Server:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$info}{$_SESSION["c1"]}\n";
+        echo "{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}More details:: {$_SESSION["c0"]}{$_SESSION["c9"]}{$target_ip}{$_SESSION["c1"]}\n";
+        echo "{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}Found:: {$_SESSION["c9"]}" . ($valid_return ? "{$_SESSION["c4"]}{$_SESSION['config']['erroReturn']}" : "UNIDENTIFIED") . "{$_SESSION["c0"]}";
+        echo (__not_empty($ifredirect) ? "\n{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}URL REDIRECT:: {$_SESSION["c9"]}{$ifredirect}{$_SESSION["c0"]}" : NULL);
+        echo (__not_empty(valor: $_SESSION['config']['error_conection']) ? "\n{$_SESSION["c1"]}{$anime} {$_SESSION["c0"]}{$_SESSION["c1"]}ERROR CONECTION:: {$_SESSION["c2"]}{$_SESSION['config']['error_conection']}{$_SESSION["c0"]}" : NULL);
+        __plus();
         
         if($valid_return):
                 __saveValue($_SESSION['config']['arquivo_output'], $target_['url_xpl'], $save_ocultar);
@@ -92,7 +91,45 @@ function __processUrlExec($url, $contUrl) {
         (__not_empty($_SESSION['config']['port-scan']) ? 
                                 __portScan(array(0 => $target_, 1 => $_SESSION['config']['port-scan'])) : NULL);
         
-
+        
         __timeSec('delay', "\n");
     endif;
 }
+
+
+function __processUrlExec($url_list): void{
+        if (__not_empty($url_list)):
+            $count_urls = count($url_list);
+            if ($count_urls>=100):
+                $concurrency = 10;
+            endif;
+            if ($count_urls<=100 && $count_urls>=50):
+                $concurrency = 5;
+            endif;
+            if ($count_urls<=50 && $count_urls>=10):
+                $concurrency = 2;
+            endif;
+            if ($count_urls<=10):
+                $concurrency = 1;
+            endif;
+
+            $fiberList = [];
+            $url_nodes = is_array($url_list) ? $url_list : [$url_list];
+            foreach ($url_nodes as $url):
+                $url = urldecode(__not_empty($_SESSION['config']['target']) ?
+                            $_SESSION['config']['target'] . $url : $url);
+                $url = __filterURLTAG(valor: $url);
+                #if(__validateURL(url: $url) || __not_empty($_SESSION['config']['abrir-arquivo'])):
+                    $fiber = new Fiber(callback: __processUrlExec_Fiber(...));
+                    $fiber->start($url, $_SESSION["config"]["contUrl"]++);
+                    $fiberList[] = $fiber;
+                    if (count(value: $fiberList) >= $concurrency):
+                        foreach (__waitForFibers(fiberList: $fiberList, completionCount: 1) as $fiber):
+                            $fiber->getReturn();
+                            __plus();
+                        endforeach;
+                    endif;
+                #endif;
+            endforeach;
+        endif;
+    }

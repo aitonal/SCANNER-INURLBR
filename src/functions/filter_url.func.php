@@ -5,21 +5,22 @@
 ################################################################################
 function __filterURL($html, $op = NULL) {
     if (__not_empty($html)):
-        $reg = !strstr($op, 'GOOGLE') ? "#\b(href=\"|src=\"|value=\")(.*?)(\")#si" :
-                "#\b(href=\"|src=\"|value=\"http[s]?://|href=\"|src=\"|value=\"ftp[s]?://){1,}?([-a-zA-Z0-9\.]+)([-a-zA-Z0-9\.]){1,}([-a-zA-Z0-9_\.\#\@\:%_/\?\=\~\-\//\!\'\(\)\s\^\:blank:\:punct:\:xdigit:\:space:\$]+)#si";
-        $html = str_replace('href="/url?q=', 'href="', $html);
 
         if (strstr($html, '.google.com/sorry/IndexRedirect?continue=https://www.google.com.') && $_SESSION['config']['persist'] <= $_SESSION["config"]['google_attempt'][1]):
-
             print_r("{$_SESSION["c1"]}[ INF ][ ERROR ]{$_SESSION["c2"]} GOOGLE LOCKED!{$_SESSION["c0"]}\n");
             $randHost = __dominioGoogleRandom();
             $_SESSION["config"]['google_attempt'][1] ++;
-            __pageEngine($_SESSION["config"]["conf_array_tmp"], "GOOGLE - {$randHost}", "https://{$randHost}/search?q=[DORK]&num=1500&btnG=Search&pws=1", $_SESSION["config"]["dork_tmp"], NULL, 0, 0, 1);
-        else:
-            $_SESSION["config"]["google_attempt"][1] = 0;
-            preg_match_all($reg, $html, $html);
-            return array_filter(array_unique($html[0]));
+            return __pageEngine($_SESSION["config"]["conf_array_tmp"], "GOOGLE - {$randHost}", "https://{$randHost}/search?q=[DORK]&num=1500&btnG=Search&pws=1", $_SESSION["config"]["dork_tmp"], NULL, 0, 0, 1);
         endif;
+
+        #$reg = !strstr($op, 'GOOGLE') ? "#\b(href=\"|src=\"|value=\")(.*?)(\")#si" :
+        $reg =  "#\b(href=\"|src=\"|value=\"http[s]?://|href=\"|src=\"|value=\"ftp[s]?://){1,}?([-a-zA-Z0-9\.]+)([-a-zA-Z0-9\.]){1,}([-a-zA-Z0-9_\.\#\@\:%_/\?\=\~\-\//\!\'\(\)\s\^\:blank:\:punct:\:xdigit:\:space:\$]+)#si";
+        $html = str_replace('href="/url?q=', 'href="', $html);
+
+        $_SESSION["config"]["google_attempt"][1] = 0;
+        preg_match_all($reg, $html, $html);
+        return array_filter(array_unique($html[0]));
+        
     endif;
 }
 ################################################################################

@@ -18,7 +18,7 @@ function __main($dork, $motor, $cod) {
 
         if (!empty($dork_[3][$i])):
 
-            echo "\n{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ DORK ]::{$_SESSION["c1"]}[ {$dork_[3][$i]} ]\n";
+            echo "\n{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c16"]} [ DORK ]:: {$_SESSION["c1"]}[ {$dork_[3][$i]} ]\n";
             
             __engines(urlencode($dork_[3][$i]), $list_proxy) . __plus();
 
