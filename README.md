@@ -700,6 +700,7 @@ Contributions of any kind are welcome!
   - https://support.torproject.org/apt/tor-deb-repo/
   - https://help.ubuntu.com/community/Tor?action=show&redirect=TOR
 - PHP
+  - https://blog.remirepo.net/post/2024/05/17/Install-PHP-8.3-on-Fedora-RHEL-CentOS-Alma-Rocky-or-other-clone
   - https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04
   - https://pbcmedia.medium.com/how-to-install-the-latest-version-of-php-8-x-on-ubuntu-a-step-by-step-guide-5c5204db03f8
   - https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04/
