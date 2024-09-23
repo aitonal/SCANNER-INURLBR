@@ -29,10 +29,10 @@ function __getValuesRobots($url) {
                     echo "         |{$value_robot}".PHP_EOL;
                     __saveValue($_SESSION['config']['arquivo_output'], $value_robot, 3);
                 endforeach;
-                echo "\n{$cor->whit}[ INF ]{$cor->grey} EXTRACTED URLS SAVED IN::{$cor->grey1} {$_SESSION['config']['arquivo_output']}{$cor->end}";
+                echo PHP_EOL."{$cor->whit}[ INF ]{$cor->grey} EXTRACTED URLS SAVED IN::{$cor->grey1} {$_SESSION['config']['arquivo_output']}{$cor->end}";
             endif;
         else:
-            echo "         |[ ERR ] LOAD FILE ROBOTS.TXT [ COD_HTTP ]:: {$result['server']['http_code']}\n{$cor->end}";
+            echo "         |[ ERR ] LOAD FILE ROBOTS.TXT [ COD_HTTP ]:: {$result['server']['http_code']}{$cor->end}".PHP_EOL;
         endif;
     endif;
 }

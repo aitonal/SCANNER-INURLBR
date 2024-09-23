@@ -50,6 +50,6 @@ function __extractURLDomainsArchive($domain_) {
             endif;
             __plus();
         endforeach;
-        __timeSec('delay', "\n");
+        __timeSec('delay', PHP_EOL);
     endif;
 }

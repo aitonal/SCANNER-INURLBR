@@ -99,7 +99,7 @@ $opcoes['q'] : 1;
 
 # [+] VALIDATION SAVE FILE VULNERABLE
 !__not_empty($opcoes['s']) && !__not_empty($opcoes['save-as']) &&
-empty($opcoes['sall']) ? __getOut( "{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}DEFINE FILE SAVE OUTPUT ex: -s , --save-as , --sall filevull.txt{$cor->end}\n") : NULL;
+empty($opcoes['sall']) ? __getOut( "{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}DEFINE FILE SAVE OUTPUT ex: -s , --save-as , --sall filevull.txt{$cor->end}".PHP_EOL) : NULL;
 
 $_SESSION['config']['s'] = __not_empty($opcoes['s']) ?
 $opcoes['s'] : null;

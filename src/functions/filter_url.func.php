@@ -7,7 +7,7 @@ function __filterURL($html, $op = NULL) {
     if (__not_empty($html)):
         $cor = $GLOBALS['COR'];
         if (strstr($html, '.google.com/sorry/IndexRedirect?continue=https://www.google.com.') && $_SESSION['config']['persist'] <= $_SESSION["config"]['google_attempt'][1]):
-            print_r("{$cor->whit}[ INF ][ ERROR ]{$cor->yell} GOOGLE LOCKED!{$cor->end}\n");
+            print_r("{$cor->whit}[ INF ][ ERROR ]{$cor->yell} GOOGLE LOCKED!{$cor->end}".PHP_EOL);
             $randHost = __dominioGoogleRandom();
             $_SESSION["config"]['google_attempt'][1] ++;
             return __pageEngine($_SESSION["config"]["conf_array_tmp"], "GOOGLE - {$randHost}", "https://{$randHost}/search?q=[DORK]&num=1500&btnG=Search&pws=1", $_SESSION["config"]["dork_tmp"], NULL, 0, 0, 1);

@@ -11,7 +11,7 @@ function __command($commando, $alvo) {
                 strstr($commando, '_URI_')          ||
                 strstr($commando, '_PORT_')         ||
                 strstr($commando, '_RANDOM_') ? NULL :
-                        __getOut("{$cor->whit}[ ERR ]{$cor->yell}SET PARAMETER - command correctly{$cor->end}\n"));
+                        __getOut("{$cor->whit}[ ERR ]{$cor->yell}SET PARAMETER - command correctly{$cor->end}".PHP_EOL));
 
         $uri = parse_url($alvo['url_xpl']);
 
@@ -41,7 +41,7 @@ function __command($commando, $alvo) {
         echo "\n{$cor->whit}[ CMD ]__".PHP_EOL;
         echo "         |[ EXTERNAL COMMAND ]:: {$command[0]}{$cor->mag1}".PHP_EOL;
         $_ = array(0 => ($_SESSION['config']['popup']) ? 'sudo xterm -geometry 134x50+1900+0 -title "Auxiliary Window - INURLBR / COMMAND" -e ' : NULL, 1 => ($_SESSION['config']['popup']) ? ' > /dev/null &' : NULL);
-        echo ($_SESSION['config']['popup'] ? "\t[!] opening auxiliary window...\n" : NULL);
+        echo ($_SESSION['config']['popup'] ? "\t[!] opening auxiliary window...".PHP_EOL : NULL);
         $dados = system($_[0] . $command[1] . $_[1], $dados);
         sleep(1) . __plus();
 

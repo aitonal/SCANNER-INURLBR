@@ -9,7 +9,7 @@ function __process($resultadoURL) {
     $resultadoURL[0] = (__not_empty($_SESSION['config']['ifurl']) ? __filterURLif($resultadoURL[0]) : $resultadoURL[0]);
     $_SESSION['config']['total_url'] = count($resultadoURL[0]);
 
-    echo "\n{$cor->whit}[ INF ] {$cor->red2}[ TOTAL FOUND VALUES ]::{$cor->whit} [ {$_SESSION['config']['total_url']} ]{$cor->end}".PHP_EOL;
+    echo PHP_EOL."{$cor->whit}[ INF ] {$cor->red2}[ TOTAL FOUND VALUES ]::{$cor->whit} [ {$_SESSION['config']['total_url']} ]{$cor->end}".PHP_EOL;
     __debug(['debug' => $resultadoURL[0], 'function' => __FUNCTION__], 3);
     echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}".PHP_EOL;
     
