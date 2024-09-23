@@ -8,9 +8,10 @@
 
 function __portScan($_) {
     if($_SESSION['config']['server_ip']):
+        $cor = $GLOBALS['COR'];
         $ports = explode(',', $_[1]);
-        echo "\n{$_SESSION["c1"]}[  *  ]__\n";
-        echo "         |[ PROCESS PORT-SCAN ]::\n";
+        echo "\n{$cor->whit}[ SCA ]__".PHP_EOL;
+        echo "         |[ PROCESS PORT-SCAN ]::".PHP_EOL;
         foreach ($ports as $value):
 
             $conc = fsockopen($_SESSION['config']['server_ip'], $value, $_[2], $_[3], 30);
@@ -19,7 +20,7 @@ function __portScan($_) {
 
             if ($conc):
 
-                echo "{$_SESSION["c1"]}         |[ {$value}=\033[1m\033[32mOPEN{$_SESSION["c0"]}";
+                echo "{$cor->whit}         |[ {$value}=\033[1m\{$cor->gre}OPEN{$cor->end}";
                 (__not_empty($_SESSION['config']['port-write']) ? __portWrite($conc, $_SESSION['config']['port-write']) : NULL);
                 __saveValue($_SESSION['config']['arquivo_output'], "{$value}=OPEN", 2);
 
@@ -29,11 +30,11 @@ function __portScan($_) {
                 __plus();
             else:
 
-                echo "{$_SESSION["c1"]}         |[ {$value}={$_SESSION["c9"]}CLOSED{$_SESSION["c0"]}\n";
+                echo "{$cor->whit}         |[ {$value}={$cor->grey1}CLOSED{$cor->end}".PHP_EOL;
                 __plus();
             endif;
         endforeach;
-        echo $_SESSION["c0"];
+        echo $cor->end;
         fclose($conc);
     endif;
 }
@@ -46,9 +47,10 @@ function __portScan($_) {
 function __portWrite($conect, $valores) {
 
     $valores = explode(',', $valores);
+    $cor = $GLOBALS['COR'];
     foreach ($valores as $value):
 
-        echo "{$_SESSION["c1"]}|_[ + ]__|[ WRITE SEND={$value}{$_SESSION["c0"]}\n";
+        echo "{$cor->whit}|_[ INF ]__|[ WRITE SEND={$value}{$cor->end}".PHP_EOL;
         fwrite($conect, "{$value}\r\n") . sleep(3);
         __plus();
     endforeach;

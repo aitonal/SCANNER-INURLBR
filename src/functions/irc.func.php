@@ -5,6 +5,7 @@
 ################################################################################
 if (is_array($_SESSION['config']['irc']['conf'])):
     $alph = range("A", "Z");
+    $cor = $GLOBALS['COR'];
     $_ = array(0 => rand(0, 10000), 1 => $alph[rand(0, count($alph))]);
     $_SESSION['config']['irc']['my_pid'] = 0;
     $_SESSION['config']['irc']['irc_server'] = $_SESSION['config']['irc']['conf'][0];
@@ -16,7 +17,7 @@ if (is_array($_SESSION['config']['irc']['conf'])):
     $_SESSION['config']['irc']['irc_quiet'] = "Session Ended";
     global $conf;
 elseif (!is_array($_SESSION['config']['irc']['conf']) && __not_empty($opcoes['irc'])):
-    __getOut("{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c2"]}IRC WRONG FORMAT! ex: --irc 'irc.rizon.net#inurlbrasil' {$_SESSION["c0"]}\n");
+    __getOut("{$cor->whit}[ ERR ]{$cor->end}{$cor->yell}IRC WRONG FORMAT! ex: --irc 'irc.rizon.net#inurlbrasil' {$cor->end}\n");
 endif;
 
 ################################################################################
@@ -27,7 +28,7 @@ function __ircConect($conf) {
         $u = php_uname();
         $fp = fsockopen($conf['irc_server'], $conf['irc_port'], $conf['errno'], $conf['errstr'], 30);
         if (!$fp):
-            echo "Error: {$conf['errstr']}({$conf['errno']})\n";
+            echo "Error: {$conf['errstr']}({$conf['errno']})".PHP_EOL;
             return NULL;
         endif;
         

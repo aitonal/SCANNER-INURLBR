@@ -3,11 +3,11 @@
 function __sendMail($email, $value) {
 
     $headers = NULL;
-    $headers .= "From: <scanner-inurlbr@localhost>\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-    $headers .= "content-type: text/html\nX-priority: 1\n";
-    $body = "------------------------------------------------------\n";
+    $headers .= "From: <scanner-inurlbr@localhost>\r".PHP_EOL;
+    $headers .= "MIME-Version: 1.0\r".PHP_EOL;
+    $headers .= "Content-type: text/html; charset=iso-8859-1\r".PHP_EOL;
+    $headers .= "content-type: text/html\nX-priority: 1".PHP_EOL;
+    $body = "------------------------------------------------------".PHP_EOL;
     $body.="DATE:  [" . date("d-m-Y H:i:s") . "]";
     $body.=__not_empty($_SESSION['config']['http-header']) ? "HTTP HEADER: {$_SESSION['config']['http-header']}\n" : NULL;
     $body.=__not_empty($_SESSION['config']['motor']) ? "MOTOR BUSCA: {$_SESSION['config']['motor']}\n" : NULL;
@@ -17,13 +17,13 @@ function __sendMail($email, $value) {
     $body.=__not_empty($_SESSION['config']['command-vul']) ? "COMMAND VUL: {$_SESSION['config']['command-vul']}\n" : NULL;
     $body.=__not_empty($_SESSION['config']['command-all']) ? "COMMAND ALL: {$_SESSION['config']['command-all']}\n" : NULL;
     $body.=__not_empty($_SESSION['config']['user-agent']) ? "USER AGENT: {$_SESSION['config']['user-agent']}\n" : NULL;
-    $body.= "------------------------------------------------------\n";
+    $body.= "------------------------------------------------------".PHP_EOL;
 
     if (mail($email, "[ INF ][ OUTPUT INURLBR ]:: {$value}", $body, $headers)):
         __plus();
-        return "[ INF ][ SUBMITTED SUCCESSFULLY ]\n";
+        return "[ INF ][ SUBMITTED SUCCESSFULLY ]".PHP_EOL;
     else:
         __plus();
-        return "[ INF ][ NOT SENT ]\n";
+        return "[ ERR ][ NOT SENT ]".PHP_EOL;
     endif;
 }

