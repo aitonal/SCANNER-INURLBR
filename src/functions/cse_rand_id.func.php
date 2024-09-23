@@ -16,8 +16,9 @@ function __googleGenericRandom() {
         '012984904789461885316:oy3-mu17hxk',
         '013269018370076798483:wdba3dlnxqm',
         '018033044562278214682:oxcpaqr8gke',
-        'partner-pub-1411074771348646:1404326155&',
+        'partner-pub-1411074771348646:1404326155',
         'partner-pub-7045961825256243:1400200985',
+        '009462381166450434430:frzo6adfjso'
     ];
     
     return $generic[rand(0, count($generic) - 1)];
