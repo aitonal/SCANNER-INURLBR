@@ -1,9 +1,9 @@
 <?php
 
-function __validateOptions($opArray, $validar, $op = NULL) {
+function __validateOptions($opArray, $validar, $op = null) {
 
     if (empty($validar) || empty($opArray)):
-        return FALSE;
+        return false;
     endif;
    
 
@@ -13,13 +13,13 @@ function __validateOptions($opArray, $validar, $op = NULL) {
         $busca = explode(',', $validar);
         for ($i = 0; $i <= count($busca); $i++):
             if (in_array($busca[$i], $array))
-                return TRUE;
+                return true;
         endfor;
     else:
         for ($i = 0; $i <= count($array); $i++):
             if (__not_empty($array[$i])):
                 if (strstr($validar, $array[$i])):
-                    return TRUE;
+                    return true;
                 endif;
             endif;
         endfor;

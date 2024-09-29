@@ -4,7 +4,7 @@ function __processUrlExec_Fiber($url_list) {
     $cor = $GLOBALS['COR'];
     foreach ($url_list as $url):
         if (!__not_empty($url))
-            return FALSE;
+            return false;
 
         $url = urldecode(__not_empty($_SESSION['config']['target']) ? $_SESSION['config']['target'] . $url : $url);
         $contUrl = $_SESSION["config"]["contUrl"]++;
@@ -22,48 +22,49 @@ function __processUrlExec_Fiber($url_list) {
         $info = __infoServer($target_['url_xpl'], $_SESSION['config']['exploit-post']);
         __plus();
 
-        
 
         if ($_SESSION['config']['tipoerro'] != 5 && is_null($_SESSION['config']['extrai-email']) &&
                 is_null($_SESSION['config']['extrai-url']) && is_null($_SESSION['config']['regexp-filter'])):
 
             $ifredirect = strstr($_SESSION['config']['curl_getinfo']['redirect_url'], $_SESSION['config']['ifredirect']) ?
-                    "{$cor->gre}{$_SESSION['config']['curl_getinfo']['redirect_url']}" : NULL;
-            $exget = (__not_empty($_SESSION['config']['exploit-get']) ? ' _/GET=> ' . $_SESSION['config']['exploit-get'] : NULL);
-            $expost = (__not_empty($_SESSION['config']['exploit-post']) ? ' _/POST=> ' . $_SESSION['config']['exploit-post_str'] : NULL);
-            $valid_return = (__not_empty($_SESSION['config']['erroReturn'])) ? TRUE : FALSE;
-            $info = ($valid_return) ? "{$cor->gre}{$info}" : $info;
-            $target_ip = ($valid_return) ? "{$cor->gre}{$_SESSION['config']['info_ip']}" : $_SESSION['config']['info_ip'];
-            $title = ($valid_return) ? "{$cor->gre}{$_SESSION['config']['title']}" : $_SESSION['config']['title'];
+                    "{$cor->gre}{$_SESSION['config']['curl_getinfo']['redirect_url']}" : null;
+            $exget = __not_empty($_SESSION['config']['exploit-get']) ? ' _/GET=> ' . $_SESSION['config']['exploit-get'] : null;
+            $expost = __not_empty($_SESSION['config']['exploit-post']) ? ' _/POST=> ' . $_SESSION['config']['exploit-post_str'] : null;
+            $valid_return = (__not_empty($_SESSION['config']['erroReturn'])) ? true : false;
+            $info = $valid_return ? "{$cor->gre}{$info}" : $info;
+            $target_ip = $valid_return ? "{$cor->gre}{$_SESSION['config']['info_ip']}" : $_SESSION['config']['info_ip'];
+            $title = $valid_return ? "{$cor->gre}{$_SESSION['config']['title']}" : $_SESSION['config']['title'];
             $title = str_replace($title,"\n","");
             $save_ocultar = isset($_SESSION['config']['arquivo_output_all']) ? 3 : 1;
             $anime = $valid_return ? '[ INF ] ' : '[ LOG ] ';
             __plus();
 
             if(__not_empty($info)):
-                echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}".PHP_EOL;
-                echo "{$cor->whit}{$anime} [{$cor->yell} {$contUrl} / {$_SESSION['config']['total_url']} {$cor->whit}]{$cor->grey}-[ " . date("H:i:s") . " ]{$cor->whit} {$cor->end}".PHP_EOL;
+                echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}", PHP_EOL;
+                echo "{$cor->whit}{$anime} [{$cor->yell} {$contUrl} / {$_SESSION['config']['total_url']} {$cor->whit}]{$cor->grey}-[ " . date("H:i:s") . " ]{$cor->whit} {$cor->end}", PHP_EOL;
             endif;
             if(!__not_empty($info)):
                 $anime = '[ ERR ] ';
             endif;
-            echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Target:: {$cor->grey} {$_SESSION['config']['vull_style']}{$target_['url_clean']}{$cor->whit} {$cor->end}".PHP_EOL;
+            echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Target:: {$cor->grey} {$_SESSION['config']['vull_style']}{$target_['url_clean']}{$cor->whit} {$cor->end}", PHP_EOL;
             if(__not_empty($info)):
-                if (__not_empty($exget) or __not_empty($expost)):
-                    echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Exploit:: {$cor->end}{$cor->red1}{$exget}{$expost}{$cor->end}".PHP_EOL;
+                if (__not_empty($exget) || __not_empty($expost)):
+                    echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Exploit:: {$cor->end}{$cor->red1}{$exget}{$expost}{$cor->end}", PHP_EOL;
                 endif;
-                echo (__not_empty($_SESSION['config']['replace'])) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}Replace:: {$cor->end}{$cor->red1}{$_SESSION['config']['replace']}{$cor->end}".PHP_EOL) : NULL;
-                echo (__not_empty($_SESSION['config']['remove'])) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}Remove:: {$cor->end}{$cor->red1}{$_SESSION['config']['remove']}{$cor->end}".PHP_EOL) : NULL;
-                echo (isset($_SESSION['config']['cms-check-resultado'])) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}CMS check:: {$cor->end}{$cor->red1}{$_SESSION['config']['cms-check-resultado']}{$cor->end}".PHP_EOL) : NULL;
+                echo __not_empty($_SESSION['config']['replace']) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}Replace:: {$cor->end}{$cor->red1}{$_SESSION['config']['replace']}{$cor->end}".PHP_EOL) : null;
+                echo __not_empty($_SESSION['config']['remove']) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}Remove:: {$cor->end}{$cor->red1}{$_SESSION['config']['remove']}{$cor->end}".PHP_EOL) : null;
+                echo isset($_SESSION['config']['cms-check-resultado']) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}CMS check:: {$cor->end}{$cor->red1}{$_SESSION['config']['cms-check-resultado']}{$cor->end}".PHP_EOL) : null;
                 if (__not_empty($title)):
-                    echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Title:: {$cor->end}{$cor->grey}{$title}{$cor->whit}".PHP_EOL;
+                    echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Title:: {$cor->end}{$cor->grey}{$title}{$cor->whit}", PHP_EOL;
                 endif;
-                echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Information server:: {$cor->end}{$cor->grey}{$info}{$cor->whit}".PHP_EOL;
-                echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}More details:: {$cor->end}{$cor->grey}{$target_ip}{$cor->whit}".PHP_EOL;
-                echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Found:: {$cor->grey}" . ($valid_return ? "{$cor->gre}{$_SESSION['config']['erroReturn']}" : "UNIDENTIFIED") . "{$cor->end}";
-                echo (__not_empty($ifredirect) ? "\n{$cor->whit}{$anime} {$cor->end}{$cor->whit}URL redirect:: {$cor->grey}{$ifredirect}{$cor->end}" : NULL);
+                echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Information server:: {$cor->end}{$cor->grey}{$info}{$cor->whit}", PHP_EOL;
+                echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}More details:: {$cor->end}{$cor->grey}{$target_ip}{$cor->whit}", PHP_EOL;
+                if ($valid_return):
+                    echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Found:: {$cor->grey}" . ($valid_return ? "{$cor->gre}{$_SESSION['config']['erroReturn']}" : "Unidentified") . "{$cor->end}";
+                endif;
+                echo __not_empty($ifredirect) ? "{$cor->whit}{$anime} {$cor->end}{$cor->whit}URL redirect:: {$cor->grey}{$ifredirect}{$cor->end}" : null;
             endif;
-            echo (__not_empty(valor: $_SESSION['config']['error_conection']) ? PHP_EOL."{$cor->whit}{$anime} {$cor->end}{$cor->whit}ERROR CONECTION:: {$cor->yell}{$_SESSION['config']['error_conection']}{$cor->end}" : NULL);
+            echo __not_empty(value: $_SESSION['config']['error_conection']) ? PHP_EOL."{$cor->whit}{$anime} {$cor->end}{$cor->whit}ERROR CONECTION:: {$cor->yell}{$_SESSION['config']['error_conection']}{$cor->end}" : null;
             __plus();
             
             if($valid_return):
@@ -75,42 +76,42 @@ function __processUrlExec_Fiber($url_list) {
             endif;
             
 
-            echo ($_SESSION['config']['sendmail'] ? "\n{$cor->whit}[  +  ] {$cor->end}{$cor->whit}SEND MAIL:: {$cor->grey}" . (($valid_return) ? "{$cor->gre}" : NULL) . __sendMail($_SESSION['config']['sendmail'], $target_['url_xpl']) . "{$cor->end}" : NULL);
+            echo ($_SESSION['config']['sendmail'] ? "\n{$cor->whit}[  +  ] {$cor->end}{$cor->whit}SEND MAIL:: {$cor->grey}" . (($valid_return) ? "{$cor->gre}" : null) . __sendMail($_SESSION['config']['sendmail'], $target_['url_xpl']) . "{$cor->end}" : null);
             
             
             if ($valid_return):
                 __plus();
                 (__not_empty($_SESSION['config']['irc']['irc_connection']) ?
-                                    __ircMsg($_SESSION['config']['irc'], "{$_SESSION['config']['erroReturn']}::: {$target_['url_xpl']}") : NULL);
+                                    __ircMsg($_SESSION['config']['irc'], "{$_SESSION['config']['erroReturn']}::: {$target_['url_xpl']}") : null);
                 __plus();
                 (__not_empty($_SESSION['config']['command-vul']) ? 
-                                    __command($_SESSION['config']['command-vul'], $target_) : NULL);
+                                    __command($_SESSION['config']['command-vul'], $target_) : null);
                 __plus();
                 (!is_null($_SESSION['config']['exploit-vul-id'])?
-                                    __configExploitsExec($_SESSION['config']['exploit-vul-id'], $target_) : NULL);
+                                    __configExploitsExec($_SESSION['config']['exploit-vul-id'], $target_) : null);
             endif;
             __plus();
             (__not_empty($_SESSION['config']['command-all']) ? 
-                                    __command($_SESSION['config']['command-all'], $target_) : NULL);
+                                    __command($_SESSION['config']['command-all'], $target_) : null);
             
             __plus();
             (__not_empty($_SESSION['config']['sub-file']) &&
                     is_array($_SESSION['config']['sub-file']) ? 
-                                    __subExecExploits($target_['url_xpl'], $_SESSION['config']['sub-file']) : NULL);
+                                    __subExecExploits($target_['url_xpl'], $_SESSION['config']['sub-file']) : null);
             
             __plus();
             (__not_empty($_SESSION['config']['exploit-all-id']) ? 
-                                    __configExploitsExec($_SESSION['config']['exploit-all-id'], $target_) : NULL);
+                                    __configExploitsExec($_SESSION['config']['exploit-all-id'], $target_) : null);
             
 
             ($_SESSION['config']['robots'] ? 
-                                    __getValuesRobots($host) : NULL);
+                                    __getValuesRobots($host) : null);
             
             __plus();
             (__not_empty($_SESSION['config']['port-scan']) ? 
-                                    __portScan(array(0 => $target_, 1 => $_SESSION['config']['port-scan'])) : NULL);
+                                    __portScan([0 => $target_, 1 => $_SESSION['config']['port-scan']]) : null);
             if(__not_empty($info)):
-                echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}".PHP_EOL;
+                echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}", PHP_EOL;
             endif;
             __timeSec('delay', PHP_EOL);
         endif;

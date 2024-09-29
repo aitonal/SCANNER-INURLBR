@@ -1,19 +1,18 @@
 <?php
-function __process($resultadoURL) {
+function __process($result_url): void {
 
     __plus();
     $cor = $GLOBALS['COR'];
-    $resultadoURL[0] = (is_array($resultadoURL) ? array_unique(array_filter($resultadoURL)) : $resultadoURL);
-    $resultadoURL[0] = ($_SESSION['config']['unique'] ? __filterDomainUnique($resultadoURL[0]) : $resultadoURL[0]);
+    $result_url['targets'] = is_array($result_url) ? array_unique(array_filter($result_url)) : $result_url;
+    $result_url['targets'] = $_SESSION['config']['unique'] ? __filterDomainUnique($result_url['targets']) : $result_url['targets'];
+    $result_url['targets'] = __not_empty($_SESSION['config']['ifurl']) ? __filterURLif($result_url['targets']) : $result_url['targets'];
+    $_SESSION['config']['total_url'] = count($result_url['targets']);
 
-    $resultadoURL[0] = (__not_empty($_SESSION['config']['ifurl']) ? __filterURLif($resultadoURL[0]) : $resultadoURL[0]);
-    $_SESSION['config']['total_url'] = count($resultadoURL[0]);
-
-    echo PHP_EOL."{$cor->whit}[ INF ] {$cor->red2}[ TOTAL FOUND VALUES ]::{$cor->whit} [ {$_SESSION['config']['total_url']} ]{$cor->end}".PHP_EOL;
-    __debug(['debug' => $resultadoURL[0], 'function' => __FUNCTION__], 3);
-    echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}".PHP_EOL;
+    echo PHP_EOL, "{$cor->whit}[ INF ] {$cor->red2}[ TOTAL FOUND VALUES ]::{$cor->whit} [ {$_SESSION['config']['total_url']} ]{$cor->end}", PHP_EOL;
+    __debug(['debug' => $result_url['targets'], 'function' => __FUNCTION__], 3);
+    echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}", PHP_EOL;
     
-    if (count($resultadoURL[0]) > 0):
+    if (count($result_url['targets']) > 0):
 
         if(__not_empty($_SESSION['config']['irc']['conf'])):
             $_SESSION['config']['irc']['irc_connection'] = __ircConect($_SESSION['config']['irc']);
@@ -32,10 +31,9 @@ function __process($resultadoURL) {
         $_SESSION['config']['user-agent'] = ($_SESSION['config']['shellshock']) ? $_SESSION['config']['user_agent_xpl'] : $_SESSION['config']['user-agent'];
         
         __plus();
-        __processUrlExec(url_list: $resultadoURL[0]);
+        __processUrlExec(url_list: $result_url['targets']);
         __plus();
-        
     else:
-        print_r("{$cor->whit}[ INF ] {$cor->yell} Not a satisfactory result was found!{$cor->end}\n");
+        echo "{$cor->whit}[ INF ] {$cor->yell} Not a satisfactory result was found!{$cor->end}", PHP_EOL;
     endif;
 }

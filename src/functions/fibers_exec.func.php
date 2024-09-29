@@ -5,7 +5,7 @@ function __waitForFibers(array &$fiberList, ?int $completionCount = null) : arra
     $completedFibers = [];
     $completionCount ??= count($fiberList);
     while (count($fiberList) && count($completedFibers) < $completionCount){
-        usleep(100);
+        usleep(1000);
         foreach ($fiberList as $idx => $fiber){
             if ($fiber->isSuspended()){
                 $fiber->resume();

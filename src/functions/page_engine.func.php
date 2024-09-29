@@ -1,32 +1,31 @@
 <?php
 
-function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pagStart, $pagLimit, $pagIncrement, $pagStart2 = NULL, $pagIncrement2 = NULL) {
+function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pagStart, $pagLimit, $pagIncrement, $pagStart2 = null, $pagIncrement2 = null) {
 
     $cor = $GLOBALS['COR'];
     $motorNome = preg_replace('/\s+/', ' ', $motorNome);
-    echo PHP_EOL."{$cor->whit}[ INF ]{$cor->end}{$cor->red2} [ ENGINE ]:: {$cor->whit}[ {$motorNome} ]{$cor->end}";
-    echo (!is_null($_SESSION['config']['max_pag']) ? ("{$cor->whit}[ INF ] {$cor->end}{$cor->red2}[ LIMIT PAG ]:: {$cor->whit}[ {$_SESSION['config']['max_pag']} ]{$cor->end}".PHP_EOL) : NULL);
-    $http_proxy = __not_empty($_SESSION['config']['proxy-http-file']) || __not_empty($_SESSION['config']['proxy-http']) ? __proxyHttpRandom() : NULL;
-    echo __not_empty($http_proxy) ? "\n{$cor->whit}[ INF ]{$cor->end}{$cor->red2}[ HTTP_PROXY ]:: {$http_proxy}{$cor->end}".PHP_EOL : NULL;
+    echo PHP_EOL, "{$cor->whit}[ INF ]{$cor->end}{$cor->red2} [ ENGINE ]:: {$cor->whit}[ {$motorNome} ]{$cor->end}";
+    echo (!is_null($_SESSION['config']['max_pag']) ? ("{$cor->whit}[ INF ] {$cor->end}{$cor->red2}[ LIMIT PAG ]:: {$cor->whit}[ {$_SESSION['config']['max_pag']} ]{$cor->end}".PHP_EOL) : null);
+    $http_proxy = __not_empty($_SESSION['config']['proxy-http-file']) || __not_empty($_SESSION['config']['proxy-http']) ? __proxyHttpRandom() : null;
+    echo __not_empty($http_proxy) ? PHP_EOL."{$cor->whit}[ INF ]{$cor->end}{$cor->red2}[ HTTP_PROXY ]:: {$http_proxy}{$cor->end}".PHP_EOL : null;
     __plus();
 
     $contMaxpg = 0;
-    $pagStart2_ = $pagStart2;
-    $pagStart3_ = $pagStart2;
+    $pagStart2_local = $pagStart2;
+    $pagStart3_local = $pagStart2;
     while ($pagStart <= $pagLimit):
         
-        $_proxy = __not_empty($confArray["list_proxy_rand"]) && !__not_empty($_SESSION['config']['time-proxy']) ? $confArray["list_proxy_rand"] : $_SESSION["config"]["proxy"];
-        $proxy = __not_empty($_SESSION['config']['proxy-file']) && __not_empty($_SESSION['config']['time-proxy']) ? __timeSecChangeProxy($confArray["list_proxy_file"]) : $_proxy;
+        $proxy_list_rand = __not_empty($confArray["list_proxy_rand"]) && !__not_empty($_SESSION['config']['time-proxy']) ? $confArray["list_proxy_rand"] : $_SESSION["config"]["proxy"];
+        $proxy = __not_empty($_SESSION['config']['proxy-file']) && __not_empty($_SESSION['config']['time-proxy']) ? __timeSecChangeProxy($confArray["list_proxy_file"]) : $proxy_list_rand;
 
         $url_replaced_str = str_replace("[DORK]", $dork, $motorURL);
         $url_replaced_str = str_replace("[PAG]", $pagStart, $url_replaced_str);
-        $url_replaced_str = str_replace("[PAG2]", $pagStart2_, $url_replaced_str);
-        $url_replaced_str = str_replace("[PAG3]", $pagStart3_, $url_replaced_str);
+        $url_replaced_str = str_replace("[PAG2]", $pagStart2_local, $url_replaced_str);
+        $url_replaced_str = str_replace("[PAG3]", $pagStart3_local, $url_replaced_str);
         $url_replaced_str = str_replace("[RANDOM]", base64_encode(intval(rand() % 255) . intval(rand() % 2553333)), $url_replaced_str);
         $url_replaced_str = str_replace("[IP]", intval(rand() % 255) . "." . intval(rand() % 255) . "." . intval(rand() % 255) . "." . intval(rand() % 255), $url_replaced_str);
 
-        
-        $postDados_ = !is_null($postDados) ? __convertUrlQuery(parse_url(urldecode($url_replaced_str), PHP_URL_QUERY)) : NULL;
+        $postdata_url_query = !is_null($postDados) ? __convertUrlQuery(parse_url(urldecode($url_replaced_str), PHP_URL_QUERY)) : null;
         
         __debug(['debug' => "[ URL ENGINE ]{$http_proxy}{$url_replaced_str}", 'function' => __FUNCTION__], 1);
         __plus();
@@ -34,8 +33,8 @@ function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pag
         $target_http_prxy[] = "{$http_proxy}{$url_replaced_str}";
 
         $pagStart = $pagStart + $pagIncrement;
-        $pagStart2_ = $pagStart2_ + $pagIncrement;
-        $pagStart3_ = $pagStart3_ + $pagIncrement2;
+        $pagStart2_local = $pagStart2_local + $pagIncrement;
+        $pagStart3_local = $pagStart3_local + $pagIncrement2;
         $contMaxpg++;
         __timeSec('delay');
 
@@ -45,6 +44,6 @@ function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pag
         
     endwhile;
 
-    $_SESSION['config']['url_list_engine'] =  [ $target_http_prxy , $proxy, $postDados_, $motorNome ];
+    $_SESSION['config']['url_list_engine'] =  [ $target_http_prxy , $proxy, $postdata_url_query, $motorNome ];
 }
 

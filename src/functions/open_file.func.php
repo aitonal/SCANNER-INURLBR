@@ -1,17 +1,17 @@
 <?php
-
-function __openFile($arquivo, $op = NULL) {
-
-    if (isset($arquivo) && !empty($arquivo)):
-        $resultadoURL = array_unique(array_filter(explode("\n", file_get_contents($arquivo))));
-        $data = array_filter($resultadoURL, "__filterEmptyArray");  
+function __openFile($file, $op = null) {
+    if (__not_empty($file)):
+        $result_file = array_unique(array_filter(explode("\n", file_get_contents($file))));
+        $data = array_filter($result_file, "__filterEmptyArray");  
         if (is_array($data)):
-            return ($op == 1 ? $data : __process($data));
+            return $op == 1 ? $data : __process($data);
         endif;
     endif;
 }
 
 function __filterEmptyArray($var){
-    $var = trim($var);
-    return ($var !== NULL && $var !== FALSE && $var !== "" && isset($var) && !empty($var));
+    if(__not_empty($var)):
+        $var = trim($var);
+        return $var !== null && $var !== false && $var !== "" && isset($var) && !empty($var);
+    endif;
 }

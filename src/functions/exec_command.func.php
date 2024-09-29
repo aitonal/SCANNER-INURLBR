@@ -1,50 +1,52 @@
 <?php
 
-function __command($commando, $alvo) {
-    if (!is_null($commando)):
+function __command($cmd_shell_param, $target) {
+    if (!is_null($cmd_shell_param)):
         $cor = $GLOBALS['COR'];
-        (strstr($commando, '_TARGET_')              ||
-                strstr($commando, '_TARGETFULL_')   ||
-                strstr($commando, '_TARGETIP_')     ||
-                strstr($commando, '_EXPLOIT_')      ||
-                strstr($commando, '_URI_')          ||
-                strstr($commando, '_URI_')          ||
-                strstr($commando, '_PORT_')         ||
-                strstr($commando, '_RANDOM_') ? NULL :
-                        __getOut("{$cor->whit}[ ERR ]{$cor->yell}SET PARAMETER - command correctly{$cor->end}".PHP_EOL));
+        (
+            strstr($cmd_shell_param,    '_TARGET_')      ||
+            strstr($cmd_shell_param,    '_TARGETFULL_')  ||
+            strstr($cmd_shell_param,    '_TARGETIP_')    ||
+            strstr($cmd_shell_param,    '_EXPLOIT_')     ||
+            strstr($cmd_shell_param,    '_URI_')         ||
+            strstr($cmd_shell_param,    '_URI_')         ||
+            strstr($cmd_shell_param,    '_PORT_')        ||
+            strstr($cmd_shell_param,    '_RANDOM_') ? NULL :
+                __getOut("{$cor->whit}[ ERR ] {$cor->yell}SET PARAMETER - command correctly{$cor->end}".PHP_EOL)
+        );
 
-        $uri = parse_url($alvo['url_xpl']);
+        $uri = parse_url($target['url_xpl']);
 
-        $command[0] = str_replace("_TARGET_", "{$cor->cya1}" . __filterHostname($alvo['url_xpl']) . "{$cor->whit}", $commando);
-        $command[0] = str_replace('_TARGETIP_', "{$cor->cya}{$_SESSION['config']['server_ip']}{$cor->whit}", $command[0]);
-        $command[0] = str_replace('_TARGETFULL_', "{$cor->red}{$alvo['url_clean']}{$cor->whit}", $command[0]);
-        $command[0] = str_replace('_TARGETXPL_', "{$cor->red1}{$alvo['url_xpl']}{$cor->whit}", $command[0]);
-        $command[0] = str_replace("_EXPLOIT_", "{$cor->red2}{$_SESSION['config']['exploit-command']}{$cor->whit}", $command[0]);
-        $command[0] = str_replace('_URI_', "{$cor->blue}{$uri['path']}{$cor->whit}", $command[0]);
-        $command[0] = str_replace('_PORT_', "{$cor->mag2}{$alvo['url_port']}{$cor->whit}", $command[0]);
-        $command[0] = str_replace('_RANDOM_', "{$cor->blu1}" . random(5) . "{$cor->whit}", $command[0]);
+        $cmd['style'] = str_replace("_TARGET_", "{$cor->cya1}" . __filterHostname($target['url_xpl']) . "{$cor->whit}", $cmd_shell_param);
+        $cmd['style'] = str_replace('_TARGETIP_', "{$cor->cya}{$_SESSION['config']['server_ip']}{$cor->whit}", $cmd['style']);
+        $cmd['style'] = str_replace('_TARGETFULL_', "{$cor->red}{$target['url_clean']}{$cor->whit}", $cmd['style']);
+        $cmd['style'] = str_replace('_TARGETXPL_', "{$cor->red1}{$target['url_xpl']}{$cor->whit}", $cmd['style']);
+        $cmd['style'] = str_replace("_EXPLOIT_", "{$cor->red2}{$_SESSION['config']['exploit-command']}{$cor->whit}", $cmd['style']);
+        $cmd['style'] = str_replace('_URI_', "{$cor->blue}{$uri['path']}{$cor->whit}", $cmd['style']);
+        $cmd['style'] = str_replace('_PORT_', "{$cor->mag2}{$target['url_port']}{$cor->whit}", $cmd['style']);
+        $cmd['style'] = str_replace('_RANDOM_', "{$cor->blu1}" . random(5) . "{$cor->whit}", $cmd['style']);
+        $cmd['style'] = __crypt($cmd['style']);
 
-        $command[0] = __crypt($command[0]);
+        $cmd['format'] = str_replace("_TARGET_", __filterHostname($target['url_clean']), $cmd_shell_param);
+        $cmd['format'] = str_replace('_TARGETIP_', $_SESSION['config']['server_ip'], $cmd['format']);
+        $cmd['format'] = str_replace('_TARGETFULL_', $target['url_clean'], $cmd['format']);
+        $cmd['format'] = str_replace('_TARGETXPL_', $target['url_xpl'], $cmd['format']);
+        $cmd['format'] = str_replace("_EXPLOIT_", $_SESSION['config']['exploit-command'], $cmd['format']);
+        $cmd['format'] = str_replace("_URI_", $uri['path'], $cmd['format']);
+        $cmd['format'] = str_replace("_PORT_", $target['url_port'], $cmd['format']);
+        $cmd['format'] = str_replace("_RANDOM_", random(5), $cmd['format']);
+        $cmd['format'] = str_replace("\n", '', str_replace("\r", '', $cmd['format']));
+        $cmd['format'] = __crypt($cmd['format']);
 
-        $command[1] = str_replace("_TARGET_", __filterHostname($alvo['url_clean']), $commando);
-        $command[1] = str_replace('_TARGETIP_', $_SESSION['config']['server_ip'], $command[1]);
-        $command[1] = str_replace('_TARGETFULL_', $alvo['url_clean'], $command[1]);
-        $command[1] = str_replace('_TARGETXPL_', $alvo['url_xpl'], $command[1]);
-        $command[1] = str_replace("_EXPLOIT_", $_SESSION['config']['exploit-command'], $command[1]);
-        $command[1] = str_replace("_URI_", $uri['path'], $command[1]);
-        $command[1] = str_replace("_PORT_", $alvo['url_port'], $command[1]);
-        $command[1] = str_replace("_RANDOM_", random(5), $command[1]);
-        $command[1] = str_replace("\n", '', str_replace("\r", '', $command[1]));
-
-        $command[1] = __crypt($command[1]);
-
-        echo "\n{$cor->whit}[ CMD ]__".PHP_EOL;
-        echo "         |[ EXTERNAL COMMAND ]:: {$command[0]}{$cor->mag1}".PHP_EOL;
-        $_ = array(0 => ($_SESSION['config']['popup']) ? 'sudo xterm -geometry 134x50+1900+0 -title "Auxiliary Window - INURLBR / COMMAND" -e ' : NULL, 1 => ($_SESSION['config']['popup']) ? ' > /dev/null &' : NULL);
-        echo ($_SESSION['config']['popup'] ? "\t[!] opening auxiliary window...".PHP_EOL : NULL);
-        $dados = system($_[0] . $command[1] . $_[1], $dados);
+        echo PHP_EOL, "{$cor->whit}[ CMD ]__", PHP_EOL;
+        echo "         |[ EXTERNAL COMMAND ]:: {$cmd['style']}{$cor->mag1}", PHP_EOL;
+        $xterm = [
+            'popup' => ($_SESSION['config']['popup']) ? 'sudo xterm -geometry 134x50+1900+0 -title "Auxiliary Window - INURLBR / COMMAND" -e ' : null, 
+            'devnull' => ($_SESSION['config']['popup']) ? ' > /dev/null &' : null
+        ];
+        echo ($_SESSION['config']['popup'] ? "\t[!] opening auxiliary window...".PHP_EOL : null);
+        $dados = system($xterm['popup'] . $cmd['format'] . $xterm['devnull'], $dados);
         sleep(1) . __plus();
-
         echo $cor->end;
     endif;
     if (empty($dados[0])):

@@ -1,5 +1,5 @@
 <?php
-function __request_info_simples($url_, $proxy = NULL, $postDados = NULL) {
+function __request_info_simples($url_, $proxy = null, $postDados = null) {
 
     $url_ = __crypt($url_);
     $parser_url = parse_url($url_);
@@ -60,7 +60,7 @@ function __request_info_simples($url_, $proxy = NULL, $postDados = NULL) {
         curl_multi_add_handle($mh, $curl_array[$i]);
     endforeach;
     
-    $running = NULL;
+    $running = null;
     do {
         usleep(100);
         curl_multi_exec($mh, $running);
@@ -75,29 +75,29 @@ function __request_info_simples($url_, $proxy = NULL, $postDados = NULL) {
         curl_multi_remove_handle($mh, $curl_array[$i]);
     endforeach;
 
-    $status = NULL;
+    $status = null;
     preg_match_all('(HTTP.*)', $ret[0], $status['http']);
     preg_match_all('(Server:.*)', $ret[0], $status['server']);
     preg_match_all('(X-Powered-By:.*)', $ret[0], $status['X-Powered-By']);
    
     __plus();
     $ret[3] = str_replace("\r", '', str_replace("\n", '', "{$status['http'][0][0]}, {$status['server'][0][0]}  {$status['X-Powered-By'][0][0]}"));
-    __debug(array('debug' => "[ BODY ]{$ret[0]}", 'function' => __FUNCTION__), 4);
+    __debug(['debug' => "[ BODY ]{$ret[0]}", 'function' => __FUNCTION__], 4);
 
     __plus();
-    __debug(array('debug' => "[ URL ]{$url_}", 'function' => __FUNCTION__), 2);
+    __debug(['debug' => "[ URL ]{$url_}", 'function' => __FUNCTION__], 2);
 
     __plus();
     curl_multi_close($mh) . unlink($cookie_file);
 
     __plus();
     unset($curl_array);
-    return isset($ret[0]) ? ['corpo' => $ret[0], 'server' => $ret[1], 'error' => $ret[2], 'info' => $ret[3],'parser_url'=>$parser_url] : FALSE;
+    return isset($ret[0]) ? ['corpo' => $ret[0], 'server' => $ret[1], 'error' => $ret[2], 'info' => $ret[3],'parser_url'=>$parser_url] : false;
 }
 
 function __get_info_curlcontent(string $return_http): string|null{
     if(__not_empty($return_http)):
-        $status = NULL;
+        $status = null;
         preg_match_all('(HTTP.*)', $return_http, $status['http']);
         preg_match_all('(Server:.*)', $return_http, $status['server']);
         preg_match_all('(X-Powered-By:.*)', $return_http, $status['X-Powered-By']);
@@ -116,10 +116,10 @@ function __create_post($postDados): string{
     return $postDados_format;
 }
 
-function __request_Fiber($target, $proxy = NULL, $postDados = NULL){
+function __request_Fiber($target, $proxy = null, $postDados = null){
 
     $curl_array = [];
-    $is_running = NULL;
+    $is_running = null;
     $return_http = [];
     $curl_mult = curl_multi_init();
 
@@ -186,9 +186,9 @@ function __request_Fiber($target, $proxy = NULL, $postDados = NULL){
     endforeach;
 
     do {
-        usleep(100);
+        usleep(1000);
         curl_multi_exec($curl_mult, $is_running);
-        
+        Fiber::suspend();
     } while ($is_running > 0);
     
     foreach ($url_array as $id => $url):
@@ -217,12 +217,12 @@ function __request_Fiber($target, $proxy = NULL, $postDados = NULL){
 }
 
 
-function __request_info($target, $proxy = NULL, $postDados = NULL){
+function __request_info($target, $proxy = null, $postDados = null){
     if (__not_empty($target)):
         $concurrency = $_SESSION['config']['concorracy'] ?? 1;
         $fiberList = [];
         $url_nodes = is_array($target) ? $target : [$target];
-        
+        # print_r($url_nodes);
         #foreach ($url_nodes as $url):
         #    if (__not_empty($url)):
                 $fiber_request_info = new Fiber(__request_Fiber(...));

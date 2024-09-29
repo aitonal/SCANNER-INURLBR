@@ -6,8 +6,8 @@ function __getValuesRobots($url) {
         $new_url = "https://" . __filterHostname($url);
         $new_url_robots = "{$new_url}/robots.txt";
         $result = __request_info($new_url_robots, $_SESSION["config"]["proxy"], NULL);
-        echo "\n{$cor->whit}[ INF ]__".PHP_EOL;
-        echo "         |[ ACCESSING FILE ROBOTS ]::".PHP_EOL;
+        echo PHP_EOL, "{$cor->whit}[ INF ]__", PHP_EOL;
+        echo "         |[ ACCESSING FILE ROBOTS ]::", PHP_EOL;
         if (__not_empty($result['corpo']) && $result['server']['http_code'] == 200):
             $robots_file = array_unique(array_filter(explode("\n", $result['corpo'])));
             foreach ($robots_file as $value):
@@ -17,22 +17,22 @@ function __getValuesRobots($url) {
                     if (!strstr($path, '*') && $path != '/' && !strstr($path, '$')):
                         $url_list[] = $url_robot_path;
                     endif;
-                    echo "         |{$value}".PHP_EOL;
+                    echo "         |{$value}", PHP_EOL;
                 endif;
                 __plus();
             endforeach;
             $url_list = array_filter(array_unique($url_list));
             if (is_array($url_list)):
-                echo "{$cor->whit}[ INF ]__".PHP_EOL;
-                echo "         |[ URL FROM ROBOTS ]::".PHP_EOL;
+                echo "{$cor->whit}[ INF ]__", PHP_EOL;
+                echo "         |[ URL FROM ROBOTS ]::", PHP_EOL;
                 foreach ($url_list as $value_robot):
-                    echo "         |{$value_robot}".PHP_EOL;
+                    echo "         |{$value_robot}", PHP_EOL;
                     __saveValue($_SESSION['config']['arquivo_output'], $value_robot, 3);
                 endforeach;
-                echo PHP_EOL."{$cor->whit}[ INF ]{$cor->grey} EXTRACTED URLS SAVED IN::{$cor->grey1} {$_SESSION['config']['arquivo_output']}{$cor->end}";
+                echo PHP_EOL, "{$cor->whit}[ INF ]{$cor->grey} EXTRACTED URLS SAVED IN::{$cor->grey1} {$_SESSION['config']['arquivo_output']}{$cor->end}";
             endif;
         else:
-            echo "         |[ ERR ] LOAD FILE ROBOTS.TXT [ COD_HTTP ]:: {$result['server']['http_code']}{$cor->end}".PHP_EOL;
+            echo "         |[ ERR ] LOAD FILE ROBOTS.TXT [ COD_HTTP ]:: {$result['server']['http_code']}{$cor->end}", PHP_EOL;
         endif;
     endif;
 }

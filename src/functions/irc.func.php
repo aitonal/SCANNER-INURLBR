@@ -4,15 +4,15 @@
 #IRC CONFIGURATION##############################################################
 ################################################################################
 if (is_array($_SESSION['config']['irc']['conf'])):
-    $alph = range("A", "Z");
+    $range_alph = range("A", "Z");
     $cor = $GLOBALS['COR'];
-    $_ = array(0 => rand(0, 10000), 1 => $alph[rand(0, count($alph))]);
+    $range = [0 => rand(0, 10000), 1 => $range_alph[rand(0, count($range_alph))]];
     $_SESSION['config']['irc']['my_pid'] = 0;
     $_SESSION['config']['irc']['irc_server'] = $_SESSION['config']['irc']['conf'][0];
     $_SESSION['config']['irc']['irc_channel'] = "#{$_SESSION['config']['irc']['conf'][1]}";
     $_SESSION['config']['irc']['irc_port'] = 6667;
     $_SESSION['config']['irc']['localhost'] = "127.0.0.1 localhost";
-    $_SESSION['config']['irc']['irc_nick'] = "[BOT]1nurl{$_[0]}[{$_[1]}]";
+    $_SESSION['config']['irc']['irc_nick'] = "[BOT]1nurl{$range[0]}[{$range[1]}]";
     $_SESSION['config']['irc']['irc_realname'] = "B0t_1NURLBR";
     $_SESSION['config']['irc']['irc_quiet'] = "Session Ended";
     global $conf;
@@ -24,12 +24,12 @@ endif;
 #IRC CONECTION##################################################################
 ################################################################################
 function __ircConect($conf) {
-    if(__not_empty($$conf['irc_connection']) and __not_empty($conf['irc_port'])):
+    if(__not_empty($$conf['irc_connection']) && __not_empty($conf['irc_port'])):
         $u = php_uname();
         $fp = fsockopen($conf['irc_server'], $conf['irc_port'], $conf['errno'], $conf['errstr'], 30);
         if (!$fp):
-            echo "Error: {$conf['errstr']}({$conf['errno']})".PHP_EOL;
-            return NULL;
+            echo "Error: {$conf['errstr']}({$conf['errno']})", PHP_EOL;
+            return null;
         endif;
         
         if($fp):
@@ -46,7 +46,7 @@ function __ircConect($conf) {
 #IRC SEND MSG###################################################################
 ################################################################################
 function __ircMsg($conf, $msg) {
-    if(__not_empty($$conf['irc_connection']) and __not_empty($msg)):
+    if(__not_empty($$conf['irc_connection']) && __not_empty($msg)):
         fwrite($conf['irc_connection'], "PRIVMSG {$conf['irc_channel']} :{$msg}\r\n") . sleep(2);
         __plus();
     endif;
@@ -61,10 +61,10 @@ function __ircPong($conf) {
             $conf['READ_BUFFER'] = fgets($conf['irc_connection']);
             __plus();
             if (preg_match("/^PING(.+)/", $conf['READ_BUFFER'], $conf['ret'])):
-                __debug(array('debug' => "[ PING-PONG ]{$conf['ret'][1]}", 'function' => __FUNCTION__), 6) . __plus();
+                __debug(['debug' => "[ PING-PONG ]{$conf['ret'][1]}", 'function' => __FUNCTION__], 6) . __plus();
                 fwrite($conf['READ_BUFFER'], "PONG {$conf['ret'][1]}\r\n");
                 ($_SESSION['config']['debug'] == 6) ?
-                                fwrite($conf['irc_connection'], "PRIVMSG {$conf['irc_channel']} :[ PING-PONG ]-> {$conf['ret'][1]}->function:__ircPong\r\n") : NULL;
+                                fwrite($conf['irc_connection'], "PRIVMSG {$conf['irc_channel']} :[ PING-PONG ]-> {$conf['ret'][1]}->function:__ircPong\r\n") : null;
             endif;
         endwhile;
     endif;
