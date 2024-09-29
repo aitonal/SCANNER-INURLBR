@@ -23,7 +23,7 @@ function __command($cmd_shell_param, $target) {
         $cmd['style'] = str_replace('_TARGETXPL_', "{$cor->red1}{$target['url_xpl']}{$cor->whit}", $cmd['style']);
         $cmd['style'] = str_replace("_EXPLOIT_", "{$cor->red2}{$_SESSION['config']['exploit-command']}{$cor->whit}", $cmd['style']);
         $cmd['style'] = str_replace('_URI_', "{$cor->blue}{$uri['path']}{$cor->whit}", $cmd['style']);
-        $cmd['style'] = str_replace('_PORT_', "{$cor->mag2}{$target['url_port']}{$cor->whit}", $cmd['style']);
+        $cmd['style'] = str_replace('_PORT_', "{$cor->mag1}{$target['url_port']}{$cor->whit}", $cmd['style']);
         $cmd['style'] = str_replace('_RANDOM_', "{$cor->blu1}" . random(5) . "{$cor->whit}", $cmd['style']);
         $cmd['style'] = __crypt($cmd['style']);
 
@@ -40,13 +40,16 @@ function __command($cmd_shell_param, $target) {
 
         echo PHP_EOL, "{$cor->whit}[ CMD ]__", PHP_EOL;
         echo "         |[ EXTERNAL COMMAND ]:: {$cmd['style']}{$cor->mag1}", PHP_EOL;
+        __plus();
         $xterm = [
             'popup' => ($_SESSION['config']['popup']) ? 'sudo xterm -geometry 134x50+1900+0 -title "Auxiliary Window - INURLBR / COMMAND" -e ' : null, 
             'devnull' => ($_SESSION['config']['popup']) ? ' > /dev/null &' : null
         ];
-        echo ($_SESSION['config']['popup'] ? "\t[!] opening auxiliary window...".PHP_EOL : null);
+        echo $_SESSION['config']['popup'] ? "\t[!] opening auxiliary window...".PHP_EOL : null;
+        __plus();
         $dados = system($xterm['popup'] . $cmd['format'] . $xterm['devnull'], $dados);
-        sleep(1) . __plus();
+        sleep(1);
+        __plus();
         echo $cor->end;
     endif;
     if (empty($dados[0])):

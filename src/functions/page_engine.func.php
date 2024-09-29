@@ -5,7 +5,7 @@ function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pag
     $cor = $GLOBALS['COR'];
     $motorNome = preg_replace('/\s+/', ' ', $motorNome);
     echo PHP_EOL, "{$cor->whit}[ INF ]{$cor->end}{$cor->red2} [ ENGINE ]:: {$cor->whit}[ {$motorNome} ]{$cor->end}";
-    echo (!is_null($_SESSION['config']['max_pag']) ? ("{$cor->whit}[ INF ] {$cor->end}{$cor->red2}[ LIMIT PAG ]:: {$cor->whit}[ {$_SESSION['config']['max_pag']} ]{$cor->end}".PHP_EOL) : null);
+    echo !is_null($_SESSION['config']['max_pag']) ? ("{$cor->whit}[ INF ] {$cor->end}{$cor->red2}[ LIMIT PAG ]:: {$cor->whit}[ {$_SESSION['config']['max_pag']} ]{$cor->end}".PHP_EOL) : null;
     $http_proxy = __not_empty($_SESSION['config']['proxy-http-file']) || __not_empty($_SESSION['config']['proxy-http']) ? __proxyHttpRandom() : null;
     echo __not_empty($http_proxy) ? PHP_EOL."{$cor->whit}[ INF ]{$cor->end}{$cor->red2}[ HTTP_PROXY ]:: {$http_proxy}{$cor->end}".PHP_EOL : null;
     __plus();

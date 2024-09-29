@@ -1,6 +1,6 @@
 <?php
 
-function __processUrlExec_Fiber($url_list): ?bool {
+function __processUrlExec_Fiber($url_list) {
     $cor = $GLOBALS['COR'];
     foreach ($url_list as $url):
         if (!__not_empty($url))
@@ -42,11 +42,13 @@ function __processUrlExec_Fiber($url_list): ?bool {
             if(__not_empty($info)):
                 echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}", PHP_EOL;
                 echo "{$cor->whit}{$anime} [{$cor->yell} {$contUrl} / {$_SESSION['config']['total_url']} {$cor->whit}]{$cor->grey}-[ " . date("H:i:s") . " ]{$cor->whit} {$cor->end}", PHP_EOL;
+                __plus();
             endif;
             if(!__not_empty($info)):
                 $anime = '[ ERR ] ';
             endif;
             echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Target:: {$cor->grey} {$_SESSION['config']['vull_style']}{$target_['url_clean']}{$cor->whit} {$cor->end}", PHP_EOL;
+            __plus();
             if(__not_empty($info)):
                 if (__not_empty($exget) || __not_empty($expost)):
                     echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Exploit:: {$cor->end}{$cor->red1}{$exget}{$expost}{$cor->end}", PHP_EOL;
@@ -54,15 +56,18 @@ function __processUrlExec_Fiber($url_list): ?bool {
                 echo __not_empty($_SESSION['config']['replace']) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}Replace:: {$cor->end}{$cor->red1}{$_SESSION['config']['replace']}{$cor->end}".PHP_EOL) : null;
                 echo __not_empty($_SESSION['config']['remove']) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}Remove:: {$cor->end}{$cor->red1}{$_SESSION['config']['remove']}{$cor->end}".PHP_EOL) : null;
                 echo isset($_SESSION['config']['cms-check-resultado']) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}CMS check:: {$cor->end}{$cor->red1}{$_SESSION['config']['cms-check-resultado']}{$cor->end}".PHP_EOL) : null;
+                __plus();
                 if (__not_empty($title)):
                     echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Title:: {$cor->end}{$cor->grey}{$title}{$cor->whit}", PHP_EOL;
                 endif;
                 echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Information server:: {$cor->end}{$cor->grey}{$info}{$cor->whit}", PHP_EOL;
                 echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}More details:: {$cor->end}{$cor->grey}{$target_ip}{$cor->whit}", PHP_EOL;
+                __plus();
                 if ($valid_return):
                     echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Found:: {$cor->grey}" . ($valid_return ? "{$cor->gre}{$_SESSION['config']['erroReturn']}" : "Unidentified") . "{$cor->end}";
                 endif;
                 echo __not_empty($ifredirect) ? "{$cor->whit}{$anime} {$cor->end}{$cor->whit}URL redirect:: {$cor->grey}{$ifredirect}{$cor->end}" : null;
+                __plus();
             endif;
             echo __not_empty(value: $_SESSION['config']['error_conection']) ? PHP_EOL."{$cor->whit}{$anime} {$cor->end}{$cor->whit}ERROR CONECTION:: {$cor->yell}{$_SESSION['config']['error_conection']}{$cor->end}" : null;
             __plus();
@@ -77,7 +82,7 @@ function __processUrlExec_Fiber($url_list): ?bool {
             
 
             echo ($_SESSION['config']['sendmail'] ? "\n{$cor->whit}[  +  ] {$cor->end}{$cor->whit}SEND MAIL:: {$cor->grey}" . (($valid_return) ? "{$cor->gre}" : null) . __sendMail($_SESSION['config']['sendmail'], $target_['url_xpl']) . "{$cor->end}" : null);
-            
+            __plus();
             
             if ($valid_return):
                 __plus();
@@ -112,6 +117,7 @@ function __processUrlExec_Fiber($url_list): ?bool {
                                     __portScan([0 => $target_, 1 => $_SESSION['config']['port-scan']]) : null);
             if(__not_empty($info)):
                 echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}", PHP_EOL;
+                __plus();
             endif;
             __timeSec('delay', PHP_EOL);
         endif;

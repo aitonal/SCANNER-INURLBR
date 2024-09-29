@@ -8,6 +8,7 @@ function __getValuesRobots($url): void {
         $result = __request_info($new_url_robots, $_SESSION["config"]["proxy"], NULL);
         echo PHP_EOL, "{$cor->whit}[ INF ]__", PHP_EOL;
         echo "         |[ ACCESSING FILE ROBOTS ]::", PHP_EOL;
+        __plus();
         if (__not_empty($result['corpo']) && $result['server']['http_code'] == 200):
             $robots_file = array_unique(array_filter(explode("\n", $result['corpo'])));
             foreach ($robots_file as $value):
@@ -18,6 +19,7 @@ function __getValuesRobots($url): void {
                         $url_list[] = $url_robot_path;
                     endif;
                     echo "         |{$value}", PHP_EOL;
+                    __plus();
                 endif;
                 __plus();
             endforeach;
@@ -30,9 +32,11 @@ function __getValuesRobots($url): void {
                     __saveValue($_SESSION['config']['arquivo_output'], $value_robot, 3);
                 endforeach;
                 echo PHP_EOL, "{$cor->whit}[ INF ]{$cor->grey} EXTRACTED URLS SAVED IN::{$cor->grey1} {$_SESSION['config']['arquivo_output']}{$cor->end}";
+                __plus();
             endif;
         else:
             echo "         |[ ERR ] LOAD FILE ROBOTS.TXT [ COD_HTTP ]:: {$result['server']['http_code']}{$cor->end}", PHP_EOL;
+            __plus();
         endif;
     endif;
 }
