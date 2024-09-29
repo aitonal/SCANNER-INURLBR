@@ -16,8 +16,15 @@ function __filterURL($html, $op = null) {
         #$reg = !strstr($op, 'GOOGLE') ? "#\b(href=\"|src=\"|value=\")(.*?)(\")#si" :
         $reg =  "#\b(href=\"|src=\"|value=\"http[s]?://|href=\"|src=\"|value=\"ftp[s]?://){1,}?([-a-zA-Z0-9\.]+)([-a-zA-Z0-9\.]){1,}([-a-zA-Z0-9_\.\#\@\:%_/\?\=\~\-\//\!\'\(\)\s\^\:blank:\:punct:\:xdigit:\:space:\$]+)#si";
         $html = str_replace('href="/url?q=', 'href="', $html);
+
+        # VALIDATION LYCOS URL
+        if(strstr($html, 'lycos.com')):
+            $html = str_replace('<span class="result-url">', '<span class="result-url">href="https://', $html);
+        endif;
+
         $_SESSION["config"]["google_attempt"][1] = 0;
         preg_match_all($reg, $html, $html);
+
         return array_filter(array_unique($html[0]));
     endif;
 }
