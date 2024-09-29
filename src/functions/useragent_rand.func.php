@@ -1,5 +1,5 @@
 <?php
-function __setUserAgentRandom(): string {
+function __setUserAgentRandom_str(): string {
 
     $agentBrowser = [
         'Firefox', 'Safari', 'Opera', 'Flock', 'Internet Explorer', 
@@ -42,4 +42,14 @@ function __setUserAgentRandom(): string {
         'sv', 'th_TH', 'th_TH_TH', 'th', 'tr_TR', 'tr', 'uk_UA', 'uk', 'vi_VN', 'vi'
     ];
     return $agentBrowser[rand(0, count($agentBrowser) - 1)] . '/' . rand(1, 20) . '.' . rand(0, 20) . ' (' . $agentSistema[rand(0, count($agentSistema) - 1)] . ' ' . rand(1, 7) . '.' . rand(0, 9) . '; ' . $locais[rand(0, count($locais) - 1)] . ';)';
+}
+
+function __setUserAgentRandom(): string {
+    ##########################################################################################
+    #OPEN FILE USER-AGENT#####################################################################
+    ##########################################################################################
+    $user_agents_array = explode("\n",file_get_contents("{$_SESSION['config']['pwd']}/../../resources/user_agent.inurl"));
+    shuffle($user_agents_array);
+    return $user_agents_array[0];
+
 }
