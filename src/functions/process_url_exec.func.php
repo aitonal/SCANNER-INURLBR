@@ -1,6 +1,6 @@
 <?php
 
-function __processUrlExec_Fiber($url_list) {
+function __processUrlExec_Fiber($url_list): ?bool {
     $cor = $GLOBALS['COR'];
     foreach ($url_list as $url):
         if (!__not_empty($url))
@@ -10,7 +10,7 @@ function __processUrlExec_Fiber($url_list) {
         $contUrl = $_SESSION["config"]["contUrl"]++;
         $host = (!is_null($_SESSION['config']['replace'])) ?
         __replace_url_value(urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : $url)) :
-                urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : ($url));
+                urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : $url);
 
         $target_['url_xpl'] = __remove($_SESSION['config']['remove'], __mountURLExploit(!is_null($_SESSION['config']['url']) ? 
                 $_SESSION['config']['url'] . $host : $host));

@@ -1,6 +1,6 @@
 <?php
 
-function __subProcess($resultado = null) {
+function __subProcess($resultado = null): void {
 
     $result_array = is_array($resultado) ? array_unique(array_filter($resultado)) : $resultado;
     if (isset($result_array)):

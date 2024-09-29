@@ -1,6 +1,6 @@
 <?php
 
-function __extract_ip($ip){
+function __extract_ip($ip): mixed{
     if($ip):
         //ipv4
         preg_match_all('#^(\d{1,3}\.){3}\d{1,3}$#', trim($ip), $ret);
@@ -16,7 +16,7 @@ function __extract_ip($ip){
     return false;
 }
 
-function __infoIP($ip, $op = 0) {
+function __infoIP($ip, $op = 0): mixed {
         if(__not_empty($_SESSION['config']['token_ipinfo'][0]) && __not_empty($ip)):
             $ip_extracted = __extract_ip($ip);
             if (filter_var($ip_extracted, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) || filter_var($ip_extracted, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)):

@@ -1,6 +1,6 @@
 <?php
 
-function __installDepencia() {
+function __installDepencia(): bool {
     $cor = $GLOBALS['COR'];
     echo PHP_EOL, "{$cor->blu1}|_[ INF ]__{$cor->end}", PHP_EOL;
     echo "         {$cor->blu1}|[EXTERNAL COMMAND INSTALLING PREMISES ]:: {$cor->mag1}", PHP_EOL;

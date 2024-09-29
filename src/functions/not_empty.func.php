@@ -3,6 +3,6 @@
 #################################################################################
 #SECURITIES VALIDATION DOUBLE####################################################
 #################################################################################
-function __not_empty($value = null) {
+function __not_empty($value = null): bool {
     return !is_null($value) && !empty($value) ? true : false;
 }

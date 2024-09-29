@@ -1,6 +1,6 @@
 <?php
 
-function __startingBanner() {
+function __startingBanner(): void {
     $cor = $GLOBALS['COR'];    
     echo PHP_EOL, "[ WRN ] Starting SCANNER INURLBR {$_SESSION['config']['version_script']} at [" . date("d-m-Y H:i:s") . "]
 [ WRN ] legal disclaimer: Usage of INURLBR for attacking targets without prior mutual consent is illegal. 

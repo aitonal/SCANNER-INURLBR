@@ -1,5 +1,5 @@
 <?php
-function __openFile($file, $op = null) {
+function __openFile($file, $op = null): ?array {
     if (__not_empty($file)):
         $result_file = array_unique(array_filter(explode("\n", file_get_contents($file))));
         $data = array_filter($result_file, "__filterEmptyArray");  
@@ -9,7 +9,7 @@ function __openFile($file, $op = null) {
     endif;
 }
 
-function __filterEmptyArray($var){
+function __filterEmptyArray($var): ?bool{
     if(__not_empty($var)):
         $var = trim($var);
         return $var !== null && $var !== false && $var !== "" && isset($var) && !empty($var);

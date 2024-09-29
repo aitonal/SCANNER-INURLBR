@@ -1,11 +1,11 @@
 <?php
 
 
-function __getOut($msg) {
+function __getOut($msg): never {
     $cor = $GLOBALS['COR'];
     (!function_exists('__ircQuit') ? null :
     __ircQuit($_SESSION['config']['irc']));
     print_r($msg);
-    print($cor->end);
+    echo $cor->end;
     exit(1);
 }

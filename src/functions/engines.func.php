@@ -281,7 +281,7 @@ function __process_filter_urls_engines(array $return_request, $motorNome): void{
     if($return_request["corpo"]):
         $tmp_url =  __filterURL($return_request["corpo"], $motorNome);
         $tmp_url = is_array($tmp_url) ? $tmp_url : [$tmp_url];
-        __debug(  ['debug' => "[ URLS FROM ENGINE ]".implode("\n",$tmp_url), 'function' => __FUNCTION__], 6);
+        __debug(  ['debug' => "[ URLS FROM ENGINE ] ".implode("\n",$tmp_url), 'function' => __FUNCTION__], 6);
         __subProcess($tmp_url);
         __plus();
     endif;

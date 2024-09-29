@@ -1,6 +1,6 @@
 <?php
 
-function __positionAlexa($url) {
+function __positionAlexa($url): string {
 
     $xmlSimple = simplexml_load_file("http://data.alexa.com/data?cli=10&dat=snbamz&url={$url}");
     $resultRank = $xmlSimple->SD[1];

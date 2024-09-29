@@ -1,5 +1,5 @@
 <?php
-function __menu() {
+function __menu(): string {
     $cor = $GLOBALS['COR'];
     return system("command clear") . __getOut("        
  {$cor->whit}      

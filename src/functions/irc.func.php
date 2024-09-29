@@ -23,7 +23,7 @@ endif;
 ################################################################################
 #IRC CONECTION##################################################################
 ################################################################################
-function __ircConect($conf) {
+function __ircConect($conf){
     if(__not_empty($$conf['irc_connection']) && __not_empty($conf['irc_port'])):
         $u = php_uname();
         $fp = fsockopen($conf['irc_server'], $conf['irc_port'], $conf['errno'], $conf['errstr'], 30);
@@ -45,7 +45,7 @@ function __ircConect($conf) {
 ################################################################################
 #IRC SEND MSG###################################################################
 ################################################################################
-function __ircMsg($conf, $msg) {
+function __ircMsg($conf, $msg): void {
     if(__not_empty($$conf['irc_connection']) && __not_empty($msg)):
         fwrite($conf['irc_connection'], "PRIVMSG {$conf['irc_channel']} :{$msg}\r\n") . sleep(2);
         __plus();
@@ -55,13 +55,13 @@ function __ircMsg($conf, $msg) {
 ################################################################################
 #IRC PING PONG##################################################################
 ################################################################################
-function __ircPong($conf) {
+function __ircPong($conf): void {
     if(__not_empty($$conf['irc_connection'])):
         while (!feof($conf['irc_connection'])):
             $conf['READ_BUFFER'] = fgets($conf['irc_connection']);
             __plus();
             if (preg_match("/^PING(.+)/", $conf['READ_BUFFER'], $conf['ret'])):
-                __debug(['debug' => "[ PING-PONG ]{$conf['ret'][1]}", 'function' => __FUNCTION__], 6) . __plus();
+                __debug(['debug' => "[ PING-PONG ] {$conf['ret'][1]}", 'function' => __FUNCTION__], 6) . __plus();
                 fwrite($conf['READ_BUFFER'], "PONG {$conf['ret'][1]}\r\n");
                 ($_SESSION['config']['debug'] == 6) ?
                                 fwrite($conf['irc_connection'], "PRIVMSG {$conf['irc_channel']} :[ PING-PONG ]-> {$conf['ret'][1]}->function:__ircPong\r\n") : null;
@@ -73,7 +73,7 @@ function __ircPong($conf) {
 ################################################################################
 #IRC QUIT#######################################################################
 ################################################################################
-function __ircQuit($conf) {
+function __ircQuit($conf): void {
     if(__not_empty($$conf['irc_connection'])):
         fwrite($conf['irc_connection'], "QUIT {$conf['irc_quiet']}\r\n") . sleep(2);
         __plus();

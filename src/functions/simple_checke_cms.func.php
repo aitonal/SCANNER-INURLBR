@@ -1,6 +1,6 @@
 <?php
 
-function __SimpleCheckCMS($html) {
+function __SimpleCheckCMS($html): string {
 
     $cms['XOOPS CMS IDENTIFIED'] = '<meta name="generator" content="XOOPS"';
     $cms['Joomla CMS IDENTIFIED'] = '<meta name="generator" content="Joomla!';

@@ -5,7 +5,7 @@
 ################################################################################
 #(PHP 4, PHP 5) fsockopen — Open Internet or Unix domain socket connection
 #http://php.net/manual/en/function.fsockopen.php
-function __portScan($result) {
+function __portScan($result): void {
     if($_SESSION['config']['server_ip']):
         $cor = $GLOBALS['COR'];
         $ports = explode(',', $result[1]);
@@ -37,7 +37,7 @@ function __portScan($result) {
 ################################################################################
 #(PHP 4, PHP 5) fwrite — Binary-safe file write
 #http://php.net/manual/pt_BR/function.fwrite.php
-function __portWrite($conect, $values) {
+function __portWrite($conect, $values): void {
     $values = explode(',', $values);
     $cor = $GLOBALS['COR'];
     foreach ($values as $value):

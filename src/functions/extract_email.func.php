@@ -1,6 +1,6 @@
 <?php
 
-function __extractEmail($html, $url) {
+function __extractEmail($html, $url): void {
     $cor = $GLOBALS['COR'];
     $matches = null;
     __plus();

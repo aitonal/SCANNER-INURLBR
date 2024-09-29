@@ -1,6 +1,6 @@
 <?php
 
-function __renewTOR() {
+function __renewTOR(): void {
     $cor = $GLOBALS['COR'];
     system("[ -z 'pidof tor' ] || pidof tor | xargs sudo kill -HUP;");
     $request = __request_info('http://dynupdate.no-ip.com/ip.php', $_SESSION["config"]["proxy"]);

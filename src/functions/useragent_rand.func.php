@@ -1,5 +1,5 @@
 <?php
-function __setUserAgentRandom() {
+function __setUserAgentRandom(): string {
 
     $agentBrowser = [
         'Firefox', 'Safari', 'Opera', 'Flock', 'Internet Explorer', 

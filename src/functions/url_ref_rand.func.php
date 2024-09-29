@@ -1,6 +1,6 @@
 <?php
 
-function __setURLReferenceRandom() {
+function __setURLReferenceRandom(): string {
 
     $dominio = [
         'Adzuna', 'Bixee', 'CareerBuilder', 'Craigslist', 'Dice', 'Eluta.ca', 'Hotjobs',

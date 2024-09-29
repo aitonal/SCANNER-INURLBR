@@ -1,12 +1,12 @@
 <?php
 
-function __msg_update_error(){
+function __msg_update_error(): void{
     $cor = $GLOBALS['COR']; 
     echo system("command clear");
     echo "{$cor->whit}[  x  ] {$cor->red2}FAILURE TO SERVER!{$cor->end}", PHP_EOL;
 }
 
-function __check_update(){
+function __check_update(): array{
     $cor = $GLOBALS['COR']; 
     $cmd_status = "git -C {$_SESSION['config']['pwd']}/../../ status | grep 'Your branch is behind'";
     echo "{$cor->whit}[  !  ] {$cor->red2}{$cmd_status}{$cor->end}", PHP_EOL;

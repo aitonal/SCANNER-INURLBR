@@ -1,6 +1,6 @@
 <?php
 
-function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pagStart, $pagLimit, $pagIncrement, $pagStart2 = null, $pagIncrement2 = null) {
+function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pagStart, $pagLimit, $pagIncrement, $pagStart2 = null, $pagIncrement2 = null): void {
 
     $cor = $GLOBALS['COR'];
     $motorNome = preg_replace('/\s+/', ' ', $motorNome);
@@ -27,9 +27,9 @@ function __pageEngine($confArray, $motorNome, $motorURL, $dork, $postDados, $pag
 
         $postdata_url_query = !is_null($postDados) ? __convertUrlQuery(parse_url(urldecode($url_replaced_str), PHP_URL_QUERY)) : null;
         
-        __debug(['debug' => "[ URL ENGINE ]{$http_proxy}{$url_replaced_str}", 'function' => __FUNCTION__], 1);
+        __debug(['debug' => "[ URL ENGINE ] {$http_proxy}{$url_replaced_str}", 'function' => __FUNCTION__], 1);
         __plus();
-
+           
         $target_http_prxy[] = "{$http_proxy}{$url_replaced_str}";
 
         $pagStart = $pagStart + $pagIncrement;

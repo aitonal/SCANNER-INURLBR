@@ -1,6 +1,6 @@
 <?php
 
-function __getValuesRobots($url) {
+function __getValuesRobots($url): void {
     $cor = $GLOBALS['COR'];
     if($url):
         $new_url = "https://" . __filterHostname($url);

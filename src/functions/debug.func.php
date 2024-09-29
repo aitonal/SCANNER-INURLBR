@@ -1,8 +1,10 @@
 <?php
 
-function __debug($value, $op = null) {
+function __debug($value, $op = null): string|null {
+    $cor = $GLOBALS['COR'];
     if (isset($_SESSION["config"]["debug"]) && __validateOptions($_SESSION["config"]["debug"], $op)): 
-        return PHP_EOL."[ INF ][ FUNCTION ]=>{$value['function']}[ DEBUG ] => ".PHP_EOL . print_r($value['debug']).PHP_EOL;
+        $msg = PHP_EOL."{$cor->whit}[ INF ] [ FUNCTION ] => {$cor->cya}{$value['function']}{$cor->whit} ".PHP_EOL."{$cor->yell}[ DEBUG ] => ".$value['debug'].$cor->end;
+        return print_r($msg);
     endif;
     return null;
 }

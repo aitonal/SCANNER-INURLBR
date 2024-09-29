@@ -1,6 +1,6 @@
 <?php
 
-function __validateOptions($opArray, $validar, $op = null) {
+function __validateOptions($opArray, $validar, $op = null): bool {
 
     if (empty($validar) || empty($opArray)):
         return false;
@@ -24,7 +24,6 @@ function __validateOptions($opArray, $validar, $op = null) {
             endif;
         endfor;
     endif;
-   
-    
-    return FALSE;
+
+    return false;
 }

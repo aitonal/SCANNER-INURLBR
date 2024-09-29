@@ -3,12 +3,12 @@
 ################################################################################
 #CHANGE PROXY FUNCTION IN TIME##################################################
 ################################################################################
-function __timeValueChangeProxy($sec = NULL) {
+function __timeValueChangeProxy($sec = null): string|null {
 
-    return __not_empty($sec) ? date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . " + {$sec} second")) : NULL;
+    return __not_empty($sec) ? date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s') . " + {$sec} second")) : null;
 }
 
-function __timeSecChangeProxy($list_proxy) {
+function __timeSecChangeProxy($list_proxy): void {
 
     if ($_SESSION["config"]["time_change_proxy"] < date('Y-m-d H:i:s') && !is_null($list_proxy)):
         $_SESSION["config"]["proxy"] = $list_proxy[rand(0, count($list_proxy) - 1)];

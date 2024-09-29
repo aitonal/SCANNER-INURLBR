@@ -1,5 +1,5 @@
 <?php
-function __randomDork($count_dork) {
+function __randomDork($count_dork): array {
 
     $string_dork[1] = [
         'view', 'page', 'index', 'file', 'ver', 'web', 'form', 'public', 'map', 'visit',

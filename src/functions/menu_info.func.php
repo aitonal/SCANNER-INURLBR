@@ -1,8 +1,8 @@
 <?php
 
-function __info() {
+function __info(): string {
    $cor = $GLOBALS['COR'];
-    return __getOut("
+    return "".__getOut("
  {$cor->whit}
    ██▓    ███▄    █      █████▒    ▒█████  
    ▓██▒    ██ ▀█   █    ▓██   ▒    ▒██▒  ██▒

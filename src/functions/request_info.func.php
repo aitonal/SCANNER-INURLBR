@@ -82,10 +82,10 @@ function __request_info_simples($url_, $proxy = null, $postDados = null) {
    
     __plus();
     $ret[3] = str_replace("\r", '', str_replace("\n", '', "{$status['http'][0][0]}, {$status['server'][0][0]}  {$status['X-Powered-By'][0][0]}"));
-    __debug(['debug' => "[ BODY ]{$ret[0]}", 'function' => __FUNCTION__], 4);
+    __debug(['debug' => "[ BODY ] {$ret[0]}", 'function' => __FUNCTION__], 4);
 
     __plus();
-    __debug(['debug' => "[ URL ]{$url_}", 'function' => __FUNCTION__], 2);
+    __debug(['debug' => "[ URL ] {$url_}", 'function' => __FUNCTION__], 2);
 
     __plus();
     curl_multi_close($mh) . unlink($cookie_file);
@@ -116,7 +116,7 @@ function __create_post($postDados): string{
     return $postDados_format;
 }
 
-function __request_Fiber($target, $proxy = null, $postDados = null){
+function __request_Fiber($target, $proxy = null, $postDados = null): array{
 
     $curl_array = [];
     $is_running = null;
@@ -200,8 +200,8 @@ function __request_Fiber($target, $proxy = null, $postDados = null){
                 __get_info_curlcontent($curl_content),
                 parse_url($url)
         ];
-        __debug(['debug' => "[ BODY ]{$curl_content}", 'function' => __FUNCTION__], 4);
-        __debug(['debug' => "[ URL ]{$url}", 'function' => __FUNCTION__], 2);
+        __debug(['debug' => "[ BODY ] {$curl_content}", 'function' => __FUNCTION__], 4);
+        __debug(['debug' => "[ URL ] {$url}", 'function' => __FUNCTION__], 2);
     endforeach;
 
     foreach ($url_array as $id => $url):
@@ -217,7 +217,7 @@ function __request_Fiber($target, $proxy = null, $postDados = null){
 }
 
 
-function __request_info($target, $proxy = null, $postDados = null){
+function __request_info($target, $proxy = null, $postDados = null): ?array{
     if (__not_empty($target)):
         $concurrency = $_SESSION['config']['concorracy'] ?? 1;
         $fiberList = [];

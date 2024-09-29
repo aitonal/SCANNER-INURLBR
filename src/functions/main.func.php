@@ -1,7 +1,7 @@
 <?php
 
 
-function __main($dork, $motor, $cod) {
+function __main($dork, $motor, $cod): void {
     $cor = $GLOBALS['COR'];
     $dork_list[0] = (strstr($dork, '[DORK]') ? explode('[DORK]', $dork) : [$dork]);
     $dork_list[1] = (__not_empty($_SESSION['config']['dork-file']) ? __openFile($_SESSION['config']['dork-file'], 1) : $dork_list[0]);
