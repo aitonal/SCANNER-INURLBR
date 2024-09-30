@@ -427,8 +427,7 @@ function __menu(): string {
      Example: {$cor->whit}--port-write {$cor->yell}{'value0','value1','value3'}{$cor->end}
      Usage:   {$cor->whit}--port-write {$cor->yell}\"'NICK nk_test','USER nk_test 8 * :_ola','JOIN #inurlbrasil','PRIVMSG #inurlbrasil : minha_msg'\"{$cor->end}
 
-
-
+     
     [!] Modifying values used within script parameters:
     
  {$cor->whit}md5{$cor->end} Encrypt values in md5.
@@ -446,7 +445,7 @@ function __menu(): string {
      Usage:   {$cor->whit}hex({$cor->yell}102030{$cor->whit}){$cor->end}
      Usage:   {$cor->whit}--exploit-get 'user?id=hex({$cor->yell}102030{$cor->whit})'{$cor->end}
 
- {$cor->whit}hex{$cor->end} Generate random values.
+ {$cor->whit}random{$cor->end} Generate random values.
      Example: {$cor->whit}random({$cor->yell}{character_counter}{$cor->whit}){$cor->end}
      Usage:   {$cor->whit}random({$cor->yell}8{$cor->whit}){$cor->end}
      Usage:   {$cor->whit}--exploit-get 'user?id=random({$cor->yell}8{$cor->whit})'{$cor->end}
