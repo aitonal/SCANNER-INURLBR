@@ -19,9 +19,10 @@ function __engines($dork, $list_proxy) {
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 1) || __validateOptions($_SESSION["config"]["motor"], "all")):
         $randHost = __dominioGoogleRandom();
+        $_SESSION["config"]['google_attempt'][1] = 0;
         $_SESSION["config"]["dork_tmp"] = $dork_exec;
         $_SESSION["config"]["conf_array_tmp"] = $confArray;
-        __pageEngine($confArray,  "GOOGLE - {$randHost}", "https://{$randHost}/search?q=[DORK]&num=1500&btnG=Search&pws=1", $dork_exec, null, 0, 0, 1);
+        __pageEngine($confArray,  "GOOGLE - {$randHost}", "https://{$randHost}/search?q=[DORK]&num=1500&btnG=Search&pws=1&sclient=gws-wiz", $dork_exec, null, 0, 0, 1);
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
     ################################################################################
@@ -60,7 +61,7 @@ function __engines($dork, $list_proxy) {
         # https://search20.lycos.com/web/?q=index.php&keyvol=FA02D34CE00ABC10FE&pageInfo=Keywords%3Dindex.php%26xargs%3D12KPjg1pZSrp68i%252D%255FoMPCRErjGnQNVmZy15JIuTcQ%255FQZAD6A5dYdR%255FePqBypItDrUtu0KJk6nQo%255FpPIfL7ucu6%26hData%3D12KPjg1oFsxJy7tuqnNO2KCL3XgEsP4NTs58loc8gnSqwp8GduJaktK%255FCazoFyJI8OkHu47MKk
         $_SESSION["config"]["idPesquisaLycos"] = __getIdSearchLycos($_["corpo"]);
         $id_domain = rand(1, 5);
-        __pageEngine($confArray, "LYCOS", "https://search.lycos.com/web/?q=[DORK]&keyvol={$_SESSION["config"]["idPesquisaLycos"]}&pageInfo=Keywords=[DORK]&pn=[PAG]", $dork_exec, null, 0, 15, 1);
+        __pageEngine($confArray, "LYCOS", "https://search.lycos.com/web/?q=[DORK]&keyvol={$_SESSION["config"]["idPesquisaLycos"]}&pageInfo=Keywords=[DORK]&pn=[PAG]", $dork_exec, null, 0, 5, 1);
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
     ################################################################################
