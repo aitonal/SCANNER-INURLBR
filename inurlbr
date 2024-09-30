@@ -87,13 +87,16 @@
 
 $set_error=0;
 error_reporting($set_error);
-ini_set('memory_limit', -1);
 ini_set('display_errors', $set_error);
-ini_set('max_execution_time', $set_error);
-ini_set('allow_url_fopen', 1);
-set_time_limit(0);
+ini_set('memory_limit', -1);
+ini_set('max_execution_time', 0);
+ini_set('allow_url_fopen', 1); 
+ini_set('max_file_size', -1);
+ini_set('implicit_flush', 1);
 (!isset($_SESSION) ? session_start() : NULL);
-
+set_time_limit(0);
+ob_implicit_flush(1);
+ob_start();
 
 #########################################################################################
 #Capturing TERMINAL VALUES.##############################################################
@@ -139,7 +142,6 @@ echo __bannerLogo();
 #########################################################################################
 require_once "{$pwd}/src/load/validate.options.php";
 __startingBanner();
-ob_start();
 #########################################################################################
 #RUN VALIDATION / PROCESSES SCAN RANG IP#################################################
 #########################################################################################
