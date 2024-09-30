@@ -1,5 +1,11 @@
 <?php
 
+function __fiber_simples($function , $args) {
+    $fiber = new Fiber($function(...));
+    $fiber->start(...$args);
+    return $fiber->getReturn();
+}
+
 function __processUrlExec_Fiber($url_list) {
     $cor = $GLOBALS['COR'];
     foreach ($url_list as $url):
@@ -19,7 +25,8 @@ function __processUrlExec_Fiber($url_list) {
                 $_SESSION['config']['url'] . $host : urldecode($url);
 
         __plus();
-        $info = __infoServer($target_['url_xpl'], $_SESSION['config']['exploit-post']);
+        # TEST FIBER: $info = __infoServer($target_['url_xpl'], $_SESSION['config']['exploit-post']);
+        $info = (string)__fiber_simples('__infoServer',[$target_['url_xpl'], $_SESSION['config']['exploit-post']]);
         __plus();
 
 
@@ -89,15 +96,16 @@ function __processUrlExec_Fiber($url_list) {
                 (__not_empty($_SESSION['config']['irc']['irc_connection']) ?
                                     __ircMsg($_SESSION['config']['irc'], "{$_SESSION['config']['erroReturn']}::: {$target_['url_xpl']}") : null);
                 __plus();
-                (__not_empty($_SESSION['config']['command-vul']) ? 
-                                    __command($_SESSION['config']['command-vul'], $target_) : null);
+                
+                # TEST FIBER:  __command($_SESSION['config']['command-vul'], $target_)
+                (__not_empty($_SESSION['config']['command-vul']) ?  __fiber_simples('__command',[$_SESSION['config']['command-vul'], $target_]) : null);
                 __plus();
                 (!is_null($_SESSION['config']['exploit-vul-id'])?
                                     __configExploitsExec($_SESSION['config']['exploit-vul-id'], $target_) : null);
             endif;
             __plus();
-            (__not_empty($_SESSION['config']['command-all']) ? 
-                                    __command($_SESSION['config']['command-all'], $target_) : null);
+            # TEST FIBER:  __command($_SESSION['config']['command-all'], $target_)
+            (__not_empty($_SESSION['config']['command-all']) ?  __fiber_simples('__command',[$_SESSION['config']['command-all'], $target_]) : null);
             
             __plus();
             (__not_empty($_SESSION['config']['sub-file']) &&
@@ -129,7 +137,7 @@ function __processUrlExec($url_list): void{
         if (__not_empty($url_list)):
             $count_urls = count($url_list);
             if ($count_urls>=100):
-                $concurrency = 10;
+                $concurrency = 20;
             endif;
             if ($count_urls<=100 && $count_urls>=50):
                 $concurrency = 5;
