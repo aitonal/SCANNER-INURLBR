@@ -46,10 +46,10 @@ function __request_info_simples($url_, $proxy = null, $postDados = null) {
         # curl_setopt($curl_array[$i], CURLOPT_FOLLOWLOCATION, 1);
 
         curl_setopt($curl_array[$i], CURLOPT_CONNECTTIMEOUT, __not_empty($_SESSION['config']['time-out']) ?
-                        $_SESSION['config']['time-out'] : 5);
+                        $_SESSION['config']['time-out'] : 3);
 
         curl_setopt($curl_array[$i], CURLOPT_TIMEOUT, __not_empty($_SESSION['config']['time-out']) ?
-                        $_SESSION['config']['time-out'] : 5);
+                        $_SESSION['config']['time-out'] : 3);
 
         curl_setopt($curl_array[$i], CURLOPT_COOKIEFILE, __not_empty($_SESSION['config']['file-cookie']) ?
                         $_SESSION['config']['file-cookie'] : $cookie_file);
@@ -167,7 +167,7 @@ function __request_Fiber($target, $proxy = null, $postDados = null): array{
         endif;
 
        
-        $time_out = $_SESSION['config']['time-out'] ?? 5;
+        $time_out = $_SESSION['config']['time-out'] ?? 3;
         curl_setopt($curl_array[$id], CURLOPT_CONNECTTIMEOUT, $time_out);
         curl_setopt($curl_array[$id], CURLOPT_TIMEOUT, $time_out);
 
