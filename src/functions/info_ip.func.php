@@ -1,21 +1,4 @@
 <?php
-
-function __extract_ip($ip): mixed{
-    if($ip):
-        //ipv4
-        preg_match_all('#^(\d{1,3}\.){3}\d{1,3}$#', trim($ip), $ret);
-        if($ret[0][0]):
-            return $ret[0][0];
-        endif;
-        //ipv6
-        preg_match_all('#^(((?=(?>.*?(::))(?!.+\3)))\3?|([\dA-F]{1,4}(\3|:(?!$)|$)|\2))(?4){5}((?4){2}|((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?7)){3})$#i', trim($ip), $ret);
-        if($ret[0][0]):
-            return $ret[0][0];
-        endif;
-    endif;
-    return false;
-}
-
 function __infoIP($ip, $op = 0): mixed {
         if(__not_empty($_SESSION['config']['token_ipinfo'][0]) && __not_empty($ip)):
             $ip_extracted = __extract_ip($ip);
