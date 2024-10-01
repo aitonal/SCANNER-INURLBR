@@ -1,17 +1,12 @@
 <?php
 function __openFile($file, $op = null) {
     if (__not_empty($file)):
-        $result_file = array_unique(array_filter(explode("\n", file_get_contents($file))));
-        $data = array_filter($result_file, "__filterEmptyArray");  
+        $result_file = __array_filter_unique(explode("\n", file_get_contents($file)));
+        $data = __array_filter_unique($result_file);
+        $data = __validate_trash($data);
+        $data = array_map("__add_scheme", $data); 
         if (is_array($data)):
             return $op == 1 ? $data : __process($data);
         endif;
-    endif;
-}
-
-function __filterEmptyArray($var){
-    if(__not_empty($var)):
-        $var = trim($var);
-        return $var !== null && $var !== false && $var !== "" && isset($var) && !empty($var);
     endif;
 }

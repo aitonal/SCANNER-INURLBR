@@ -1,11 +1,5 @@
 <?php
 
-function __fiber_simples($function , $args) {
-    $fiber = new Fiber($function(...));
-    $fiber->start(...$args);
-    return $fiber->getReturn();
-}
-
 function __processUrlExec_Fiber($url_list) {
     $cor = $GLOBALS['COR'];
     foreach ($url_list as $url):
@@ -40,8 +34,7 @@ function __processUrlExec_Fiber($url_list) {
             $valid_return = (__not_empty($_SESSION['config']['erroReturn'])) ? true : false;
             $info = $valid_return ? "{$cor->gre}{$info}" : $info;
             $target_ip = $valid_return ? "{$cor->gre}{$_SESSION['config']['info_ip']}" : $_SESSION['config']['info_ip'];
-            $title = $valid_return ? "{$cor->gre}{$_SESSION['config']['title']}" : $_SESSION['config']['title'];
-            $title = str_replace($title,"\n","");
+            $title = $_SESSION['config']['title'];
             $save_ocultar = isset($_SESSION['config']['arquivo_output_all']) ? 3 : 1;
             $anime = $valid_return ? '[ INF ] ' : '[ LOG ] ';
             __plus();
@@ -51,12 +44,12 @@ function __processUrlExec_Fiber($url_list) {
                 echo "{$cor->whit}{$anime} [{$cor->yell} {$contUrl} / {$_SESSION['config']['total_url']} {$cor->whit}]{$cor->grey}-[ " . date("H:i:s") . " ]{$cor->whit} {$cor->end}", PHP_EOL;
                 __plus();
             endif;
-            if(!__not_empty($info)):
+            if (!__not_empty($info)):
                 $anime = '[ ERR ] ';
             endif;
             echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Target:: {$cor->grey} {$_SESSION['config']['vull_style']}{$target_['url_clean']}{$cor->whit} {$cor->end}", PHP_EOL;
             __plus();
-            if(__not_empty($info)):
+            if (__not_empty($info)):
                 if (__not_empty($exget) || __not_empty($expost)):
                     echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Exploit:: {$cor->end}{$cor->red1}{$exget}{$expost}{$cor->end}", PHP_EOL;
                 endif;
@@ -65,6 +58,7 @@ function __processUrlExec_Fiber($url_list) {
                 echo isset($_SESSION['config']['cms-check-resultado']) ? ("{$cor->whit}{$anime} {$cor->end}{$cor->whit}CMS check:: {$cor->end}{$cor->red1}{$_SESSION['config']['cms-check-resultado']}{$cor->end}".PHP_EOL) : null;
                 __plus();
                 if (__not_empty($title)):
+                    $title = $valid_return ? "{$cor->gre}{$title}" : $title;
                     echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Title:: {$cor->end}{$cor->grey}{$title}{$cor->whit}", PHP_EOL;
                 endif;
                 echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Information server:: {$cor->end}{$cor->grey}{$info}{$cor->whit}", PHP_EOL;
@@ -88,7 +82,7 @@ function __processUrlExec_Fiber($url_list) {
             endif;
             
 
-            echo ($_SESSION['config']['sendmail'] ? "\n{$cor->whit}[  +  ] {$cor->end}{$cor->whit}SEND MAIL:: {$cor->grey}" . (($valid_return) ? "{$cor->gre}" : null) . __sendMail($_SESSION['config']['sendmail'], $target_['url_xpl']) . "{$cor->end}" : null);
+            echo ($_SESSION['config']['sendmail'] ? PHP_EOL."{$cor->whit}[  +  ] {$cor->end}{$cor->whit}SEND MAIL:: {$cor->grey}" . (($valid_return) ? "{$cor->gre}" : null) . __sendMail($_SESSION['config']['sendmail'], $target_['url_xpl']) . "{$cor->end}" : null);
             __plus();
             
             if ($valid_return):
@@ -133,8 +127,10 @@ function __processUrlExec_Fiber($url_list) {
 }
 
 
+
 function __processUrlExec($url_list): void{
         if (__not_empty($url_list)):
+
             $count_urls = count($url_list);
             if ($count_urls>=100):
                 $concurrency = 20;

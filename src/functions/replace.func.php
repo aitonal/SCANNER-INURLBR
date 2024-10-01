@@ -11,8 +11,3 @@ function __command_replace($exploit, $url): array|string {
                 __getOut( "{$cor->whit}[ INF ]{$cor->end}{$cor->red2}DEFINE THE CORRECT REPLACE COMMAND ex: --replace 'index.php?id=[INURL]index.php?id=1666+and+(SELECT+user+from+mysql.user+limit+0,1)=1'{$cor->end}".PHP_EOL);
         return str_replace($exploit[0], $exploit[1], $url);
 }
-
-function __replace_url_value($url): array|string{
-        # http://click.hotbusca.com/clk.php?url=https://groups.drupal.org/node/477438
-        return str_replace('http://click.hotbusca.com/clk.php?url=','',$url);
-}

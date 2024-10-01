@@ -7,6 +7,8 @@ function __infoServer($url, $post_data = null) {
     $result = __request_info($url, $_SESSION["config"]["proxy"], $post_data);
     
     if (isset($result['corpo'])):
+        $result['corpo'] = strtolower($result['corpo']);
+        
         if (!is_null($_SESSION['config']['extrai-email'])):
             return __extractEmail($result['corpo'], $url);
         endif;

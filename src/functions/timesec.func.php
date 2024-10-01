@@ -1,6 +1,6 @@
 <?php
 
-function __timeSec($camp, $value = NULL): void {
+function __timeSec($camp, $value = null): void {
     $cor = $GLOBALS['COR'];
     echo!is_null($_SESSION['config'][$camp]) && 
     !empty($_SESSION['config'][$camp]) ? 

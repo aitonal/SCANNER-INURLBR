@@ -33,6 +33,6 @@ function __generatorIPRandom($cont) {
             $ip[] = "http://{$bloc[0]}.{$bloc[1]}.{$bloc[2]}.{$bloc[3]}";
             $range['start'] ++;
         endwhile;
-        return array_unique($ip);
+        return __array_filter_unique($ip);
     endif;
 }

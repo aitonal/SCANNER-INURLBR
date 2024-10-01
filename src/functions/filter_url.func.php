@@ -20,7 +20,7 @@ function __filterURL($html, $op = null) {
         
         $html = str_replace(['href="/url?url=','href="/url?q='], 'href="', $html);
 
-        # VALIDATION LYCOS URL
+        # VALIDATION LYCOS URL / REMOVE HTML JUNK
         if(strstr($html, 'lycos.com')):
             $html = __remove_lycos_html_junk($html);
         endif;
@@ -30,10 +30,10 @@ function __filterURL($html, $op = null) {
         preg_match_all($reg_1, $html, $html_1);
         preg_match_all($reg_2, $html, $html_2);
         $result = array_merge($html_2,$html_1)[0];
-        $result = array_filter(array_unique($result));
         $result = array_map('urldecode', $result);
+        $result = __array_filter_unique($result);
 
-        # VALIDATION GOOGLE URL
+        # VALIDATION GOOGLE URL / REMOVE HTML JUNK
         if(strstr($html, 'https://policies.google.com')):
             $result = __remove_google_html_junk($result);
         endif;
@@ -41,7 +41,7 @@ function __filterURL($html, $op = null) {
         # ADD HTTP
         $result = array_map('__add_scheme', $result);
 
-        return array_filter(array_unique($result));
+        return __array_filter_unique($result);
     endif;
 }
 ################################################################################
@@ -52,7 +52,7 @@ function __filterURLif($result) {
         foreach ($result as $value):
             $temp[] = __not_empty($_SESSION['config']['ifurl']) && strstr($value, $_SESSION['config']['ifurl']) ? $value : null;
         endforeach;
-        return array_unique(array_filter($temp));
+        return __array_filter_unique($temp);
     endif;
     return false;
 }
@@ -67,21 +67,9 @@ function __filterURLJson($html) {
         foreach ($allresponseresults as $value):
             $tmp[] = $value['url'];
         endforeach;
-        return array_filter(array_unique($tmp));
+        return __array_filter_unique($tmp);
     endif;
 }
-################################################################################
-#SCHEMA VALIDATION##############################################################
-################################################################################
-function __add_scheme($value){
-    if($value):
-     if(!strstr($value, 'http')):
-         $value = "https://{$value}";
-         return $value;
-     endif;
-    endif;
-    return $value;
- }
 
 ################################################################################
 #FILTER HTML JUNK URLs ALL THE RETURN OF GOOGLE#################################
@@ -99,7 +87,7 @@ function __split_google_junk($value){
 #FILTER HTML JUNK URLs ALL THE RETURN OF GOOGLE#################################
 ################################################################################
 function __remove_google_html_junk($result){
-    $remove_google_strings = ['&amp;','\x26amp','\x3d100' ];
+    $remove_google_strings = ['&amp;','\x26amp','\x3d100'];
     foreach ($remove_google_strings as $string):
         $_SESSION['config']['url_encode_remove'] = $string;
         $result = array_map('__split_google_junk', $result);

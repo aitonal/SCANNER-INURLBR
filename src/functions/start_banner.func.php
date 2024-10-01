@@ -40,5 +40,5 @@ function __startingBanner(): void {
             PHP_EOL."{$cor->whit}[ INF ] {$cor->red2}[ DEFINED EXTERNAL SUB_COMMAND ]::{$cor->whit} [ $subcommand ]{$cor->end}" : null);
 
     echo (__not_empty($_SESSION['config']['proxy-file']) ?
-            PHP_EOL."{$cor->whit}[ INF ] {$cor->red2}[ FILE SOURCE LIST OF PROXY ]::{$cor->whit} [ {$_SESSION['config']['proxy-file']} ]{$cor->end}" : NULL);
+            PHP_EOL."{$cor->whit}[ INF ] {$cor->red2}[ FILE SOURCE LIST OF PROXY ]::{$cor->whit} [ {$_SESSION['config']['proxy-file']} ]{$cor->end}" : null);
 }

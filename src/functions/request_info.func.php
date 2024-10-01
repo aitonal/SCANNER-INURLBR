@@ -33,10 +33,10 @@ function __request_info_simples($url_, $proxy = null, $postDados = null) {
         curl_setopt($curl_array[$i], CURLOPT_REFERER, (__not_empty($_SESSION['config']['url-reference'])) ?
                         __crypt($_SESSION['config']['url-reference']) : __setURLReferenceRandom());
 
-        (!is_null($proxy) ? curl_setopt($curl_array[$i], CURLOPT_PROXY, $proxy) : NULL);
-        (!is_null($_SESSION['config']['verifica_info'])) ? curl_setopt($curl_array[$i], CURLOPT_HEADER, 1) : NULL;
+        (!is_null($proxy) ? curl_setopt($curl_array[$i], CURLOPT_PROXY, $proxy) : null);
+        (!is_null($_SESSION['config']['verifica_info'])) ? curl_setopt($curl_array[$i], CURLOPT_HEADER, 1) : null;
         (!is_null($_SESSION['config']['verifica_info']) && __validateOptions('3,6', $_SESSION['config']['debug']) ?
-                        curl_setopt($curl_array[$i], CURLOPT_VERBOSE, 1) : NULL);
+                        curl_setopt($curl_array[$i], CURLOPT_VERBOSE, 1) : null);
 
         __plus();
         curl_setopt($curl_array[$i], CURLOPT_SSL_VERIFYPEER, 0);
@@ -99,8 +99,8 @@ function __get_info_curlcontent(string $return_http): string|null{
     if(__not_empty($return_http)):
         $status = null;
         preg_match_all('(HTTP.*)', $return_http, $status['http']);
-        preg_match_all('(Server:.*)', $return_http, $status['server']);
-        preg_match_all('(X-Powered-By:.*)', $return_http, $status['X-Powered-By']);
+        preg_match_all('/(Server:.*)/i', $return_http, $status['server']);
+        preg_match_all('/(X-Powered-By:.*)/i', $return_http, $status['X-Powered-By']);
         $info_str = str_replace("\r", '', str_replace("\n", '', "{$status['http'][0][0]}, {$status['server'][0][0]}  {$status['X-Powered-By'][0][0]}"));
         return $info_str ?? null;
     endif;

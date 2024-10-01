@@ -11,7 +11,7 @@ function __command($cmd_shell_param, $target) {
             strstr($cmd_shell_param,    '_URI_')         ||
             strstr($cmd_shell_param,    '_URI_')         ||
             strstr($cmd_shell_param,    '_PORT_')        ||
-            strstr($cmd_shell_param,    '_RANDOM_') ? NULL :
+            strstr($cmd_shell_param,    '_RANDOM_') ? null :
                 __getOut("{$cor->whit}[ ERR ] {$cor->yell}SET PARAMETER - command correctly{$cor->end}".PHP_EOL)
         );
 

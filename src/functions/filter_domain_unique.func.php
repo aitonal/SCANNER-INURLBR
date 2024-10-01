@@ -7,7 +7,7 @@ function __filterDomainUnique($result) {
                 $temp[] = "https://" . __filterHostname($value);
             endif;
         endforeach;
-        return array_unique(array_filter($temp));
+        return __array_filter_unique($temp);
     endif;
     return false;
 }

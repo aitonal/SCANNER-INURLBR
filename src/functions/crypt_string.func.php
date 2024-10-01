@@ -31,14 +31,3 @@ function __crypt($url) {
     return $url;
     
 }
-
-################################################################################
-#GENERATE RANDOM STRING#########################################################
-################################################################################
-#(PHP4,PHP5) Shuffle an array http://php.net/manual/en/function.shuffle.php
-function random(int $len) {
-    if($len):
-        $len = substr(md5(mt_rand()), 0, $len);
-    endif;
-    return $len;
-}

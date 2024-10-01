@@ -1,6 +1,6 @@
 <?php
 
-function __SimpleCheckCMS($html): string {
+function __simpleCheckCMS($html): string {
 
     $cms['XOOPS CMS IDENTIFIED'] = '<meta name="generator" content="XOOPS"';
     $cms['Joomla CMS IDENTIFIED'] = '<meta name="generator" content="Joomla!';
@@ -32,8 +32,8 @@ function __SimpleCheckCMS($html): string {
     foreach ($cms as $campo => $valor):
         __plus();
         if (strstr($html, $cms[$campo])):
-            return(" {$campo} ");
+            return " {$campo} ";
         endif;
     endforeach;
-    return "0xUNIDENTIFIED";
+    return "UNIDENTIFIED";
 }

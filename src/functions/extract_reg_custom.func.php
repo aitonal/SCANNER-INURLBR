@@ -8,7 +8,7 @@ function __extractRegCustom($html, $url) {
         preg_match_all("#\b{$_SESSION['config']['regexp-filter']}#i", $html, $out_matches);
         echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}", PHP_EOL;
         echo "{$cor->whit}[ INF ][URL REGEX CUSTOM] {$cor->end}=>{$cor->grey1} {$url} {$cor->end}", PHP_EOL;
-        $out_matches_unique = array_filter(array_unique(array_unique($out_matches[0])));
+        $out_matches_unique = __array_filter_unique($out_matches[0]);
         if(__not_empty($out_matches_unique)):
             foreach ($out_matches_unique as $valor):
                 if (__not_empty($valor)):

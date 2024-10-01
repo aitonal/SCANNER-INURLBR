@@ -3,7 +3,7 @@ function __checkURLs($result, $url): void {
     $cor = $GLOBALS['COR'];
     __plus();
     $code = !is_null($_SESSION["config"]["ifcode"]) ? $_SESSION["config"]["ifcode"] : 200;
-    $valor = ($result['server']['http_code'] == $code) ? "{$cor->gre}" : NULL;
+    $valor = ($result['server']['http_code'] == $code) ? "{$cor->gre}" : null;
 
     echo PHP_EOL, "{$cor->whit}  |_[ INF ]{$cor->end}[{$cor->whit} {$_SESSION['config']['cont_valores']} {$cor->end}]", PHP_EOL;
     echo "{$cor->whit}  |_[ INF ][URL] {$cor->end}::{$cor->grey1}{$valor} {$url} {$cor->end}", PHP_EOL;
@@ -22,21 +22,21 @@ function __checkURLs($result, $url): void {
         __plus();
 
         (__not_empty($_SESSION['config']['sub-file']) and
-                is_array($_SESSION['config']['sub-file']) ? __subExecExploits($target['url_xpl'], $_SESSION['config']['sub-file']) : NULL);
+                is_array($_SESSION['config']['sub-file']) ? __subExecExploits($target['url_xpl'], $_SESSION['config']['sub-file']) : null);
         __plus();
 
-        (__not_empty($_SESSION['config']['command-vul']) ? __command($_SESSION['config']['command-vul'], $target) : NULL);
+        (__not_empty($_SESSION['config']['command-vul']) ? __command($_SESSION['config']['command-vul'], $target) : null);
         __plus();
 
         (__not_empty($_SESSION['config']['exploit-vul-id']) ?
-                        __configExploitsExec($_SESSION['config']['exploit-vul-id'], $target) : NULL);
+                        __configExploitsExec($_SESSION['config']['exploit-vul-id'], $target) : null);
         __plus();
     endif;
 
-    (__not_empty($_SESSION['config']['exploit-all-id']) ? __configExploitsExec($_SESSION['config']['exploit-all-id'], $target) : NULL);
+    (__not_empty($_SESSION['config']['exploit-all-id']) ? __configExploitsExec($_SESSION['config']['exploit-all-id'], $target) : null);
     __plus();
 
-    (__not_empty($_SESSION['config']['command-all']) ? __command($_SESSION['config']['command-all'], $target) : NULL);
+    (__not_empty($_SESSION['config']['command-all']) ? __command($_SESSION['config']['command-all'], $target) : null);
     __plus();
 
     $_SESSION['config']['cont_valores'] ++;

@@ -2,15 +2,15 @@
 
 function __getValuesRobots($url): void {
     $cor = $GLOBALS['COR'];
-    if($url):
+    if(__not_empty($url)):
         $new_url = "https://" . __filterHostname($url);
         $new_url_robots = "{$new_url}/robots.txt";
-        $result = __request_info($new_url_robots, $_SESSION["config"]["proxy"], NULL);
+        $result = __request_info($new_url_robots, $_SESSION["config"]["proxy"], null);
         echo PHP_EOL, "{$cor->whit}[ INF ]__", PHP_EOL;
         echo "         |[ ACCESSING FILE ROBOTS ]::", PHP_EOL;
         __plus();
         if (__not_empty($result['corpo']) && $result['server']['http_code'] == 200):
-            $robots_file = array_unique(array_filter(explode("\n", $result['corpo'])));
+            $robots_file = __array_filter_unique(explode("\n", $result['corpo']));
             foreach ($robots_file as $value):
                 if (strstr($value, 'Disallow:') || strstr($value, 'Allow:')):
                     $path = trim(explode(':', $value)[1]); 
@@ -23,7 +23,7 @@ function __getValuesRobots($url): void {
                 endif;
                 __plus();
             endforeach;
-            $url_list = array_filter(array_unique($url_list));
+            $url_list = __array_filter_unique($url_list);
             if (is_array($url_list)):
                 echo "{$cor->whit}[ INF ]__", PHP_EOL;
                 echo "         |[ URL FROM ROBOTS ]::", PHP_EOL;

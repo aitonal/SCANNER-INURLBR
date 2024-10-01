@@ -11,7 +11,7 @@ function __checkError($html) {
             $_SESSION['config']['achar'] : null;
         endif;
         $_SESSION['config']['cms-check-resultado'] = (!is_null($_SESSION['config']['cms-check'])) ?
-        __SimpleCheckCMS($html) : null;
+        __simpleCheckCMS($html) : null;
     endif;
     if (!is_null($_SESSION['config']['regexp'])):
         preg_match_all("#\b{$_SESSION['config']['regexp']}#i", $html, $match);
@@ -23,7 +23,7 @@ function __checkError($html) {
             __plus();
             if (__validate_error_db($html, $_SESSION['validation'][$campo], $campo)):
                 __plus();
-                return(" {$campo}  -  VALUE: {$_SESSION['validation'][$campo]}");
+                return "{$campo}  -  VALUE: {$_SESSION['validation'][$campo]}";
             endif;
         endforeach;
     endif;

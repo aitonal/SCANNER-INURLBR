@@ -93,7 +93,7 @@ ini_set('max_execution_time', 0);
 ini_set('allow_url_fopen', 1); 
 ini_set('max_file_size', -1);
 ini_set('implicit_flush', 1);
-(!isset($_SESSION) ? session_start() : NULL);
+(!isset($_SESSION) ? session_start() : null);
 set_time_limit(0);
 ob_implicit_flush(1);
 ob_start();
@@ -147,9 +147,9 @@ __startingBanner();
 #########################################################################################
 if (__not_empty($_SESSION['config']['range']) || __not_empty($_SESSION['config']['range-rand'])):
     __not_empty($_SESSION['config']['range']) ? 
-    __process(__generatorRangeIP($_SESSION['config']['range'])) : NULL;
+    __process(__generatorRangeIP($_SESSION['config']['range'])) : null;
     __not_empty($_SESSION['config']['range-rand']) ?
-    __process(__generatorIPRandom([1 => $_SESSION['config']['range-rand']])) : NULL;
+    __process(__generatorIPRandom([1 => $_SESSION['config']['range-rand']])) : null;
     __exitProcess();
 endif;
 #########################################################################################

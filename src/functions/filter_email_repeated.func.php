@@ -1,8 +1,7 @@
 <?php
 
-function __filterEmailsRepeated() {
+function __filterEmailsRepeated(): void {
     $cor = $GLOBALS['COR'];
-    echo PHP_EOL, PHP_EOL, "{$cor->whit}|[ INF ][ Filtering the repeated emails  the file {$_SESSION['config']['arquivo_output']} ]{$cor->end}", PHP_EOL;
     $file_open = __openFile($_SESSION['config']['out_put_paste'] . $_SESSION['config']['arquivo_output'], 1);
     if (is_array($file_open)):
         unlink($_SESSION['config']['out_put_paste'] . $_SESSION['config']['arquivo_output']);

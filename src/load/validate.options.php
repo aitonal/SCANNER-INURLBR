@@ -1,4 +1,5 @@
 <?php
+$cor = $GLOBALS['COR'];
 # [+] VERIFYING use Input PHP CLI.
 # (PHP 4, PHP 5) defined — Checks whether a given named constant exists
 # http://php.net/manual/pt_BR/function.defined.php */

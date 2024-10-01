@@ -1,17 +1,17 @@
 <?php
 ##########################################################################################
-#Setting VALUES $ _SESSION ['config']###################################################
+#Setting VALUES $_SESSION['config']#######################################################
 ##########################################################################################
 $_SESSION['config'] = [];
 $_SESSION['validation'] = [];
 $_SESSION['config']['version_script'] = '3.0';
-$_SESSION['config']['totas_urls'] = NULL;
+$_SESSION['config']['codename'] = 'facada';
+$_SESSION['config']['totas_urls'] = null;
 $_SESSION['config']["contUrl"] = 0;
 $_SESSION['config']['cont_email'] = 0;
 $_SESSION['config']['cont_url'] = 0;
 $_SESSION['config']['cont_valores'] = 0;
 $_SESSION['config']['pwd'] = realpath(dirname(__FILE__));
-# Facada
 ##########################################################################################
 #FILE MANAGEMENT EXPLOITS.################################################################
 ##########################################################################################
@@ -41,8 +41,9 @@ $_SESSION['config']['line'] = "\n{$cor->whit}___________________________________
 $_SESSION['config']['string_validation_file'] = explode("\n",file_get_contents("{$_SESSION['config']['pwd']}/../../resources/strings.validation.inurl"));
 foreach ($_SESSION['config']['string_validation_file'] as $str_validation):
     $validation_tmp = explode(';',$str_validation);
-    if($validation_tmp[0])
+    if($validation_tmp[0]):
         $_SESSION['validation'][$validation_tmp[0]] = $validation_tmp[1];
+    endif;
 endforeach;
 ##########################################################################################
 #OPEN FILE TOKENS IPINFO.IO###############################################################
