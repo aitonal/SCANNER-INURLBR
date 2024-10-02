@@ -11,7 +11,7 @@ function __main($dork, $motor, $cod): void {
     $file_proxy = __not_empty($_SESSION['config']['proxy-file']) ? __openFile($_SESSION['config']['proxy-file'], 1) : null;
     $list_proxy = is_array($file_proxy) ? $file_proxy : null;
 
-    echo __bannerLogo();
+    __bannerLogo();
     __startingBanner();
 
     for ($i = 0; $i <= count($dork_list[3]); $i++):

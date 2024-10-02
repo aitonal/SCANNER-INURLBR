@@ -109,7 +109,7 @@ $command_list = [
     'regexp-filter:', 'exploit-command:', 'command-all:', 'command-vul:',
     'replace:', 'remove:', 'regexp:', 'sall:', 'sub-file:', 'sub-get::', 'sub-concat:',
     'user-agent:', 'url-reference:', 'delay:', 'sendmail:', 'time-out:',
-    'http-header:', 'ifcode:', 'ifurl:', 'ifemail:', 'mp:', 'target:',
+    'http-header:', 'ifcode:', 'ifurl:', 'ifemail:', 'mp:', 'target:','no-color::',
     'no-banner::', 'gc::','ua::', 'proxy:', 'proxy-file:', 'time-proxy:', 'pr::',
     'proxy-http-file:', 'update::', 'info::', 'help::', 'unique::', 'popup::',
     'ajuda::', 'install-dependence::', 'cms-check::', 'sub-post::', 'robots::',
@@ -133,14 +133,13 @@ $pwd = realpath(dirname(__FILE__));
 require_once "{$pwd}/src/load/session.config.php";
 require_once "{$pwd}/src/load/require.files.php";
 #########################################################################################
-#BANNER AND COLORS ######################################################################
-#########################################################################################
-$COR = new Cores();
-echo __bannerLogo();
-#########################################################################################
 #PARAMETER VALIDATION ###################################################################
 #########################################################################################
 require_once "{$pwd}/src/load/validate.options.php";
+#########################################################################################
+#BANNER AND COLORS ######################################################################
+#########################################################################################
+__bannerLogo();
 __startingBanner();
 #########################################################################################
 #RUN VALIDATION / PROCESSES SCAN RANG IP#################################################

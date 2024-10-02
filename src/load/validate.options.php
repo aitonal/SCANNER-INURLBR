@@ -31,6 +31,9 @@ __menu() : null);
 (isset($opcoes['info']) ? 
 __info() : null);
 
+# [+] NO COLOR
+$COR =  isset($opcoes['no-color']) ? new stdClass() : new Cores();
+
 # [+] PRINTING EXPLOITS LIST.
 (isset($opcoes['exploit-list']) ?
 __configExploitsList(1)  : null);
