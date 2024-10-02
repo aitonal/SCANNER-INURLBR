@@ -7,5 +7,6 @@ function __getOut($msg): never {
     __ircQuit($_SESSION['config']['irc']));
     print_r($msg);
     echo $cor->end;
+    __plus();
     exit(1);
 }

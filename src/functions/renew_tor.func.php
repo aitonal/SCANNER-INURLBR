@@ -6,6 +6,7 @@ function __renewTOR(): void {
     $request = __request_info('http://dynupdate.no-ip.com/ip.php', $_SESSION["config"]["proxy"]);
     __plus();
     echo PHP_EOL, "{$cor->whit}[ INF ]{$cor->red2}[ IP NETWORK TOR RENEWED ]::: {$cor->whit}[ {$request['corpo'] } ]{$cor->end}", PHP_EOL;
+    __plus();
     /* https://pt.wikipedia.org/wiki/Pidof
      * pidof é um utilitário Linux que encontra o ID de um programa em execução.
      * Note que o próprio nome é a junção dos termos pid, que significa identidade

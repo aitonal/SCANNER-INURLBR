@@ -16,8 +16,8 @@ function __checkError($html) {
     if (!is_null($_SESSION['config']['regexp'])):
         preg_match_all("#\b{$_SESSION['config']['regexp']}#i", $html, $match);
         __plus();
-        return (isset($match[0][0]) && !empty($match[0][0]) ?
-        " regular expression->{$_SESSION['config']['regexp']} - " . $match[0][0] . " FOUND! " : null);
+        return isset($match[0][0]) && !empty($match[0][0]) ?
+        " regular expression->{$_SESSION['config']['regexp']} - " . $match[0][0] . " FOUND! " : null;
     else:
         foreach ($_SESSION['validation'] as $campo => $valor):
             __plus();

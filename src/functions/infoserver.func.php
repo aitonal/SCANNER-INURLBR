@@ -48,7 +48,8 @@ function __infoServer($url, $post_data = null) {
         $_SESSION['config']['vull_style'] = __not_empty($_SESSION['config']['erroReturn']) ? "{$cor->gre}( POTENTIALLY VULNERABLE ){$cor->end} {$cor->gre1}" . __cli_beep() : null;
         $_SESSION['config']['result_values'].= __not_empty($_SESSION['config']['erroReturn']) ? $url.PHP_EOL : null;
         $_SESSION['config']['info_ip'] = __infoIP($result['server']['primary_ip'], 1);
-        $url_ = ($_SESSION['config']['alexa-rank']) ? ", RANK ALEXA: " . __positionAlexa($url) : null;
+        # TODO
+        # $url_ = ($_SESSION['config']['alexa-rank']) ? ", RANK ALEXA: " . __positionAlexa($url) : null;
         __plus();
     else:
         return false;

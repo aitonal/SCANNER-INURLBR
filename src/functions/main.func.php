@@ -19,7 +19,7 @@ function __main($dork, $motor, $cod): void {
         if (!empty($dork_list[3][$i])):
 
             echo PHP_EOL, "{$cor->whit}[ INF ]{$cor->end}{$cor->red2} [ DORK ]:: {$cor->whit}[ {$dork_list[3][$i]} ]", PHP_EOL;
-            
+            __plus();
             __engines(urlencode($dork_list[3][$i]), $list_proxy) . __plus();
 
             ($_SESSION["config"]["pr"]) ? __process(explode("\n", $_SESSION["config"]["totas_urls"])) . __plus() : null;

@@ -12,5 +12,6 @@ function __filterEmailsRepeated(): void {
         endforeach;
     else:
         echo PHP_EOL, PHP_EOL, "{$cor->whit}|[ ERROR ][ ERROR EMAILS FILTERING ]{$cor->end}", PHP_EOL;
+        __plus();
     endif;
 }

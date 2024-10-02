@@ -2,7 +2,7 @@
 function __engines($dork, $list_proxy) {
     $cor = $GLOBALS['COR'];
     $dork_exec = (__not_empty($dork)) ? $dork : __getOut("DEFINA SUA DORK".PHP_EOL);
-    $list_proxy_rand = (!is_null($list_proxy) ? $list_proxy[rand(0, count($list_proxy) - 1)] : null);
+    $list_proxy_rand = !is_null($list_proxy) ? $list_proxy[rand(0, count($list_proxy) - 1)] : null;
 
     $confArray = ["list_proxy_rand" => $list_proxy_rand, "list_proxy_file" => $list_proxy];
 
@@ -12,7 +12,7 @@ function __engines($dork, $list_proxy) {
 
     __plus();
 
-    echo (!is_null($list_proxy_rand) ? PHP_EOL."{$cor->whit}[ INF ] {$cor->end}{$cor->red2}[ PROXY FILE RANDOM ]:: {$cor->whit}[ {$list_proxy_rand} ]{$cor->end} " : null );
+    echo !is_null($list_proxy_rand) ? PHP_EOL."{$cor->whit}[ INF ] {$cor->end}{$cor->red2}[ PROXY FILE RANDOM ]:: {$cor->whit}[ {$list_proxy_rand} ]{$cor->end} " : null ;
 
     ################################################################################
     # SEARCH ENGINE :::  google

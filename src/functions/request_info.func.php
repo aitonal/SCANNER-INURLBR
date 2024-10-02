@@ -202,6 +202,8 @@ function __request_Fiber($target, $proxy = null, $postDados = null): array{
         ];
         __debug(['debug' => "[ BODY ] {$curl_content}", 'function' => __FUNCTION__], 4);
         __debug(['debug' => "[ URL ] {$url}", 'function' => __FUNCTION__], 2);
+        __plus();
+        
     endforeach;
 
     foreach ($url_array as $id => $url):

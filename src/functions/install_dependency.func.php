@@ -7,6 +7,7 @@ function __installDepencia(): bool {
     $dados = system("sudo apt-get install curl libcurl3 libcurl3-dev php8 php8-cli php8-curl xterm tor", $dados) . __plus();
     sleep(1) . __plus();
     echo "{$cor->end}";
+    __plus();
     if (empty($dados)):
         return false;
     endif;

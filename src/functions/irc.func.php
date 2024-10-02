@@ -29,6 +29,7 @@ function __ircConect($conf){
         $fp = fsockopen($conf['irc_server'], $conf['irc_port'], $conf['errno'], $conf['errstr'], 30);
         if (!$fp):
             echo "Error: {$conf['errstr']}({$conf['errno']})", PHP_EOL;
+            __plus();
             return null;
         endif;
         

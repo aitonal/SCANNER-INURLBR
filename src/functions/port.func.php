@@ -11,6 +11,7 @@ function __portScan($result): void {
         $ports = explode(',', $result[1]);
         echo PHP_EOL, "{$cor->whit}[ SCA ]__", PHP_EOL;
         echo "         |[ PROCESS PORT-SCAN ]::", PHP_EOL;
+        __plus();
         foreach ($ports as $value):
             $conc = fsockopen($_SESSION['config']['server_ip'], $value, $result[2], $result[3], 30);
             __plus();

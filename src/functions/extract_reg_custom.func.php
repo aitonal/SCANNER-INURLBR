@@ -10,6 +10,7 @@ function __extractRegCustom($html, $url) {
         echo "{$cor->whit}{$_SESSION['config']['line']}{$cor->end}", PHP_EOL;
         echo "{$cor->whit}[ INF ][URL REGEX CUSTOM] {$cor->end}=>{$cor->grey1} {$url} {$cor->end}", PHP_EOL;
         $out_matches_unique = __array_filter_unique($out_matches[0]);
+        __plus();
         if(__not_empty($out_matches_unique)):
             foreach ($out_matches_unique as $valor):
                 if (__not_empty($valor)):

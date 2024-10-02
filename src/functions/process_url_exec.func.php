@@ -60,12 +60,14 @@ function __processUrlExec_Fiber($url_list) {
                 if (__not_empty($title)):
                     $title = $valid_return ? "{$cor->gre}{$title}" : $title;
                     echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Title:: {$cor->end}{$cor->grey}{$title}{$cor->whit}", PHP_EOL;
+                    __plus();
                 endif;
                 echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Information server:: {$cor->end}{$cor->grey}{$info}{$cor->whit}", PHP_EOL;
                 echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}More details:: {$cor->end}{$cor->grey}{$target_ip}{$cor->whit}", PHP_EOL;
                 __plus();
                 if ($valid_return):
                     echo "{$cor->whit}{$anime} {$cor->end}{$cor->whit}Found:: {$cor->grey}" . ($valid_return ? "{$cor->gre}{$_SESSION['config']['erroReturn']}" : "Unidentified") . "{$cor->end}";
+                    __plus();
                 endif;
                 echo __not_empty($ifredirect) ? "{$cor->whit}{$anime} {$cor->end}{$cor->whit}URL redirect:: {$cor->grey}{$ifredirect}{$cor->end}" : null;
                 __plus();

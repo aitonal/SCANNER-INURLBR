@@ -12,9 +12,10 @@ function __exitProcess() {
     echo!is_null($file) ? PHP_EOL."{$cor->whit}[ INF ] {$cor->red2}[ OUTPUT FILE ]::{$cor->whit} [ {$_SESSION['config']['out_put_paste']}{$file}  ]{$cor->end}" : null;
     echo!is_null($file_all) ? PHP_EOL."{$cor->whit}[ INF ] {$cor->red2}[ OUTPUT FILE ALL ]:: {$cor->whit} [ {$_SESSION['config']['out_put_paste']}{$file_all}  ]{$cor->end}" : null;
     echo PHP_EOL, "{$cor->whit}|--------------------------------------------------------------------------------------------------------------{$cor->end}", PHP_EOL;
-
+    __plus();
     print_r(!$_SESSION['config']['extrai-email'] ? $_SESSION['config']['result_values'] : null);
-
+    __plus();
     echo PHP_EOL, "{$cor->whit}\--------------------------------------------------------------------------------------------------------------/{$cor->end}", PHP_EOL;
     __getOut(PHP_EOL);
+    __plus();
 }

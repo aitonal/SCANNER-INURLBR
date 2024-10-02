@@ -6,7 +6,7 @@ function __extractURLs($html, $url): void {
         $cor = $GLOBALS['COR'];
         $html = strtolower($html);
         echo "{$cor->whit}[ INF ] [ URL EXTRACT ] {$cor->end}=>{$cor->grey} {$url} {$cor->end}", PHP_EOL;
-
+        __plus();
         $reg_tag = 'href=\"|src=\"|value=\"';
         $reg = "#\b({$reg_tag}http[s]?://|{$reg_tag}ftp[s]?://){1,}?([-a-zA-Z0-9\.]+)([-a-zA-Z0-9\.]){1,}([-a-zA-Z0-9_\.\#\@\:%_/\?\=\~\-\//\!\'\(\)\s\^\:blank:\:punct:\:xdigit:\:space:\$]+)#si";
         preg_match_all($reg, $html, $matches);

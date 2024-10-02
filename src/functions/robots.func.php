@@ -27,6 +27,7 @@ function __getValuesRobots($url): void {
             if (is_array($url_list)):
                 echo "{$cor->whit}[ INF ]__", PHP_EOL;
                 echo "         |[ URL FROM ROBOTS ]::", PHP_EOL;
+                __plus();
                 foreach ($url_list as $value_robot):
                     echo "         |{$value_robot}", PHP_EOL;
                     __saveValue($_SESSION['config']['arquivo_output'], $value_robot, 3);

@@ -42,5 +42,6 @@ function __process($result_url): void {
         __plus();
     else:
         echo "{$cor->whit}[ INF ] {$cor->yell} Not a satisfactory result was found!{$cor->end}", PHP_EOL;
+        __plus();
     endif;
 }
