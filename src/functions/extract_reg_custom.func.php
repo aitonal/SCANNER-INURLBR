@@ -2,6 +2,7 @@
 
 function __extractRegCustom($html, $url) {
     if (__not_empty($html) && __not_empty($url)):
+        $html = strtolower($html);
         $out_matches = null;
         $cor = $GLOBALS['COR'];
         __plus();

@@ -4,6 +4,7 @@ function __extractURLs($html, $url): void {
    if (__not_empty($url) && __not_empty($html)):
         __plus();
         $cor = $GLOBALS['COR'];
+        $html = strtolower($html);
         echo "{$cor->whit}[ INF ] [ URL EXTRACT ] {$cor->end}=>{$cor->grey} {$url} {$cor->end}", PHP_EOL;
 
         $reg_tag = 'href=\"|src=\"|value=\"';

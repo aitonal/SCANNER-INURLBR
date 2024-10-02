@@ -2,6 +2,7 @@
 
 function __extractEmail($html, $url): void {
     $cor = $GLOBALS['COR'];
+    $html = strtolower($html);
     $matches = null;
     __plus();
     preg_match_all('/([\w\d\.\-\_]+)@([\w\d\.\_\-]+)/mi', $html, $matches);
