@@ -41,7 +41,13 @@ function __setUserAgentRandom_str(): string {
         'es_GT', 'es_HN', 'es_MX', 'es_NI', 'es_PA', 'es_PY', 'es_PE', 'es_PR', 'es_ES', 'es_US', 'es_UY', 'es_VE', 'es', 'sv_SE',
         'sv', 'th_TH', 'th_TH_TH', 'th', 'tr_TR', 'tr', 'uk_UA', 'uk', 'vi_VN', 'vi'
     ];
-    return $agentBrowser[rand(0, count($agentBrowser) - 1)] . '/' . rand(1, 20) . '.' . rand(0, 20) . ' (' . $agentSistema[rand(0, count($agentSistema) - 1)] . ' ' . rand(1, 7) . '.' . rand(0, 9) . '; ' . $locais[rand(0, count($locais) - 1)] . ';)';
+
+    shuffle($agentBrowser);
+    shuffle($agentSistema);
+    shuffle($locais);
+    shuffle($locais);
+
+    return $agentBrowser[0] . '/' . rand(1, 20) . '.' . rand(0, 20) . ' (' . $agentSistema[0] . ' ' . rand(1, 7) . '.' . rand(0, 9) . '; ' . $locais[0] . ';)';
 }
 
 function __setUserAgentRandom(): string {
