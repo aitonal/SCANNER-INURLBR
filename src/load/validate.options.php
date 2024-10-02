@@ -1,10 +1,26 @@
 <?php
+# [+] NO COLOR
+$COR =  isset($opcoes['no-color']) ? new stdClass() : new Cores();
 $cor = $GLOBALS['COR'];
+
+# [+] VALIDATION NO BANNER SCRIPT
+$_SESSION['config']['no-banner'] = isset($opcoes['no-banner']) ? true : null;
+__bannerLogo();
+__plus();
+
+# [+] MSG ERROR IF NO DEFINED OPTIONS
+if (!__not_empty($opcoes)):
+    echo "{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}Define dork ex: --dork 'gov.br+index.php' OR --dork-file 'fbi.txt'{$cor->end}", PHP_EOL;
+    echo "{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}Define file save output ex: -s , --save-as , --sall filevull.txt{$cor->end}", PHP_EOL;
+    __plus();
+    exit(0);
+endif;
+
 # [+] VERIFYING use Input PHP CLI.
 # (PHP 4, PHP 5) defined — Checks whether a given named constant exists
 # http://php.net/manual/pt_BR/function.defined.php */
 if(!defined('STDIN')):
-    __getOut("{$cor->whit}[ ERR ]{$cor->end}{$cor->yell} Please run it through command-line!{$cor->end}".PHP_EOL);
+    __getOut("{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}Please run it through command-line!{$cor->end}".PHP_EOL);
 endif;
 # [+] VERIFYING LIB php5-curl IS INSTALLED.
 # (PHP 4, PHP 5) function_exists — Return true if the given function has been defined.
@@ -14,13 +30,13 @@ endif;
 # options for the session are set.
 # http://php.net/manual/en/function.curl-exec.php
 if(!function_exists('curl_exec')):
-    __getOut("{$cor->whit}[ ERR ]{$cor->end}{$cor->yell} INSTALLING THE LIBRARY php5-curl ex: php5-curl apt-get install{$cor->end}".PHP_EOL);
+    __getOut("{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}Installing the library php5-curl ex: php5-curl apt-get install{$cor->end}".PHP_EOL);
 endif;
 # [+] VERIFYING PHP VERSION.
 # https://www.php.net/downloads.php
 # https://www.php.net/releases/8.0/en.php
 if (version_compare(phpversion(), '8.0.0', '<')):
-    __getOut("{$cor->whit}[ ERR ]{$cor->end}{$cor->yell} PHP VERSION IS INCORRECT ex: version <= 8.0.0{$cor->end}".PHP_EOL);
+    __getOut("{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}PHP version is incorrect ex: version <= 8.0.0{$cor->end}".PHP_EOL);
     exit();
 endif;
 
@@ -30,9 +46,6 @@ endif;
 __menu() : null);
 (isset($opcoes['info']) ? 
 __info() : null);
-
-# [+] NO COLOR
-$COR =  isset($opcoes['no-color']) ? new stdClass() : new Cores();
 
 # [+] PRINTING EXPLOITS LIST.
 (isset($opcoes['exploit-list']) ?
@@ -103,7 +116,7 @@ $opcoes['q'] : 1;
 
 # [+] VALIDATION SAVE FILE VULNERABLE
 !__not_empty($opcoes['s']) && !__not_empty($opcoes['save-as']) &&
-empty($opcoes['sall']) ? __getOut( "{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}DEFINE FILE SAVE OUTPUT ex: -s , --save-as , --sall filevull.txt{$cor->end}".PHP_EOL) : null;
+empty($opcoes['sall']) ? __getOut( "{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}Define file save output ex: -s , --save-as , --sall filevull.txt{$cor->end}".PHP_EOL) : null;
 
 $_SESSION['config']['s'] = __not_empty($opcoes['s']) ?
 $opcoes['s'] : null;
@@ -201,9 +214,6 @@ $opcoes['regexp'] : null;
 # [+] VALIDATION FILTER BY REGULAR EXPRESSION
 $_SESSION['config']['regexp-filter'] = __not_empty($opcoes['regexp-filter']) ?
 $opcoes['regexp-filter'] : null;
-
-# [+] VALIDATION NO BANNER SCRIPT
-$_SESSION['config']['no-banner'] = isset($opcoes['no-banner']) ? true : null;
 
 # [+] VALIDATION SET USER-AGENT REQUEST
 $_SESSION['config']['user-agent'] = __not_empty($opcoes['user-agent']) ?
