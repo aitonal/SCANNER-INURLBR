@@ -66,5 +66,6 @@ function __extra() {
       \_/ \__,_|_| |_|\__,_|\__,_|_|_|___/_| |_| |_|\___/  |____/|_|\__, |_|\__\__,_|_|
                                                                      |___/              
    "];
-   return ($banners[rand(0, count($banners) - 1)]);
+   shuffle($banners);
+   return $banners[0];
 }
