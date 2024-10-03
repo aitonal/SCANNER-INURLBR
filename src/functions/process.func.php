@@ -8,7 +8,9 @@ function __process($result_url): void {
     $result_url['targets'] = __not_empty($_SESSION['config']['ifurl']) ? __filterURLif($result_url['targets']) : $result_url['targets'];
     
     $result_url['targets'] = __validate_trash($result_url['targets']);
-    $result_url['targets'] = array_map('__add_scheme', $result_url['targets']);
+    if (is_array($result_url['targets'])):
+        $result_url['targets'] = array_map('__add_scheme', $result_url['targets']);
+    endif;
     
     $result_url['targets'] = __array_filter_unique($result_url['targets']);
 

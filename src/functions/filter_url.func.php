@@ -30,7 +30,11 @@ function __filterURL($html, $op = null) {
         preg_match_all($reg_1, $html, $html_1);
         preg_match_all($reg_2, $html, $html_2);
         $result = array_merge($html_2,$html_1)[0];
-        $result = array_map('urldecode', $result);
+
+        if(is_array($result)):
+            $result = array_map('urldecode', $result);
+        endif;
+
         $result = __array_filter_unique($result);
 
         # VALIDATION GOOGLE URL / REMOVE HTML JUNK
@@ -39,7 +43,9 @@ function __filterURL($html, $op = null) {
         endif;
 
         # ADD HTTP
-        $result = array_map('__add_scheme', $result);
+        if(is_array($result)):
+            $result = array_map('__add_scheme', $result);
+        endif;
 
         return __array_filter_unique($result);
     endif;
@@ -90,7 +96,9 @@ function __remove_google_html_junk($result){
     $remove_google_strings = ['&amp;','\x26amp','\x3d100'];
     foreach ($remove_google_strings as $string):
         $_SESSION['config']['url_encode_remove'] = $string;
-        $result = array_map('__split_google_junk', $result);
+        if (is_array($result)):
+            $result = array_map('__split_google_junk', $result);
+        endif;
     endforeach;
     return $result;
 }

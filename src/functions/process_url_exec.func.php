@@ -7,7 +7,7 @@ function __processUrlExec_Fiber($url_list) {
             return false;
 
         $url = urldecode(__not_empty($_SESSION['config']['target']) ? $_SESSION['config']['target'] . $url : $url);
-        $contUrl = $_SESSION["config"]["contUrl"]++;
+        $contUrl = $_SESSION['config']['contUrl']++;
         $host = (!is_null($_SESSION['config']['replace'])) ?
         __replace_url_value(urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : $url)) :
                 urldecode($_SESSION['config']['tipoerro'] == 3 ? __filterHostname($url) : $url);

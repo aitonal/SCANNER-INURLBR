@@ -13,7 +13,9 @@ function __extractURLs($html, $url): void {
 
         if(is_array($matches) && __not_empty($matches[0])):
             $result = __array_filter_unique($matches[0]);
-            $result = array_map('__filterURLTAG', $result);
+            if (is_array($result)):
+                $result = array_map('__filterURLTAG', $result);
+            endif;
             $result = __validate_trash($result);
 
             foreach ($result as $value):
@@ -41,7 +43,9 @@ function __extractURLDomainsArchive($domain): void {
         $url = "http://web.archive.org/cdx/search/cdx?url=*.{$domain}/*&output=text&fl=original&collapse=urlkey";
         $result = __array_filter_unique(explode("\n", __request_info($url, null, null)['corpo']));
         if(is_array($result) && __not_empty($result)):
-            $result = array_map('__filterURLTAG', $result);
+            if (is_array($result)):
+                $result = array_map('__filterURLTAG', $result);
+            endif;
             $result = __validate_trash($result);
             
             foreach ($result as $value):
