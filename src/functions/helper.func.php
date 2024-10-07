@@ -266,7 +266,10 @@ function __filterHostname($url) {
         //#\b((((ht|f)tps?://*)|(www|ftp)\.)[a-zA-Z0-9-\.]+)#i - 1.0
         preg_match_all('@^(?:(ht|f)tps?://*)?([^/]+)@i', $url, $target);
         $replace = [
-            '/', 'ftps:', 'ftp:','src="', 'https:', 'http:'
+            '/','"', "'", 'href="','src="', 'android-app://',
+            'value="', 'whatsapp://send?text=', 'tg://',
+            'mailto:', 'android-app://', 'webcal://',
+            'ftps:', 'ftp:','src="', 'https:', 'http:'
         ];
        return str_replace($replace, '', $target[0][0]);
     endif;
