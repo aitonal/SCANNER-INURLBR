@@ -29,7 +29,22 @@ function __engines($dork, $list_proxy) {
     # SEARCH ENGINE :::  bing
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 2) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "BING", "https://www.bing.com/search?q=[DORK]&filt=rf&first=[PAG]&FORM=PERE", $dork_exec, null, 7, 57, 10);
+        __pageEngine($confArray, "BING", "https://www.bing.com/search?q=[DORK]&filt=rf&first=[PAG]&FORM=PERE", $dork_exec, null, 1, 31, 10);
+        __process_request_engine(...$_SESSION['config']['url_list_engine']);
+    endif;
+
+    if (__validateOptions($_SESSION["config"]["motor"], 2) || __validateOptions($_SESSION["config"]["motor"], "all")):
+        __pageEngine($confArray, "BING - DEEP 1 ", "https://www.bing.com/search?q=[DORK]shm=cr&form=DEEPSH&shajax=1", $dork_exec, null, 0, 0, 1);
+        __process_request_engine(...$_SESSION['config']['url_list_engine']);
+    endif;
+
+    if (__validateOptions($_SESSION["config"]["motor"], 2) || __validateOptions($_SESSION["config"]["motor"], "all")):
+        __pageEngine($confArray, "BING - DEEP 2", "https://www.bing.com/search?q=[DORK]&form=DEEPSH&shm=cr&mgidx=1&shajax=1", $dork_exec, null, 0, 0, 1);
+        __process_request_engine(...$_SESSION['config']['url_list_engine']);
+    endif;
+
+    if (__validateOptions($_SESSION["config"]["motor"], 2) || __validateOptions($_SESSION["config"]["motor"], "all")):
+        __pageEngine($confArray, "BING - DEEP 3", "https://www.bing.com/search?q=[DORK]&form=DEEPSH&shm=cr&mgidx=2&shajax=1", $dork_exec, null, 0, 0, 1);
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
     ################################################################################

@@ -33,13 +33,21 @@ function __filterURL($html, $op = null) {
 
         if(is_array($result)):
             $result = array_map('urldecode', $result);
+            $result = array_map('__replave_space_encode', $result);
         endif;
 
         $result = __array_filter_unique($result);
 
         # VALIDATION GOOGLE URL / REMOVE HTML JUNK
         if(strstr($html, 'https://policies.google.com')):
-            $result = __remove_google_html_junk($result);
+            $remove_google_strings = ['&amp;','\x26amp','\x3d100'];
+            $result = __remove_html_junk($result, $remove_google_strings);
+        endif;
+
+        # VALIDATION BING URL / REMOVE HTML JUNK
+        if(strstr($html, 'https://www.bing.com/')):
+            $remove_bing_strings = ['#:~:text=','…'];
+            $result = __remove_html_junk($result, $remove_bing_strings);
         endif;
 
         # ADD HTTP
@@ -78,9 +86,9 @@ function __filterURLJson($html) {
 }
 
 ################################################################################
-#FILTER HTML JUNK URLs ALL THE RETURN OF GOOGLE#################################
+#FILTER HTML JUNK URLs ALL THE RETURN OF HTML###################################
 ################################################################################
-function __split_google_junk($value){
+function __split_junk($value){
     if($value): 
          $result = explode($_SESSION['config']['url_encode_remove'], $value);
          if (isset($result[0])):
@@ -90,14 +98,13 @@ function __split_google_junk($value){
  }
  
 ################################################################################
-#FILTER HTML JUNK URLs ALL THE RETURN OF GOOGLE#################################
+#FILTER HTML JUNK URLs##########################################################
 ################################################################################
-function __remove_google_html_junk($result){
-    $remove_google_strings = ['&amp;','\x26amp','\x3d100'];
-    foreach ($remove_google_strings as $string):
+function __remove_html_junk($result, $remove_strings){
+    foreach ($remove_strings as $string):
         $_SESSION['config']['url_encode_remove'] = $string;
         if (is_array($result)):
-            $result = array_map('__split_google_junk', $result);
+            $result = array_map('__split_junk', $result);
         endif;
     endforeach;
     return $result;
@@ -108,4 +115,12 @@ function __remove_google_html_junk($result){
 function __remove_lycos_html_junk($html){
     $html = str_replace('<span class="result-url">', 'https://', $html);
     return $html;
+}
+
+################################################################################
+#REPLACE SPACE TO ENCODE %20####################################################
+################################################################################
+function __replave_space_encode($url){
+    $url = str_replace(' ', '%20', $url);
+    return $url;
 }
