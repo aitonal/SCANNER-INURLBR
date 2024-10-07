@@ -166,7 +166,12 @@ function __validateURL($url): bool {
 ################################################################################
 function __filterURLTAG($valor = null) {
     if (__not_empty($valor)):
-        return str_replace('"', '', str_replace('href="', '', str_replace('src="', '', str_replace('value="', '', $valor))));
+        $replace = [
+            '"', "'", 'href="','src="', 'android-app://',
+            'value="', 'whatsapp://send?text=', 'tg://',
+            'mailto:', 'android-app://', 'webcal://'
+        ];
+       return str_replace($replace, '', $valor);
     endif;
     return null;
 }
