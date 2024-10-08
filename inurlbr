@@ -97,6 +97,16 @@ ini_set('implicit_flush', 1);
 set_time_limit(0);
 ob_implicit_flush(1);
 ob_start();
+
+
+#########################################################################################
+#SET TITLE PROCESS.######################################################################
+#Sets the process title visible in tools such as top and ps##############################
+#########################################################################################
+# https://www.php.net/manual/en/function.cli-set-process-title.php
+$pid = getmypid();
+$title = "INURLBR - Facada - {$pid}";
+cli_set_process_title($title);
 #########################################################################################
 #Capturing TERMINAL VALUES.##############################################################
 #(PHP 4 >= 4.3.0, PHP 5) Gets options from the command line argument list################
