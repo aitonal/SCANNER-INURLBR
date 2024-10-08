@@ -21,7 +21,7 @@
 
 Advanced search in search engines, enables analysis provided to exploit GET / POST capturing emails & urls, with an internal custom validation junction for each target / url found. 
 
-A tool developed in PHP that is capable of running on diverse Linux distributions aids hackers and security professionals in their specific search engines.
+A PHP tool that can run on different Linux distributions helps hackers and security professionals with their specific search engines.
 There are several methods of automated exploration, including Scanner.
 
 The INURLBR (Codename: Facada) tool was created to assist the hacking community. To identify potential vulnerabilities in the web,
@@ -51,20 +51,25 @@ Email:    mrcl0wnlab\@\gmail.com
 
 ## Lib & Permission
 ```properties
-PHP Version         8.3.11
-php5 curl           LIB
-php5 cli            LIB   
+PHP Version         8.3
+php8 curl           LIB
+php8 cli            LIB   
 cURL support        enabled
 allow_url_fopen     On
 permission          Reading & Writing
 User                root privilege, or is in the sudoers group
-Operating system    LINUX
+Operating system    Linux
 Proxy random        TOR 
 ```
 
 ## install Dependencies 
 ```properties
-sudo apt-get install curl libcurl3 libcurl3-dev php8.3-fpm php8.3 php8.3-cli php8.3-curl xterm tor
+curl
+php8.3
+php8.3-cli
+php8.3-curl
+xterm
+tor
 ```
 
 ## Download
@@ -76,7 +81,7 @@ The inurlbr works with [php](http://php.net/downloads.php) version **8.3**  linu
 
 ## Giving permission to script execution
 ```properties
-$chmod +x inurlbr
+chmod +x inurlbr
 ```
 ## Create a symbolic link
 ```properties
@@ -203,7 +208,7 @@ inurlbr --dork-file 'dorks_Wordpress_revslider.txt' -s output.txt -q 1,2,6,4,5,9
 -q       Choose which search engine you want through [1...24] / [e1..6]]:
      [options]:
      1   - GOOGLE / (CSE) GENERIC RANDOM / API
-     2   - BING
+     2   - BING  / DEEP
      3   - YAHOO BR
      4   - ASK
      6   - GOOGLE (API)
