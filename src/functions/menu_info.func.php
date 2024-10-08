@@ -4,7 +4,7 @@ function __info(): string {
    $cor = $GLOBALS['COR'];
     return "".__getOut("
  {$cor->whit}
-   ██▓    ███▄    █      █████▒    ▒█████  
+    ██▓    ███▄    █     █████▒     ▒█████  
    ▓██▒    ██ ▀█   █    ▓██   ▒    ▒██▒  ██▒
    ▒██▒   ▓██  ▀█ ██▒   ▒████ ░    ▒██░  ██▒
    ░██░   ▓██▒  ▐▌██▒   ░▓█▒  ░    ▒██   ██░
@@ -35,22 +35,20 @@ function __info(): string {
  
 {$cor->whit}[ INF ] {$cor->red2} NECESSARY FOR THE PROPER FUNCTIONING OF THE SCRIPT{$cor->end}
 {$cor->whit}[ INF ] {$cor->red2} LIB & CONFIG{$cor->end}
-{$cor->whit}[ INF ] {$cor->end} PHP Version         8.3.11
-{$cor->whit}[ INF ] {$cor->end} php7-curl           LIB
-{$cor->whit}[ INF ] {$cor->end} php7-cli            LIB   
+{$cor->whit}[ INF ] {$cor->end} PHP Version         8.3
+{$cor->whit}[ INF ] {$cor->end} php8-curl           LIB
+{$cor->whit}[ INF ] {$cor->end} php8-cli            LIB   
 {$cor->whit}[ INF ] {$cor->end} cURL support        enabled
 {$cor->whit}[ INF ] {$cor->end} allow_url_fopen     On
 {$cor->whit}[ INF ] {$cor->end} permission          Reading & Writing
 {$cor->whit}[ INF ] {$cor->end} User                root privilege, or is in the sudoers group
-{$cor->whit}[ INF ] {$cor->end} Operating system    LINUX
+{$cor->whit}[ INF ] {$cor->end} Operating system    Linux
 {$cor->whit}[ INF ] {$cor->end} Proxy random        TOR    
 {$cor->whit}------------------------------------------------------------------------------------------------------------{$cor->end}
  
 {$cor->whit}[ INF ] {$cor->end} {$cor->red2}PERMISSION EXECUTION: chmod +x inurlbr{$cor->end}
-{$cor->whit}[ INF ] {$cor->end} {$cor->red2}INSTALLING LIB PHP-CURL: sudo apt-get install php8-curl{$cor->end}
-{$cor->whit}[ INF ] {$cor->end} {$cor->red2}INSTALLING LIB PHP-CLI: sudo apt-get install php8-cli{$cor->end}
-{$cor->whit}[ INF ] {$cor->end} {$cor->red2}sudo apt-get install curl libcurl3 libcurl3-dev php8 php8-cli php8-curl{$cor->end}
-{$cor->whit}[ INF ] {$cor->end} {$cor->red2}INSTALLING PROXY TOR https://www.torproject.org/docs/debian.html.en{$cor->end}
+{$cor->whit}[ INF ] {$cor->end} {$cor->red2}INSTALLING LIB{$cor->end}
+{$cor->whit}[ INF ] {$cor->end} {$cor->red2}curl php8.3 php8.3-cli php8.3-curl xterm tor{$cor->end}
 {$cor->whit}------------------------------------------------------------------------------------------------------------{$cor->end}
 
 {$cor->whit}[ INF ] {$cor->red2} COMMANDS SIMPLE SCRIPT{$cor->end}

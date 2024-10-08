@@ -123,7 +123,7 @@ function __filterEmptyArray($var){
 ################################################################################
 #GENERATE RANDOM STRING#########################################################
 ################################################################################
-#(PHP4,PHP5) Shuffle an array http://php.net/manual/en/function.shuffle.php
+#(PHP 4, PHP 5, PHP 7, PHP 8) Shuffle an array http://php.net/manual/en/function.shuffle.php
 function random(int $len) {
     if(__not_empty($len)):
         $len = substr(md5(mt_rand()), 0, $len);
@@ -351,7 +351,7 @@ function __generatorIPRandom($cont) {
 ################################################################################
 #GENERATE RANDOM STRING#########################################################
 ################################################################################
-#(PHP4,PHP5) Shuffle an array http://php.net/manual/en/function.shuffle.php
+#(PHP 4, PHP 5, PHP 7, PHP 8) Shuffle an array http://php.net/manual/en/function.shuffle.php
 ################################################################################
 function __crypt($url) {
     if(__not_empty($url)):

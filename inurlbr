@@ -111,10 +111,10 @@ $command_list = [
     'http-header:', 'ifcode:', 'ifurl:', 'ifemail:', 'mp:', 'target:','no-color::',
     'no-banner::', 'gc::','ua::', 'proxy:', 'proxy-file:', 'time-proxy:', 'pr::',
     'proxy-http-file:', 'update::', 'info::', 'help::', 'unique::', 'popup::',
-    'ajuda::', 'install-dependence::', 'cms-check::', 'sub-post::', 'robots::',
-    'alexa-rank::', 'beep::', 'exploit-list::', 'tor-random::', 'shellshock::',
-    'dork-rand:', 'sub-cmd-all:', 'sub-cmd-vul:', 'port-cmd:', 'port-scan:',
-    'port-write:', 'ifredirect:', 'persist:', 'file-cookie:', 'save-as:'
+    'ajuda::', 'cms-check::', 'sub-post::', 'robots::','alexa-rank::', 'beep::', 
+    'exploit-list::', 'tor-random::', 'shellshock::','dork-rand:', 'sub-cmd-all:', 
+    'sub-cmd-vul:', 'port-cmd:', 'port-scan:','port-write:', 'ifredirect:', 'persist:',
+    'file-cookie:', 'save-as:'
 ];
 $opcoes = getopt('u::a:d:o:p:s:q:t:m::h::', $command_list);
 #########################################################################################

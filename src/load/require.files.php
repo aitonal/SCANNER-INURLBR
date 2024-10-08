@@ -158,11 +158,6 @@ require_once "{$_SESSION['config']['pwd']}/../functions/url_ref_rand.func.php";
 require_once "{$_SESSION['config']['pwd']}/../functions/useragent_rand.func.php";
 
 ################################################################################
-#RESPONSIBLE FOR RUN COMMANDS IN TERMINAL the installation of facilities########
-################################################################################
-require_once "{$_SESSION['config']['pwd']}/../functions/install_dependency.func.php";
-
-################################################################################
 #RESPONSIBLE FOR RUN COMMANDS IN TERMINAL#######################################
 ################################################################################
 require_once "{$_SESSION['config']['pwd']}/../functions/exec_command.func.php";

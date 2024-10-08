@@ -17,20 +17,20 @@ if (!__not_empty($opcoes)):
 endif;
 
 # [+] VERIFYING use Input PHP CLI.
-# (PHP 4, PHP 5) defined — Checks whether a given named constant exists
+# (PHP 4, PHP 5, PHP 7, PHP 8) defined — Checks whether a given named constant exists
 # http://php.net/manual/pt_BR/function.defined.php */
 if(!defined('STDIN')):
     __getOut("{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}Please run it through command-line!{$cor->end}".PHP_EOL);
 endif;
-# [+] VERIFYING LIB php5-curl IS INSTALLED.
-# (PHP 4, PHP 5) function_exists — Return true if the given function has been defined.
+# [+] VERIFYING LIB php8-curl IS INSTALLED.
+# (PHP 4, PHP 5, PHP 7, PHP 8) function_exists — Return true if the given function has been defined.
 # http://php.net/manual/en/function.function-exists.php
 # [+] Verification - CURL_EXEC
 # Execute the given cURL session.This function should be called after initializing a cURL session and all the
 # options for the session are set.
 # http://php.net/manual/en/function.curl-exec.php
 if(!function_exists('curl_exec')):
-    __getOut("{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}Installing the library php5-curl ex: php5-curl apt-get install{$cor->end}".PHP_EOL);
+    __getOut("{$cor->whit}[ ERR ] {$cor->end}{$cor->yell}Installing the library php8.3-curl{$cor->end}".PHP_EOL);
 endif;
 # [+] VERIFYING PHP VERSION.
 # https://www.php.net/downloads.php
@@ -67,9 +67,6 @@ unlink('cookie.txt') : null);
 (__not_empty($opcoes['exploit-cad']) ?
 __configExploitsADD($opcoes['exploit-cad']) : null);
 
-# [+] Dependencies installation
-(isset($opcoes['install-dependence']) ?
-__installDepencia() : null);
 
 # [+] UPDATE SCRIPT
 (isset($opcoes['update']) ? 
