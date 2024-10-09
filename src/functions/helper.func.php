@@ -152,10 +152,10 @@ function __validateEmail($email): bool {
 function __validateURL($url): bool {
     if(__not_empty($url)):
         if (filter_var($url, FILTER_VALIDATE_URL)):
-            return true;
+            return $url;
         endif;
         if (preg_match("#\b(http[s]?://|ftp[s]?://){1,}?([-a-zA-Z0-9\.]+)([-a-zA-Z0-9\.]){1,}([-a-zA-Z0-9_\.\#\@\:%_/\?\=\~\-\//\!\'\(\)\s\^\:blank:\:punct:\:xdigit:\:space:\$]+)#sUi", $url)):
-            return true;
+            return $url;
         endif;
     endif;
     return false;

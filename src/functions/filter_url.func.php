@@ -1,7 +1,28 @@
 <?php
 
 ################################################################################
-#FILTER HTML URLs ALL THE RETURN OF seekers#####################################
+#EXTRACT URLS USING REGEX#######################################################
+################################################################################
+function __extract_url($content): array|bool{
+    if(__not_empty($content)):
+        $reg_1 =  "#\b(href=\"|src=\"|value=\"http[s]?://|href=\"|src=\"|value=\"ftp[s]?://){1,}?([-a-zA-Z0-9\.]+)([-a-zA-Z0-9\.]){1,}([-a-zA-Z0-9_\.\#\@\:%_/\?\=\~\-\//\!\'\(\)\s\^\:blank:\:punct:\:xdigit:\:space:\$]+)#smxi";
+        $reg_2 =  "#\b(?i)\b((?:http[s]?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))#smxi";  
+        preg_match_all($reg_1, $content, $html_1);
+        preg_match_all($reg_2, $content, $html_2);
+        $result = array_merge($html_2,$html_1);
+        foreach($result as $url):
+            $url_array[] = str_replace('"/','', $url);
+        endforeach;
+        $url_array = __array_filter_unique($url_array);
+        if(__not_empty($url_array)):
+            return $url_array[0];
+        endif;
+    endif;
+    return false;
+}
+
+################################################################################
+#FILTER HTML URLs ALL THE RETURN################################################
 ################################################################################
 function __filterURL($html, $op = null) {
     if (__not_empty($html)):
@@ -15,9 +36,6 @@ function __filterURL($html, $op = null) {
             return; 
         endif;
 
-        $reg_1 =  "#\b(href=\"|src=\"|value=\"http[s]?://|href=\"|src=\"|value=\"ftp[s]?://){1,}?([-a-zA-Z0-9\.]+)([-a-zA-Z0-9\.]){1,}([-a-zA-Z0-9_\.\#\@\:%_/\?\=\~\-\//\!\'\(\)\s\^\:blank:\:punct:\:xdigit:\:space:\$]+)#si";
-        $reg_2 =  "#\b(?i)\b((?:http[s]?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))#smxi";  
-        
         $html = str_replace(['href="/url?url=','href="/url?q='], 'href="', $html);
 
         # VALIDATION LYCOS URL / REMOVE HTML JUNK
@@ -27,13 +45,12 @@ function __filterURL($html, $op = null) {
 
         $_SESSION["config"]["google_attempt"][1] = 0;
 
-        preg_match_all($reg_1, $html, $html_1);
-        preg_match_all($reg_2, $html, $html_2);
-        $result = array_merge($html_2,$html_1)[0];
+
+        $result = __extract_url($html);
 
         if(is_array($result)):
             $result = array_map('urldecode', $result);
-            $result = array_map('__replave_space_encode', $result);
+            $result = array_map('__replace_space_encode', $result);
         endif;
 
         $result = __array_filter_unique($result);
@@ -120,7 +137,7 @@ function __remove_lycos_html_junk($html){
 ################################################################################
 #REPLACE SPACE TO ENCODE %20####################################################
 ################################################################################
-function __replave_space_encode($url){
+function __replace_space_encode($url){
     $url = str_replace(' ', '%20', $url);
     return $url;
 }
