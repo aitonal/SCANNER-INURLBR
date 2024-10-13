@@ -55,6 +55,20 @@ function __filterURL($html, $op = null) {
 
         $result = __array_filter_unique($result);
 
+        # VALIDATION YAHOO URL / REMOVE HTML JUNK
+        if(strstr($html, 'https://r.search.yahoo.com/_ylt=')):
+            $result = array_map('urldecode', $result);
+            $result = array_map(function($value) {
+                return explode('/RU=',$value)[1];
+            }, $result);
+
+            $result = array_map(function($value) {
+                return explode('/RK=2',$value)[0];
+            }, $result);
+
+            $result = __array_filter_unique($result);
+        endif;
+
         # VALIDATION GOOGLE URL / REMOVE HTML JUNK
         if(strstr($html, 'https://policies.google.com')):
             $remove_google_strings = ['&amp;','\x26amp','\x3d100'];

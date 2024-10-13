@@ -51,7 +51,7 @@ function __engines($dork, $list_proxy) {
     # SEARCH ENGINE :::  yahoo
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 3) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "YAHOO BR", "http://search.yahoo.com/search?p=[DORK]&ei=UTF-8&b=[PAG]", $dork_exec, null, 1, 471, 10);
+        __pageEngine($confArray, "YAHOO BR", "https://search.yahoo.com/search?fr2=piv-web&p=[DORK]&b=[PAG]&pz=7&bct=0&xargs=0&ei=UTF-8", $dork_exec, null, 1, 43, 7);
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
     ################################################################################
