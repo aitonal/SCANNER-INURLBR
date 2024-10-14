@@ -58,7 +58,10 @@ function __engines($dork, $list_proxy) {
     # SEARCH ENGINE :::  ask
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 4) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "ASK", "https://www.ask.com/web?q=[DORK]&page=[PAG]&qid=[RANDOM]&qo=pagination&qsrc=[RANDOM]", $dork_exec, null, 0, 6, 1);
+        $dork_exec =  str_replace(["+"," "], '%20', $dork_exec);
+        $html = __request_info("https://www.ask.com/web?q={$dork_exec}&ad=Other%20SEO&an=organic&o=0", $_SESSION["config"]["proxy"], FALSE);
+        $uid_ask_search = __getIdSearchAsk($html["corpo"]);
+        __pageEngine($confArray, "ASK", "https://www.ask.com/web?ueid={$uid_ask_search}&o=0&an=organic&ad=Other+SEO&qo=pagination&page=[PAG]&q=[DORK]", $dork_exec, null, 0, 4, 1);
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;    
     ################################################################################

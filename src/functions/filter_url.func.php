@@ -55,17 +55,26 @@ function __filterURL($html, $op = null) {
 
         $result = __array_filter_unique($result);
 
-        # VALIDATION YAHOO URL / REMOVE HTML JUNK
+        # VALIDATION ASK URL
+        if(strstr($html, 'https://www.ask.com/')):
+            $result = array_map(function($value) {
+                return explode('","',$value)[0];
+            }, $result);
+            $result = array_map(function($value) {
+                return explode('?ad=dir',$value)[0];
+            }, $result);
+            $result = __array_filter_unique($result);
+        endif;
+
+          # VALIDATION YAHOO URL / REMOVE HTML JUNK
         if(strstr($html, 'https://r.search.yahoo.com/_ylt=')):
             $result = array_map('urldecode', $result);
             $result = array_map(function($value) {
                 return explode('/RU=',$value)[1];
             }, $result);
-
             $result = array_map(function($value) {
                 return explode('/RK=2',$value)[0];
             }, $result);
-
             $result = __array_filter_unique($result);
         endif;
 
@@ -85,7 +94,7 @@ function __filterURL($html, $op = null) {
         if(is_array($result)):
             $result = array_map('__add_scheme', $result);
         endif;
-
+        
         return __array_filter_unique($result);
     endif;
 }

@@ -218,7 +218,6 @@ function __request_Fiber($target, $proxy = null, $postDados = null): array{
     return  $return_http;
 }
 
-
 function __request_info($target, $proxy = null, $postDados = null){
     if (__not_empty($target)):
         $concurrency = $_SESSION['config']['concorracy'] ?? 1;

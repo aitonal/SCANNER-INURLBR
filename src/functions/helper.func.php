@@ -431,3 +431,32 @@ function __googleGenericRandom() {
     return $generic[0];
 }
 
+################################################################################
+#CAPTURE ID KEY TO SEARCH LYCOS MAKE############################################
+################################################################################
+function __getIdSearchLycos($html): bool|string{
+    if(__not_empty($html)):
+        $match = null;
+        preg_match_all('/((name="keyvol".*.(value=".*.")..>)$)/isxm', $html, $match);
+        $result = str_replace('"','', $match[0][0]);
+        $result = trim(string: explode("name=keyvol",$result)[1]);
+        $result = trim(str_replace(['value=','/>'],'', $result));
+        return $result;
+    endif;
+    return false;
+}
+
+################################################################################
+#CAPTURE ID KEY TO SEARCH ASK MAKE##############################################
+################################################################################
+function __getIdSearchAsk($html){
+    if(__not_empty($html)):
+        $match = null;
+        preg_match_all('/((&ueid=)(....................................)&)/iDmsx', $html, $match);
+        if ($match[3][0]):
+            return $match[3][0];
+        endif;
+    endif;
+    return false;
+}
+

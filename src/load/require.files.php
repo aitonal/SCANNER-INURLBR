@@ -87,11 +87,6 @@ require_once "{$_SESSION['config']['pwd']}/../functions/replace.func.php";
 require_once "{$_SESSION['config']['pwd']}/../functions/save_value.func.php"; 
 
 ################################################################################
-#CAPTURE ID KEY TO SEARCH LYCOS MAKE############################################
-################################################################################
-require_once "{$_SESSION['config']['pwd']}/../functions/get_id_search_lycos.func.php"; 
-
-################################################################################
 #RENEW IP NETWORK TOR###########################################################
 ################################################################################
 require_once "{$_SESSION['config']['pwd']}/../functions/renew_tor.func.php";
