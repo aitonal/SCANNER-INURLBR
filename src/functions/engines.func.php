@@ -82,13 +82,6 @@ function __engines($dork, $list_proxy) {
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
     ################################################################################
-    # SEARCH ENGINE :::  dmoz
-    ################################################################################
-    if (__validateOptions($_SESSION["config"]["motor"], 11) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "DMOZ", "http://www.dmoz.org/search/search?q=[DORK]&start=[PAG]&type=next&all=yes&cat=", $dork_exec, null, 0, 800, 20);
-        __process_request_engine(...$_SESSION['config']['url_list_engine']);
-    endif;
-    ################################################################################
     # SEARCH ENGINE :::  gigablast
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 12) || __validateOptions($_SESSION["config"]["motor"], "all")):
