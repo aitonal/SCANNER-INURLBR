@@ -89,13 +89,6 @@ function __engines($dork, $list_proxy) {
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
     ################################################################################
-    # SEARCH ENGINE :::  www.hotbusca.com
-    ################################################################################
-    if (__validateOptions($_SESSION["config"]["motor"], 17) || __validateOptions($_SESSION["config"]["motor"], "all")):
-         __pageEngine($confArray, "HOTBUSCA", "https://hotbusca.com/busca.php?q=[DORK]&pag=[PAG]", $dork_exec, null, 0, 6, 1);
-         __process_request_engine(...$_SESSION['config']['url_list_engine']);
-    endif;
-    ################################################################################
     # SEARCH ENGINE :::  srch.timway.com
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 19) || __validateOptions($_SESSION["config"]["motor"], "all")):
