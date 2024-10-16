@@ -82,13 +82,6 @@ function __engines($dork, $list_proxy) {
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
     ################################################################################
-    # SEARCH ENGINE :::  gigablast
-    ################################################################################
-    if (__validateOptions($_SESSION["config"]["motor"], 12) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "GIGABLAST", "http://www.gigablast.com/search?k3h=223119&s=22&rat=0&sc=1&ns=100&n=100&sites=&q=[DORK]", $dork_exec, null, 0, 1, 1);
-        __process_request_engine(...$_SESSION['config']['url_list_engine']);
-    endif;
-    ################################################################################
     # SEARCH ENGINE :::  web.search.naver.com
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 13) || __validateOptions($_SESSION["config"]["motor"], "all")):
