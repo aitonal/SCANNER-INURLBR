@@ -55,6 +55,13 @@ function __engines($dork, $list_proxy) {
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
     ################################################################################
+    # SEARCH ENGINE :::  us.yhs4.search.yahoo
+    ################################################################################
+    if (__validateOptions($_SESSION["config"]["motor"], 3) || __validateOptions($_SESSION["config"]["motor"], "all")):
+        __pageEngine($confArray, "YAHOO US", "http://us.yhs4.search.yahoo.com/yhs/search?p=[DORK]&fr=goodsearch-yhsif&b=[PAG]", $dork_exec, null, 1, 451, 10);
+        __process_request_engine(...$_SESSION['config']['url_list_engine']);
+    endif;
+    ################################################################################
     # SEARCH ENGINE :::  ask
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 4) || __validateOptions($_SESSION["config"]["motor"], "all")):
@@ -74,13 +81,6 @@ function __engines($dork, $list_proxy) {
         __pageEngine($confArray, "LYCOS", "https://search.lycos.com/web/?q=[DORK]&keyvol={$uid_lycos_search}&pageInfo=Keywords=[DORK]&pn=[PAG]", $dork_exec, null, 0, 5, 1);
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;   
-    ################################################################################
-    # SEARCH ENGINE :::  us.yhs4.search.yahoo
-    ################################################################################
-    if (__validateOptions($_SESSION["config"]["motor"], 9) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "YAHOO US", "http://us.yhs4.search.yahoo.com/yhs/search?p=[DORK]&fr=goodsearch-yhsif&b=[PAG]", $dork_exec, null, 1, 451, 10);
-        __process_request_engine(...$_SESSION['config']['url_list_engine']);
-    endif;
     ################################################################################
     # SEARCH ENGINE :::  web.search.naver.com
     ################################################################################

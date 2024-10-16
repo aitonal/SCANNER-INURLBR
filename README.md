@@ -209,10 +209,9 @@ inurlbr --dork-file 'dorks_Wordpress_revslider.txt' -s output.txt -q 1,2,6,4,5,9
      [options]:
      1   - GOOGLE / (CSE) GENERIC RANDOM / API
      2   - BING  / DEEP
-     3   - YAHOO BR
+     3   - YAHOO BR / YAHOO US
      4   - ASK
      7   - LYCOS
-     9   - YAHOO US
      13  - NEVER
      19  - HKSEARCH
      20  - EZILION
