@@ -27,28 +27,20 @@ function __menu(): string {
 {$cor->whit}--info{$cor->end}   Information script.
 {$cor->whit}--update{$cor->end} Code update.    
 {$cor->whit}-q{$cor->end}       Choose which search engine you want through [{$cor->yell}1...24{$cor->end}] / [{$cor->yell}e1..6{$cor->end}]]:
-     [options]:
-     {$cor->whit}1{$cor->end}   - {$cor->yell}GOOGLE / (CSE) GENERIC RANDOM / API
-     {$cor->whit}2{$cor->end}   - {$cor->yell}BING
-     {$cor->whit}3{$cor->end}   - {$cor->yell}YAHOO BR
-     {$cor->whit}4{$cor->end}   - {$cor->yell}ASK
-     {$cor->whit}6{$cor->end}   - {$cor->yell}GOOGLE (API)
-     {$cor->whit}7{$cor->end}   - {$cor->yell}LYCOS
-     {$cor->whit}8{$cor->end}   - {$cor->yell}UOL BR
-     {$cor->whit}9{$cor->end}   - {$cor->yell}YAHOO US
-     {$cor->whit}10{$cor->end}  - {$cor->yell}SAPO
-     {$cor->whit}11{$cor->end}  - {$cor->yell}DMOZ
-     {$cor->whit}12{$cor->end}  - {$cor->yell}GIGABLAST
-     {$cor->whit}13{$cor->end}  - {$cor->yell}NEVER
-     {$cor->whit}17{$cor->end}  - {$cor->yell}HOTBUSCA
-     {$cor->whit}19{$cor->end}  - {$cor->yell}HKSEARCH
-     {$cor->whit}20{$cor->end}  - {$cor->yell}EZILION
-     {$cor->whit}21{$cor->end}  - {$cor->yell}SOGOU
-     {$cor->whit}22{$cor->end}  - {$cor->yell}DUCK DUCK GO
-     {$cor->whit}24{$cor->end}  - {$cor->yell}GOOGLE(CSE) GENERIC RANDOM
-     {$cor->whit}25{$cor->end}  - {$cor->yell}EXALEAD
-     {$cor->whit}26{$cor->end}  - {$cor->yell}STARTPAGE
-     {$cor->whit}27{$cor->end}  - {$cor->yell}QWANT
+[options]:
+     {$cor->whit}1   - {$cor->yell}GOOGLE / (CSE) GENERIC RANDOM / API
+     {$cor->whit}2   - {$cor->yell}BING  / DEEP
+     {$cor->whit}3   - {$cor->yell}YAHOO BR / YAHOO US
+     {$cor->whit}4   - {$cor->yell}ASK
+     {$cor->whit}7   - {$cor->yell}LYCOS
+     {$cor->whit}13  - {$cor->yell}NEVER
+     {$cor->whit}20  - {$cor->yell}EZILION
+     {$cor->whit}21  - {$cor->yell}SOGOU
+     {$cor->whit}22  - {$cor->yell}DUCK DUCK GO
+     {$cor->whit}24  - {$cor->yell}GOOGLE(CSE) GENERIC RANDOM
+     {$cor->whit}25  - {$cor->yell}EXALEAD
+     {$cor->whit}26  - {$cor->yell}STARTPAGE
+     {$cor->whit}27  - {$cor->yell}QWANT
      ----------------------------------------
                  SPECIAL MOTORS
      ----------------------------------------
