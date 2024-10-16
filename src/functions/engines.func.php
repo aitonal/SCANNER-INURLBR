@@ -78,16 +78,9 @@ function __engines($dork, $list_proxy) {
     # SEARCH ENGINE :::  us.yhs4.search.yahoo
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 9) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "YAHOO US", "http://us.yhs4.search.yahoo.com/yhs/search?p=[DORK]&fr=goodsearch-yhsif&b=[PAG]", $dork_exec, null, 1, 551, 10);
+        __pageEngine($confArray, "YAHOO US", "http://us.yhs4.search.yahoo.com/yhs/search?p=[DORK]&fr=goodsearch-yhsif&b=[PAG]", $dork_exec, null, 1, 451, 10);
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
-    ################################################################################
-    # SEARCH ENGINE :::  sapo.pt
-    ################################################################################
-    if (__validateOptions($_SESSION["config"]["motor"], 10) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "SAPO", "http://pesquisa.sapo.pt/?adultfilter=strict&barra=resumo&cluster=0&format=html&limit=100&location=pt&q=[DORK]&st=web#gsc.tab=0&gsc.q=[DORK]&gsc.page=[PAG]", $dork_exec, null, 0, 10, 1);
-        __process_request_engine(...$_SESSION['config']['url_list_engine']);
-    endif;   
     ################################################################################
     # SEARCH ENGINE :::  dmoz
     ################################################################################
