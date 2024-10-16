@@ -89,14 +89,6 @@ function __engines($dork, $list_proxy) {
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;
     ################################################################################
-    # SEARCH ENGINE :::  srch.timway.com
-    ################################################################################
-    if (__validateOptions($_SESSION["config"]["motor"], 19) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "HKSEARCH", "http://srch.timway.com/cgi/tsrch.cgi?query=[DORK]&type=phrase&bool=and&mh=100", $dork_exec, null, 0, 0, 1);
-        __process_request_engine(...$_SESSION['config']['url_list_engine']);
-    #http://srch.timway.com/cgi/tsrch.cgi?query=[DORK]&type=phrase&bool=and&mh=100
-    endif;
-    ################################################################################
     # SEARCH ENGINE :::  find.ezilon.com / USA
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 20) || __validateOptions($_SESSION["config"]["motor"], "all")):
