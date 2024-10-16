@@ -213,8 +213,6 @@ inurlbr --dork-file 'dorks_Wordpress_revslider.txt' -s output.txt -q 1,2,6,4,5,9
      4   - ASK
      7   - LYCOS
      9   - YAHOO US
-     10  - SAPO
-     11  - DMOZ
      12  - GIGABLAST
      13  - NEVER
      17  - HOTBUSCA
