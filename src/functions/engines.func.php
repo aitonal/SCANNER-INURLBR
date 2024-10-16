@@ -65,13 +65,6 @@ function __engines($dork, $list_proxy) {
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
     endif;    
     ################################################################################
-    # SEARCH ENGINE :::  googleapis 
-    ################################################################################
-    if (__validateOptions($_SESSION["config"]["motor"], 6) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "GOOGLE API", "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=8&q=[DORK]&start=[PAG]&userip=[IP]&filter=1&safe=off", $dork_exec, null, 0, 56, 4);
-        __process_request_engine(...$_SESSION['config']['url_list_engine']);
-    endif;
-    ################################################################################
     # SEARCH ENGINE :::  lycos
     ################################################################################
     if (__validateOptions($_SESSION["config"]["motor"], 7) || __validateOptions($_SESSION["config"]["motor"], "all")):
