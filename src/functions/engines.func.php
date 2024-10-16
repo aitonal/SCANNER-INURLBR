@@ -73,14 +73,7 @@ function __engines($dork, $list_proxy) {
         $id_domain = rand(1, 5);
         __pageEngine($confArray, "LYCOS", "https://search.lycos.com/web/?q=[DORK]&keyvol={$uid_lycos_search}&pageInfo=Keywords=[DORK]&pn=[PAG]", $dork_exec, null, 0, 5, 1);
         __process_request_engine(...$_SESSION['config']['url_list_engine']);
-    endif;
-    ################################################################################
-    # SEARCH ENGINE :::  uol.com.br
-    ################################################################################
-    if (__validateOptions($_SESSION["config"]["motor"], 8) || __validateOptions($_SESSION["config"]["motor"], "all")):
-        __pageEngine($confArray, "UOL BR", "http://busca.uol.com.br/web/?q=[DORK]&start=[PAG]", $dork_exec, null, 10, 130, 10);
-        __process_request_engine(...$_SESSION['config']['url_list_engine']);
-    endif;    
+    endif;   
     ################################################################################
     # SEARCH ENGINE :::  us.yhs4.search.yahoo
     ################################################################################
