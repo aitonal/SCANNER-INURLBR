@@ -4,16 +4,8 @@ function __bannerLogo() {
     $cor = $GLOBALS['COR'];
 
     $banner="{$cor->whit}⠀⠀⠀⠀                        
-    {$cor->red} ██▓    ███▄    █     █    ██    ░██▀███      ██▓       {$cor->whit} ▄▄▄▄       ██▀███▒▒  
-    {$cor->red}▓██▒    ██ ▀█   █     ██  ▓██▒   ▓██ ▒ ██▒   ▓██▒      {$cor->whit} ▓█████▄    ▓██ ▒ ██▒
-    {$cor->red}▒██▒   ▓██  ▀█ ██▒   ▓██ ░▒██░   ▓██ ░▄█ ▒   ▒██░      {$cor->whit} ▒██▒ ▄██   ▓██ ░▄█ ▒
-    {$cor->red}░██░   ▓██▒  ▐▌██▒   ▓▓█  ░██░ ░ ▒██▀▀█▄     ▒██░      {$cor->whit} ▒██░█▀     ▒██▀▀█▄  
-    {$cor->red}░██░   ▒██░   ▓██░   ▒▒█████▓    ░██▓ ▒██▒   ░██████▒  {$cor->whit} ░▓█  ▀█▓   ░██▓ ▒██▒
-    {$cor->red}░▓     ░ ▒░   ▒ ▒    ░▒▓▒ ▒ ▒    ░ ▒▓ ░▒▓░   ░ ▒░▓  ░  {$cor->whit} ░▒▓███▀▒   ░ ▒▓ ░▒▓░
-    {$cor->red} ▒ ░   ░ ░░   ░ ▒░   ░░▒░ ░ ░  ░   ░▒ ░ ▒░   ░ ░ ▒  ░  {$cor->whit} ▒░▒   ░      ░▒ ░ ▒░
-    {$cor->red2} ▒ ░      ░   ░ ░     ░░░ ░ ░      ░░   ░      ░ ░     {$cor->whit}  ░    ░      ░░   ░ 
-    {$cor->red2} ░              ░       ░           ░            ░  ░  {$cor->whit}  ░            ░     
-      {$cor->end}{$cor->whit}Version: {$_SESSION['config']['version_script']} / Codename: {$_SESSION['config']['codename']}
+ INURLBR
+ {$cor->end}{$cor->whit}Version: {$_SESSION['config']['version_script']} / Codename: {$_SESSION['config']['codename']}
     {$cor->end}"; 
                                                    
 echo !is_null($_SESSION['config']['no-banner']) ? null : system("clear") . $banner."
